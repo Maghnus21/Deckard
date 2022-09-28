@@ -15,7 +15,7 @@ public class playMusic : MonoBehaviour
     void Start()
     {
         collider = GetComponent<Collider>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
 
         audioSource.clip = music;
     }
@@ -36,7 +36,7 @@ public class playMusic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //audioSource = collider.gameObject.GetComponent<AudioSource>();
+        audioSource = other.gameObject.GetComponent<AudioSource>();
 
         toggle = !toggle;
     }

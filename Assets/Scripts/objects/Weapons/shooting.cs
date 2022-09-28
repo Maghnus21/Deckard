@@ -25,7 +25,7 @@ public class shooting : MonoBehaviour
             GameObject bullet = Instantiate(bullet_prefab, barrel.transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * speed, ForceMode.Impulse);
 
-            AudioSource audioSource = GetComponent<AudioSource>();
+            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
 
             audioSource.clip = shot;
             audioSource.Play();
