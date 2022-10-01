@@ -25,10 +25,11 @@ public class shooting : MonoBehaviour
             GameObject bullet = Instantiate(bullet_prefab, barrel.transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * speed, ForceMode.Impulse);
 
+            /*
             AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
 
             audioSource.clip = shot;
-            audioSource.Play();
+            audioSource.Play();*/
 
             Destroy(bullet, 3f);
         }
