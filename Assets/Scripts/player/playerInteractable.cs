@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerInteractable : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class playerInteractable : MonoBehaviour
 
 
     public bool looking_at_interactable = false;
+
+    public Image interactable_indicator;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +32,7 @@ public class playerInteractable : MonoBehaviour
         {
             looking_at_interactable = false;
         }
+
+        interactable_indicator.enabled = looking_at_interactable;
     }
 }
