@@ -55,6 +55,7 @@ public class InspectBoxItem : MonoBehaviour
                 else
                 {
                     hit.collider.gameObject.AddComponent<InspectScales>();
+                    scales = hit.collider.gameObject.GetComponent<InspectScales>();
                 }
 
 
