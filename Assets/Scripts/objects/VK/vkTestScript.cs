@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class vkTestScript : MonoBehaviour
 {
-    GameObject manager;
+    // reference to ui_dialogue 
+    public TextMeshProUGUI ui_dialogue;
+    
+
+    // reference to vk manager
+    GameObject vk_manager;
+    VKManager vkm;
 
     public Camera camera;
 
@@ -16,6 +23,7 @@ public class vkTestScript : MonoBehaviour
     void Start()
     {
         //camera.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -28,10 +36,13 @@ public class vkTestScript : MonoBehaviour
             switch (hit.collider.gameObject.name)
             {
                 case "button1": Debug.Log("HIT BUTTON 1");
+                    ui_dialogue.text = "cum";
                     break;
                 case "button2": Debug.Log("HIT BUTTON 2");
+                    ui_dialogue.text = "piss";
                     break;
                 case "button3": Debug.Log("HIT BUTTON 3");
+                    ui_dialogue.text = "shit";
                     break;
                 default:    Debug.Log("HIT " + hit.collider.gameObject.name);
                     break;
