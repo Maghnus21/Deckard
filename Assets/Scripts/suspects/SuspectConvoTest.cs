@@ -5,8 +5,19 @@ using TMPro;
 
 public class SuspectConvoTest : MonoBehaviour
 {
+    // reference to VK Manager
+    public GameObject vkm;
+    VKManager vkmanager;
+
+
     public TextMeshProUGUI dialogue;
-    public int[] choice = new int[3] {0, 0, 0}; 
+    public int[] choice = new int[3] {0, 0, 0};
+
+    void Awake()
+    {
+        vkmanager = vkm.GetComponent<VKManager>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +32,8 @@ public class SuspectConvoTest : MonoBehaviour
         {
             switch (choice[0])
             {
-                case 1: dialogue.text = "button1";
+                case 1: //dialogue.text = "button1";
+                    vkmanager.sus_dialogue = "sus frfr";
                     break;
                 case 2: dialogue.text = "button2";
                     break;
@@ -59,6 +71,5 @@ public class SuspectConvoTest : MonoBehaviour
                     break;
             }
         }
-
     }
 }
