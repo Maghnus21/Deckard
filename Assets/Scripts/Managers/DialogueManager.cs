@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
 
     public Queue<string> sentences;
 
+    public TextMeshProUGUI text;
 
 
 
@@ -49,6 +51,8 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
+        text.text = sentence;
+        
     }
 
     void EndDialogue()
