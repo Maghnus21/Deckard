@@ -27,7 +27,7 @@ public class vkTestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //camera.enabled = false;
+        
         suspectConvoTest = suspect.GetComponent<SuspectConvoTest>();
     }
 

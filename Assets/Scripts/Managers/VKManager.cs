@@ -5,6 +5,7 @@ using TMPro;
 
 public class VKManager : MonoBehaviour
 {
+    /*
     public GameObject vk_device;
 
     // testing dialogue output
@@ -46,7 +47,8 @@ public class VKManager : MonoBehaviour
 
         if(sus_dialogue != null)
         {
-            textmanager.dialogue.text = sus_dialogue;
+            textmanager.buffer = sus_dialogue;
+            sus_dialogue = null;
         }
-    }
+    }*/
 }

@@ -33,7 +33,7 @@ public class SuspectConvoTest : MonoBehaviour
             switch (choice[0])
             {
                 case 1: //dialogue.text = "button1";
-                    vkmanager.sus_dialogue = "sus frfr";
+                    //vkmanager.sus_dialogue = "sus frfr";
                     break;
                 case 2: dialogue.text = "button2";
                     break;
