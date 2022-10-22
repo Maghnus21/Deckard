@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
 
 
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, int i)
     {
         Debug.Log("Starting dialogue w/ " + dialogue.name);
 
@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-
+        Debug.Log(i);
         DisplayNextSentence();
     }
 

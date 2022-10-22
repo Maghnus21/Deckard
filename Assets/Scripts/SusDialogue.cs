@@ -11,19 +11,31 @@ public class SusDialogue : MonoBehaviour
     Ray ray;
     float ray_length = 3f;
 
+    int i = 0;
+
     void Update()
     {
         ray = camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit, ray_length) && Input.GetButtonDown("Fire1"))
         {
-            TriggerDialogue();
+            switch (hit.collider.gameObject.name)
+            {
+                case "button1": TriggerDialogue(i);
+                    break;
+                case "button2":
+                    break;
+                case "button3":
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(int i)
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, i);
     }
 }
