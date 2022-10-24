@@ -7,11 +7,20 @@ public class SusDialogue : MonoBehaviour
     public Dialogue dialogue;
     public Camera camera;
 
+    public GameObject kit;
+
     RaycastHit hit;
     Ray ray;
     float ray_length = 3f;
 
     int i = 0;
+
+
+    void Awake()
+    {
+        kit.SetActive(false);
+        this.gameObject.GetComponent<SusDialogue>().enabled = false;
+    }
 
     void Update()
     {
