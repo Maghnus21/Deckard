@@ -8,6 +8,10 @@ public class DialogueManager : MonoBehaviour
 
     public Queue<string> sentences;
 
+    //  dialogue sentences stored in string array to be displayed on ui
+    public string[] array = new string[12];
+
+    //  reference to ui element
     public TextMeshProUGUI text;
 
 
@@ -25,24 +29,33 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-
     public void StartDialogue(Dialogue dialogue, int i)
     {
         Debug.Log("Starting dialogue w/ " + dialogue.name);
 
+        //  clearing sentences queue of any data
         sentences.Clear();
-
+        
+        //  enqueues each sentence in the dialogue.sentences into an array
         foreach(string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
-        Debug.Log(i);
-        DisplayNextSentence();
+
+        // stores each string from the dialogue.sentences into array
+        foreach(string k in array)
+        {
+            array = dialogue.sentences;
+        }
+
+        Debug.Log(i);   //  DEBUG USE
+        DisplayNextSentence(i);
     }
 
 
-    public void DisplayNextSentence()
+    public void DisplayNextSentence(int i)
     {
+        // if there are no sentences in sentences, exits out of loop and
         if(sentences.Count == 0)
         {
             EndDialogue();
@@ -51,9 +64,12 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         Debug.Log(sentence);
-        text.text = sentence;
-        
+        //text.text = sentence;
+
+        Debug.Log(array[i]);
+        text.text = array[i];
     }
+
 
     void EndDialogue()
     {

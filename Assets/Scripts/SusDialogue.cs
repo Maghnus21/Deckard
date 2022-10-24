@@ -19,17 +19,32 @@ public class SusDialogue : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, ray_length) && Input.GetButtonDown("Fire1"))
         {
-            switch (hit.collider.gameObject.name)
+            if(i <= 8)
             {
-                case "button1": TriggerDialogue(i);
-                    break;
-                case "button2":
-                    break;
-                case "button3":
-                    break;
-                default:
-                    break;
+                switch (hit.collider.gameObject.name)
+                {
+                    case "button1":
+                        TriggerDialogue(i);
+                        break;
+                    case "button2":
+                        TriggerDialogue(i + 1);
+                        break;
+                    case "button3":
+                        TriggerDialogue(i + 2);
+                        break;
+                    default:
+                        break;
+                }
+
+                i += 3;
             }
+            else
+            {
+                Debug.Log("FINISHED INTERROGAION");
+            }
+
+            
+            
         }
     }
 
