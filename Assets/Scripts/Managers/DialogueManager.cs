@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// 
+/// This code contains code to use a queue-based dialogue system as to save time in future. Array based code will be seperated into seperate functions to allow NPCs with
+/// small amounts of dialogue, eg 1 line, without the need to define the array size constantly
+/// 
+/// </summary>
+
+
 public class DialogueManager : MonoBehaviour
 {
 
@@ -63,10 +71,10 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        Debug.Log(sentence);
+        Debug.Log("ANSWER FROM QUEUE: " + sentence);
         //text.text = sentence;
 
-        Debug.Log(array[i]);
+        Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
         text.text = array[i];
     }
 
