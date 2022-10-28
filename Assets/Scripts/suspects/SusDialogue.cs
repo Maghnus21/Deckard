@@ -9,6 +9,8 @@ public class SusDialogue : MonoBehaviour
 
     public GameObject kit;
 
+    public float aggression = 0;
+
     RaycastHit hit;
     Ray ray;
     float ray_length = 3f;
@@ -34,12 +36,14 @@ public class SusDialogue : MonoBehaviour
                 {
                     case "button1":
                         TriggerDialogue(i);
+                        aggression--;
                         break;
                     case "button2":
                         TriggerDialogue(i + 1);
                         break;
                     case "button3":
                         TriggerDialogue(i + 2);
+                        aggression++;
                         break;
                     default:
                         break;
@@ -51,9 +55,6 @@ public class SusDialogue : MonoBehaviour
             {
                 Debug.Log("FINISHED INTERROGAION");
             }
-
-            
-            
         }
     }
 

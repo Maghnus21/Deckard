@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// 
@@ -22,6 +23,13 @@ public class DialogueManager : MonoBehaviour
     //  reference to ui element
     public TextMeshProUGUI text;
 
+
+
+    void Awake()
+    {
+        text.GetComponentInParent<Image>().enabled = false;
+        text.enabled = false;
+    }
 
 
     // Start is called before the first frame update
@@ -63,8 +71,11 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence(int i)
     {
+        text.GetComponentInParent<Image>().enabled = true;
+        text.enabled = true;
+
         // if there are no sentences in sentences, exits out of loop and
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;

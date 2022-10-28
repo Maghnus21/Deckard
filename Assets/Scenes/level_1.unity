@@ -453,7 +453,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 1502238941140868081
@@ -903,7 +903,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6051324545979393976
@@ -913,53 +913,6 @@ MonoBehaviour:
   HasGeneratedNormals: 0
   HasUV2: 0
   LightingHashValue: -6051324545979393976
---- !u!1 &23200899
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 23200900}
-  - component: {fileID: 23200901}
-  m_Layer: 0
-  m_Name: '[generated-meshes]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &23200900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23200899}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1453667655}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &23200901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23200899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Version: 1
-  owner: {fileID: 1453667654}
-  helperSurfaces: []
 --- !u!1 &26995814 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3491894390173606202, guid: 2d85ae120b859734ea8dd037cfcce62a, type: 3}
@@ -3483,7 +3436,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 9040852681973395102
@@ -4583,7 +4536,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 3055014793415371668
@@ -4650,6 +4603,170 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41629df948d6f0a4ab96e4f41a0d905e, type: 3}
+--- !u!43 &100536303
+Mesh:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: <Collider helper surface generated -2532>
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 72
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 48
+    localAABB:
+      m_Center: {x: 0.24978638, y: 0, z: -0.24996948}
+      m_Extent: {x: 71.750275, y: 2.5, z: 26}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200000002000300040005000600040006000700080009000a0008000a000b000c000d000e000c000e000f00100011001200100012001300140015001600140016001700180019001a0018001a001b001c001d001e001c001e001f00200021002200200022002300240025002600240026002700280029002a0028002a002b002c002d002e002c002e002f00
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 48
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 576
+    _typelessdata: 40008fc2000020401000ce4140008fc20000c03f1000ce41c8ff8f420000c03f1000ce41c8ff8f42000020401000ce41c8ff8f4200002040f0ffd1c1c8ff8f420000c03ff0ffd1c140008fc20000c03ff0ffd1c140008fc200002040f0ffd1c140008fc200002040f0ffd1c140008fc20000c03ff0ffd1c140008fc20000c03f1000ce4140008fc2000020401000ce41c8ff8f42000020401000ce41c8ff8f420000c03f1000ce41c8ff8f420000c03ff0ffd1c1c8ff8f4200002040f0ffd1c1c8ff8f42000020401000ce41c8ff8f4200002040f0ffd1c140008fc200002040f0ffd1c140008fc2000020401000ce4140008fc20000c03ff0ffd1c1c8ff8f420000c03ff0ffd1c1c8ff8f420000c03f1000ce4140008fc20000c03f1000ce4100008fc20000c0bf1000ce4100008fc2000020c01000ce4108009042000020c01000ce41080090420000c0bf1000ce41080090420000c0bff0ffd1c108009042000020c0f0ffd1c100008fc2000020c0f0ffd1c100008fc20000c0bff0ffd1c100008fc20000c0bff0ffd1c100008fc2000020c0f0ffd1c100008fc2000020c01000ce4100008fc20000c0bf1000ce41080090420000c0bf1000ce4108009042000020c01000ce4108009042000020c0f0ffd1c1080090420000c0bff0ffd1c1080090420000c0bf1000ce41080090420000c0bff0ffd1c100008fc20000c0bff0ffd1c100008fc20000c0bf1000ce4100008fc2000020c0f0ffd1c108009042000020c0f0ffd1c108009042000020c01000ce4100008fc2000020c01000ce41
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.24978638, y: 0, z: -0.24996948}
+    m_Extent: {x: 71.750275, y: 2.5, z: 26}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &116321948
 GameObject:
   m_ObjectHideFlags: 0
@@ -6329,7 +6446,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 206788272683662649
@@ -6522,7 +6639,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 747614198410814825
@@ -6793,37 +6910,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 1741
---- !u!1 &162897933
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -6705085231620926906, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 162897934}
-  m_Layer: 0
-  m_Name: Bone_end
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &162897934
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -7550142379330396886, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162897933}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.0056578876, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1947067081}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165488894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7271,7 +7357,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 9040852681973395102
@@ -7281,6 +7367,91 @@ MonoBehaviour:
   HasGeneratedNormals: 0
   HasUV2: 0
   LightingHashValue: 9040852681973395102
+--- !u!1 &175217303
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175217306}
+  - component: {fileID: 175217305}
+  - component: {fileID: 175217304}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &175217304
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175217303}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &175217305
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175217303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &175217306
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175217303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 864871792}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180962226
 GameObject:
   m_ObjectHideFlags: 0
@@ -7647,7 +7818,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 3055014793415371668
@@ -7926,7 +8097,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -6834366241385038998
@@ -8511,7 +8682,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 7041925851838162136
@@ -9670,7 +9841,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -3257375018746464266
@@ -10465,7 +10636,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 5409279491514248913
@@ -10880,7 +11051,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 747614198410814825
@@ -10958,7 +11129,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -8875857744311380085
@@ -11334,7 +11505,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -6051324545979393976
@@ -11934,7 +12105,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 7041925851838162136
@@ -12534,7 +12705,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 8645090993356661127
@@ -12666,8 +12837,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.872, z: 0.149}
+  m_LocalRotation: {x: 0.000000059604645, y: 0.000000074505806, z: -0.000000029802322, w: 1}
+  m_LocalPosition: {x: 0.000091552734, y: 1.871994, z: 0.14898682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13330,7 +13501,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -6116751844615354081
@@ -13408,7 +13579,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -4595934552769034680
@@ -14008,7 +14179,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -3033378909607424473
@@ -14123,7 +14294,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -3257375018746464266
@@ -14529,7 +14700,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -7736927584111987748
@@ -18623,7 +18794,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 206788272683662649
@@ -24124,7 +24295,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 3055014793415371668
@@ -24463,7 +24634,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 287679421900536641
@@ -24802,7 +24973,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6051324545979393976
@@ -26964,7 +27135,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 1502238941140868081
@@ -27223,7 +27394,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30592
+    surfaceParameter: 30544
     meshQueryIndex: 5
     subMeshQueryIndex: 0
     geometryHashValue: 1264067346071676535
@@ -28309,80 +28480,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 1752
---- !u!1001 &680445353
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1445587135}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-      propertyPath: m_Name
-      value: fn_fal_wooden
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
---- !u!4 &680445354
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702237497}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1146368817}
-  - {fileID: 1568997018}
-  m_Father: {fileID: 1445587135}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683427892
 GameObject:
   m_ObjectHideFlags: 0
@@ -29620,37 +29717,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 1757
---- !u!1 &703719685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4649495525309102242, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 703719686}
-  m_Layer: 0
-  m_Name: charging_handle_end
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &703719686
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -4416800369927156224, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703719685}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.005050677, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1409006229}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &704755044
 GameObject:
   m_ObjectHideFlags: 3
@@ -31366,7 +31432,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -6051324545979393976
@@ -34320,7 +34386,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -8875857744311380085
@@ -35087,7 +35153,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -3033378909607424473
@@ -35266,7 +35332,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -7736927584111987748
@@ -35605,7 +35671,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -687134393614163040
@@ -36248,6 +36314,53 @@ Transform:
   m_Father: {fileID: 330585546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &864871791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864871792}
+  - component: {fileID: 864871793}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &864871792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864871791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 175217306}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864871793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864871791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  owner: {fileID: 175217305}
+  helperSurfaces: []
 --- !u!43 &865770131
 Mesh:
   m_ObjectHideFlags: 0
@@ -37389,7 +37502,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6834366241385038998
@@ -37728,7 +37841,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -687134393614163040
@@ -40907,6 +41020,7 @@ MonoBehaviour:
     - clear answer9
   camera: {fileID: 966175326}
   kit: {fileID: 0}
+  aggression: 0
 --- !u!1 &942293952
 GameObject:
   m_ObjectHideFlags: 0
@@ -41273,7 +41387,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -3033378909607424473
@@ -41438,7 +41552,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 5409279491514248913
@@ -42341,170 +42455,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 1915
---- !u!43 &978870257
-Mesh:
-  m_ObjectHideFlags: 16
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: <Collider helper surface generated -2478>
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 72
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 48
-    localAABB:
-      m_Center: {x: 0.24978638, y: 0, z: -0.24996948}
-      m_Extent: {x: 71.750275, y: 2.5, z: 26}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200000002000300040005000600040006000700080009000a0008000a000b000c000d000e000c000e000f00100011001200100012001300140015001600140016001700180019001a0018001a001b001c001d001e001c001e001f00200021002200200022002300240025002600240026002700280029002a0028002a002b002c002d002e002c002e002f00
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 48
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 576
-    _typelessdata: 40008fc2000020401000ce4140008fc20000c03f1000ce41c8ff8f420000c03f1000ce41c8ff8f42000020401000ce41c8ff8f4200002040f0ffd1c1c8ff8f420000c03ff0ffd1c140008fc20000c03ff0ffd1c140008fc200002040f0ffd1c140008fc200002040f0ffd1c140008fc20000c03ff0ffd1c140008fc20000c03f1000ce4140008fc2000020401000ce41c8ff8f42000020401000ce41c8ff8f420000c03f1000ce41c8ff8f420000c03ff0ffd1c1c8ff8f4200002040f0ffd1c1c8ff8f42000020401000ce41c8ff8f4200002040f0ffd1c140008fc200002040f0ffd1c140008fc2000020401000ce4140008fc20000c03ff0ffd1c1c8ff8f420000c03ff0ffd1c1c8ff8f420000c03f1000ce4140008fc20000c03f1000ce4100008fc20000c0bf1000ce4100008fc2000020c01000ce4108009042000020c01000ce41080090420000c0bf1000ce41080090420000c0bff0ffd1c108009042000020c0f0ffd1c100008fc2000020c0f0ffd1c100008fc20000c0bff0ffd1c100008fc20000c0bff0ffd1c100008fc2000020c0f0ffd1c100008fc2000020c01000ce4100008fc20000c0bf1000ce41080090420000c0bf1000ce4108009042000020c01000ce4108009042000020c0f0ffd1c1080090420000c0bff0ffd1c1080090420000c0bf1000ce41080090420000c0bff0ffd1c100008fc20000c0bff0ffd1c100008fc20000c0bf1000ce4100008fc2000020c0f0ffd1c108009042000020c0f0ffd1c108009042000020c01000ce4100008fc2000020c01000ce41
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.24978638, y: 0, z: -0.24996948}
-    m_Extent: {x: 71.750275, y: 2.5, z: 26}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &982181150
 GameObject:
   m_ObjectHideFlags: 0
@@ -42815,14 +42765,14 @@ MonoBehaviour:
   Version: 1
   owner: {fileID: 691646876}
   helperSurfaces:
-  - SharedMesh: {fileID: 978870257}
+  - SharedMesh: {fileID: 100536303}
     RenderSurfaceType: 4
     HasGeneratedNormals: 0
     MeshDescription:
       meshQuery:
         layers: 33554440
         maskAndChannels: 8
-      surfaceParameter: 30594
+      surfaceParameter: 30546
       meshQueryIndex: 1
       subMeshQueryIndex: 0
       geometryHashValue: -6834366241385038998
@@ -43098,7 +43048,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 7041925851838162136
@@ -43868,6 +43818,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8420140029228722520, guid: 31274dff78b1c6348a241adedd697b05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31274dff78b1c6348a241adedd697b05, type: 3}
 --- !u!4 &1015274068 stripped
@@ -44204,7 +44158,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -7736927584111987748
@@ -44729,7 +44683,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -8945571475467880218
@@ -45414,7 +45368,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -68408307300787891
@@ -46236,7 +46190,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 292360941196645851
@@ -50660,7 +50614,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 292360941196645851
@@ -50738,7 +50692,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 1502238941140868081
@@ -51008,38 +50962,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 919724291}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1146368816
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7036213049465896255, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1146368817}
-  m_Layer: 0
-  m_Name: Armature
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1146368817
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8879528566716807029, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146368816}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.000000007450581, z: -0.0000000037252903}
-  m_LocalScale: {x: 11.2039585, y: 11.2039585, z: 11.2039585}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1249185777}
-  m_Father: {fileID: 680445354}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1146712726
 GameObject:
@@ -55287,40 +55209,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 1716
---- !u!1 &1249185776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -8185781315434583555, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1249185777}
-  m_Layer: 0
-  m_Name: foregrip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1249185777
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -8324537266978464109, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249185776}
-  m_LocalRotation: {x: 0.87696767, y: 0, z: -0, w: 0.48054942}
-  m_LocalPosition: {x: -4.0008307e-18, y: 0.013691268, z: 0.0057191704}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1947067081}
-  - {fileID: 1409006229}
-  - {fileID: 1827306154}
-  m_Father: {fileID: 1146368817}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252052171
 GameObject:
   m_ObjectHideFlags: 0
@@ -56281,7 +56169,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 8645090993356661127
@@ -58234,7 +58122,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6051324545979393976
@@ -59259,7 +59147,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -4595934552769034680
@@ -61789,7 +61677,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -4595934552769034680
@@ -62493,7 +62381,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -3284409971456767904
@@ -62869,7 +62757,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -687134393614163040
@@ -62879,38 +62767,6 @@ MonoBehaviour:
   HasGeneratedNormals: 0
   HasUV2: 0
   LightingHashValue: 0
---- !u!1 &1409006228
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -2316837587496822516, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1409006229}
-  m_Layer: 0
-  m_Name: charging_handle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1409006229
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -6581884853854060391, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409006228}
-  m_LocalRotation: {x: 0.017034985, y: -0.014273305, z: 0.70693314, w: 0.7069311}
-  m_LocalPosition: {x: -0, y: 0.015896864, z: 0.010516265}
-  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 703719686}
-  m_Father: {fileID: 1249185777}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1418037985
 GameObject:
   m_ObjectHideFlags: 0
@@ -63094,7 +62950,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 1502238941140868081
@@ -64152,7 +64008,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 206788272683662649
@@ -64450,8 +64306,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 680445354}
+  m_Children: []
   m_Father: {fileID: 861605558}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64716,91 +64571,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 2493
---- !u!1 &1453667652
-GameObject:
-  m_ObjectHideFlags: 17
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1453667655}
-  - component: {fileID: 1453667654}
-  - component: {fileID: 1453667653}
-  m_Layer: 0
-  m_Name: '[default-CSGModel]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 124
-  m_IsActive: 1
---- !u!54 &1453667653
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453667652}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &1453667654
-MonoBehaviour:
-  m_ObjectHideFlags: 17
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453667652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabBehaviour: 0
-  PrefabSourceAlignment: 4
-  PrefabDestinationAlignment: 0
-  Version: 1.1
-  infiniteBrush: {fileID: 0}
-  Settings: 1025
-  VertexChannels: 14
-  ReceiveGI: 2
-  MeshColliderCookingOptions: 14
-  ShowGeneratedMeshes: 0
-  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
-  exportType: 0
-  originType: 0
-  exportColliders: 0
-  exportPath: 
-  angleError: 1
-  areaError: 1
-  hardAngle: 60
-  packMargin: 20
-  scaleInLightmap: 1
-  autoUVMaxDistance: 0.5
-  autoUVMaxAngle: 89
-  minimumChartSize: 4
---- !u!4 &1453667655
-Transform:
-  m_ObjectHideFlags: 17
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453667652}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 23200900}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1460523894
 Mesh:
   m_ObjectHideFlags: 0
@@ -67476,7 +67246,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 1502238941140868081
@@ -68100,6 +67870,7 @@ MonoBehaviour:
     - clear answer3
   camera: {fileID: 966175326}
   kit: {fileID: 940791395}
+  aggression: 0
 --- !u!65 &1526078911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70229,95 +70000,6 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 2
---- !u!1 &1568997017
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -4819223349682164798, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1568997018}
-  - component: {fileID: 1568997019}
-  m_Layer: 0
-  m_Name: body
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1568997018
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -5861409178561632961, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568997017}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: -0.000000014901161, z: 4.440892e-16}
-  m_LocalScale: {x: 4.9715123, y: 4.9715123, z: 4.9715123}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 680445354}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &1568997019
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -1206874426333947015, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568997017}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -876546973899608171, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 0
-  m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8545447256379345787, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_Bones:
-  - {fileID: 1249185777}
-  - {fileID: 1827306154}
-  - {fileID: 1409006229}
-  - {fileID: 1947067081}
-  m_BlendShapeWeights: []
-  m_RootBone: {fileID: 1249185777}
-  m_AABB:
-    m_Center: {x: 0.000017751358, y: 0.016613167, z: 0.016489204}
-    m_Extent: {x: 0.0036215456, y: 0.03147816, z: 0.043688748}
-  m_DirtyAABB: 0
 --- !u!1 &1577164831
 GameObject:
   m_ObjectHideFlags: 0
@@ -70904,7 +70586,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 292360941196645851
@@ -70982,7 +70664,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -8875857744311380085
@@ -71485,7 +71167,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6116751844615354081
@@ -71563,7 +71245,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -7736927584111987748
@@ -73097,7 +72779,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 287679421900536641
@@ -76138,7 +75820,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -8945571475467880218
@@ -76670,22 +76352,6 @@ Transform:
   m_Father: {fileID: 746955892}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1702237497
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 680445354}
-  m_Layer: 0
-  m_Name: fn_fal_wooden
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1713490460
 GameObject:
   m_ObjectHideFlags: 0
@@ -76754,7 +76420,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -3257375018746464266
@@ -77033,7 +76699,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 747614198410814825
@@ -77148,7 +76814,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -68408307300787891
@@ -79485,7 +79151,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -7736927584111987748
@@ -79727,7 +79393,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -68408307300787891
@@ -80558,7 +80224,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -7736927584111987748
@@ -81419,7 +81085,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 287679421900536641
@@ -81711,38 +81377,6 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     MeshFilter: {fileID: 0}
     MeshRenderer: {fileID: 0}
---- !u!1 &1827306153
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -889269567029598652, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1827306154}
-  m_Layer: 0
-  m_Name: magazine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1827306154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -5549439911568135860, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827306153}
-  m_LocalRotation: {x: 0.6787587, y: 0.19820909, z: 0.6787585, w: 0.19820903}
-  m_LocalPosition: {x: -4.4703483e-10, y: 0.012112202, z: 0.008393594}
-  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1.0000013}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2003492143}
-  m_Father: {fileID: 1249185777}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1829059042
 GameObject:
   m_ObjectHideFlags: 0
@@ -83610,7 +83244,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 9040852681973395102
@@ -85030,7 +84664,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 1502238941140868081
@@ -85630,7 +85264,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6116751844615354081
@@ -87502,7 +87136,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 30594
+    surfaceParameter: 30546
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6051324545979393976
@@ -87676,38 +87310,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1947067080
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6039896139841979530, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1947067081}
-  m_Layer: 0
-  m_Name: Bone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1947067081
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6515166662040035056, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947067080}
-  m_LocalRotation: {x: -0.28031012, y: 0, z: -0, w: 0.9599095}
-  m_LocalPosition: {x: 6.272019e-18, y: 0.021385726, z: 0.01904042}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 162897934}
-  m_Father: {fileID: 1249185777}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1949947350
 GameObject:
   m_ObjectHideFlags: 0
@@ -89512,37 +89114,6 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     MeshFilter: {fileID: 0}
     MeshRenderer: {fileID: 0}
---- !u!1 &2003492142
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -4398186917845775614, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003492143}
-  m_Layer: 0
-  m_Name: magazine_end
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2003492143
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2957868913051162654, guid: 49e4e6236aaa68641a189bc58714ea5a, type: 3}
-  m_PrefabInstance: {fileID: 680445353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003492142}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1827306154}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2003871921
 Mesh:
   m_ObjectHideFlags: 16
@@ -90619,7 +90190,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 5409279491514248913
@@ -94170,7 +93741,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 30596
+    surfaceParameter: 30548
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -8945571475467880218
