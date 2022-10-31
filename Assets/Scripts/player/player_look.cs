@@ -5,12 +5,17 @@ using UnityEngine;
 public class player_look : MonoBehaviour
 {
 
+    #region variables
+
     public Transform body;
+
+    // reference to active weapon
     public Transform weapon;
 
     public int mouse_sen = 10;
     float mouseX, mouseY, xRotation = 0f;
-       
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +35,9 @@ public class player_look : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        body.Rotate(Vector3.up * mouseX);      
+        body.Rotate(Vector3.up * mouseX);
 
+        // for rotating weapon with camera
         weapon.localRotation = transform.localRotation;
     }
 }
