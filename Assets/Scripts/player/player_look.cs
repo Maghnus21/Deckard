@@ -6,7 +6,7 @@ public class player_look : MonoBehaviour
 {
 
     public Transform body;
-    public SkeletonBone head;
+    public Transform weapon;
 
     public int mouse_sen = 10;
     float mouseX, mouseY, xRotation = 0f;
@@ -31,5 +31,7 @@ public class player_look : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         body.Rotate(Vector3.up * mouseX);      
+
+        weapon.localRotation = transform.localRotation;
     }
 }
