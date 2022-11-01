@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -7,6 +8,7 @@ public class weapon : MonoBehaviour
 {
     public Gun[] loadout;
     public Transform weaponPosition;
+
 
     private int currentIndex;
     GameObject currentWeapon = null;
@@ -26,7 +28,16 @@ public class weapon : MonoBehaviour
         }
 
         // getMouseButton(1) means right mouse button, 0 is left
-        Aim(Input.GetMouseButton(1));
+        if(currentWeapon != null)
+        {
+            Aim(Input.GetMouseButton(1));
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            FireWeapon();
+        }
+        
         
     }
 
@@ -56,6 +67,26 @@ public class weapon : MonoBehaviour
         else
         {
             anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+        }
+    }
+
+    void FireWeapon()
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
+        {
+            Transform bullet_spawn = currentWeapon.transform.Find("anchor/model/resources/bullet_spawn");
+
+            bullet_spawn.LookAt(hit.point);
+
+            GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
+            fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
+
+
+            // bullet destroy and bullet hole decal under here
+
+
         }
     }
 }
