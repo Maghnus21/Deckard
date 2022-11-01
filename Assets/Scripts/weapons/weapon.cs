@@ -31,12 +31,14 @@ public class weapon : MonoBehaviour
         if(currentWeapon != null)
         {
             Aim(Input.GetMouseButton(1));
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                FireWeapon();
+            }
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            FireWeapon();
-        }
+        
         
         
     }
@@ -85,8 +87,6 @@ public class weapon : MonoBehaviour
 
 
             // bullet destroy and bullet hole decal under here
-
-
         }
     }
 }
