@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: FN FAL
   gun_prefab: {fileID: 1078813186004044629, guid: d553f165e7595b34cbc6e37ff7e97105, type: 3}
+  bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
   ads_speed: 5
   bullet_speed: 20
-  bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
+  recoilRotationSpeed: 30
+  recoilRotationReturn: 3
+  recoilRotation: {x: 10, y: 5, z: 7}

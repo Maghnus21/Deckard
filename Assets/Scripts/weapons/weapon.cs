@@ -10,12 +10,10 @@ public class weapon : MonoBehaviour
     public Gun[] loadout;
     public Transform weaponPosition;
 
-    [Header("Recoil test variables")]
-    public Transform recoilRotationPoint;
-    public float recoilSpeed = 3f;
-    public float recoilReturn = 13f;
-    public Vector3 recoilRotation = new Vector3(10f, 5f, 7f);
-    public Vector3 recoilKickBack = new Vector3(10, 0f, -0.2f);
+    [Header("Recoil gameobject reference")]
+    public Transform recoilPoint;
+
+
     Vector3 rotationalRecoil;
     Vector3 Rot;
 
@@ -48,12 +46,12 @@ public class weapon : MonoBehaviour
                 FireWeapon();
             }
 
-            recoilRotationPoint = currentWeapon.transform.Find("anchor/recoil");
+            recoilPoint = currentWeapon.transform.Find("anchor/recoil");
 
-            rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, recoilReturn * Time.deltaTime);
-
-            Rot = Vector3.Slerp(Rot, rotationalRecoil, recoilSpeed * Time.deltaTime);
-            recoilRotationPoint.localRotation = Quaternion.Euler(Rot);
+            rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, loadout[currentIndex].recoilRotationReturn * Time.deltaTime);
+            
+            Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
+            recoilPoint.localRotation = Quaternion.Euler(Rot);
 
         }
 
@@ -103,9 +101,6 @@ public class weapon : MonoBehaviour
 
             GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
             fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
-
-
-            // bullet destroy and bullet hole decal under here
         }
 
         Recoil();
@@ -113,8 +108,6 @@ public class weapon : MonoBehaviour
 
     void Recoil()
     {
-        
-
-        rotationalRecoil += new Vector3(-recoilRotation.x, Random.Range(-recoilRotation.y, recoilRotation.y), Random.Range(-recoilRotation.z, recoilRotation.z));
+        rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
     }
 }
