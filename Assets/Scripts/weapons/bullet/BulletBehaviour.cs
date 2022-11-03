@@ -23,9 +23,14 @@ public class BulletBehaviour : MonoBehaviour
 
         if(Physics.Raycast(this.gameObject.transform.position, this.gameObject.transform.forward, out hit, 3f))
         {
+            // code below creates bullet holes on wall. gameobjects say facing the z axis, bullet holes appear on any collider and collision with realtime csg objects not working correctly
+            // uncomment later
+            /*
             GameObject new_bullet_hole = Instantiate(bulllet_hole, hit.point + hit.normal * 0.001f, Quaternion.identity);
+            Destroy(new_bullet_hole, 5);*/
+
             Destroy(this.gameObject);
-            Destroy(new_bullet_hole, 5);
+            
         }
     }
 
