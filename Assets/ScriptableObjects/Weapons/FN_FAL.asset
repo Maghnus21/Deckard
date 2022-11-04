@@ -17,6 +17,8 @@ MonoBehaviour:
   bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
   ads_speed: 5
   bullet_speed: 20
+  fire_rate: 700
+  magazine_size: 20
   recoilRotationSpeed: 30
   recoilRotationReturn: 3
-  recoilRotation: {x: 10, y: 5, z: 7}
+  recoilRotation: {x: 4, y: 1.6666666, z: 2.3333333}

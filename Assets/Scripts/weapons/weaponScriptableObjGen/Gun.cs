@@ -22,6 +22,11 @@ public class Gun : ScriptableObject
     //  speed of bullet
     public float bullet_speed;
 
+    //  fire rate of gun
+    public float fire_rate;
+
+    public float magazine_size;
+
     // speed of weapon rotation after firing [LOWER IS SLOWER];
     public float recoilRotationSpeed;
 
@@ -31,6 +36,7 @@ public class Gun : ScriptableObject
     // Amount of recoil experienced
     // x is upward directional force, not randomaly decided
     // y and z are randomaly decided with random.range function
+    // present values will act as default
     public Vector3 recoilRotation = new Vector3(10f, 5f, 7f);
 
 }

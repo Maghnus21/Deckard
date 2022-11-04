@@ -13,9 +13,14 @@ public class weapon : MonoBehaviour
     [Header("Recoil gameobject reference")]
     public Transform recoilPoint;
 
-
     Vector3 rotationalRecoil;
     Vector3 Rot;
+
+    // gun fire rate variables
+    float fireRate;
+    float nextRound;
+    float rounds_fired = 0;
+    bool is_gun_empty;
 
     private int currentIndex;
     GameObject currentWeapon = null;
@@ -41,15 +46,31 @@ public class weapon : MonoBehaviour
         {
             Aim(Input.GetMouseButton(1));
 
-            if (Input.GetMouseButtonDown(0))
+            // 60 seconds divided by fire_rate from Gun scriptableObject
+            fireRate = 60f / loadout[currentIndex].fire_rate;
+
+            if (rounds_fired < 20)
             {
-                FireWeapon();
+                if (Input.GetMouseButton(0) && Time.time > nextRound)
+                {
+                    nextRound = Time.time + fireRate;
+                    FireWeapon();
+                    rounds_fired++;
+                }
+            }
+            else if(rounds_fired > 0 && Input.GetKeyDown(KeyCode.R)){
+                Debug.Log("GUN RELOADED");
+                rounds_fired = 0;
+            }
+            else if(rounds_fired == 20 && Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("GUN EMPTY PRESS R TO RELOAD");
             }
 
             recoilPoint = currentWeapon.transform.Find("anchor/recoil");
 
             rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, loadout[currentIndex].recoilRotationReturn * Time.deltaTime);
-            
+
             Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
             recoilPoint.localRotation = Quaternion.Euler(Rot);
 
@@ -97,7 +118,8 @@ public class weapon : MonoBehaviour
         {
             Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
-            bullet_spawn.LookAt(hit.point);
+
+            //bullet_spawn.LookAt(hit.point);
 
             GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
             fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
@@ -106,6 +128,7 @@ public class weapon : MonoBehaviour
         Recoil();
     }
 
+    //  need to clamp x rotation to 45~ degrees. if firerate too fast, gun does loop around player
     void Recoil()
     {
         rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
