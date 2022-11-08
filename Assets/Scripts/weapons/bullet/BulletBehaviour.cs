@@ -9,6 +9,8 @@ public class BulletBehaviour : MonoBehaviour
     void Start()
     {
         Destroy(this.gameObject, 1);
+
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
 
     // Update is called once per frame

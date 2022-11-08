@@ -87,11 +87,18 @@ public class DialogueManager : MonoBehaviour
 
         Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
         text.text = array[i];
+
+        Invoke("CloseDialogueBox", 5f);
     }
 
 
     void EndDialogue()
     {
         Debug.Log("ENDED CONVERSATION");
+    }
+
+    void CloseDialogueBox()
+    {
+        text.enabled = false;
     }
 }

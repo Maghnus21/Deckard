@@ -13,6 +13,7 @@ public class weapon : MonoBehaviour
     [Header("Recoil gameobject reference")]
     public Transform recoilPoint;
 
+    //  vector3 variables for recoil
     Vector3 rotationalRecoil;
     Vector3 Rot;
 
@@ -20,7 +21,7 @@ public class weapon : MonoBehaviour
     float fireRate;
     float nextRound;
     float rounds_fired = 0;
-    bool is_gun_empty;
+
 
     private int currentIndex;
     GameObject currentWeapon = null;
@@ -35,7 +36,7 @@ public class weapon : MonoBehaviour
     void Update()
     {
         
-
+        //  NEED TO IMPROVE SYSTEM TO ALLOW PLAYER TO PICK SLOT FOR ITEM
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Equip(0);
@@ -96,10 +97,12 @@ public class weapon : MonoBehaviour
 
     void Aim(bool is_aiming)
     {
+        //  transform references to empty gameObjects
         Transform anchor = currentWeapon.transform.Find("anchor");
         Transform ads_state = currentWeapon.transform.Find("states/ads");
         Transform hip_state = currentWeapon.transform.Find("states/hip");
 
+        //  anchor linearly interpolates between ads and hip position if is_aiming is true
         if (is_aiming)
         {
             anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
@@ -131,6 +134,8 @@ public class weapon : MonoBehaviour
     //  need to clamp x rotation to 45~ degrees. if firerate too fast, gun does loop around player
     void Recoil()
     {
+        Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
         rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
+        
     }
 }
