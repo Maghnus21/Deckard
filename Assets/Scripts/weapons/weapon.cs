@@ -57,6 +57,7 @@ public class weapon : MonoBehaviour
                     nextRound = Time.time + fireRate;
                     FireWeapon();
                     rounds_fired++;
+                    
                 }
             }
             else if(rounds_fired > 0 && Input.GetKeyDown(KeyCode.R)){
@@ -106,10 +107,12 @@ public class weapon : MonoBehaviour
         if (is_aiming)
         {
             anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+            
         }
         else
         {
             anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+            
         }
     }
 
@@ -119,14 +122,26 @@ public class weapon : MonoBehaviour
 
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
-            Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
+            //  this is a temperary solution. iEnumerator should be used 
+            CancelInvoke();
 
+            Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
+
+            GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").SetActive(true);
+
+            GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
+
+
+            Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
             //bullet_spawn.LookAt(hit.point);
 
             GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
             fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
+
+            Invoke("DisableMuzzleFlash", (60f / loadout[currentIndex].fire_rate) + 0.1f);
         }
+        
 
         Recoil();
     }
@@ -137,5 +152,10 @@ public class weapon : MonoBehaviour
         Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
         rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
         
+    }
+
+    void DisableMuzzleFlash()
+    {
+        GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").SetActive(false);
     }
 }

@@ -27,6 +27,8 @@ public class Gun : ScriptableObject
 
     public float magazine_size;
 
+    public GameObject muzzle_flash;
+
     // speed of weapon rotation after firing [LOWER IS SLOWER];
     public float recoilRotationSpeed;
 
