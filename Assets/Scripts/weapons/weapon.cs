@@ -26,6 +26,8 @@ public class weapon : MonoBehaviour
     private int currentIndex;
     GameObject currentWeapon = null;
 
+    private IEnumerator coroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,13 +124,13 @@ public class weapon : MonoBehaviour
 
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
-            //  this is a temperary solution. iEnumerator should be used 
-            CancelInvoke();
-
+            // variables for muzzle flash time and random rotation to be applied to muzzle flash
+            float flash_time = (60f / loadout[currentIndex].fire_rate) + 0.1f;
             Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
 
-            GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").SetActive(true);
-
+            // starts coroutine MuzzleFlash and uses flash_time to delay deactivation of muzzle_flash_spwn in game 
+            this.StartCoroutine(MuzzleFlash(flash_time));
+            //  converting randomRot to quarernion angles and applying to muzzle_flash_spwn
             GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
 
 
@@ -138,11 +140,7 @@ public class weapon : MonoBehaviour
 
             GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
             fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
-
-            Invoke("DisableMuzzleFlash", (60f / loadout[currentIndex].fire_rate) + 0.1f);
         }
-        
-
         Recoil();
     }
 
@@ -154,8 +152,12 @@ public class weapon : MonoBehaviour
         
     }
 
-    void DisableMuzzleFlash()
+    private IEnumerator MuzzleFlash(float seconds)
     {
+        GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").SetActive(true);
+
+        yield return new WaitForSeconds(seconds);
+
         GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").SetActive(false);
     }
 }
