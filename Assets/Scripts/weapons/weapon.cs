@@ -132,7 +132,7 @@ public class weapon : MonoBehaviour
         }
 
         // variables for muzzle flash time and random rotation to be applied to muzzle flash
-        float flash_time = (60f / loadout[currentIndex].fire_rate) + 0.1f;
+        float flash_time = (60f / loadout[currentIndex].fire_rate) / 2;
         Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
 
         // starts coroutine MuzzleFlash and uses flash_time to delay deactivation of muzzle_flash_spwn in game 
