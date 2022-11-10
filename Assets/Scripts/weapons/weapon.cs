@@ -122,25 +122,30 @@ public class weapon : MonoBehaviour
     {
         RaycastHit hit;
 
+
+        //  This will be changed to use sight of gun as point instead of forward of bullet spawn
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
-            // variables for muzzle flash time and random rotation to be applied to muzzle flash
-            float flash_time = (60f / loadout[currentIndex].fire_rate) + 0.1f;
-            Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
+            
+            
 
-            // starts coroutine MuzzleFlash and uses flash_time to delay deactivation of muzzle_flash_spwn in game 
-            this.StartCoroutine(MuzzleFlash(flash_time));
-            //  converting randomRot to quarernion angles and applying to muzzle_flash_spwn
-            GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
-
-
-            Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
-
-            //bullet_spawn.LookAt(hit.point);
-
-            GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
-            fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
         }
+
+        // variables for muzzle flash time and random rotation to be applied to muzzle flash
+        float flash_time = (60f / loadout[currentIndex].fire_rate) + 0.1f;
+        Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
+
+        // starts coroutine MuzzleFlash and uses flash_time to delay deactivation of muzzle_flash_spwn in game 
+        this.StartCoroutine(MuzzleFlash(flash_time));
+        //  converting randomRot to quarernion angles and applying to muzzle_flash_spwn
+        GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
+
+
+        Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
+
+        GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
+        fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
+
         Recoil();
     }
 

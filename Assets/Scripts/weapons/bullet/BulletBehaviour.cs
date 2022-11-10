@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     public GameObject bulllet_hole;
+    public float damage = 50;
 
     void Start()
     {
@@ -21,19 +22,13 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        RaycastHit hit;
-
-        if(Physics.Raycast(this.gameObject.transform.position, this.gameObject.transform.forward, out hit, 3f))
+        // checks if game object has enemyhealth script and health is greater than 0, then will damage enemy
+        if(collision.gameObject.GetComponent<enemyHealth>() == true && collision.gameObject.GetComponent<enemyHealth>().health > 0)
         {
-            // code below creates bullet holes on wall. gameobjects say facing the z axis, bullet holes appear on any collider and collision with realtime csg objects not working correctly
-            // uncomment later
-            /*
-            GameObject new_bullet_hole = Instantiate(bulllet_hole, hit.point + hit.normal * 0.001f, Quaternion.identity);
-            Destroy(new_bullet_hole, 5);*/
-
-            Destroy(this.gameObject);
-            
+            collision.gameObject.GetComponent<enemyHealth>().health -= damage;
         }
+
+        
     }
 
 
