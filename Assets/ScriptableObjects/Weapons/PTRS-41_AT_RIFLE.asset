@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
+  m_Name: PTRS-41_AT_RIFLE
+  m_EditorClassIdentifier: 
+  name: PTRS-41 Anti-Tank Rifle
+  gun_prefab: {fileID: 1078813186004044629, guid: af129b8523e823e46b61550587076d57, type: 3}
+  bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
+  ads_speed: 3
+  bullet_speed: 200
+  fire_rate: 20
+  magazine_size: 5
+  muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
+  recoilRotationSpeed: 50
+  recoilRotationReturn: 1
+  recoilRotation: {x: 40, y: 5, z: 7}

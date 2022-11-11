@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour
 {
-    public float health = 100;
+    public Enemy grunt;
 
     Rigidbody[] ragdollRigidbodies;
 
+
+    public float health = 100f;
+    bool is_enemy_alive;
+
     void Awake()
     {
-        ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+        EnemyAlive();
 
-        foreach(var rb in ragdollRigidbodies)
-        {
-            rb.isKinematic = true;
-        }
 
-        
+        health = grunt.health;
     }
 
     // Start is called before the first frame update
@@ -29,14 +29,17 @@ public class enemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health == 0)
+        //  is_enemy_alive prevents EnemyDeath running every frame
+        if (health == 0 && is_enemy_alive == true)
         {
-            death();
+            EnemyDeath();
         }
     }
 
-    void death()
+    void EnemyDeath()
     {
+        is_enemy_alive = false;
+
         foreach(var rb in ragdollRigidbodies)
         {
             rb.isKinematic = false;
@@ -48,4 +51,18 @@ public class enemyHealth : MonoBehaviour
 
         this.gameObject.GetComponent<EnemyNavigation>().enabled = false;
     }
+
+    void EnemyAlive()
+    {
+        is_enemy_alive = true;
+
+        ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (var rb in ragdollRigidbodies)
+        {
+            rb.isKinematic = true;
+        }
+    }
+
+    
 }

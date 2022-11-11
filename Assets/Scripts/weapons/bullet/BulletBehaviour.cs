@@ -11,6 +11,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         Destroy(this.gameObject, 1);
 
+        //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
 
@@ -25,6 +26,7 @@ public class BulletBehaviour : MonoBehaviour
         // checks if game object has enemyhealth script and health is greater than 0, then will damage enemy
         if(collision.gameObject.GetComponent<enemyHealth>() == true && collision.gameObject.GetComponent<enemyHealth>().health > 0)
         {
+            //collision.gameObject.GetComponent<Enemy>().health -= damage;
             collision.gameObject.GetComponent<enemyHealth>().health -= damage;
         }
 

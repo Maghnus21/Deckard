@@ -28,6 +28,12 @@ public class weapon : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    void Awake()
+    {
+        
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,16 +49,20 @@ public class weapon : MonoBehaviour
         {
             Equip(0);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Equip(1);
+        }
 
         // getMouseButton(1) means right mouse button, 0 is left
-        if(currentWeapon != null)
+        if (currentWeapon != null)
         {
             Aim(Input.GetMouseButton(1));
 
             // 60 seconds divided by fire_rate from Gun scriptableObject
             fireRate = 60f / loadout[currentIndex].fire_rate;
 
-            if (rounds_fired < 20)
+            if (rounds_fired < loadout[currentIndex].magazine_size)
             {
                 if (Input.GetMouseButton(0) && Time.time > nextRound)
                 {
