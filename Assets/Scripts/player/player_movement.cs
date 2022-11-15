@@ -29,6 +29,8 @@ public class player_movement : MonoBehaviour
     // boolean for surface-level debugging in editor, does not effect player
     bool is_grounded_check;
 
+
+    bool is_crouching = false;
     
 
     int layerMask;
@@ -40,6 +42,7 @@ public class player_movement : MonoBehaviour
     {
         // gets character controller component automatically
         controller = GetComponent<CharacterController>();
+
 
         // UPDATE LAYERMASK INTERGER WHEN FINAL LAYERS ARE DECIDED. BITSHIFT NECESSARY HEX CODE
 
@@ -69,14 +72,14 @@ public class player_movement : MonoBehaviour
 
 
 
-        if(Input.GetKey(KeyCode.LeftShift) && is_grounded())
+        if (Input.GetKey(KeyCode.LeftShift) && is_grounded() && is_crouching == false)
         {
             controller.Move(move * sprint * Time.deltaTime);
         }
-        else
+        /*else
         {
-            controller.Move(move * speed * Time.deltaTime);
-        }
+            
+        }*/
 
         
 
@@ -87,6 +90,28 @@ public class player_movement : MonoBehaviour
 
             velocity.y = Mathf.Sqrt(jump_height * -2f * gravity);
         }
+
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+
+            //  inverts is_crouching bool to opposite. c acts as toggle
+            is_crouching = !is_crouching;
+        }
+
+        if (is_crouching)
+        {
+            PlayerCrouch();
+        }
+        else
+        {
+            PlayerStand();
+
+        }
+
+
+
+
+
 
 
         velocity.y += (gravity)  * Time.deltaTime;
@@ -104,5 +129,39 @@ public class player_movement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, sphere_size);
+    }
+
+    void PlayerCrouch()
+    {
+        //  linearally interpolates between current position and crouching position 
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, GameObject.Find("player/camera/CameraPositions/crouch").transform.position, Time.deltaTime * 5f);// GameObject.Find("player/camera/CameraPositions/crouch").transform.position;
+        
+        //  changes height of character by half and moves center of character collider from 1 to 0.5
+        gameObject.GetComponent<CharacterController>().height = 1f;
+        gameObject.GetComponent<CharacterController>().center = new Vector3(0f, .5f, 0f);
+
+        //  movement speed reduced to 75 percent of normal walking speed
+        controller.Move(move * (speed * 0.75f) * Time.deltaTime);
+
+
+        //  linearally interpolates between current position and crouching position
+        GameObject.Find("player/weapon").transform.position = Vector3.Lerp(GameObject.Find("player/weapon").transform.position, GameObject.Find("player/camera/CameraPositions/crouch").transform.position, Time.deltaTime * 5f);
+    }
+
+    void PlayerStand()
+    {
+        //  linearally interpolates between current position and standing position 
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, GameObject.Find("player/camera/CameraPositions/stand").transform.position, Time.deltaTime * 4f);
+
+        //  changes height of character to 2 and moves center of character collider from 0.5 to 1
+        gameObject.GetComponent<CharacterController>().height = 2f;
+        gameObject.GetComponent<CharacterController>().center = new Vector3(0f, 1f, 0f);
+
+        //  movement speed at 100 percent
+        controller.Move(move * speed * Time.deltaTime);
+
+        //  linearally interpolates between current position and standing position
+        GameObject.Find("player/weapon").transform.position = Vector3.Lerp(GameObject.Find("player/weapon").transform.position, GameObject.Find("player/camera/CameraPositions/stand").transform.position, Time.deltaTime * 5f);
+
     }
 }
