@@ -36,6 +36,8 @@ public class player_movement : MonoBehaviour
     int layerMask;
 
 
+    float lean = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -76,12 +78,7 @@ public class player_movement : MonoBehaviour
         {
             controller.Move(move * sprint * Time.deltaTime);
         }
-        /*else
-        {
-            
-        }*/
-
-        
+               
 
 
 
@@ -108,7 +105,8 @@ public class player_movement : MonoBehaviour
 
         }
 
-
+        
+        
 
 
 

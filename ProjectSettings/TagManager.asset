@@ -7,6 +7,7 @@ TagManager:
   - Interactable
   - VKMachine
   - Suspect
+  - Pickup
   layers:
   - Default
   - TransparentFX
