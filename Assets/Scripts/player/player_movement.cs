@@ -73,23 +73,8 @@ public class player_movement : MonoBehaviour
 
 
 
-
-        if (Input.GetKey(KeyCode.LeftShift) && is_grounded() && is_crouching == false)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            controller.Move(move * sprint * Time.deltaTime);
-        }
-               
-
-
-
-        if (Input.GetButtonDown("Jump") && is_grounded())
-        {
-
-            velocity.y = Mathf.Sqrt(jump_height * -2f * gravity);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.C)) {
 
             //  inverts is_crouching bool to opposite. c acts as toggle
             is_crouching = !is_crouching;
@@ -105,8 +90,26 @@ public class player_movement : MonoBehaviour
 
         }
 
+
+        if (Input.GetKey(KeyCode.LeftShift) && is_grounded() && is_crouching == false)
+        {
+            controller.Move(move * sprint * Time.deltaTime);
+        }
+               
+
+
+
         
+
+
         
+
+
+        if (Input.GetButtonDown("Jump") && is_grounded())
+        {
+
+            velocity.y = Mathf.Sqrt(jump_height * -2f * gravity);
+        }
 
 
 
