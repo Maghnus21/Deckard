@@ -8,6 +8,11 @@ public class playerPickup : MonoBehaviour
     RaycastHit hit;
     public float range;
     public LayerMask playerMask;
+
+    GameObject thrownObject;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,30 +26,52 @@ public class playerPickup : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && transform.childCount == 0)
         {
-            //  bitshifting playermask lets raycast pass through player collider and pick up objects within clamp range
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range, 1<<playerMask) && hit.collider.CompareTag("Pickup"))
-            {
-                if(hit.collider.GetComponent<Rigidbody>().isKinematic == false)
-                {
-                    hit.collider.GetComponent<Rigidbody>().isKinematic = true;
-                }
-
-                hit.collider.transform.parent = transform;
-                hit.collider.transform.localPosition = Vector3.zero;
-                hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            }
+            PickUpObject();
+        }
+        else if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(1) && transform.childCount > 0)
+        {
+            DetatchObject();
         }
 
-        else if (Input.GetKeyDown(KeyCode.F) && transform.childCount > 0)
+        if(Input.GetMouseButtonDown(0) && transform.childCount > 0)
         {
-            transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-            this.gameObject.transform.DetachChildren();           
+            playerThrow();
         }
     }
-
-    private void OnDrawGizmos()
+    
+    void playerThrow()
     {
-        Ray ray;
-        //Gizmos.DrawRay()
+        thrownObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        this.gameObject.transform.DetachChildren();
+
+        thrownObject.GetComponent<Rigidbody>().AddForce(thrownObject.transform.forward * 7f, ForceMode.Impulse);
+
+    }
+
+    void DetatchObject()
+    {
+        transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+        this.gameObject.transform.DetachChildren();
+
+        thrownObject = null;
+    }
+
+    void PickUpObject()
+    {
+        //  bitshifting playermask lets raycast pass through player collider and pick up objects within clamp range
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range, 1 << playerMask) && hit.collider.CompareTag("Pickup"))
+        {
+            if (hit.collider.GetComponent<Rigidbody>().isKinematic == false)
+            {
+                hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+            }
+
+            hit.collider.transform.parent = transform;
+            hit.collider.transform.localPosition = Vector3.zero;
+            hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+
+            thrownObject = hit.collider.gameObject;
+        }
     }
 }
