@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class breakObject : MonoBehaviour
 {
-    public float health = 150;
+    [SerializeField]public float health = -25f;
     // Start is called before the first frame update
     void Start()
     {
-        if(health < 200)
+        if(health <= 0f)
         {
             Destroy(gameObject);
-
         }
     }
 
@@ -23,6 +22,9 @@ public class breakObject : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        if(collision.gameObject.GetComponent<BulletBehaviour>() == true && health > 1f)
+        {
+            collision.gameObject.GetComponent<BulletBehaviour>().damage -= health;
+        }
     }
 }

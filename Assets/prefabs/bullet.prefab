@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulllet_hole: {fileID: 4706660036037426039, guid: 1a2859af96407d24a95001acae8fe74a, type: 3}
-  damage: 50
+  damage: 60
 --- !u!96 &277580712860775734
 TrailRenderer:
   serializedVersion: 2
