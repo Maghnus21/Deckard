@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
@@ -32,6 +33,11 @@ public class BulletBehaviour : MonoBehaviour
         else if(collision.gameObject.GetComponent<breakObject>() == true && collision.gameObject.GetComponent<breakObject>().health > 0f)
         {
             collision.gameObject.GetComponent<breakObject>().health -= damage;
+
+            if (collision.gameObject.GetComponent<breakObject>().health <= 0f)
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
