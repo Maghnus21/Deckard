@@ -30,13 +30,14 @@ public class BulletBehaviour : MonoBehaviour
             collision.gameObject.GetComponent<enemyHealth>().health -= damage;
         }
 
-        else if(collision.gameObject.GetComponent<breakObject>() == true && collision.gameObject.GetComponent<breakObject>().health > 0f)
+        else if(collision.gameObject.GetComponent<healthObject>() == true && collision.gameObject.GetComponent<healthObject>().health > 0f)
         {
-            collision.gameObject.GetComponent<breakObject>().health -= damage;
+            collision.gameObject.GetComponent<healthObject>().health -= damage;
 
-            if (collision.gameObject.GetComponent<breakObject>().health <= 0f)
+            if (collision.gameObject.GetComponent<healthObject>().health <= 0f)
             {
                 Destroy(collision.gameObject);
+                
             }
         }
     }
