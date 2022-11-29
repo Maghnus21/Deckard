@@ -12,12 +12,15 @@ public class door : MonoBehaviour
 
     public Transform player;
     public Transform anchor;
+    public GameObject audio;
+
     Vector3 playerDir;
     Quaternion start_rot;
     Quaternion end_rot;
     Quaternion delta_rot;
     
     float angle;
+    public float open_speed = 5f;
     
 
     private void Awake()
@@ -44,6 +47,10 @@ public class door : MonoBehaviour
         {
 
             opn_door = !opn_door;
+            if (opn_door)
+            {
+                audio.GetComponent<AudioSource>().Play();
+            }
         }
 
         switch (opn_door)
@@ -67,7 +74,7 @@ public class door : MonoBehaviour
 
             Quaternion rot = end_rot;
 
-            this.gameObject.transform.localRotation = Quaternion.Lerp(pos, rot, 5f * Time.deltaTime);
+            this.gameObject.transform.localRotation = Quaternion.Lerp(pos, rot, open_speed * Time.deltaTime);
         }
         else
         {
@@ -83,7 +90,7 @@ public class door : MonoBehaviour
 
             Quaternion rot = start_rot;
 
-            this.gameObject.transform.localRotation = Quaternion.Lerp(pos, rot, 5f * Time.deltaTime);
+            this.gameObject.transform.localRotation = Quaternion.Lerp(pos, rot, open_speed * Time.deltaTime);
         }
         else
         {
