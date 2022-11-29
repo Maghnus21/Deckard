@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2505411240788378729}
   - component: {fileID: 1543285148801911756}
   - component: {fileID: 3642900702749638406}
+  - component: {fileID: 2299643567043075149}
   - component: {fileID: -2638874777495902033}
-  - component: {fileID: -8124803174972209136}
   m_Layer: 0
   m_Name: rubbish_bag
   m_TagString: Pickup
@@ -85,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2299643567043075149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994562332489031379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1549281, y: 1.3410766, z: 1.1537642}
+  m_Center: {x: -0.012285769, y: 0.63703275, z: -0.016882092}
 --- !u!54 &-2638874777495902033
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,16 +114,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-8124803174972209136
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2994562332489031379}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1549281, y: 1.3410766, z: 1.1537642}
-  m_Center: {x: -0.012285769, y: 0.63703275, z: -0.016882092}

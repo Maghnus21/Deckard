@@ -36,7 +36,6 @@ public class playerHealth : MonoBehaviour
 
     void PlayerDeath()
     {
-        /*
         is_player_alive=false;
 
         rigidbodies = playerBody.GetComponentsInChildren<Rigidbody>();
@@ -49,12 +48,10 @@ public class playerHealth : MonoBehaviour
         death_cam.gameObject.SetActive(true);
        
         Camera.main.gameObject.SetActive(false);
-        */
     }
 
     void PlayerAlive()
     {
-        /*
         is_player_alive = true;
 
         rigidbodies = playerBody.GetComponentsInChildren<Rigidbody>();
@@ -63,6 +60,5 @@ public class playerHealth : MonoBehaviour
         {
             rigidbody.isKinematic = true;
         }
-        */
     }
 }
