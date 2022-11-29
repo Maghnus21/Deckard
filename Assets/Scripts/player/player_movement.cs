@@ -31,9 +31,9 @@ public class player_movement : MonoBehaviour
 
 
     bool is_crouching = false;
-    
 
-    int layerMask;
+
+    public LayerMask playerLayer;
 
 
     float lean = 0f;
@@ -55,15 +55,15 @@ public class player_movement : MonoBehaviour
         // checkSphere now tricked into ignoring layer "player" and now returns true upon contact
         // with every other layer
 
-        layerMask = LayerMask.GetMask("Default");
+        //layerMask =~ LayerMask.GetMask("PlayerBody");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (is_grounded() && velocity.y < 0)
+        if (is_grounded_check && velocity.y < 0)
         {
-            velocity.y = gravity;            
+            velocity.y = -2f;            
         }
 
         x = Input.GetAxis("Horizontal");
@@ -72,7 +72,7 @@ public class player_movement : MonoBehaviour
         move = transform.forward * z + transform.right * x;
 
 
-
+        
         if (Input.GetKeyDown(KeyCode.C))
         {
 
@@ -91,21 +91,21 @@ public class player_movement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.LeftShift) && is_grounded() && is_crouching == false)
+        if (Input.GetKey(KeyCode.LeftShift) && is_grounded_check && !is_crouching)
         {
             controller.Move(move * sprint * Time.deltaTime);
         }
                
-
-
+        
 
         
 
 
-        
 
 
-        if (Input.GetButtonDown("Jump") && is_grounded())
+
+
+        if (Input.GetButtonDown("Jump") && is_grounded_check)
         {
 
             velocity.y = Mathf.Sqrt(jump_height * -2f * gravity);
@@ -115,16 +115,16 @@ public class player_movement : MonoBehaviour
 
 
 
-        velocity.y += (gravity)  * Time.deltaTime;
+        velocity.y += (gravity * 2)  * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
 
-        is_grounded_check = is_grounded();
+        is_grounded_check = isGrounded();
     }
 
-    private bool is_grounded()
+    bool isGrounded()
     {
-        return Physics.CheckSphere(transform.position, sphere_size, layerMask);
+        return Physics.CheckSphere(transform.position, sphere_size, 1 << playerLayer);
     }
 
     private void OnDrawGizmos()
