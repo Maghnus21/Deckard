@@ -167,7 +167,7 @@ public class weapon : MonoBehaviour
         
     }
 
-    private IEnumerator MuzzleFlash(float seconds)
+    IEnumerator MuzzleFlash(float seconds)
     {
         GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").SetActive(true);
 

@@ -2,26 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class breakObject : MonoBehaviour
+public class healthObject : MonoBehaviour
 {
-    public float health = 150;
+    [SerializeField]public float health = 25f;
     // Start is called before the first frame update
     void Start()
-    {
-        if(health < 200)
-        {
-            Destroy(gameObject);
-
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    // Update is called once per frame
+    void Update()
     {
         
     }
