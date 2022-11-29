@@ -1,0 +1,416 @@
+[33mcommit 2c9cd14ed92b7cbe36db565be43aaa0fdbb85301[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Nov 29 10:20:36 2022 +0000
+
+    pre merge commit
+
+[33mcommit 82908ce671b46121ecc19924be198a13ffe7f1e7[m[33m ([m[1;31morigin/master[m[33m, [m[1;31mcollege_repo/master[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Nov 21 12:54:37 2022 +0000
+
+    pre-merge commit
+
+[33mcommit 38a648a6f7285158bbe1d27726b98816ca27775c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Nov 18 23:49:02 2022 +0000
+
+    updated level
+
+[33mcommit 1ec78ed68618db19263ad00c59243dc8a597655e[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Nov 18 14:10:14 2022 +0000
+
+    new commit
+
+[33mcommit 2dad60c38755e1bfbc6342192fda283569126cce[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Nov 18 13:09:20 2022 +0000
+
+    added more props, added cam to player death, can throw objects
+
+[33mcommit 43fb3bf23d3e52e7fc4d7409f7aa82d31a0d002b[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 17 12:57:01 2022 +0000
+
+    player can pick up item and is held in front of camera
+
+[33mcommit 67d4e822a22dc0c8c3c1fef779d13187d052795c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Nov 15 23:47:09 2022 +0000
+
+    added crouching mechanic. gun when active now follows camera
+
+[33mcommit 0abdbd1eda09ea57f88a21582e92c99c669e7921[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Nov 14 23:50:47 2022 +0000
+
+    completed most of map
+
+[33mcommit 17ce11510d4aa463aea16292e80938849d20f1b1[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Nov 14 15:47:14 2022 +0000
+
+    added stairs
+
+[33mcommit a9cb1517c683fa5a607867baa1ff6c019ddf4b5c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Nov 14 14:13:39 2022 +0000
+
+    added another layer to level. added physics objcts to move around
+
+[33mcommit 9b8f41bfe122c75ac4b550d4f9fa5769142f305c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Nov 14 11:05:56 2022 +0000
+
+    added parts to level
+
+[33mcommit ebf8c558888c046fb2ad53578f7c10722918c39a[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Nov 14 01:17:28 2022 +0000
+
+    begun demo level
+
+[33mcommit 579c0bcf59ba1c63b5666d8e4b90a5103252e9a5[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Nov 11 13:56:49 2022 +0000
+
+    added ptrs-41 model and scriptableObject. refine ads and muzzle flash. enemy now calls functions for alive and death state for ragdoll
+
+[33mcommit 64e66ed746b00775b84e0d1450a2f41ba2cc9a13[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 10 13:07:18 2022 +0000
+
+    edited enemy ragdoll joint angles
+
+[33mcommit 9f67e26be3fec69b9c11aaa47087e5e4fb7f3d0c[m[33m ([m[1;31morigin/combat_branch_311022[m[33m, [m[1;31mcollege_repo/combat_branch_311022[m[33m, [m[1;32mcombat_branch_311022[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 10 13:00:21 2022 +0000
+
+    corrected muzzle flash rate, frequency is now double fire rate. current commit now acting as pre-merge commit for combat_branch to master
+
+[33mcommit 91b85f2957b1cf4bccd26158a111237f5d4c057b[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 10 12:46:31 2022 +0000
+
+    added enemy ai. now moves to player when within range. if shot enough, health depleates and ragdolls when dead
+
+[33mcommit a461757b63b54dc22791e4f47545dc3574ef93fb[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Nov 9 23:27:22 2022 +0000
+
+    added IEnumerator coroutine to enable and disable muzzle flash
+
+[33mcommit a075348b9174e46a9f81ae3699d80250206aa034[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Nov 9 16:46:24 2022 +0000
+
+    added muzzle flash to SO, how rotates at random when firing
+
+[33mcommit 7edb032abe5192f25bf3e704792d14ec13ce8329[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Nov 9 11:06:23 2022 +0000
+
+    updated player model
+
+[33mcommit 75e72dd05d2e6c4080cd86a87d3cbeb7023e1a75[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Nov 8 12:06:58 2022 +0000
+
+    added bullet trails and increased speed to check result
+
+[33mcommit 1be7fbd07da8e0999931fe4e5b1265a902acca43[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Nov 4 00:24:48 2022 +0000
+
+    added magazine capacity and fire rate to Gun scriptableObject and reload w/ log warning if magazine is empty
+
+[33mcommit 2de28210ec39b0002c92fa38ffa8235ed2b9eef8[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 3 23:25:34 2022 +0000
+
+    moved recoil values to gun scriptable object
+
+[33mcommit 8cb39e297dddabaf4d56c9c53c61a9537b532b4b[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 3 15:40:44 2022 +0000
+
+    weapon now has random recoil applied after every shot. need to tidy code
+
+[33mcommit dc0b73312406e4139cb226029363a4a81308b17d[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Nov 3 14:31:12 2022 +0000
+
+    added wooden crate with normal map and blocked bullet hole code
+
+[33mcommit 2f7738a6e581f240e39154cb3e804bb6f0a53299[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Nov 1 18:23:50 2022 +0000
+
+    bullets now create bullet holes on walls, although not working all the time
+
+[33mcommit cf64560d2c4e880d7a00864e65ca2ee7117ad730[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Nov 1 16:40:09 2022 +0000
+
+    gun now fires bullet towards center of screen
+
+[33mcommit bba538af630cc775b84ab4e42491e7219c898708[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Nov 1 11:57:09 2022 +0000
+
+    weapon now sways side-to-side with mouse movement and can now look through sights
+
+[33mcommit 615fe5396176c71fe2044294312e6cd9ef03d2d5[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 31 16:35:10 2022 +0000
+
+    cleaned up player_look script and corrected model position
+
+[33mcommit 17a6b9f21f593c02d8deecd6a0e635971d9a595c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 31 16:21:00 2022 +0000
+
+    added weapon and basic loadout
+
+[33mcommit 49b29afa78de1599026323689eaf73a1a4804571[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 31 15:13:57 2022 +0000
+
+    new branch commit
+
+[33mcommit 31b8e9b04a5f7e4837b669d4971afea56ad066fc[m[33m ([m[1;31mcollege_repo/voight_kampff[m[33m, [m[1;32mvoight_kampff[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 31 14:23:23 2022 +0000
+
+    pre merge commit
+
+[33mcommit 6b5028b427bb5b9e57b39d214ef330f448ec509f[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Oct 28 13:06:18 2022 +0100
+
+    new commit
+
+[33mcommit f4d22643dea8934dcd755fbc3c73d666119194e2[m[33m ([m[1;31morigin/voight_kampff[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Oct 27 11:35:40 2022 +0100
+
+    added comments to dialogue manager and ui functionality to initialzeInterrogation script
+
+[33mcommit 89344668d60edc18034ab4041e6cde8eb04f0837[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Oct 26 11:10:48 2022 +0100
+
+    renamed file to appropiate name
+
+[33mcommit 1676ac49869e2fd2615b47fc3b0f293f5b3d3dcf[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 24 14:03:37 2022 +0100
+
+    now able to click on suspect to bring up machine
+
+[33mcommit a988a8136d37e27d95bb3d0473289a81c50cd418[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 24 13:27:35 2022 +0100
+
+    removed old code to lessen bloat
+
+[33mcommit f759bb2721b40af0927bd2e046746418a9e50110[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 24 13:19:06 2022 +0100
+
+    updated convo system, now displays text on ui element
+
+[33mcommit ec240a00eee9956bb2ea28b1026a07af547c0d07[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 22 22:07:12 2022 +0100
+
+    new commit
+
+[33mcommit 2f638f6c7c7f09a983137fedd6b85ca4e031296d[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Oct 20 23:16:19 2022 +0100
+
+    added additions to code to display dialogue on screen
+
+[33mcommit aadb3b86a88d4a0b83d061793c091d7d2952960f[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Oct 20 22:57:29 2022 +0100
+
+    updated dialogue system
+
+[33mcommit 9cb579e6afa6f436a48e134701aa7d5944b5c715[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 17 13:55:18 2022 +0100
+
+    dialogue from suspect is now sent to TextManager via VKManager. suspect gameobject no longer needs reference to ui
+
+[33mcommit 932829f435313edab0b1456b405db6c7aec6734c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 15 23:58:35 2022 +0100
+
+    added basic convo script to suspect. now returns appropiate message after receiving data from vk script
+
+[33mcommit babcebfde6de123408b0c227fb02ed3123a59d70[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 15 22:43:19 2022 +0100
+
+    buttons on vk now output message onto screen
+
+[33mcommit 9b4a9f1f7043437cfabc20563bd5aed9e27e129c[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 15 09:26:10 2022 +0100
+
+    updated previous scripts, added VK script and basic logic
+
+[33mcommit 27e3f3483202649dd9cef852b7b943a769edc062[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Oct 13 12:05:54 2022 +0100
+
+    changed ui pickup image logic and begun voight kampff logic
+
+[33mcommit deaf8aea89cf449d974fc65532893e2f8c24a344[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Oct 13 00:13:07 2022 +0100
+
+    added enemy to interrogate
+
+[33mcommit 8724b251806dba6aee2b19a08540906068437e0d[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Tue Oct 11 23:08:48 2022 +0100
+
+    added voight kampf machine
+
+[33mcommit 0ccd843d257fc1e5e84dba8dcfe1e3ccbffc7dda[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 10 15:10:51 2022 +0100
+
+    small changes to lighting
+
+[33mcommit 61029a03c68f67551f7b07bc4bcb1dee8c84b2fc[m
+Merge: 56b275c 2e85bcd
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 10 13:58:58 2022 +0100
+
+    Merge branch 'master' of https://github.com/magnus-21/perdition
+
+[33mcommit 56b275ca72f429b9ad6aaf7f0a2b1484e8195504[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 10 13:52:51 2022 +0100
+
+    changed terrain size
+
+[33mcommit 2e85bcd357a9be842ff51c7850973957889ddd47[m
+Author: magnus-21 <90318578+magnus-21@users.noreply.github.com>
+Date:   Sat Oct 8 21:54:16 2022 +0100
+
+    Update README.md
+
+[33mcommit 65345a80889b271214a941f3c317147715f8a64a[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 8 21:41:58 2022 +0100
+
+    merge worked without issue
+
+[33mcommit 81a20f8af7617a8e4b9ca9869d891ed97f48283b[m[33m ([m[1;31mcollege_repo/test_branch[m[33m, [m[1;32mtest_branch[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 8 20:59:41 2022 +0100
+
+    test branch. moved bridge
+
+[33mcommit c996536efa3c4cfb0c9dbd98855b60a7b30a9c78[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 8 20:57:50 2022 +0100
+
+    scene merge test. this commit is for backup
+
+[33mcommit f160a50f9c9b8df96843bc00a50c328b21fdb54c[m
+Merge: 5baf077 59ab29e
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 8 20:27:26 2022 +0100
+
+    Merge branch 'master' of https://github.com/magnus-21/perdition
+
+[33mcommit 5baf077e4fed01637deb7c01bf5942f30660a456[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Oct 7 21:02:36 2022 +0100
+
+    post-merge commit, old removed SampleScene and conflicts in SampleSceneProfile
+
+[33mcommit adf0877579f8dabe550dccf003abf07ab5dba273[m
+Merge: dc27751 f8eec7a
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Oct 7 20:53:22 2022 +0100
+
+    test merge
+
+[33mcommit f8eec7abbb9e2a529d74c55527bc13ea8bff6bdd[m[33m ([m[1;31mcollege_repo/player_apart_feature[m[33m, [m[1;32mplayer_apart_feature[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Oct 7 20:51:11 2022 +0100
+
+    [TEST] duped scene as part of merge test
+
+[33mcommit e37b8a290e551d8f5ee2adfc073e3f1d3d5aca0a[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Oct 7 13:40:17 2022 +0100
+
+    new commit
+
+[33mcommit 0b00d56a8351f1e8eb9023daa94ce2bddbef503f[m[33m ([m[1;31morigin/player_apart_feature[m[33m)[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Fri Oct 7 12:26:16 2022 +0100
+
+    added more buildings and shape
+
+[33mcommit 46af2144ab650030f612cea67adc6e9a9f482df4[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Thu Oct 6 22:55:23 2022 +0100
+
+    added additions to starter hub map
+
+[33mcommit 59ab29e6ca6c79e3945eea2d38346de07aa3a2d7[m
+Author: magnus-21 <90318578+magnus-21@users.noreply.github.com>
+Date:   Wed Oct 5 15:46:48 2022 +0100
+
+    Create README.md
+
+[33mcommit dc2775122bc52033efa99dff14f91715761ccf69[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Oct 5 11:07:35 2022 +0100
+
+    added player apartment
+
+[33mcommit 178b1960d7eeb5d67fac0ee793ae8dcf281ddb27[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Mon Oct 3 12:56:42 2022 +0100
+
+    Moved from Probuilder to Realtime CSG for level design
+
+[33mcommit 1a389fd38753255bb492ce65c71919f27c4281b9[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 1 23:06:52 2022 +0100
+
+    reset game and fal gun model
+
+[33mcommit 56bd301d6dc58ee807e1a1b6bcc1fc5480279f20[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Sat Oct 1 22:24:12 2022 +0100
+
+    removed weapon and redoing shooting elements
+
+[33mcommit 0ddfae6b5bce901b93bf8767fd56e15c2aaf0eee[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Sep 28 15:59:36 2022 +0100
+
+    changed shooting and music scpirt to play sound from user audio source
+
+[33mcommit 8cc6965221bdf61ab34c8d4fe8d0a08db2abdafd[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Sep 28 13:58:23 2022 +0100
+
+    Music trigger script test
+
+[33mcommit 689b43ab5b4f647203c7093e3e74de66d42c5bc2[m
+Author: Maghnus O Donnell <g00377514@atu.ie>
+Date:   Wed Sep 28 13:28:06 2022 +0100
+
+    Initial Commit
