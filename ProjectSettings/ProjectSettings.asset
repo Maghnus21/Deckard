@@ -776,7 +776,7 @@ PlayerSettings:
     PS4: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_72
     PS5: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_72
     Stadia: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_72
-    Standalone: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;UDUINO_READY;RealtimeCSG_1_5_72
+    Standalone: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;UDUINO_READY;RealtimeCSG_1_5_72;UDUINO_MEGA_MESSAGE
     WebGL: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_72
     Windows Store Apps: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_72
     XboxOne: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_72
