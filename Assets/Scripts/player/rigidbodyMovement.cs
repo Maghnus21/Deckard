@@ -40,7 +40,7 @@ public class rigidbodyMovement : MonoBehaviour
 
     private void MovePlayer()
     {    
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             PlayerCrouch();
         }

@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsOpen: 0
   IsRotatingDoor: 1
-  Speed: 1
+  Speed: 4
   RotationAmount: 90
   ForwardDirection: 0
   SlideDirection: {x: 0, y: 0, z: -1}
