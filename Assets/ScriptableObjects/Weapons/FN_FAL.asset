@@ -20,6 +20,6 @@ MonoBehaviour:
   fire_rate: 700
   magazine_size: 20
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
-  recoilRotationSpeed: 30
+  recoilRotationSpeed: 40
   recoilRotationReturn: 3
-  recoilRotation: {x: 4, y: 1.6666666, z: 2.3333333}
+  recoilRotation: {x: 4, y: 2, z: 6}
