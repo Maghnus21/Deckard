@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class playerPickup : MonoBehaviour
 {
     RaycastHit hit;
     public float range;
     public LayerMask playerMask;
+
+    bool holding_obj = false;
 
     GameObject thrownObject;
 
@@ -41,16 +44,20 @@ public class playerPickup : MonoBehaviour
     
     void playerThrow()
     {
+        holding_obj = false;
+
         thrownObject.GetComponent<Rigidbody>().isKinematic = false;
 
         this.gameObject.transform.DetachChildren();
 
-        thrownObject.GetComponent<Rigidbody>().AddForce(thrownObject.transform.forward * 7f, ForceMode.Impulse);
+        thrownObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 7f, ForceMode.Impulse);
 
     }
 
     void DetatchObject()
     {
+        holding_obj = false;
+
         transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
         this.gameObject.transform.DetachChildren();
 
@@ -66,6 +73,9 @@ public class playerPickup : MonoBehaviour
             {
                 hit.collider.GetComponent<Rigidbody>().isKinematic = true;
             }
+
+            holding_obj = true;
+
 
             hit.collider.transform.parent = transform;
             hit.collider.transform.localPosition = Vector3.zero;
