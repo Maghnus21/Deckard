@@ -90,6 +90,12 @@ public class weapon : MonoBehaviour
 
         }
 
+        if(currentWeapon != null && Input.GetKeyDown(KeyCode.Tab))
+        {
+            Destroy(currentWeapon);
+            currentWeapon = null;
+        }
+
         
         
         
