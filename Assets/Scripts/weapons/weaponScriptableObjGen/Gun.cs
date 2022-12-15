@@ -40,4 +40,6 @@ public class Gun : ScriptableObject
     // y and z are randomaly decided with random.range function
     // present values will act as default
     public Vector3 recoilRotation = new Vector3(10f, 5f, 7f);
+
+    public AudioClip gun_fire;
 }

@@ -23,3 +23,4 @@ MonoBehaviour:
   recoilRotationSpeed: 40
   recoilRotationReturn: 3
   recoilRotation: {x: 4, y: 2, z: 6}
+  audioClip: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}

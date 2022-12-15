@@ -7,6 +7,9 @@ public class objectDestruction : MonoBehaviour
 {
     public GameObject object_breakable;
 
+    bool is_broken = false;
+    public AudioSource audio_source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,11 @@ public class objectDestruction : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(object_breakable, transform.position, transform.rotation);
+
+            if(!is_broken && audio_source.clip != null)
+            {
+                audio_source.Play();
+            }
         }
     }
 }

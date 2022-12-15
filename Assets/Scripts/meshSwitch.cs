@@ -37,7 +37,7 @@ public class meshSwitch : MonoBehaviour
                 obj?.SetActive(true);
             }
 
-            if (!is_broken)
+            if (!is_broken && audio_source.clip != null)
             {
                 audio_source.Play();
                 is_broken = true;
