@@ -50,7 +50,7 @@ public class playerPickup : MonoBehaviour
 
         this.gameObject.transform.DetachChildren();
 
-        thrownObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 7f, ForceMode.Impulse);
+        thrownObject.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * 7f, ForceMode.Impulse);
 
     }
 
