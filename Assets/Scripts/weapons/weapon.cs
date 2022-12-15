@@ -9,7 +9,8 @@ public class weapon : MonoBehaviour
 {
     public Gun[] loadout;
     public Transform weaponPosition;
-    public AudioSource weapon_fire_sound;
+    public AudioClip weapon_fire_sound;
+    public AudioSource weaponSource;
 
     [Header("Recoil gameobject reference")]
     public Transform recoilPoint;
@@ -113,6 +114,11 @@ public class weapon : MonoBehaviour
         t_newWeapon.transform.localEulerAngles = Vector3.zero;
 
         currentWeapon = t_newWeapon;
+
+        
+            weapon_fire_sound = loadout[currentIndex].gun_fire;
+            weaponSource.clip = weapon_fire_sound;
+        
     }
 
     void Aim(bool is_aiming)
@@ -152,8 +158,7 @@ public class weapon : MonoBehaviour
         float flash_time = (60f / loadout[currentIndex].fire_rate) / 2;
         Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
 
-        weapon_fire_sound.clip = loadout[currentIndex].gun_fire;
-        weapon_fire_sound.Play();
+        weaponSource.Play();
 
         // starts coroutine MuzzleFlash and uses flash_time to delay deactivation of muzzle_flash_spwn in game 
         this.StartCoroutine(MuzzleFlash(flash_time));

@@ -109,3 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   object_breakable: {fileID: 227974949163638707, guid: 8c4af09a81220b14fa7d04f34f4d5bd8, type: 3}
+  audio_source_GO: {fileID: 6787058227229946492, guid: a29c0309a6d679c4799abb93d162d7cd, type: 3}
+  destruction_sound: {fileID: 8300000, guid: 9d459838cca8c3c48b54e8cf155eaf03, type: 3}
