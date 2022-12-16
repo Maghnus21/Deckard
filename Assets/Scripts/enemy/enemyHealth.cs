@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyHealth : MonoBehaviour
 {
-    public Enemy grunt;
+    public Enemy enemy_type;
 
     Rigidbody[] ragdollRigidbodies;
 
@@ -17,7 +17,7 @@ public class enemyHealth : MonoBehaviour
         EnemyAlive();
 
 
-        health = grunt.health;
+        health = enemy_type.health;
     }
 
     // Start is called before the first frame update
