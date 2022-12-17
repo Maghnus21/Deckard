@@ -6,6 +6,8 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
+    public DialogueScriptableObject npc_dialogue;
+
     public string name;
 
     [TextArea(1, 12)]

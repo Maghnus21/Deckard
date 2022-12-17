@@ -63,10 +63,10 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        // stores each string from the dialogue.sentences into array
+        //  receives string data from DialogueScriptableObject dialogue array stored in Dialogue and stores them in array array
         foreach(string k in array)
         {
-            array = dialogue.sentences;
+            array = dialogue.npc_dialogue.dialogue;
         }
 
         Debug.Log(i);   //  DEBUG USE
@@ -93,6 +93,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
         text.text = array[i];
 
+        //  closes dialogue box after 5 seconds as long as no new input is displayed
         Invoke("CloseDialogueBox", 5f);
     }
 
