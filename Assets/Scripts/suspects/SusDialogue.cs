@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,24 +37,30 @@ public class SusDialogue : MonoBehaviour
                 {
                     case "button1":
                         TriggerDialogue(i);
-                        aggression--;
+                        i += 3;
+
                         break;
                     case "button2":
                         TriggerDialogue(i + 1);
+                        aggression += 1;
+                        i += 3;
+
                         break;
                     case "button3":
                         TriggerDialogue(i + 2);
-                        aggression++;
+                        aggression += 2;
+                        i += 3;
+
                         break;
-                    default:
+                    default:    Debug.Log("Raycast hit object: " + hit.collider.gameObject.name);
                         break;
                 }
 
-                i += 3;
             }
             else
             {
                 Debug.Log("FINISHED INTERROGAION");
+                Invoke("endInterrogation", 5f);
             }
         }
     }
@@ -62,5 +69,14 @@ public class SusDialogue : MonoBehaviour
     public void TriggerDialogue(int i)
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, i);
+    }
+
+    public void endInterrogation()
+    {
+        camera.enabled = false;
+        kit.active = false;
+
+        SusDialogue sus = gameObject.GetComponent<SusDialogue>();
+        Destroy(sus);
     }
 }

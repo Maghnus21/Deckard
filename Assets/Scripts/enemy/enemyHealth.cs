@@ -5,18 +5,19 @@ using UnityEngine;
 public class enemyHealth : MonoBehaviour
 {
     public Enemy enemy_type;
+    Collider collider;
 
     Rigidbody[] ragdollRigidbodies;
 
 
-    public float health = 100f;
+    public float health;
     bool is_enemy_alive;
 
     void Awake()
     {
         EnemyAlive();
 
-
+        collider = GetComponent<Collider>();
         health = enemy_type.health;
     }
 
@@ -30,13 +31,14 @@ public class enemyHealth : MonoBehaviour
     void Update()
     {
         //  is_enemy_alive prevents EnemyDeath running every frame
-        if (health == 0 && is_enemy_alive == true)
+        if (health == 0 && is_enemy_alive)
         {
+            collider.enabled = false;
             EnemyDeath();
         }
     }
 
-    void EnemyDeath()
+    public void EnemyDeath()
     {
         is_enemy_alive = false;
 

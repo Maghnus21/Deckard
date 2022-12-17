@@ -28,6 +28,11 @@ public class BulletBehaviour : MonoBehaviour
         if(collision.gameObject.GetComponent<enemyHealth>() == true && collision.gameObject.GetComponent<enemyHealth>().health > 0f)
         {
             collision.gameObject.GetComponent<enemyHealth>().health -= damage;
+
+            if(collision.gameObject.GetComponent<enemyHealth>().health <= 0f)
+            {
+                collision.gameObject.GetComponent<enemyHealth>().EnemyDeath();
+            }
         }
 
         else if(collision.gameObject.GetComponent<healthObject>() == true && collision.gameObject.GetComponent<healthObject>().health > 0f)

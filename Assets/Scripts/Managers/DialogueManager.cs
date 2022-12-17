@@ -22,12 +22,15 @@ public class DialogueManager : MonoBehaviour
 
     //  reference to ui element
     public TextMeshProUGUI text;
+    Image dialogue_box;
 
 
 
     void Awake()
     {
-        text.GetComponentInParent<Image>().enabled = false;
+        dialogue_box = text.GetComponentInParent<Image>();
+
+        dialogue_box.enabled = false;
         text.enabled = false;
     }
 
@@ -47,6 +50,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, int i)
     {
+        CancelInvoke();
+
         Debug.Log("Starting dialogue w/ " + dialogue.name);
 
         //  clearing sentences queue of any data
@@ -71,7 +76,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence(int i)
     {
-        text.GetComponentInParent<Image>().enabled = true;
+        dialogue_box.enabled = true;
         text.enabled = true;
 
         // if there are no sentences in sentences, exits out of loop and
@@ -99,6 +104,7 @@ public class DialogueManager : MonoBehaviour
 
     void CloseDialogueBox()
     {
+        dialogue_box.enabled = false;
         text.enabled = false;
     }
 }
