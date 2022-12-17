@@ -7,18 +7,18 @@ using UnityEngine.UI;
 /// <summary>
 /// 
 /// This code contains code to use a queue-based dialogue system as to save time in future. Array based code will be seperated into seperate functions to allow NPCs with
-/// small amounts of dialogue, eg 1 line, without the need to define the array size constantly
+/// small amounts of dialogue, eg 1 line, to display dialogue on the screen, without the need to define the array size constantly
 /// 
 /// </summary>
 
 
 public class DialogueManager : MonoBehaviour
 {
-
+    //  dialogue sentences stored in queue to be displayed on ui
     public Queue<string> sentences;
 
     //  dialogue sentences stored in string array to be displayed on ui
-    public string[] array = new string[12];
+    public string[] array = new string[9];
 
     //  reference to ui element
     public TextMeshProUGUI text;
