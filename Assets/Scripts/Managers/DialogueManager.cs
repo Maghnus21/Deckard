@@ -47,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-
+    //  dialogue from susDialogue script
     public void StartDialogue(Dialogue dialogue, int i)
     {
         CancelInvoke();
@@ -90,6 +90,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("ANSWER FROM QUEUE: " + sentence);
         //text.text = sentence;
 
+        //  string stored in array is now displayed on the text element
         Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
         text.text = array[i];
 

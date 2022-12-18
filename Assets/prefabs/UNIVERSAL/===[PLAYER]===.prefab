@@ -266,7 +266,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadout:
   - {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
+  - {fileID: 11400000, guid: ad296e8e1c0f53e4bb5daf988432f40d, type: 2}
   weaponPosition: {fileID: 848316553389009837}
+  weapon_fire_sound: {fileID: 0}
+  weaponSource: {fileID: 0}
   recoilPoint: {fileID: 0}
 --- !u!114 &3173406193615061457
 MonoBehaviour:

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public GameObject bulllet_hole;
+    public GameObject bulllet_impact;
     public float damage = 60f;
 
     void Start()
@@ -45,5 +45,9 @@ public class BulletBehaviour : MonoBehaviour
                 
             }
         }
+
+        Instantiate(bulllet_impact, transform.position, transform.rotation);
+        Destroy(gameObject);
+        Destroy(bulllet_impact);
     }
 }

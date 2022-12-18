@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b6e7028ab534b4fbef1e6a766077b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulllet_hole: {fileID: 4706660036037426039, guid: 1a2859af96407d24a95001acae8fe74a, type: 3}
+  bulllet_impact: {fileID: 4484868300359147474, guid: 79eacb08f8736f641a7d7200dd0bcdee, type: 3}
   damage: 55
 --- !u!96 &277580712860775734
 TrailRenderer:
