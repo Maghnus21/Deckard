@@ -8,6 +8,8 @@ public class BulletBehaviour : MonoBehaviour
     public GameObject bulllet_impact;
     public float damage = 60f;
 
+    public bool debug_collision_cube = false;
+
     void Start()
     {
         Destroy(this.gameObject, 1f);
@@ -46,8 +48,13 @@ public class BulletBehaviour : MonoBehaviour
             }
         }
 
-        Instantiate(bulllet_impact, transform.position, transform.rotation);
-        Destroy(gameObject);
-        Destroy(bulllet_impact);
+        if (debug_collision_cube)
+        {
+            Instantiate(bulllet_impact, transform.position, transform.rotation = Quaternion.Euler(Vector3.zero));
+            
+
+        }
+
+        Destroy(gameObject, 0.01f);
     }
 }

@@ -22,5 +22,5 @@ MonoBehaviour:
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40
   recoilRotationReturn: 3
-  recoilRotation: {x: 4, y: 2, z: 6}
+  recoilRotation: {x: 5, y: 4, z: 6}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
