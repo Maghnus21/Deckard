@@ -30,8 +30,8 @@ public class UduinoMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UduinoManager.Instance.pinMode(2, PinMode.Input_pullup);
-        UduinoManager.Instance.pinMode(3, PinMode.Input_pullup);
+        UduinoManager.Instance.pinMode(5, PinMode.Input_pullup);
+        UduinoManager.Instance.pinMode(6, PinMode.Input_pullup);
 
         UduinoManager.Instance.pinMode(8, PinMode.Input_pullup);
         UduinoManager.Instance.pinMode(9, PinMode.Input_pullup);
@@ -40,8 +40,8 @@ public class UduinoMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        but1 = UduinoManager.Instance.digitalRead(2);
-        but2 = UduinoManager.Instance.digitalRead(3);
+        but1 = UduinoManager.Instance.digitalRead(5);
+        but2 = UduinoManager.Instance.digitalRead(6);
 
         but3c = UduinoManager.Instance.digitalRead(8);
         but4c = UduinoManager.Instance.digitalRead(9);
