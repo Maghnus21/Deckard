@@ -52,21 +52,23 @@ public class DialogueManager : MonoBehaviour
     {
         CancelInvoke();
 
-        Debug.Log("Starting dialogue w/ " + dialogue.name);
+        Debug.Log("Starting dialogue w/ " + dialogue.suspectInfo.name);
 
         //  clearing sentences queue of any data
         sentences.Clear();
         
+        
         //  enqueues each sentence in the dialogue.sentences into an array
-        foreach(string sentence in dialogue.sentences)
+        foreach(string sentence in dialogue.suspectInfo.active_script.dialogue)
         {
             sentences.Enqueue(sentence);
         }
+        
 
         //  receives string data from DialogueScriptableObject dialogue array stored in Dialogue and stores them in array array
         foreach(string k in array)
         {
-            array = dialogue.npc_dialogue.dialogue;
+            array = dialogue.suspectInfo.active_script.dialogue;
         }
 
         Debug.Log(i);   //  DEBUG USE
