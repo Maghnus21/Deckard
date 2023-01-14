@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -7,10 +8,12 @@ using UnityEngine.VFX;
 
 public class weapon : MonoBehaviour
 {
-    public Gun[] loadout;
+    public Gun[] loadout = new Gun[9];
     public Transform weaponPosition;
     public AudioClip weapon_fire_sound;
     public AudioSource weaponSource;
+
+    public TextMeshProUGUI ammo_count_text;
 
     [Header("Recoil gameobject reference")]
     public Transform recoilPoint;
@@ -61,6 +64,9 @@ public class weapon : MonoBehaviour
         {
             Aim(Input.GetMouseButton(1));
 
+            //ammo_count_text.text = ((loadout[currentIndex].magazine_size - rounds_fired) + "/" + loadout[currentIndex].magazine_size).ToString();
+            
+
             // 60 seconds divided by fire_rate from Gun scriptableObject
             fireRate = 60f / loadout[currentIndex].fire_rate;
 
@@ -71,12 +77,20 @@ public class weapon : MonoBehaviour
                     nextRound = Time.time + fireRate;
                     FireWeapon();
                     rounds_fired++;
-                    
+
+                    DisplayAmmoCount();
+
                 }
             }
-            else if(rounds_fired > 0 && Input.GetKeyDown(KeyCode.R)){
+            if(rounds_fired > 0 && Input.GetKeyDown(KeyCode.R)){
                 Debug.Log("GUN RELOADED");
-                rounds_fired = 0;
+                
+
+
+                UpdateAmmoCount();
+
+
+                
             }
             else if(rounds_fired == 20 && Input.GetMouseButtonDown(0))
             {
@@ -97,10 +111,6 @@ public class weapon : MonoBehaviour
             Destroy(currentWeapon);
             currentWeapon = null;
         }
-
-        
-        
-        
     }
 
     void Equip(int p_int)
@@ -155,13 +165,12 @@ public class weapon : MonoBehaviour
         }
 
         // variables for muzzle flash time and random rotation to be applied to muzzle flash
-        float flash_time = (60f / loadout[currentIndex].fire_rate) / 2;
         Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
 
         weaponSource.Play();
 
         // starts coroutine MuzzleFlash and uses flash_time to delay deactivation of muzzle_flash_spwn in game 
-        this.StartCoroutine(MuzzleFlash(flash_time));
+        this.StartCoroutine(MuzzleFlash(.05f));
         //  converting randomRot to quarernion angles and applying to muzzle_flash_spwn
         GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
 
@@ -180,6 +189,20 @@ public class weapon : MonoBehaviour
         Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
         rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
         
+    }
+
+    void UpdateAmmoCount()
+    {
+        loadout[currentIndex].ammo_reserve -= rounds_fired;
+
+        rounds_fired = 0;
+
+        DisplayAmmoCount();
+    }
+
+    void DisplayAmmoCount()
+    {
+        ammo_count_text.text = (loadout[currentIndex].magazine_size - rounds_fired + "/" + loadout[currentIndex].magazine_size + "\nAmmo Reserve - " + loadout[currentIndex].ammo_reserve).ToString();
     }
 
     IEnumerator MuzzleFlash(float seconds)
