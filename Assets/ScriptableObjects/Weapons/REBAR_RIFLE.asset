@@ -16,12 +16,12 @@ MonoBehaviour:
   gun_prefab: {fileID: 1078813186004044629, guid: bc08aed90291c2e4eb1df2554e00947f, type: 3}
   bullet: {fileID: 6034267567142888525, guid: bea3641ba1a95f5469280af1742ab773, type: 3}
   ads_speed: 2
-  bullet_speed: 100
-  fire_rate: 300
+  bullet_speed: 10
+  fire_rate: 400
   magazine_size: 25
-  ammo_reserve: 910
+  ammo_reserve: 347
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40
   recoilRotationReturn: 2
-  recoilRotation: {x: 10, y: 5, z: 7}
+  recoilRotation: {x: 3, y: 1, z: 3}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}

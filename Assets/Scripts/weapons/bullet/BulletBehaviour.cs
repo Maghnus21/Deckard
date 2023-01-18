@@ -10,12 +10,37 @@ public class BulletBehaviour : MonoBehaviour
 
     public bool debug_collision_cube = false;
 
+
+    RaycastHit hit;
+    float range = 100f;
+
     void Start()
     {
         Destroy(this.gameObject, 1f);
 
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+
+
+        if(Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<enemyHealth>())
+        {
+            hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
+
+            if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
+            {
+                hit.collider.GetComponentInParent<enemyHealth>().EnemyDeath();
+            }
+
+            if (gameObject.transform.position == hit.point)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+        
+
+
+
     }
 
     // Update is called once per frame
@@ -24,8 +49,11 @@ public class BulletBehaviour : MonoBehaviour
         
     }
 
+
+    
     private void OnCollisionEnter(Collision collision)
     {
+        /*
         // checks if game object has enemyhealth script and health is greater than 0, then will damage enemy
         if(collision.gameObject.GetComponentInParent<enemyHealth>() == true && collision.gameObject.GetComponentInParent<enemyHealth>().health > 0f)
         {
@@ -54,7 +82,9 @@ public class BulletBehaviour : MonoBehaviour
             
 
         }
+        */
 
         Destroy(gameObject, 0.01f);
     }
+    
 }

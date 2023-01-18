@@ -25,12 +25,6 @@ public class RebarBehaviour : MonoBehaviour
         {
             Debug.Log("HIT COLLIDER");
 
-            if (!is_parented)
-            {
-                gameObject.transform.parent = collision.transform;
-                is_parented = true;
-            }
-
             this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             this.gameObject.GetComponent<Collider>().enabled = false;
 
@@ -43,7 +37,7 @@ public class RebarBehaviour : MonoBehaviour
 
             if (!is_parented)
             {
-                gameObject.transform.parent = collision.transform;
+                gameObject.transform.SetParent(collision.transform, true);
                 is_parented = true;
             }
 
