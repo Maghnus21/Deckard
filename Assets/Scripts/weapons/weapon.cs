@@ -48,7 +48,8 @@ public class weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
         //  NEED TO IMPROVE SYSTEM TO ALLOW PLAYER TO PICK SLOT FOR ITEM
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -57,6 +58,10 @@ public class weapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Equip(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Equip(2);
         }
 
         // getMouseButton(1) means right mouse button, 0 is left

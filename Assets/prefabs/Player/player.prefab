@@ -531,7 +531,7 @@ MonoBehaviour:
   loadout:
   - {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
   - {fileID: 11400000, guid: ad296e8e1c0f53e4bb5daf988432f40d, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f6259357e84cea748a3fc44bfd2ecb19, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -541,6 +541,7 @@ MonoBehaviour:
   weaponPosition: {fileID: 7689683645737106716}
   weapon_fire_sound: {fileID: 0}
   weaponSource: {fileID: 7021936322731484276}
+  ammo_count_text: {fileID: 0}
   recoilPoint: {fileID: 0}
 --- !u!114 &5582451428387772256
 MonoBehaviour:

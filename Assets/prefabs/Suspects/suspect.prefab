@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8989768456536065914}
   m_Layer: 0
   m_Name: hand.L
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3886762569948120321}
   m_Layer: 0
   m_Name: hand.R
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 8100124752293900515}
   m_Layer: 0
   m_Name: upper_leg.L
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 815996663030929721}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 6184548298703968145}
   m_Layer: 0
   m_Name: lower_leg.L_end
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 1212118060629956122}
   m_Layer: 0
   m_Name: neck
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 4177484422207434541}
   m_Layer: 0
   m_Name: thorax
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 7411632822113221076}
   m_Layer: 0
   m_Name: hand.L_end
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 8100124752511397471}
   m_Layer: 0
   m_Name: upper_arm.R
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 5684088100826510219}
   m_Layer: 0
   m_Name: hand.R_end
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 8100124753308716390}
   m_Layer: 0
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 8100124753024533354}
   m_Layer: 0
   m_Name: chest
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 3833176515816591959}
   m_Layer: 0
   m_Name: lower_leg.R_end
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 2245394682988655925}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 8100124753068184687}
   m_Layer: 0
   m_Name: lower_arm.R
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 8100124751310653432}
   m_Layer: 0
   m_Name: lower_leg.R
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 8100124753241471871}
   m_Layer: 0
   m_Name: lower_leg.L
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,7 +1130,7 @@ GameObject:
   - component: {fileID: 8100124752410205379}
   m_Layer: 0
   m_Name: upper_leg.R
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,7 +1238,7 @@ GameObject:
   - component: {fileID: 4472349822958725851}
   m_Layer: 0
   m_Name: head_end
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 8100124751703825426}
   m_Layer: 0
   m_Name: lower_arm.L
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 8100124752511397464}
   m_Layer: 0
   m_Name: upper_arm.L
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,7 +1491,7 @@ GameObject:
   - component: {fileID: 4754003630429324027}
   m_Layer: 0
   m_Name: root
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,7 +1527,7 @@ GameObject:
   - component: {fileID: 8100124752212312063}
   m_Layer: 0
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: Suspect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1700,6 +1700,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     suspectInfo: {fileID: 0}
-  camera: {fileID: 0}
   kit: {fileID: 0}
   aggression: 0
+  max_button_presses: 3

@@ -30,8 +30,8 @@ public class initializeInterrogation : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                hit.collider.gameObject.GetComponent<SusDialogue>().enabled = true;
-                hit.collider.gameObject.GetComponent<SusDialogue>().kit.SetActive(true);
+                hit.collider.gameObject.GetComponentInParent<SusDialogue>().enabled = true;
+                hit.collider.gameObject.GetComponentInParent<SusDialogue>().kit.SetActive(true);
             }
             
         }

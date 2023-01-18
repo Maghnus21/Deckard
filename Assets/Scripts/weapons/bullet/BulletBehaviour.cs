@@ -27,13 +27,13 @@ public class BulletBehaviour : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // checks if game object has enemyhealth script and health is greater than 0, then will damage enemy
-        if(collision.gameObject.GetComponent<enemyHealth>() == true && collision.gameObject.GetComponent<enemyHealth>().health > 0f)
+        if(collision.gameObject.GetComponentInParent<enemyHealth>() == true && collision.gameObject.GetComponentInParent<enemyHealth>().health > 0f)
         {
-            collision.gameObject.GetComponent<enemyHealth>().health -= damage;
+            collision.gameObject.GetComponentInParent<enemyHealth>().health -= damage;
 
-            if(collision.gameObject.GetComponent<enemyHealth>().health <= 0f)
+            if(collision.gameObject.GetComponentInParent<enemyHealth>().health <= 0f)
             {
-                collision.gameObject.GetComponent<enemyHealth>().EnemyDeath();
+                collision.gameObject.GetComponentInParent<enemyHealth>().EnemyDeath();
             }
         }
 
