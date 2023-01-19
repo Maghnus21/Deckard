@@ -22,7 +22,7 @@ public class BulletBehaviour : MonoBehaviour
     RaycastHit hit;
     Ray ray;
     float range = 100f;
-    float hit_force = 1000f;
+    float hit_force = 100f;
 
     Collider[] colliders;
 
@@ -50,15 +50,8 @@ public class BulletBehaviour : MonoBehaviour
 
                     Instantiate(bulllet_impact, hit.point, Quaternion.identity);
 
-                    hit.collider.GetComponentInParent<enemyHealth>().EnemyDeathImpact(hit_force, hit.point);
+                    hit.collider.GetComponentInParent<EnemyManager>().enemyDie();
 
-                    /*
-                    foreach(Collider collider in colliders)
-                    {
-                        Rigidbody rb = collider.GetComponent<Rigidbody>();
-                        rb.AddForceAtPosition(transform.forward * hit_force, hit.point, ForceMode.Impulse);
-                    }
-                    */
                 }
 
             }
@@ -89,7 +82,7 @@ public class BulletBehaviour : MonoBehaviour
         
     }
 
-    
+
     private void OnCollisionEnter(Collision collision)
     {
         /*

@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    suspectInfo: {fileID: 0}
+    suspectInfo: {fileID: 11400000, guid: 5f8258b516c20cf4f81b0376118f62cf, type: 2}
   kit: {fileID: 0}
   aggression: 0
   max_button_presses: 3
