@@ -5,7 +5,8 @@ using UnityEngine;
 
 /// <summary>
 /// ISSUES:
-/// force not applied to rigidbody when shot. link to tutorial for possible help: https://www.youtube.com/watch?v=zjuI5Jdzjxo
+/// (SEMI_FIXED) force not applied to rigidbody when shot. link to tutorial for possible help: https://www.youtube.com/watch?v=zjuI5Jdzjxo
+/// force applied to rigidbody in objects but not on enemy ragdolls, go investigate
 /// </summary>
 
 
@@ -21,35 +22,63 @@ public class BulletBehaviour : MonoBehaviour
     RaycastHit hit;
     Ray ray;
     float range = 100f;
-    float hit_force = 100f;
+    float hit_force = 1000f;
+
+    Collider[] colliders;
 
     void Start()
     {
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, 3f);
+
 
 
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
 
-        if(Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<enemyHealth>())
+        if(Physics.Raycast(transform.position, transform.forward * range, out hit))
         {
-            hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
-
-            if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
+            if(hit.collider != null && hit.collider.CompareTag("Suspect"))
             {
-                hit.collider.GetComponentInParent<enemyHealth>().EnemyDeath();
-                hit.rigidbody.AddExplosionForce(hit_force, hit.point, .1f);
+                hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
+                Instantiate(bulllet_impact, hit.point, Quaternion.identity);
+
+
+                if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
+                {
+                    colliders = Physics.OverlapSphere(hit.point, 5f);
+
+                    Instantiate(bulllet_impact, hit.point, Quaternion.identity);
+
+                    hit.collider.GetComponentInParent<enemyHealth>().EnemyDeathImpact(hit_force, hit.point);
+
+                    /*
+                    foreach(Collider collider in colliders)
+                    {
+                        Rigidbody rb = collider.GetComponent<Rigidbody>();
+                        rb.AddForceAtPosition(transform.forward * hit_force, hit.point, ForceMode.Impulse);
+                    }
+                    */
+                }
+
             }
-
-            if (gameObject.transform.position == hit.point)
+            if(hit.collider != null)
             {
-                Destroy(this.gameObject);
+                Debug.Log("HIT OBJECT" + hit.collider.name);
+
+                if(hit.rigidbody != null && !hit.rigidbody.isKinematic)
+                {
+                    hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.Impulse);
+                }
+            }
+            else
+            {
+
             }
         }
 
         
-
+        
 
 
     }
@@ -59,7 +88,6 @@ public class BulletBehaviour : MonoBehaviour
     {
         
     }
-
 
     
     private void OnCollisionEnter(Collision collision)
@@ -95,7 +123,7 @@ public class BulletBehaviour : MonoBehaviour
         }
         */
 
-        Destroy(gameObject, 0.01f);
+        //Destroy(gameObject, 0.01f);
     }
     
 }

@@ -92,11 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3556691262703027994}
-  - component: {fileID: 3707707439176885513}
-  - component: {fileID: 5753742556775964938}
-  - component: {fileID: -7946376514556617523}
   m_Layer: 0
-  m_Name: rebar_bullet
+  m_Name: rebar_dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,53 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3707707439176885513
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034267567142888525}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!135 &5753742556775964938
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034267567142888525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.075
-  m_Center: {x: 0, y: 0, z: 0.5}
---- !u!114 &-7946376514556617523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034267567142888525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202f0b283580db448990b008f51d0107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj_layer:
-    serializedVersion: 2
-    m_Bits: 1
-  bar: {fileID: 8698551727478169068}
-  damage: 45
-  dummy_rebar: {fileID: 6034267567142888525, guid: 379a469526ca07848a3b7c959fc49db5, type: 3}
 --- !u!1 &8698551727478169068
 GameObject:
   m_ObjectHideFlags: 0

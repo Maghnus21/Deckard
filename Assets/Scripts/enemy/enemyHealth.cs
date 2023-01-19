@@ -5,7 +5,6 @@ using UnityEngine;
 public class enemyHealth : MonoBehaviour
 {
     public Enemy enemy_type;
-    Collider collider;
 
     Rigidbody[] ragdollRigidbodies;
 
@@ -17,7 +16,7 @@ public class enemyHealth : MonoBehaviour
     {
         EnemyAlive();
 
-        collider = GetComponent<Collider>();
+        
         health = enemy_type.health;
     }
 
@@ -44,9 +43,18 @@ public class enemyHealth : MonoBehaviour
             rb.isKinematic = false;
         }
 
-        collider.enabled = false;
-
         this.gameObject.GetComponent<EnemyNavigation>().enabled = false;
+    }
+
+    //  new code
+    public void EnemyDeathImpact(float impact_force, Vector3 pos)
+    {
+        EnemyDeath();
+
+        foreach(Rigidbody rb in ragdollRigidbodies)
+        {
+            rb.AddExplosionForce(impact_force, pos, .1f, .1f, ForceMode.Impulse);
+        }
     }
 
     //  function to fill out rigidbodies array. to be called on awake
@@ -61,6 +69,7 @@ public class enemyHealth : MonoBehaviour
             rb.isKinematic = true;
         }
     }
+
 
     
 }

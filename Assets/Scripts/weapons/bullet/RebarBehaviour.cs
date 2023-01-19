@@ -12,6 +12,9 @@ public class RebarBehaviour : MonoBehaviour
     //  ensures object only parents once with hit object and not upon collision with passing objects
     bool is_parented = false;
 
+    public GameObject dummy_rebar;
+    GameObject embed_rebar;
+
     RaycastHit hit;
     float range = 100f;
 
@@ -22,7 +25,10 @@ public class RebarBehaviour : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         if (Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<enemyHealth>())
         {
-            //Instantiate(this.gameObject, hit.transform, true);
+           
+            embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
+            embed_rebar.transform.SetParent(hit.transform, true);
+            
 
 
             hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
@@ -39,6 +45,7 @@ public class RebarBehaviour : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -70,14 +77,15 @@ public class RebarBehaviour : MonoBehaviour
                 //collision.gameObject.GetComponentInParent<enemyHealth>().health -= damage;
             }
 
-            /*
+            
             if(collision.gameObject.GetComponentInParent<enemyHealth>().health <= 0)
             {
                 collision.gameObject.GetComponentInParent<enemyHealth>().EnemyDeath();
             }
-            */
+            
 
         }
-    }
+    } */
+
 
 }

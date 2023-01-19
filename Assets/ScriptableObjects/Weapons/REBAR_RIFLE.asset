@@ -16,7 +16,7 @@ MonoBehaviour:
   gun_prefab: {fileID: 1078813186004044629, guid: bc08aed90291c2e4eb1df2554e00947f, type: 3}
   bullet: {fileID: 6034267567142888525, guid: bea3641ba1a95f5469280af1742ab773, type: 3}
   ads_speed: 2
-  bullet_speed: 10
+  bullet_speed: 100
   fire_rate: 400
   magazine_size: 25
   ammo_reserve: 347
