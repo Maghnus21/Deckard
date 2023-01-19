@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class RebarBehaviour : MonoBehaviour
@@ -11,10 +12,31 @@ public class RebarBehaviour : MonoBehaviour
     //  ensures object only parents once with hit object and not upon collision with passing objects
     bool is_parented = false;
 
+    RaycastHit hit;
+    float range = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        if (Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<enemyHealth>())
+        {
+            //Instantiate(this.gameObject, hit.transform, true);
+
+
+            hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
+
+            if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
+            {
+                hit.collider.GetComponentInParent<enemyHealth>().EnemyDeath();
+            }
+
+            if (gameObject.transform.position == hit.point)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,13 +67,15 @@ public class RebarBehaviour : MonoBehaviour
 
             if(collision.gameObject.GetComponentInParent<enemyHealth>().health > 0)
             {
-                collision.gameObject.GetComponentInParent<enemyHealth>().health -= damage;
+                //collision.gameObject.GetComponentInParent<enemyHealth>().health -= damage;
             }
 
+            /*
             if(collision.gameObject.GetComponentInParent<enemyHealth>().health <= 0)
             {
                 collision.gameObject.GetComponentInParent<enemyHealth>().EnemyDeath();
             }
+            */
 
         }
     }

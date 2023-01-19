@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
+/// <summary>
+/// ISSUES:
+/// force not applied to rigidbody when shot. link to tutorial for possible help: https://www.youtube.com/watch?v=zjuI5Jdzjxo
+/// </summary>
+
+
+
 public class BulletBehaviour : MonoBehaviour
 {
     public GameObject bulllet_impact;
@@ -12,11 +19,14 @@ public class BulletBehaviour : MonoBehaviour
 
 
     RaycastHit hit;
+    Ray ray;
     float range = 100f;
+    float hit_force = 100f;
 
     void Start()
     {
         Destroy(this.gameObject, 1f);
+
 
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
@@ -29,6 +39,7 @@ public class BulletBehaviour : MonoBehaviour
             if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
             {
                 hit.collider.GetComponentInParent<enemyHealth>().EnemyDeath();
+                hit.rigidbody.AddExplosionForce(hit_force, hit.point, .1f);
             }
 
             if (gameObject.transform.position == hit.point)
