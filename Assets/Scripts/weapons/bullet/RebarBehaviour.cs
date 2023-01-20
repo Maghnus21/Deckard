@@ -35,7 +35,7 @@ public class RebarBehaviour : MonoBehaviour
 
             if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
             {
-                hit.collider.GetComponentInParent<enemyHealth>().EnemyDeath();
+                hit.collider.GetComponentInParent<EnemyController>().enemyDie();
             }
 
             if (gameObject.transform.position == hit.point)

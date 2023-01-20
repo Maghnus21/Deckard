@@ -22,7 +22,7 @@ public class BulletBehaviour : MonoBehaviour
     RaycastHit hit;
     Ray ray;
     float range = 100f;
-    float hit_force = 100f;
+    float hit_force = 5f;
 
     Collider[] colliders;
 
@@ -50,12 +50,15 @@ public class BulletBehaviour : MonoBehaviour
 
                     Instantiate(bulllet_impact, hit.point, Quaternion.identity);
 
-                    hit.collider.GetComponentInParent<EnemyManager>().enemyDie();
+                    hit.collider.GetComponentInParent<EnemyController>().enemyDie();
 
                 }
 
             }
-            if(hit.collider != null)
+
+            //  applies force to object including enemies. commented out until better combat system devised
+            /*
+            if(hit.collider != null && !hit.collider.CompareTag("Suspect"))
             {
                 Debug.Log("HIT OBJECT" + hit.collider.name);
 
@@ -64,6 +67,7 @@ public class BulletBehaviour : MonoBehaviour
                     hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.Impulse);
                 }
             }
+            */
             else
             {
 

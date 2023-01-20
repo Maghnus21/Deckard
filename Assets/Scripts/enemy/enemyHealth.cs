@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemyHealth : MonoBehaviour
 {
     public Enemy enemy_type;
+    
 
     Rigidbody[] ragdollRigidbodies;
 
@@ -14,7 +15,7 @@ public class enemyHealth : MonoBehaviour
 
     void Awake()
     {
-        EnemyAlive();
+        //EnemyAlive();
 
         
         health = enemy_type.health;
@@ -32,6 +33,7 @@ public class enemyHealth : MonoBehaviour
         
     }
 
+    /*
 
     //  function to be called to initiate enemy death. sets rigidbodies to disable kinematics and enemy ragdolls
     public void EnemyDeath()
@@ -70,6 +72,6 @@ public class enemyHealth : MonoBehaviour
         }
     }
 
-
+    */
     
 }
