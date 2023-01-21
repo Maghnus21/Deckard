@@ -9,6 +9,7 @@ TagManager:
   - Suspect
   - Pickup
   - Bullet
+  - NPC
   layers:
   - Default
   - TransparentFX

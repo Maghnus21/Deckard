@@ -129,10 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulllet_impact: {fileID: 4484868300359147474, guid: 79eacb08f8736f641a7d7200dd0bcdee, type: 3}
-  damage: 55
+  damage: 20
   debug_collision_cube: 0
-  thorax: {fileID: 8982435341596578589, guid: 7cffc4976050e204cb80a77e4fb8813f, type: 3}
-  rb: {fileID: 0}
 --- !u!96 &277580712860775734
 TrailRenderer:
   serializedVersion: 2

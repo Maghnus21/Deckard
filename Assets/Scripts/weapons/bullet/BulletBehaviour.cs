@@ -14,7 +14,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     public GameObject bulllet_impact;
-    public float damage = 60f;
+    public float damage = 20f;
 
     public bool debug_collision_cube = false;
 
@@ -22,9 +22,6 @@ public class BulletBehaviour : MonoBehaviour
     RaycastHit hit;
     Ray ray;
     float range = 100f;
-    float hit_force = 5f;
-
-    Collider[] colliders;
 
     void Start()
     {
@@ -38,36 +35,13 @@ public class BulletBehaviour : MonoBehaviour
 
         if(Physics.Raycast(transform.position, transform.forward * range, out hit))
         {
-            if(hit.collider != null && hit.collider.CompareTag("Suspect"))
+            if(hit.collider != null && hit.collider.CompareTag("Suspect") || hit.collider.CompareTag("NPC"))
             {
-                hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
+                hit.collider.GetComponentInParent<Health>().health -= damage;
                 Instantiate(bulllet_impact, hit.point, Quaternion.identity);
 
-
-                if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
-                {
-                    colliders = Physics.OverlapSphere(hit.point, 5f);
-
-                    Instantiate(bulllet_impact, hit.point, Quaternion.identity);
-
-                    hit.collider.GetComponentInParent<EnemyController>().enemyDie();
-
-                }
-
+                hit.collider.GetComponentInParent<EntityHitbox>().OnRaycastHit(damage, hit.point);
             }
-
-            //  applies force to object including enemies. commented out until better combat system devised
-            /*
-            if(hit.collider != null && !hit.collider.CompareTag("Suspect"))
-            {
-                Debug.Log("HIT OBJECT" + hit.collider.name);
-
-                if(hit.rigidbody != null && !hit.rigidbody.isKinematic)
-                {
-                    hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.Impulse);
-                }
-            }
-            */
             else
             {
 
@@ -87,40 +61,5 @@ public class BulletBehaviour : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        /*
-        // checks if game object has enemyhealth script and health is greater than 0, then will damage enemy
-        if(collision.gameObject.GetComponentInParent<enemyHealth>() == true && collision.gameObject.GetComponentInParent<enemyHealth>().health > 0f)
-        {
-            collision.gameObject.GetComponentInParent<enemyHealth>().health -= damage;
-
-            if(collision.gameObject.GetComponentInParent<enemyHealth>().health <= 0f)
-            {
-                collision.gameObject.GetComponentInParent<enemyHealth>().EnemyDeath();
-            }
-        }
-
-        else if(collision.gameObject.GetComponent<healthObject>() == true && collision.gameObject.GetComponent<healthObject>().health > 0f)
-        {
-            collision.gameObject.GetComponent<healthObject>().health -= damage;
-
-            if (collision.gameObject.GetComponent<healthObject>().health <= 0f)
-            {
-                Destroy(collision.gameObject);
-                
-            }
-        }
-
-        if (debug_collision_cube)
-        {
-            Instantiate(bulllet_impact, transform.position, transform.rotation = Quaternion.Euler(Vector3.zero));
-            
-
-        }
-        */
-
-        //Destroy(gameObject, 0.01f);
-    }
     
 }

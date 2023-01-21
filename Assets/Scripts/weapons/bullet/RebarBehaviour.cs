@@ -23,7 +23,7 @@ public class RebarBehaviour : MonoBehaviour
     {
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-        if (Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<enemyHealth>())
+        if (Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<Health>())
         {
            
             embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
@@ -31,11 +31,11 @@ public class RebarBehaviour : MonoBehaviour
             
 
 
-            hit.collider.GetComponentInParent<enemyHealth>().health -= damage;
+            hit.collider.GetComponentInParent<Health>().health -= damage;
 
-            if (hit.collider.GetComponentInParent<enemyHealth>().health <= 0)
+            if (hit.collider.GetComponentInParent<Health>().health <= 0)
             {
-                hit.collider.GetComponentInParent<EnemyController>().enemyDie();
+                hit.collider.GetComponentInParent<Ragdoll>().ActivateRagdoll();
             }
 
             if (gameObject.transform.position == hit.point)
