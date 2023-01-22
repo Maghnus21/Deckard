@@ -6,8 +6,12 @@ public class EntityHitbox : MonoBehaviour
 {
     public Health health;
 
-    public void OnRaycastHit(float damage, Vector3 impact_direction)
+    //  To be used for critical spot/head bones for applying multiplicative damage 
+    //  Currently works, need to update Health.cs to not add this script to existing bone game object containing this script
+    public float damage_multi = 1f;
+
+    public void OnRaycastHit(float damage, Vector3 impact_direction, Rigidbody hit_rb)
     {
-        health.ReceiveDamage(damage, impact_direction);
+        health.ReceiveDamage(damage * damage_multi, impact_direction, hit_rb);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RebarBehaviour : MonoBehaviour
@@ -15,77 +16,45 @@ public class RebarBehaviour : MonoBehaviour
     public GameObject dummy_rebar;
     GameObject embed_rebar;
 
+    Ray ray;
     RaycastHit hit;
-    float range = 100f;
+    float range = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-        if (Physics.Raycast(transform.position, transform.forward * range, out hit) && hit.collider.GetComponentInParent<Health>())
+
+        ray = new Ray(transform.position, transform.forward * range);
+
+        if (Physics.Raycast(ray, out hit))
         {
-           
-            embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
-            embed_rebar.transform.SetParent(hit.transform, true);
+            //  conditional statement for when rebar hits wall, crate, etc
+            if (!hit.collider.CompareTag("Suspect"))
+            {
+                embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
+                embed_rebar.transform.SetParent(hit.transform, true);
+                embed_rebar.GetComponentInChildren<Collider>().enabled = true;
+
+                Destroy(this.gameObject, .1f);
+            }
+
+            //  conditional statement for when rebar strikes enemy containing a skeleton and ragdoll
+            else
+            {
+                embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
+                embed_rebar.transform.SetParent(hit.transform, true);
+
+                hit.collider.GetComponentInParent<Health>().impact_force = 70f;
+                hit.collider.GetComponentInParent<Health>().death_force_mode = false;
+                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
+                
+
+                Destroy(this.gameObject, .1f);
+            }
+
             
-
-
-            hit.collider.GetComponentInParent<Health>().health -= damage;
-
-            if (hit.collider.GetComponentInParent<Health>().health <= 0)
-            {
-                hit.collider.GetComponentInParent<Ragdoll>().ActivateRagdoll();
-            }
-
-            if (gameObject.transform.position == hit.point)
-            {
-                Destroy(this.gameObject);
-            }
         }
     }
-
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-
-        if (collision.gameObject.GetComponent<Collider>() == true)
-        {
-            Debug.Log("HIT COLLIDER");
-
-            this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            this.gameObject.GetComponent<Collider>().enabled = false;
-
-            bar.GetComponent<CapsuleCollider>().enabled = true;
-        }
-
-        if (collision.gameObject.GetComponent<Collider>() == true && collision.gameObject.GetComponentInParent<enemyHealth>())
-        {
-            Debug.Log("HIT COLLIDER");
-
-            if (!is_parented)
-            {
-                gameObject.transform.SetParent(collision.transform, true);
-                is_parented = true;
-            }
-
-            this.gameObject.GetComponent<Collider>().enabled = false;
-
-            if(collision.gameObject.GetComponentInParent<enemyHealth>().health > 0)
-            {
-                //collision.gameObject.GetComponentInParent<enemyHealth>().health -= damage;
-            }
-
-            
-            if(collision.gameObject.GetComponentInParent<enemyHealth>().health <= 0)
-            {
-                collision.gameObject.GetComponentInParent<enemyHealth>().EnemyDeath();
-            }
-            
-
-        }
-    } */
-
-
 }

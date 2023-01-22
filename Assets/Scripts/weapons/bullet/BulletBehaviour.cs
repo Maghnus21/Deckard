@@ -21,7 +21,7 @@ public class BulletBehaviour : MonoBehaviour
 
     RaycastHit hit;
     Ray ray;
-    float range = 100f;
+    float range = 1f;
 
     void Start()
     {
@@ -32,15 +32,16 @@ public class BulletBehaviour : MonoBehaviour
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
+        ray = new Ray(transform.position, transform.forward * range);
 
-        if(Physics.Raycast(transform.position, transform.forward * range, out hit))
+
+        if(Physics.Raycast(ray, out hit))
         {
             if(hit.collider != null && hit.collider.CompareTag("Suspect") || hit.collider.CompareTag("NPC"))
             {
-                hit.collider.GetComponentInParent<Health>().health -= damage;
                 Instantiate(bulllet_impact, hit.point, Quaternion.identity);
 
-                hit.collider.GetComponentInParent<EntityHitbox>().OnRaycastHit(damage, hit.point);
+                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
             }
             else
             {

@@ -40,8 +40,21 @@ public class Ragdoll : MonoBehaviour
         }
     }
 
-    public void ApplyForce(Vector3 force)
+    /// <summary>
+    /// Applies force to ragdoll rigidbody gameObject from incoming direction
+    /// </summary>
+    /// <param name="force"></param>
+    /// <param name="force_mode_type">assign as true to include gameObject mass into physics, assign as false to ignore gameObject mass</param>
+    public void ApplyForce(Vector3 force, bool force_mode_type)
     {
-        impact_body_part.AddForce(force, ForceMode.VelocityChange);
+        if (force_mode_type)
+        {
+            impact_body_part.AddForce(force, ForceMode.Impulse);
+        }
+        if (!force_mode_type)
+        {
+            impact_body_part.AddForce(force, ForceMode.VelocityChange);
+        }
+        
     }
 }
