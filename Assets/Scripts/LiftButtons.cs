@@ -6,7 +6,7 @@ public class LiftButtons : MonoBehaviour
 {
     public GameObject lift;
     public Vector3 lift_w_position;
-    public float time = 5f;
+    public float speed = 0.1f;
 
     private Coroutine lift_animation;
 
@@ -19,23 +19,25 @@ public class LiftButtons : MonoBehaviour
 
     public void LiftMovement()
     {
-        if (!reached_des)
-        {
-            //lift_animation = StartCoroutine(liftMove(time));
-        }
+        
+        lift_animation = StartCoroutine(liftMove(lift_w_position, speed));
+        
     }
 
-    private IEnumerable liftMove(float time_to_take)
+    private IEnumerator liftMove(Vector3 target_pos, float speed)
     {
-        reached_des = true;
+        reached_des = false;
+
+        Vector3 start_pos = lift.transform.position;
 
         float time = 0f;
-        while(time < time_to_take)
+        while(time < speed)
         {
-            lift.transform.position = Vector3.Lerp(lift.transform.position, lift_w_position, time);
+            lift.transform.position = Vector3.Lerp(start_pos, target_pos, time / speed);
+            time += Time.deltaTime;
             yield return null;
-            time += Time.deltaTime * time_to_take;
         }
+        lift.transform.position = target_pos;
     }
 
 }
