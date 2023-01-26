@@ -39,14 +39,18 @@ public class BulletBehaviour : MonoBehaviour
         {
             if(hit.collider != null && hit.collider.CompareTag("Suspect") || hit.collider.CompareTag("NPC"))
             {
-                Instantiate(bulllet_impact, hit.point, Quaternion.identity);
-
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
+
+                
             }
             else
             {
-
+                Destroy(gameObject, 0.1f);
             }
+
+
+
+            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
         }
 
         

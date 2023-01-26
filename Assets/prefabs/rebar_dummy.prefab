@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3556691262703027994}
   m_Layer: 0
   m_Name: rebar_dummy
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
