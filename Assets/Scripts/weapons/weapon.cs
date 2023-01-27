@@ -22,6 +22,8 @@ public class weapon : MonoBehaviour
     Vector3 rotationalRecoil;
     Vector3 Rot;
 
+    public Transform main_camera;
+
     // gun fire rate variables
     float fireRate;
     float nextRound;
@@ -108,7 +110,6 @@ public class weapon : MonoBehaviour
 
             Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
             recoilPoint.localRotation = Quaternion.Euler(Rot);
-
         }
 
         if(currentWeapon != null && Input.GetKeyDown(KeyCode.Tab))
@@ -193,7 +194,6 @@ public class weapon : MonoBehaviour
     {
         Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
         rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
-        
     }
 
     void UpdateAmmoCount()

@@ -71,8 +71,20 @@ public class Health : MonoBehaviour
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in rigidbodies)
         {
-            EntityHitbox entity_hitbox = rb.gameObject.AddComponent<EntityHitbox>();
-            entity_hitbox.health = this;                                                //  health values for entity_hitbox equal to health value of Health.cs
+            EntityHitbox entity_hitbox;
+
+
+            //  split into if statemment to prevent adding second hitbox to enemy rigidbody if previously added for weak-points
+            if (!rb.GetComponent<EntityHitbox>())
+            {
+                entity_hitbox = rb.gameObject.AddComponent<EntityHitbox>();
+                entity_hitbox.health = this;                                                //  health values for entity_hitbox equal to health value of Health.cs
+            }
+            else
+            {
+                rb.GetComponent<EntityHitbox>().health = this;
+            }
         }
+            
     }
 }
