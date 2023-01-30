@@ -67,7 +67,7 @@ public class playerPickup : MonoBehaviour
     void PickUpObject()
     {
         //  bitshifting playermask lets raycast pass through player collider and pick up objects within clamp range
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range, 1 << playerMask) && hit.collider.CompareTag("Pickup"))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range, 1 << playerMask) && hit.collider.CompareTag("Pickup") || hit.collider.CompareTag("Suspect"))
         {
             if (hit.collider.GetComponent<Rigidbody>().isKinematic == false)
             {
