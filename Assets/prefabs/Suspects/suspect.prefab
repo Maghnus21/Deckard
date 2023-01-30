@@ -757,7 +757,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -8545447256379345787, guid: 07f498b6e2d2056419499be227920c5f, type: 3}
   m_Bones:
@@ -1525,6 +1525,7 @@ GameObject:
   - component: {fileID: 8100124752212312062}
   - component: {fileID: 8100124752212312057}
   - component: {fileID: 8100124752212312063}
+  - component: {fileID: 5491231422509515413}
   m_Layer: 0
   m_Name: head
   m_TagString: Suspect
@@ -1623,6 +1624,20 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5491231422509515413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945191196318045361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d660b41ee105280429413ab992ec3778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  damage_multi: 2
 --- !u!1 &8982435341596578589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1687,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_type: {fileID: 11400000, guid: a366ecc8e2a32cd4aabb6fda330e862b, type: 2}
+  impact_force: 20
   health: 0
+  death_force_mode: 1
 --- !u!114 &8100124752511397449
 MonoBehaviour:
   m_ObjectHideFlags: 0

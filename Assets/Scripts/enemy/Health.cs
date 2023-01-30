@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
     public Enemy enemy_type;                    //  contains data etc health
     Ragdoll ragdoll;                            //  controlls ragdoll effects for entity
+    Rigidbody[] rigidbodies;
 
     public float impact_force = 20f;            //  force applied to entity when hit with killing bullet
 
@@ -64,11 +65,16 @@ public class Health : MonoBehaviour
         impact_direction.y = 1f;
         ragdoll.impact_body_part = hit_rb;
         ragdoll.ApplyForce(impact_direction * impact_force, death_force_mode);
+
+        foreach(Rigidbody rb in rigidbodies)
+        {
+            rb.tag = "EntityDead";
+        }
     }
 
     void CreateEntityRagdoll()
     {
-        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        rigidbodies = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in rigidbodies)
         {
             EntityHitbox entity_hitbox;
