@@ -19,6 +19,8 @@ public class doorLogic : MonoBehaviour
 {
     public bool IsOpen = false;
     [SerializeField]
+    public bool is_locked = false;
+    [SerializeField]
     private bool IsRotatingDoor = true;
     [SerializeField]
     private float Speed = 1f;
@@ -32,6 +34,12 @@ public class doorLogic : MonoBehaviour
     private Vector3 SlideDirection = Vector3.back;
     [SerializeField]
     private float SlideAmount = 1.9f;
+
+    public AudioSource door_audio;
+    public AudioClip open_close_sound;
+    public AudioClip open_close_slide_sound;
+    public AudioClip locked_sound;
+
 
     private Vector3 StartRotation;
     private Vector3 StartPosition;
@@ -49,7 +57,7 @@ public class doorLogic : MonoBehaviour
 
     public void Open(Vector3 UserPosition)
     {
-        if (!IsOpen)
+        if (!IsOpen && !is_locked)
         {
             if (AnimationCoroutine != null)
             {
@@ -60,12 +68,24 @@ public class doorLogic : MonoBehaviour
             {
                 float dot = Vector3.Dot(transform.forward, (UserPosition - transform.position).normalized);
                 Debug.Log($"Dot: {dot.ToString("N3")}");
+                door_audio.clip = open_close_sound;
+                door_audio.Play();
+
                 AnimationCoroutine = StartCoroutine(DoRotationOpen(dot));
             }
             else
             {
+                door_audio.clip = open_close_slide_sound;
+                door_audio.Play();
+
                 AnimationCoroutine = StartCoroutine(DoSlidingOpen());
             }
+        }
+
+        if (is_locked)
+        {
+            door_audio.clip = locked_sound;
+            door_audio.Play();
         }
     }
 
@@ -159,5 +179,7 @@ public class doorLogic : MonoBehaviour
             yield return null;
             time += Time.deltaTime * Speed;
         }
+
+        door_audio.Stop();
     }
 }

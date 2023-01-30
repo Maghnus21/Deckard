@@ -249,12 +249,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsOpen: 0
+  is_locked: 0
   IsRotatingDoor: 1
   Speed: 4
   RotationAmount: 90
   ForwardDirection: 0
   SlideDirection: {x: 0, y: 0, z: -1}
   SlideAmount: 1.9
+  door_audio: {fileID: 7829450419290829109}
+  open_close_sound: {fileID: 8300000, guid: d54eb8225ed2ae4429271d7504881471, type: 3}
+  open_close_slide_sound: {fileID: 8300000, guid: e3daa7815202a344e9198c5468d05fbd, type: 3}
+  locked_sound: {fileID: 8300000, guid: cfd3e48cf33d7e044ad9a2a9f2860911, type: 3}
 --- !u!4 &7722955180882722522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9299358b7f2f8b74d9808f8ae3590938, type: 3}
