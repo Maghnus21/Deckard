@@ -110,6 +110,8 @@ public class weapon : MonoBehaviour
 
             Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
             recoilPoint.localRotation = Quaternion.Euler(Rot);
+
+            //main_camera.localRotation = Quaternion.Euler(Rot / 2);
         }
 
         if(currentWeapon != null && Input.GetKeyDown(KeyCode.Tab))
