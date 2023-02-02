@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25608875457647243a4cf30b4e5bfe88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 5
-  smoothness: 2
+  intensity: 7
+  smoothness: 1
 --- !u!1 &2807524678363257227
 GameObject:
   m_ObjectHideFlags: 0
