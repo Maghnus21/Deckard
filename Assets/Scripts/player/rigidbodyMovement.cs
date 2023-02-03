@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 /// <summary>
 /// If wanting to add player ragdoll death, need to make seperate body with ragdoll, destroy player body and instantiate ragdoll clone on death
@@ -80,7 +81,11 @@ public class rigidbodyMovement : MonoBehaviour
                 Vector3 climb = new Vector3(transform.position.x, transform.position.y + .1f / camera_multi, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, climb, 1f);
             }
-
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                player_body.AddForce(Camera.main.transform.forward * jump, ForceMode.Impulse);
+            }
+            
         }
         
 
