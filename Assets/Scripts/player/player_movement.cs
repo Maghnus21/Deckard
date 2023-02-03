@@ -29,8 +29,9 @@ public class player_movement : MonoBehaviour
     // boolean for surface-level debugging in editor, does not effect player
     bool is_grounded_check;
 
-
+    
     bool is_crouching = false;
+    bool is_climbing = false;
 
 
     public LayerMask playerLayer;
@@ -45,17 +46,6 @@ public class player_movement : MonoBehaviour
         // gets character controller component automatically
         controller = GetComponent<CharacterController>();
 
-
-        // UPDATE LAYERMASK INTERGER WHEN FINAL LAYERS ARE DECIDED. BITSHIFT NECESSARY HEX CODE
-
-        // as interger stores 32 bits (4 bytes), assigning "player" layermask gives us:
-        // 00000000000000000000000000010000
-        // by adding '~' bitwise operator, interger is inverted to:
-        // 11111111111111111111111111101111
-        // checkSphere now tricked into ignoring layer "player" and now returns true upon contact
-        // with every other layer
-
-        //layerMask =~ LayerMask.GetMask("PlayerBody");
     }
 
     // Update is called once per frame

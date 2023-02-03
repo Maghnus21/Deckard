@@ -23,6 +23,7 @@ public class rigidbodyMovement : MonoBehaviour
     public float jump;
 
     bool is_crouching = false;
+    public bool is_climbing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +58,31 @@ public class rigidbodyMovement : MonoBehaviour
         }
 
 
+        //  climbing works but issue arrives when user enters another ladder. is_climbing returns to false and prevents climbing the second ladder
+        if (!is_climbing)
+        {
+            player_body.useGravity = true;
+            player_body.velocity = new Vector3(move_vec.x, player_body.velocity.y, move_vec.z);
+        }
+        else
+        {
+            float camera_multi = 1 / Camera.main.transform.localRotation.x;
 
-        player_body.velocity = new Vector3(move_vec.x, player_body.velocity.y, move_vec.z);
+
+            player_body.useGravity = false;
+            if (Input.GetKey(KeyCode.W))
+            {
+                Vector3 climb = new Vector3(transform.position.x, transform.position.y - .1f / camera_multi, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, climb, 1f);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                Vector3 climb = new Vector3(transform.position.x, transform.position.y + .1f / camera_multi, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, climb, 1f);
+            }
+
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
