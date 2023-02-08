@@ -8,6 +8,7 @@ public class liftPlayerParent : MonoBehaviour
     public GameObject lift;
     GameObject player;
 
+    //  When player enters lift, player gameobject parented to lift gameobject. this ensures that the player is moving with the lift and reducing issues with physics
     private void OnTriggerEnter(Collider other)
     {
 
@@ -19,6 +20,7 @@ public class liftPlayerParent : MonoBehaviour
         }
     }
 
+    //  unparents player and clears player gameobject
     private void OnTriggerExit(Collider other)
     {
         player.transform.SetParent(null);
