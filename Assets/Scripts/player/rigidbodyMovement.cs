@@ -67,9 +67,10 @@ public class rigidbodyMovement : MonoBehaviour
         }
         else
         {
+            //  equates to precentile value of 0 - 100 % depending on the rotation of the main camera's x axis rotation, 0 - 90 degrees.
             float camera_multi = 1 / Camera.main.transform.localRotation.x;
 
-
+            //  making player camera rotation tied to ladder movement allows for player to look in direction they want to travel 
             player_body.useGravity = false;
             if (Input.GetKey(KeyCode.W))
             {
