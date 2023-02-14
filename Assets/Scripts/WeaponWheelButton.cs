@@ -14,6 +14,9 @@ public class WeaponWheelButton : MonoBehaviour
     private ColorBlock cb;
     private Color normal_colour;
 
+    public int stack_location;
+    public weapon weapon_script;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,7 @@ public class WeaponWheelButton : MonoBehaviour
         cb = GetComponent<Button>().colors;
         normal_colour = cb.normalColor;
 
-        button_image.sprite = demo.button_image;
+        
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class WeaponWheelButton : MonoBehaviour
         if (selected)
         {
             Debug.Log("Selected button");
+            selected = !selected;
         }
     }
 
@@ -39,6 +43,9 @@ public class WeaponWheelButton : MonoBehaviour
         selected = true;
         player.GetComponent<AudioSource>().clip = demo.clip;
         player.GetComponent<AudioSource>().Play();
+
+        weapon_script = player.GetComponent<weapon>();
+        weapon_script.Equip(stack_location);
     }
 
     public void Deselected()

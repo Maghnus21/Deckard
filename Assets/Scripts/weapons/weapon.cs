@@ -24,6 +24,7 @@ public class weapon : MonoBehaviour
     Vector3 Rot;
 
     public Transform main_camera;
+    public Transform player_chest;
 
     // gun fire rate variables
     float fireRate;
@@ -112,17 +113,18 @@ public class weapon : MonoBehaviour
             Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
             recoilPoint.localRotation = Quaternion.Euler(Rot);
 
-            //main_camera.localRotation = Quaternion.Euler(Rot / 2);
+            main_camera.localRotation = Quaternion.Euler(Rot / 2);
+            player_chest.localRotation = Quaternion.Euler(Rot / 2);
         }
 
-        if(currentWeapon != null && Input.GetKeyDown(KeyCode.Tab))
+        if(currentWeapon != null && Input.GetKeyDown(KeyCode.B))
         {
             Destroy(currentWeapon);
             currentWeapon = null;
         }
     }
 
-    void Equip(int p_int)
+    public void Equip(int p_int)
     {
         if (currentWeapon != null) Destroy(currentWeapon);
 
