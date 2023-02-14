@@ -11,6 +11,8 @@ public class WeaponWheel : MonoBehaviour
     void Start()
     {
         weapon_wheel.enabled = false;
+
+        
     }
 
     // Update is called once per frame
@@ -19,10 +21,12 @@ public class WeaponWheel : MonoBehaviour
         if (Input.GetKey(KeyCode.Tab))
         {
             weapon_wheel.enabled = true;
+            gameObject.GetComponentInChildren<player_look>().enabled = false;
         }
         else
         {
             weapon_wheel.enabled = false;
+            gameObject.GetComponentInChildren<player_look>().enabled = true;
         }
     }
 }

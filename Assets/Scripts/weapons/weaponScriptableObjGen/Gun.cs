@@ -44,4 +44,7 @@ public class Gun : ScriptableObject
     public Vector3 recoilRotation = new Vector3(10f, 5f, 7f);
 
     public AudioClip gun_fire;
+
+    //  used for ui elements, eg weapon wheel
+    public Sprite gun_sprite;
 }

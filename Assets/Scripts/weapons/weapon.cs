@@ -9,6 +9,7 @@ using UnityEngine.VFX;
 public class weapon : MonoBehaviour
 {
     public Gun[] loadout = new Gun[9];
+    public Gun equipted_gun = null;
     public Transform weaponPosition;
     public AudioClip weapon_fire_sound;
     public AudioSource weaponSource;
@@ -134,8 +135,9 @@ public class weapon : MonoBehaviour
         currentWeapon = t_newWeapon;
 
         
-            weapon_fire_sound = loadout[currentIndex].gun_fire;
-            weaponSource.clip = weapon_fire_sound;
+        weapon_fire_sound = loadout[currentIndex].gun_fire;
+        weaponSource.clip = weapon_fire_sound;
+        equipted_gun = loadout[currentIndex];
         
     }
 

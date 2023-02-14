@@ -37,8 +37,6 @@ public class LiftControlls : MonoBehaviour
 
                 lift_buttons.LiftMovement();
             }
-            
-            
         }
     }
 }
