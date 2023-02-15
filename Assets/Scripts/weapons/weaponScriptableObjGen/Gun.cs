@@ -11,6 +11,8 @@ public class Gun : ScriptableObject
     //  name of gun
     public string name;
 
+    public string description;
+
     //  reference to gun prefab
     public GameObject gun_prefab;
 

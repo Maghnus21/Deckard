@@ -111,12 +111,24 @@ public class weapon : MonoBehaviour
             rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, loadout[currentIndex].recoilRotationReturn * Time.deltaTime);
 
             Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
-            recoilPoint.localRotation = Quaternion.Euler(Rot);
 
-            main_camera.localRotation = Quaternion.Euler(Rot / 2);
-            player_chest.localRotation = Quaternion.Euler(Rot / 2);
+
+            if (Input.GetMouseButton(1))
+            {
+                recoilPoint.localRotation = Quaternion.Euler(Rot/1.5f);
+
+            }
+            else
+            {
+                recoilPoint.localRotation = Quaternion.Euler(Rot);
+            }
+            //recoilPoint.localRotation = Quaternion.Euler(Rot);
+
+            main_camera.localRotation = Quaternion.Euler(Rot / 3);
+            player_chest.localRotation = Quaternion.Euler(Rot / 3);
         }
 
+        //  works but need to reduce movement on x axis as too disorientating
         if(currentWeapon != null && Input.GetKeyDown(KeyCode.B))
         {
             Destroy(currentWeapon);
@@ -211,7 +223,7 @@ public class weapon : MonoBehaviour
         DisplayAmmoCount();
     }
 
-    void DisplayAmmoCount()
+    public void DisplayAmmoCount()
     {
         ammo_count_text.text = (loadout[currentIndex].magazine_size - rounds_fired + "/" + loadout[currentIndex].magazine_size + "\nAmmo Reserve - " + loadout[currentIndex].ammo_reserve).ToString();
     }

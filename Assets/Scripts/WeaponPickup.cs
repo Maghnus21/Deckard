@@ -25,6 +25,10 @@ public class WeaponPickup : MonoBehaviour
                 image.GetComponent<Image>().sprite = other.GetComponent<weapon>().loadout[stack_location].gun_sprite;
 
                 button.GetComponent<WeaponWheelButton>().stack_location = stack_location;
+
+                Destroy(gameObject);
+
+
             }
             else if(other.GetComponent<weapon>().loadout[stack_location] != null && other.GetComponent<weapon>().loadout[stack_location].ammo_reserve < 999)
             {
@@ -36,6 +40,9 @@ public class WeaponPickup : MonoBehaviour
                 {
                     other.GetComponent<weapon>().loadout[stack_location].ammo_reserve += 20;
                 }
+                other.GetComponent<weapon>().DisplayAmmoCount();
+
+                Destroy(gameObject);
             }
             else
             {
@@ -43,7 +50,7 @@ public class WeaponPickup : MonoBehaviour
             }
             
 
-            Destroy(gameObject);
+            
 
 
         }
