@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: APS
   m_EditorClassIdentifier: 
   name: APS
+  description: 
   gun_prefab: {fileID: 1078813186004044629, guid: 87856e09bc14fe045b3a48a87f5d671b, type: 3}
   bullet: {fileID: 6034267567142888525, guid: bea3641ba1a95f5469280af1742ab773, type: 3}
   ads_speed: 2
@@ -25,4 +26,4 @@ MonoBehaviour:
   recoilRotationReturn: 2
   recoilRotation: {x: 3, y: 1, z: 3}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
-  gun_sprite: {fileID: 0}
+  gun_sprite: {fileID: 21300000, guid: a287d81ef32405c43b7b53bc096288a2, type: 3}

@@ -165,13 +165,11 @@ public class weapon : MonoBehaviour
         //  anchor linearly interpolates between ads and hip position if is_aiming is true
         if (is_aiming)
         {
-            anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
-            
+            anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);  
         }
         else
         {
             anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
-            
         }
     }
 

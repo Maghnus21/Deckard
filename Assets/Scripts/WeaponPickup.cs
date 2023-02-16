@@ -9,6 +9,7 @@ public class WeaponPickup : MonoBehaviour
     public Gun weapon_scriptable_object;
     public GameObject image;
     public GameObject button;
+    WeaponWheelButton wwb;
     public int stack_location = 0;              //  default state is stack location 0
 
 
@@ -17,7 +18,7 @@ public class WeaponPickup : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            
+            wwb = button.GetComponent<WeaponWheelButton>();
             if (other.GetComponent<weapon>().loadout[stack_location] == null)
             {
                 other.GetComponent<weapon>().loadout[stack_location] = weapon_scriptable_object;

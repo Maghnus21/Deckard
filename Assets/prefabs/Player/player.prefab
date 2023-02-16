@@ -509,9 +509,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  equipted_gun: {fileID: 0}
+  equipted_gun: {fileID: 11400000, guid: f6259357e84cea748a3fc44bfd2ecb19, type: 2}
   weaponPosition: {fileID: 7689683645737106716}
-  weapon_fire_sound: {fileID: 0}
+  weapon_fire_sound: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   weaponSource: {fileID: 7021936322731484276}
   ammo_count_text: {fileID: 0}
   recoilPoint: {fileID: 0}
@@ -610,7 +610,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5f69b05df3b2e1e469b494e9248ca60e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
