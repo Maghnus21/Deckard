@@ -77,12 +77,12 @@ public class weapon : MonoBehaviour
         }
 
         // getMouseButton(1) means right mouse button, 0 is left
-        if (currentWeapon != null)
+        if (currentWeapon != null && !loadout[currentIndex].is_melee_weapon)
         {
             Aim(Input.GetMouseButton(1));
 
             //ammo_count_text.text = ((loadout[currentIndex].magazine_size - rounds_fired) + "/" + loadout[currentIndex].magazine_size).ToString();
-            
+
 
             // 60 seconds divided by fire_rate from Gun scriptableObject
             fireRate = 60f / loadout[currentIndex].fire_rate;
@@ -98,12 +98,13 @@ public class weapon : MonoBehaviour
                     DisplayAmmoCount();
                 }
             }
-            if(rounds_fired > 0 && Input.GetKeyDown(KeyCode.R)){
+            if (rounds_fired > 0 && Input.GetKeyDown(KeyCode.R))
+            {
                 Debug.Log("GUN RELOADED");
-                
+
                 UpdateAmmoCount();
             }
-            else if(rounds_fired == 20 && Input.GetMouseButtonDown(0))
+            else if (rounds_fired == 20 && Input.GetMouseButtonDown(0))
             {
                 Debug.Log("GUN EMPTY PRESS R TO RELOAD");
             }
@@ -117,7 +118,7 @@ public class weapon : MonoBehaviour
 
             if (Input.GetMouseButton(1))
             {
-                recoilPoint.localRotation = Quaternion.Euler(Rot/1.5f);
+                recoilPoint.localRotation = Quaternion.Euler(Rot / 1.5f);
             }
             else
             {
@@ -128,6 +129,40 @@ public class weapon : MonoBehaviour
             main_camera.localRotation = Quaternion.Euler(Rot / 3);
             player_chest.localRotation = Quaternion.Euler(Rot / 3);
         }
+
+        if (currentWeapon != null && loadout[currentIndex].is_melee_weapon)
+        {
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                print("SWUNG WEAPON " + loadout[currentIndex].name);
+
+                Ray ray;
+                RaycastHit hit;
+                float damage = 30f;
+
+                ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward * 5f);
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider != null && hit.collider.CompareTag("Suspect") || hit.collider.CompareTag("NPC"))
+                    {
+                        hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
+                        print("HIT ENEMY " + hit.collider.name);
+                    }
+                    else
+                    {
+                        print("MISS");
+                    }
+                }
+                
+            }
+        }
+        else { };
+
+
+
+
 
         //  works but need to reduce movement on x axis as too disorientating
         if(currentWeapon != null && Input.GetKeyDown(KeyCode.B))

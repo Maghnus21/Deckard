@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
-  gun_prefab: {fileID: 1078813186004044629, guid: 965df7149fed5e744b5947c8c4e0d11b, type: 3}
+  gun_prefab: {fileID: 0}
   bullet: {fileID: 0}
   ads_speed: 0
   bullet_speed: 0
@@ -30,3 +30,4 @@ MonoBehaviour:
   is_melee_weapon: 1
   melee_damage: 35
   weapon_prefab: {fileID: 9015136308743234527, guid: c1ed4894163275a449c371ab4d270b6b, type: 3}
+  animator: {fileID: 0}

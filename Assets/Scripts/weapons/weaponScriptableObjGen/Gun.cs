@@ -60,4 +60,6 @@ public class Gun : ScriptableObject
     public bool is_melee_weapon = false;
     public int melee_damage;
     public GameObject weapon_prefab;
+
+    public Animator animator;
 }
