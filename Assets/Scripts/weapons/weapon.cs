@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -37,6 +38,9 @@ public class weapon : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    public ScriptableObject equipted_so;
+    GameObject t_newWeapon;
+
     void Awake()
     {
         
@@ -67,6 +71,10 @@ public class weapon : MonoBehaviour
         {
             Equip(2);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Equip(3);
+        }
 
         // getMouseButton(1) means right mouse button, 0 is left
         if (currentWeapon != null)
@@ -88,18 +96,12 @@ public class weapon : MonoBehaviour
                     rounds_fired++;
 
                     DisplayAmmoCount();
-
                 }
             }
             if(rounds_fired > 0 && Input.GetKeyDown(KeyCode.R)){
                 Debug.Log("GUN RELOADED");
                 
-
-
                 UpdateAmmoCount();
-
-
-                
             }
             else if(rounds_fired == 20 && Input.GetMouseButtonDown(0))
             {
@@ -116,7 +118,6 @@ public class weapon : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 recoilPoint.localRotation = Quaternion.Euler(Rot/1.5f);
-
             }
             else
             {
@@ -141,22 +142,34 @@ public class weapon : MonoBehaviour
         if (currentWeapon != null) Destroy(currentWeapon);
 
         currentIndex = p_int;
+        
 
-        GameObject t_newWeapon = Instantiate(loadout[p_int].gun_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
+        if (!loadout[currentIndex].is_melee_weapon)
+        {
+            t_newWeapon = Instantiate(loadout[p_int].gun_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
+        }
+        else if(loadout[currentIndex].is_melee_weapon)
+        {
+            t_newWeapon = Instantiate(loadout[p_int].weapon_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
+        }
+        //GameObject t_newWeapon = Instantiate(loadout[p_int].gun_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
         t_newWeapon.transform.localPosition = Vector3.zero;
         t_newWeapon.transform.localEulerAngles = Vector3.zero;
 
         currentWeapon = t_newWeapon;
 
+        if (!loadout[currentIndex].is_melee_weapon)
+        {
+            weapon_fire_sound = loadout[currentIndex].gun_fire;
+            weaponSource.clip = weapon_fire_sound;
+        }
         
-        weapon_fire_sound = loadout[currentIndex].gun_fire;
-        weaponSource.clip = weapon_fire_sound;
         equipted_gun = loadout[currentIndex];
-        
     }
 
     void Aim(bool is_aiming)
     {
+
         //  transform references to empty gameObjects
         Transform anchor = currentWeapon.transform.Find("anchor");
         Transform ads_state = currentWeapon.transform.Find("states/ads");
@@ -165,11 +178,13 @@ public class weapon : MonoBehaviour
         //  anchor linearly interpolates between ads and hip position if is_aiming is true
         if (is_aiming)
         {
-            anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);  
+            anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+            Camera.main.fieldOfView = 30f;
         }
         else
         {
             anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+            Camera.main.fieldOfView = 65f;
         }
     }
 
@@ -205,7 +220,7 @@ public class weapon : MonoBehaviour
         Recoil();
     }
 
-    //  need to clamp x rotation to 45~ degrees. if firerate too fast, gun does loop around player
+    
     void Recoil()
     {
         Mathf.Clamp(rotationalRecoil.x, -90f, 90f);

@@ -50,4 +50,14 @@ public class Gun : ScriptableObject
 
     //  used for ui elements, eg weapon wheel
     public Sprite gun_sprite;
+
+    //======================================================
+    //
+    //  This is for melee-based weapons only
+    //  Do not have fields populated if weapon is ranged
+    //
+    //======================================================
+    public bool is_melee_weapon = false;
+    public int melee_damage;
+    public GameObject weapon_prefab;
 }

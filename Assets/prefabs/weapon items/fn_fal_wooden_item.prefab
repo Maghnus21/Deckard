@@ -307,7 +307,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger_col: {fileID: 2789236160926247828}
   weapon_scriptable_object: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
-  stack_location: 0
+  image: {fileID: 0}
+  button: {fileID: 0}
+  stack_location: 1
 --- !u!1 &3790702062031068677
 GameObject:
   m_ObjectHideFlags: 0

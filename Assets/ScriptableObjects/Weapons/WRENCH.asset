@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
+  m_Name: WRENCH
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  gun_prefab: {fileID: 0}
+  bullet: {fileID: 0}
+  ads_speed: 0
+  bullet_speed: 0
+  fire_rate: 0
+  magazine_size: 0
+  ammo_reserve: 999
+  muzzle_flash: {fileID: 0}
+  recoilRotationSpeed: 0
+  recoilRotationReturn: 0
+  recoilRotation: {x: 10, y: 5, z: 7}
+  gun_fire: {fileID: 0}
+  gun_sprite: {fileID: 0}
+  is_melee_weapon: 1
+  melee_damage: 25
+  weapon_prefab: {fileID: 0}

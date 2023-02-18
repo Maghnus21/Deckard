@@ -517,6 +517,7 @@ MonoBehaviour:
   recoilPoint: {fileID: 0}
   main_camera: {fileID: 0}
   player_chest: {fileID: 0}
+  equipted_so: {fileID: 0}
 --- !u!114 &5582451428387772256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5f69b05df3b2e1e469b494e9248ca60e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -621,7 +622,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
