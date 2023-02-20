@@ -5,8 +5,15 @@ using UnityEngine;
 public class QueueDialogue : MonoBehaviour
 {
     public Dialogue dialogue;
+    public NPC npc;
 
 
+
+
+    private void Awake()
+    {
+        dialogue.dialogue = npc.dialogue;
+    }
 
 
     // Start is called before the first frame update
@@ -19,5 +26,10 @@ public class QueueDialogue : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TriggerQueueDialogue()
+    {
+        FindObjectOfType<DialogueManager>().StartDialogueQueue(dialogue);
     }
 }

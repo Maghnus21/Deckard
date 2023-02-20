@@ -23,7 +23,7 @@ public class initializeInterrogation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, ray_length) && hit.collider.gameObject.CompareTag("Suspect"))
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, ray_length) && hit.collider.gameObject.CompareTag("Suspect") && hit.collider.GetComponentInParent<SusDialogue>())
         {
             this.gameObject.GetComponent<InspectBoxItem>().enabled = false;
             can_pickup.enabled = true;
@@ -37,7 +37,7 @@ public class initializeInterrogation : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<InspectBoxItem>().enabled = true;
+            //this.gameObject.GetComponent<InspectBoxItem>().enabled = true;
         }
     }
 }

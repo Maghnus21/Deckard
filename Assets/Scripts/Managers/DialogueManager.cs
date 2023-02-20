@@ -84,14 +84,14 @@ public class DialogueManager : MonoBehaviour
     {
         CancelInvoke();
 
-        Debug.Log("Starting queue dialogue w/ " + dialogue.suspectInfo.name);
+        //Debug.Log("Starting queue dialogue w/ " + dialogue.suspectInfo.name);
 
         //  clearing sentences queue of any data
         sentences.Clear();
 
 
         //  enqueues each sentence in the dialogue.sentences into an array
-        foreach (string sentence in dialogue.suspectInfo.active_script.dialogue)
+        foreach (string sentence in dialogue.dialogue.dialogue)
         {
             sentences.Enqueue(sentence);
         }
