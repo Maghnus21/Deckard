@@ -165,7 +165,7 @@ MonoBehaviour:
     m_Bits: 1
   bar: {fileID: 8698551727478169068}
   damage: 45
-  dummy_rebar: {fileID: 6034267567142888525, guid: 379a469526ca07848a3b7c959fc49db5, type: 3}
+  dummy_rebar: {fileID: 5572319621616614931, guid: c9b26156c03a1924d9766a78718649ef, type: 3}
 --- !u!1 &8698551727478169068
 GameObject:
   m_ObjectHideFlags: 0

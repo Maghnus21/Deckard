@@ -15,15 +15,19 @@ MonoBehaviour:
   name: APS
   description: 
   gun_prefab: {fileID: 1078813186004044629, guid: 87856e09bc14fe045b3a48a87f5d671b, type: 3}
-  bullet: {fileID: 6034267567142888525, guid: bea3641ba1a95f5469280af1742ab773, type: 3}
+  bullet: {fileID: 8142837571252986961, guid: 9db141f1df5337544bdc18f2da11dcbf, type: 3}
   ads_speed: 2
   bullet_speed: 100
   fire_rate: 550
   magazine_size: 25
-  ammo_reserve: 999
+  ammo_reserve: 924
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40
   recoilRotationReturn: 2
   recoilRotation: {x: 3, y: 1, z: 3}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   gun_sprite: {fileID: 21300000, guid: a287d81ef32405c43b7b53bc096288a2, type: 3}
+  is_melee_weapon: 0
+  melee_damage: 0
+  weapon_prefab: {fileID: 0}
+  animator: {fileID: 0}
