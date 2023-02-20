@@ -48,6 +48,11 @@ public class DialogueManager : MonoBehaviour
     }
 
     //  dialogue from susDialogue script
+    /// <summary>
+    /// ARRAY BASED DIALOGUE ONLY. sends data to DisplayNextSentence method to show dialogue on screen
+    /// </summary>
+    /// <param name="dialogue"></param>
+    /// <param name="i"></param>
     public void StartDialogue(Dialogue dialogue, int i)
     {
         CancelInvoke();
@@ -75,7 +80,52 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence(i);
     }
 
+    public void StartDialogueQueue(Dialogue dialogue)
+    {
+        CancelInvoke();
 
+        Debug.Log("Starting queue dialogue w/ " + dialogue.suspectInfo.name);
+
+        //  clearing sentences queue of any data
+        sentences.Clear();
+
+
+        //  enqueues each sentence in the dialogue.sentences into an array
+        foreach (string sentence in dialogue.suspectInfo.active_script.dialogue)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        //Debug.Log(i);   //  DEBUG USE
+        DisplayNextSentence();
+    }
+
+    /// <summary>
+    /// displays dialogue on screen from queue
+    /// </summary>
+    public void DisplayNextSentence()
+    {
+        dialogue_box.enabled = true;
+        text.enabled = true;
+
+        string sentence = sentences.Dequeue();
+        Debug.Log("ANSWER FROM QUEUE: " + sentence);
+        text.text = sentence;
+
+        //  string stored in array is now displayed on the text element
+        /*
+        Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
+        text.text = array[i];
+        */
+
+        //  closes dialogue box after 5 seconds as long as no new input is displayed
+        Invoke("CloseDialogueBox", 5f);
+    }
+
+    /// <summary>
+    /// displays dialogue on screen from array
+    /// </summary>
+    /// <param name="i"></param>
     public void DisplayNextSentence(int i)
     {
         dialogue_box.enabled = true;

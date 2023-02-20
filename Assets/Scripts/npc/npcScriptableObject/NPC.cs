@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New NPC", menuName = "NPC")]
 public class NPC : ScriptableObject
 {
+    //  name of npc
+    public string npc_name = "anon";
+
     //  health of npc
     public float health = 100f;
 
@@ -16,4 +19,7 @@ public class NPC : ScriptableObject
 
     //  model of npc
     public GameObject npc_model;
+
+    //  this is the dialogue npc will say
+    public DialogueScriptableObject dialogue;
 }

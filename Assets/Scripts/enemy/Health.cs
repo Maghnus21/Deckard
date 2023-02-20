@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public Enemy enemy_type;                    //  contains data etc health
+    public NPC npc;                    //  contains data etc health
     Ragdoll ragdoll;                            //  controlls ragdoll effects for entity
     Rigidbody[] rigidbodies;
 
@@ -14,13 +14,13 @@ public class Health : MonoBehaviour
     public float health;
 
     /// <summary>
-    /// if assigned as true, gameObject mass included in ragdoll physics. assigned as false and ragdoll mass is ignored. default is true
+    /// if assigned true, gameObject mass included in ragdoll physics. if assigned false, ragdoll mass is ignored. default is true
     /// </summary>
     public bool death_force_mode = true;
 
     void Awake()
     {
-        health = enemy_type.health;
+        health = npc.health;
 
         ragdoll = GetComponent<Ragdoll>();
 

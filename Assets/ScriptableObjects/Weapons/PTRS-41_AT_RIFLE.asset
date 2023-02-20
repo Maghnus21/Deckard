@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: PTRS-41_AT_RIFLE
   m_EditorClassIdentifier: 
   name: PTRS-41 Anti-Tank Rifle
+  description: 
   gun_prefab: {fileID: 1078813186004044629, guid: af129b8523e823e46b61550587076d57, type: 3}
   bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
   ads_speed: 3
   bullet_speed: 500
   fire_rate: 60
   magazine_size: 5
-  ammo_reserve: 977
+  ammo_reserve: 999
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40
   recoilRotationReturn: 2
   recoilRotation: {x: 30, y: 5, z: 7}
   gun_fire: {fileID: 0}
+  gun_sprite: {fileID: 0}
+  is_melee_weapon: 0
+  melee_damage: 0
+  weapon_prefab: {fileID: 0}
+  animator: {fileID: 0}

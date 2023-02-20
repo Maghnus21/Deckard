@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06452dab57dbecf4398b0e72845f4f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_type: {fileID: 11400000, guid: a366ecc8e2a32cd4aabb6fda330e862b, type: 2}
+  npc: {fileID: 11400000, guid: a2d3764d57afa58469a948a3feac3d7a, type: 2}
   impact_force: 20
   health: 0
   death_force_mode: 1

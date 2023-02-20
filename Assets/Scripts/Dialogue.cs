@@ -6,5 +6,6 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    public suspectInfoScriptableObject suspectInfo;    
+    public suspectInfoScriptableObject suspectInfo;
+    public DialogueScriptableObject dialogue;
 }
