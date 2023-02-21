@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
 
     public float health;
 
+    
+
     /// <summary>
     /// if assigned true, gameObject mass included in ragdoll physics. if assigned false, ragdoll mass is ignored. default is true
     /// </summary>
@@ -20,6 +22,8 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
+        Random.seed = (int)System.DateTime.Now.Ticks;
+
         health = npc.health;
 
         ragdoll = GetComponent<Ragdoll>();
@@ -54,6 +58,15 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void ReceiveExplosiveDamage(float damage, Vector3 det_loc)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            ExplosiveDie();
+        }
+    }
+
     /// <summary>
     /// Function called when health value reaches or below threshold, 0
     /// </summary>
@@ -61,14 +74,43 @@ public class Health : MonoBehaviour
     /// <param name="hit_rb">bone gameObject with rigidbody that was hit by RaycastHit passed via hit.rigidbody</param>
     void Die(Vector3 impact_direction, Rigidbody hit_rb)
     {
-        ragdoll.ActivateRagdoll();
-        impact_direction.y = 1f;
-        ragdoll.impact_body_part = hit_rb;
-        ragdoll.ApplyForce(impact_direction * impact_force, death_force_mode);
+        float gib_chance_mutiplier = 0 - health;
+        float rand_num = Random.RandomRange(0f, 100f);
 
-        foreach(Rigidbody rb in rigidbodies)
+        if(rand_num <= gib_chance_mutiplier)
         {
-            rb.tag = "EntityDead";
+            Instantiate(npc.gib_model, transform.position, transform.rotation);
+
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            ragdoll.ActivateRagdoll();
+            impact_direction.y = 1f;
+            ragdoll.impact_body_part = hit_rb;
+            ragdoll.ApplyForce(impact_direction * impact_force, death_force_mode);
+
+            foreach (Rigidbody rb in rigidbodies)
+            {
+                rb.tag = "EntityDead";
+            }
+        }
+    }
+
+    void ExplosiveDie()
+    {
+        float rand = Random.RandomRange(0f, 100f);
+
+        
+        if(rand < 50)
+        {
+            Instantiate(npc.gib_model, transform.position, transform.rotation);
+
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            ragdoll.ActivateRagdoll();
         }
     }
 

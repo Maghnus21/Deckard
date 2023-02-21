@@ -17,4 +17,5 @@ MonoBehaviour:
   walking_speed: 3
   running_speed: 7
   npc_model: {fileID: 0}
+  gib_model: {fileID: 4643905557447092835, guid: c46c8051ea69b194786ddf377678f86a, type: 3}
   dialogue: {fileID: 11400000, guid: 9171bdce9693b3448a4a81a8be3319a3, type: 2}

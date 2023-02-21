@@ -20,6 +20,9 @@ public class NPC : ScriptableObject
     //  model of npc
     public GameObject npc_model;
 
+    //  model used for when npc is gibbed
+    public GameObject gib_model;
+
     //  this is the dialogue npc will say
     public DialogueScriptableObject dialogue;
 }
