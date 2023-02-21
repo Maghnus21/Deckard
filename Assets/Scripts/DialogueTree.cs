@@ -25,7 +25,7 @@ public class DialogueBranch
 {
     public string branch_name;
     public int branch_id;
-    public bool end_on_final;
+    //public bool end_on_final;
 
     public DialogueSection[] sections;
 }
@@ -42,7 +42,10 @@ public class DialogueSection
 [System.Serializable]
 public class DialogueResponse
 {
+    //  ensures player can exit dialogue when conversation is completed
+    public bool end_on_response = false;
     public int next_branch_id;
+    
     [TextArea]
     public string response_dialogue;
 }

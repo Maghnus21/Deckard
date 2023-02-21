@@ -919,6 +919,7 @@ GameObject:
   - component: {fileID: 2927911443065349305}
   - component: {fileID: 3398175430158271312}
   - component: {fileID: 4272208543375217632}
+  - component: {fileID: 6106960336163620329}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -972,6 +973,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impact_body_part: {fileID: 3398175429898641529}
+--- !u!114 &6106960336163620329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587836256457489923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c053d9c0c932eb34d95d92c3c6d795fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  branches:
+  - branch_name: branch_1
+    branch_id: 0
+    sections:
+    - dialogue: Hello
+      responses:
+      - end_on_response: 0
+        next_branch_id: 1
+        response_dialogue: Hi
+      - end_on_response: 0
+        next_branch_id: 2
+        response_dialogue: ...
+  - branch_name: branch_2
+    branch_id: 1
+    sections:
+    - dialogue: Good to see another person
+      responses:
+      - end_on_response: 0
+        next_branch_id: 3
+        response_dialogue: Hear any news
+      - end_on_response: 1
+        next_branch_id: 0
+        response_dialogue: Goodbye [EXIT]
+  - branch_name: branch_3
+    branch_id: 2
+    sections:
+    - dialogue: i can tell you're not a mute
+      responses:
+      - end_on_response: 0
+        next_branch_id: 4
+        response_dialogue: ... you got me
+      - end_on_response: 1
+        next_branch_id: 0
+        response_dialogue: ... [EXIT]
+  - branch_name: branch_4
+    branch_id: 3
+    sections:
+    - dialogue: the head scav across the street is advertising this old keycard
+      responses:
+      - end_on_response: 1
+        next_branch_id: 0
+        response_dialogue: thanks
+      - end_on_response: 1
+        next_branch_id: 0
+        response_dialogue: ill go over now, thanks
+  - branch_name: branch_5
+    branch_id: 4
+    sections:
+    - dialogue: fucking clowns
+      responses:
+      - end_on_response: 1
+        next_branch_id: 5
+        response_dialogue: honk honk
+      - end_on_response: 1
+        next_branch_id: 4
+        response_dialogue: ...
 --- !u!1 &2694226185477798799
 GameObject:
   m_ObjectHideFlags: 0
