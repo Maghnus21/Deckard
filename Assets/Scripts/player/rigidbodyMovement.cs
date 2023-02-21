@@ -92,7 +92,7 @@ public class rigidbodyMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            player_body.AddForce(Vector3.up * jump, ForceMode.Impulse);
+            player_body.AddForce(Vector3.up * jump, ForceMode.VelocityChange);
         }
     }
 

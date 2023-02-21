@@ -75,9 +75,14 @@ public class weapon : MonoBehaviour
         {
             Equip(3);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Equip(4);
+        }
+
 
         // getMouseButton(1) means right mouse button, 0 is left
-        if (currentWeapon != null && !loadout[currentIndex].is_melee_weapon)
+        if (currentWeapon != null && !loadout[currentIndex].is_melee_weapon && !loadout[currentIndex].is_throwable)
         {
             Aim(Input.GetMouseButton(1));
 
@@ -158,6 +163,12 @@ public class weapon : MonoBehaviour
                 
             }
         }
+
+        if (currentWeapon != null && loadout[currentIndex].is_throwable)
+        {
+
+        }
+
         else { };
 
 
@@ -179,7 +190,7 @@ public class weapon : MonoBehaviour
         currentIndex = p_int;
         
 
-        if (!loadout[currentIndex].is_melee_weapon)
+        if (!loadout[currentIndex].is_melee_weapon && !loadout[currentIndex].is_throwable)
         {
             t_newWeapon = Instantiate(loadout[p_int].gun_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
         }
@@ -187,6 +198,12 @@ public class weapon : MonoBehaviour
         {
             t_newWeapon = Instantiate(loadout[p_int].weapon_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
         }
+        else if (loadout[currentIndex].is_throwable)
+        {
+            t_newWeapon = Instantiate(loadout[p_int].weapon_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
+        }
+
+
         //GameObject t_newWeapon = Instantiate(loadout[p_int].gun_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
         t_newWeapon.transform.localPosition = Vector3.zero;
         t_newWeapon.transform.localEulerAngles = Vector3.zero;
@@ -225,15 +242,22 @@ public class weapon : MonoBehaviour
 
     void FireWeapon()
     {
+        Ray ray;
         RaycastHit hit;
+        Transform anchor = currentWeapon.transform.Find("anchor");
 
+        ray = new Ray(anchor.position, anchor.forward);
+
+        Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
         //  This will be changed to use sight of gun as point instead of forward of bullet spawn
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
+        if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(1))
         {
-            
-            
-
+            bullet_spawn.LookAt(hit.point);
+        }
+        else
+        {
+            bullet_spawn.localRotation = Quaternion.Euler(Vector3.zero);
         }
 
         // variables for muzzle flash time and random rotation to be applied to muzzle flash
@@ -246,8 +270,8 @@ public class weapon : MonoBehaviour
         //  converting randomRot to quarernion angles and applying to muzzle_flash_spwn
         GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
 
+        //Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
-        Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
         GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
         fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);

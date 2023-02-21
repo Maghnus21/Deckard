@@ -6,6 +6,8 @@ public class grenadeThrow : MonoBehaviour
 {
     public GameObject grenade;
 
+    public float delay_time = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,9 @@ public class grenadeThrow : MonoBehaviour
 
     public void throwGrenade()
     {
-        GameObject grenade_clone = Instantiate(grenade, transform.position, transform.rotation);
-        grenade_clone.GetComponent<Rigidbody>().AddForce(transform.forward * 10f);
+        GameObject grenade_clone = Instantiate(grenade, Camera.main.transform.position, Camera.main.transform.rotation);
+        grenade_clone.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
+
+        grenade_clone.GetComponent<explode>().Invoke("Explode", delay_time);
     }
 }

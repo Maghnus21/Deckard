@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            ExplosiveDie();
+            ExplosiveDie(det_loc);
         }
     }
 
@@ -97,20 +97,36 @@ public class Health : MonoBehaviour
         }
     }
 
-    void ExplosiveDie()
+    void ExplosiveDie(Vector3 det_loc)
     {
         float rand = Random.RandomRange(0f, 100f);
 
         
-        if(rand < 50)
+        if(rand < 80)
         {
-            Instantiate(npc.gib_model, transform.position, transform.rotation);
+            GameObject gib_body = Instantiate(npc.gib_model, transform.position, transform.rotation);
+
+            Rigidbody[] rb = gib_body.GetComponentsInChildren<Rigidbody>();
+
+            foreach(Rigidbody rb2 in rb)
+            {
+                rb2.AddExplosionForce(5f, det_loc, 5f, 1f, ForceMode.Impulse);
+            }
+
 
             Destroy(this.gameObject);
         }
         else
         {
             ragdoll.ActivateRagdoll();
+            ragdoll.AddExplosiveForcePoint(det_loc, true);
+
+            foreach (Rigidbody rb in rigidbodies)
+            {
+                rb.tag = "EntityDead";
+            }
+
+            
         }
     }
 
