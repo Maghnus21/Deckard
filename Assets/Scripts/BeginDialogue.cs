@@ -21,10 +21,10 @@ public class BeginDialogue : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 5f) && hit.collider.gameObject.GetComponentInParent<BranchDialogueTest>())
         {
-            print("looking at dialogue");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 hit.collider.GetComponentInParent<BranchDialogueTest>().enabled = true;
+                hit.collider.GetComponentInParent<BranchDialogueTest>().showDialogue();
             }
         }
     }
