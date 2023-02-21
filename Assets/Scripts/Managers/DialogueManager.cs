@@ -105,6 +105,12 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void DisplayNextSentence()
     {
+        if(sentences.Count == 0)
+        {
+            EndDialogue();
+            Invoke("CloseDialogueBox", 5f);
+        }
+
         dialogue_box.enabled = true;
         text.enabled = true;
 
