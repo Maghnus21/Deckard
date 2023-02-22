@@ -33,10 +33,21 @@ public class explode : MonoBehaviour
 
             if(rb != null)
             {
-                rb.AddExplosionForce(10f, transform.position, 10f, 5f, ForceMode.VelocityChange);
+                rb.AddExplosionForce(10f, transform.position, 3f, 5f, ForceMode.VelocityChange);
             }
         }
 
         Destroy(this.gameObject);
+
+        
     }
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = new Color(Color.red.r, Color.red.g, Color.red.b, 0.3f);
+        Gizmos.DrawSphere(transform.position, 3f);
+    }
+
+
 }
