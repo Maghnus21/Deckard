@@ -245,8 +245,9 @@ public class weapon : MonoBehaviour
         Ray ray;
         RaycastHit hit;
         Transform anchor = currentWeapon.transform.Find("anchor");
+        Transform sight_look = currentWeapon.transform.Find("anchor/recoil/model/resources/sight_point");
 
-        ray = new Ray(anchor.position, anchor.forward);
+        ray = new Ray(sight_look.position, sight_look.forward);
 
         Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
