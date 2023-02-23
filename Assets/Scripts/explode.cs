@@ -10,7 +10,7 @@ public class explode : MonoBehaviour
 
 
     //  floats for explosion physics. following values are explosion defaults
-    float explosion_damage = 10f;
+    float explosion_damage = 30f;
     public float explosion_force = 10f;
     public float explosion_radius = 3f;
     public float explosion_upforce = 1f;
