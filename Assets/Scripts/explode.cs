@@ -8,9 +8,10 @@ public class explode : MonoBehaviour
     Collider[] coll_check;
     List<Collider> list = new List<Collider>();
 
-    float explosion_force = 10f;
-    float explosion_radius = 3f;
-    float explosion_upforce = 1f;
+    //  floats for explosion physics. following values are explosion defaults
+    public float explosion_force = 10f;
+    public float explosion_radius = 3f;
+    public float explosion_upforce = 1f;
 
 
     public bool has_exploded = false;
@@ -41,16 +42,14 @@ public class explode : MonoBehaviour
             }
         }
 
-        
-
-        Destroy(this.gameObject, .05f);
+        //rDestroy(this.gameObject, .05f);
     }
 
     void checkExplosionLOS()
     {
         coll_check = Physics.OverlapSphere(transform.position, 3f);
 
-        Ray ray = new Ray(transform.position, coll_check[0].transform.position - transform.position);
+        Ray ray;
         RaycastHit hit;
 
         foreach(Collider collider in coll_check)
@@ -81,8 +80,6 @@ public class explode : MonoBehaviour
                 Gizmos.DrawLine(transform.position, col.transform.position);
             }
         }
-        
-        
     }
 
 

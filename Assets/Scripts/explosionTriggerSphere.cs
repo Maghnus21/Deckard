@@ -36,7 +36,7 @@ public class explosionTriggerSphere : MonoBehaviour
             explosive_obj = other.gameObject;
         }
 
-        if(Physics.Raycast(ray, out hit, 6f))
+        if(Physics.Raycast(ray, out hit, 3f))
         {
 
             if (hit.collider.GetComponent<explode>())
@@ -49,8 +49,9 @@ public class explosionTriggerSphere : MonoBehaviour
                     if (parent_grenade.GetComponent<explode>().has_exploded)
                     {
                         explosive_obj.GetComponent<explode>().has_exploded = true;
-                        explosive_obj.GetComponent<explode>().Invoke("Explode", Random.Range(0.2f, 0.8f));
+                        explosive_obj.GetComponent<explode>().Invoke("Explode", 5);
 
+                        Destroy(this.gameObject);
                     }
 
 

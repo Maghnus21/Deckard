@@ -61,7 +61,7 @@ public class Health : MonoBehaviour
     public void ReceiveDamage(float amount, Vector3 impact_direction, Rigidbody hit_rb)
     {
         health -= amount;
-        if(health <= 0)
+        if(health <= 0 && npc != null)
         {
             Die(impact_direction, hit_rb);
         }
@@ -70,7 +70,7 @@ public class Health : MonoBehaviour
     public void ReceiveExplosiveDamage(float damage, Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
     {
         health -= damage;
-        if(health <= 0)
+        if(health <= 0 && npc != null)
         {
             ExplosiveDie(det_loc, exp_force, exp_rad, exp_up);
         }
@@ -88,6 +88,7 @@ public class Health : MonoBehaviour
 
         if(rand_num <= gib_chance_mutiplier)
         {
+            
             Instantiate(npc.gib_model, transform.position, transform.rotation);
 
             Destroy(this.gameObject);
@@ -111,10 +112,10 @@ public class Health : MonoBehaviour
         float rand = Random.Range(0f, 100f);
 
         
-        if(rand < 30)
+        if(rand < 80)
         {
             GameObject gib_body = Instantiate(npc.gib_model, transform.position, transform.rotation);
-
+            
             Rigidbody[] rb = gib_body.GetComponentsInChildren<Rigidbody>();
 
             foreach(Rigidbody rb2 in rb)
