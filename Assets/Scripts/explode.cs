@@ -7,9 +7,10 @@ public class explode : MonoBehaviour
 {
     Collider[] coll_check;
     List<Collider> list = new List<Collider>();
-    
+
 
     //  floats for explosion physics. following values are explosion defaults
+    float explosion_damage = 10f;
     public float explosion_force = 10f;
     public float explosion_radius = 3f;
     public float explosion_upforce = 1f;
@@ -41,8 +42,10 @@ public class explode : MonoBehaviour
             {
                 print("HIT HITBOX" + collider.gameObject.name);
 
-                float damage_over_dis = Vector3.Distance(transform.position, collider.transform.position);
-                collider.gameObject.GetComponent<EntityHitbox>().ExplosiveHit(30f / damage_over_dis, transform.position, explosion_force, explosion_radius, explosion_upforce);
+                float entity_dis = Vector3.Distance(transform.position, collider.transform.position);
+
+
+                collider.gameObject.GetComponent<EntityHitbox>().ExplosiveHit(calculateDistanceDamage(entity_dis), transform.position, explosion_force, explosion_radius, explosion_upforce);
                 
             }
             
@@ -79,6 +82,24 @@ public class explode : MonoBehaviour
         }
 
         print("FINISHED EXPLOSION LOS: " + gameObject.name);
+    }
+
+    float calculateDistanceDamage(float distance)
+    {
+        float damage = explosion_damage / distance;
+
+        /*
+        if(distance > explosion_radius / 2)
+        {
+            damage = (explosion_damage / (1 / distance));
+        }
+        else
+        {
+            damage = explosion_damage;
+        }
+        */
+
+        return damage;
     }
 
     
