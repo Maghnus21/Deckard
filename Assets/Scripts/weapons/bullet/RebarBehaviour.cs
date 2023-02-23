@@ -41,7 +41,7 @@ public class RebarBehaviour : MonoBehaviour
             }
 
 
-            if(hit.collider != null && hit.collider.gameObject.GetComponent<EntityHitbox>())
+            if(hit.collider != null && hit.collider.gameObject.GetComponent<EntityHitbox>() && hit.collider.gameObject.GetComponentInParent<Health>().health > 0)
             {
                 embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
                 embed_rebar.transform.SetParent(hit.transform, true);
@@ -53,7 +53,7 @@ public class RebarBehaviour : MonoBehaviour
             }
 
 
-
+            /*
             //  conditional statement for when rebar strikes enemy containing a skeleton and ragdoll
             else
             {
@@ -67,7 +67,7 @@ public class RebarBehaviour : MonoBehaviour
 
                 Destroy(this.gameObject, .01f);
             }
-
+            */
             
         }
     }
