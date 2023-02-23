@@ -112,7 +112,7 @@ public class Health : MonoBehaviour
         float rand = Random.Range(0f, 100f);
 
         
-        if(rand < 80)
+        if(rand < 90)
         {
             GameObject gib_body = Instantiate(npc.gib_model, transform.position, transform.rotation);
             

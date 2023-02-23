@@ -7,14 +7,26 @@ public class explode : MonoBehaviour
 {
     Collider[] coll_check;
     List<Collider> list = new List<Collider>();
+    
 
     //  floats for explosion physics. following values are explosion defaults
     public float explosion_force = 10f;
     public float explosion_radius = 3f;
     public float explosion_upforce = 1f;
 
-
+    public bool manual_explode = false;
     public bool has_exploded = false;
+
+    private void Update()
+    {
+        //  DEBUGGING
+        if (manual_explode && !has_exploded)
+        {
+            Explode();
+        }
+    }
+
+
 
     public void Explode()
     {
@@ -30,24 +42,25 @@ public class explode : MonoBehaviour
                 print("HIT HITBOX" + collider.gameObject.name);
 
                 float damage_over_dis = Vector3.Distance(transform.position, collider.transform.position);
-                collider.gameObject.GetComponentInParent<EntityHitbox>().ExplosiveHit(30f / damage_over_dis, transform.position, explosion_force, explosion_radius, explosion_upforce);
-
+                collider.gameObject.GetComponent<EntityHitbox>().ExplosiveHit(30f / damage_over_dis, transform.position, explosion_force, explosion_radius, explosion_upforce);
+                
             }
+            
             
             Rigidbody rb = collider.GetComponent<Rigidbody>();
 
             if(rb != null)
             {
-                rb.AddExplosionForce(explosion_force, transform.position, explosion_radius, explosion_upforce, ForceMode.VelocityChange);
+                rb.AddExplosionForce(explosion_force, transform.position, explosion_radius, explosion_upforce, ForceMode.Impulse);
             }
         }
 
-        //rDestroy(this.gameObject, .05f);
+        
     }
 
     void checkExplosionLOS()
     {
-        coll_check = Physics.OverlapSphere(transform.position, 3f);
+        coll_check = Physics.OverlapSphere(transform.position, explosion_radius);
 
         Ray ray;
         RaycastHit hit;
@@ -56,9 +69,9 @@ public class explode : MonoBehaviour
         {
             ray = new Ray(transform.position, collider.transform.position - transform.position);
 
-            if (Physics.Raycast(ray, out hit, 6f))
+            if (Physics.Raycast(ray, out hit, explosion_radius))
             {
-                if (hit.collider.GetComponent<Rigidbody>())
+                if (hit.collider.gameObject.GetComponent<Rigidbody>())
                 {
                     list.Add(hit.collider);
                 }
@@ -68,19 +81,11 @@ public class explode : MonoBehaviour
         print("FINISHED EXPLOSION LOS: " + gameObject.name);
     }
 
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(Color.red.r, Color.red.g, Color.red.b, 0.3f);
-        Gizmos.DrawSphere(transform.position, 3f);
-
-        if(coll_check != null)
-        {
-            foreach (Collider col in coll_check)
-            {
-                Gizmos.DrawLine(transform.position, col.transform.position);
-            }
-        }
+        Gizmos.DrawSphere(transform.position, explosion_radius);        
     }
-
-
+    
 }

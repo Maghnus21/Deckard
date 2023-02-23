@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class explosionTriggerSphere : MonoBehaviour
 {
-    public GameObject parent_grenade;
+    public Collider parent_explosive;
     GameObject explosive_obj;
 
     RaycastHit hit;
@@ -44,9 +44,8 @@ public class explosionTriggerSphere : MonoBehaviour
                 if (other.gameObject.GetComponent<explode>() && !other.gameObject.GetComponent<explode>().has_exploded)
                 {
 
-                    //print("GRENADE " + other.name);
-
-                    if (parent_grenade.GetComponent<explode>().has_exploded)
+                    
+                    if (parent_explosive.GetComponent<explode>().has_exploded)
                     {
                         explosive_obj.GetComponent<explode>().has_exploded = true;
                         explosive_obj.GetComponent<explode>().Invoke("Explode", 5);
