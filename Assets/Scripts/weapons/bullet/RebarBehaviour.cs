@@ -18,7 +18,7 @@ public class RebarBehaviour : MonoBehaviour
 
     Ray ray;
     RaycastHit hit;
-    float range = 1f;
+    float range = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,20 @@ public class RebarBehaviour : MonoBehaviour
                 Destroy(this.gameObject, .01f);
             }
 
+
+            if(hit.collider != null && hit.collider.gameObject.GetComponent<EntityHitbox>())
+            {
+                embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
+                embed_rebar.transform.SetParent(hit.transform, true);
+
+                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
+
+                hit.collider.GetComponentInParent<Health>().impact_force = 70f;
+                hit.collider.GetComponentInParent<Health>().death_force_mode = false;
+            }
+
+
+
             //  conditional statement for when rebar strikes enemy containing a skeleton and ragdoll
             else
             {
@@ -48,7 +62,7 @@ public class RebarBehaviour : MonoBehaviour
 
                 hit.collider.GetComponentInParent<Health>().impact_force = 70f;
                 hit.collider.GetComponentInParent<Health>().death_force_mode = false;
-                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
+                //hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
                 
 
                 Destroy(this.gameObject, .01f);

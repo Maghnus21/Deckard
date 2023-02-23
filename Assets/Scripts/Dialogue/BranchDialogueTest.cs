@@ -12,7 +12,6 @@ public class BranchDialogueTest : MonoBehaviour
 
     public TextMeshProUGUI text;
     public GameObject dialog_box;
-    Image dialogue_box;
     public Button op1, op2;
 
     int branch_choice;
@@ -33,7 +32,7 @@ public class BranchDialogueTest : MonoBehaviour
     {
         dt = GetComponent<DialogueTree>();
 
-        dialogue_box = text.GetComponentInParent<Image>();
+        
     }
 
     // Update is called once per frame
@@ -59,6 +58,8 @@ public class BranchDialogueTest : MonoBehaviour
         choice = 0;
 
         dialog_box.SetActive(true);
+
+        text.enabled = true;
 
 
 
