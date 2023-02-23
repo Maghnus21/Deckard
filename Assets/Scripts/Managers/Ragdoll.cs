@@ -58,7 +58,7 @@ public class Ragdoll : MonoBehaviour
         
     }
 
-    public void AddExplosiveForcePoint(Vector3 det_pos, bool force_mode_type)
+    public void AddExplosiveForcePoint(Vector3 det_pos, float exp_force, float exp_radius, float exp_upforce, bool force_mode_type)
     {
         Collider[] exp_col = Physics.OverlapSphere(det_pos, 5f); ;
 
@@ -68,9 +68,9 @@ public class Ragdoll : MonoBehaviour
 
             if(rigidbody != null)
             {
-                if(force_mode_type) rigidbody.AddExplosionForce(30f, det_pos, 5f, 1f, ForceMode.Impulse);
+                if(force_mode_type) rigidbody.AddExplosionForce(exp_force, det_pos, exp_radius, exp_upforce, ForceMode.Impulse);
 
-                if (!force_mode_type) rigidbody.AddExplosionForce(30f, det_pos, 5f, 1f, ForceMode.VelocityChange);
+                if (!force_mode_type) rigidbody.AddExplosionForce(exp_force, det_pos, exp_radius, exp_upforce, ForceMode.VelocityChange);
             }
         }       
     }

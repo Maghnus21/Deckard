@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public NPC npc;                    //  contains data etc health
+    public NPC npc;                             //  contains data etc health
     Ragdoll ragdoll;                            //  controlls ragdoll effects for entity
     Rigidbody[] rigidbodies;
 
-    public float impact_force = 20f;            //  force applied to entity when hit with killing bullet
+    public float impact_force = 20f;            //  default force applied to entity when hit with killing bullet
 
     public float health;
 
@@ -24,11 +24,20 @@ public class Health : MonoBehaviour
     {
         Random.seed = (int)System.DateTime.Now.Ticks;
 
-        health = npc.health;
 
-        ragdoll = GetComponent<Ragdoll>();
+        if(npc != null)
+        {
+            health = npc.health;
 
-        CreateEntityRagdoll();
+            ragdoll = GetComponent<Ragdoll>();
+
+            CreateEntityRagdoll();
+        }
+        else
+        {
+            health = 10f;
+        }
+        
     }
 
     // Start is called before the first frame update
@@ -58,12 +67,12 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void ReceiveExplosiveDamage(float damage, Vector3 det_loc)
+    public void ReceiveExplosiveDamage(float damage, Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
     {
         health -= damage;
         if(health <= 0)
         {
-            ExplosiveDie(det_loc);
+            ExplosiveDie(det_loc, exp_force, exp_rad, exp_up);
         }
     }
 
@@ -75,7 +84,7 @@ public class Health : MonoBehaviour
     void Die(Vector3 impact_direction, Rigidbody hit_rb)
     {
         float gib_chance_mutiplier = 0 - health;
-        float rand_num = Random.RandomRange(0f, 100f);
+        float rand_num = Random.Range(0f, 100f);
 
         if(rand_num <= gib_chance_mutiplier)
         {
@@ -97,9 +106,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    void ExplosiveDie(Vector3 det_loc)
+    void ExplosiveDie(Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
     {
-        float rand = Random.RandomRange(0f, 100f);
+        float rand = Random.Range(0f, 100f);
 
         
         if(rand < 30)
@@ -110,7 +119,7 @@ public class Health : MonoBehaviour
 
             foreach(Rigidbody rb2 in rb)
             {
-                rb2.AddExplosionForce(5f, det_loc, 5f, 1f, ForceMode.Impulse);
+                rb2.AddExplosionForce(exp_force, det_loc, exp_rad, exp_up, ForceMode.Impulse);
             }
 
 
@@ -119,7 +128,7 @@ public class Health : MonoBehaviour
         else
         {
             ragdoll.ActivateRagdoll();
-            ragdoll.AddExplosiveForcePoint(det_loc, true);
+            ragdoll.AddExplosiveForcePoint(det_loc, exp_force, exp_rad, exp_up, true);
 
             foreach (Rigidbody rb in rigidbodies)
             {

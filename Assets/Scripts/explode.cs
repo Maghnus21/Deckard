@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class explode : MonoBehaviour
 {
-    //Collider[] colliders = null;
-
     Collider[] coll_check;
-
     List<Collider> list = new List<Collider>();
+
+    float explosion_force = 10f;
+    float explosion_radius = 3f;
+    float explosion_upforce = 1f;
+
 
     public bool has_exploded = false;
 
@@ -27,7 +29,7 @@ public class explode : MonoBehaviour
                 print("HIT HITBOX" + collider.gameObject.name);
 
                 float damage_over_dis = Vector3.Distance(transform.position, collider.transform.position);
-                collider.gameObject.GetComponentInParent<EntityHitbox>().ExplosiveHit(10f * damage_over_dis, transform.position);
+                collider.gameObject.GetComponentInParent<EntityHitbox>().ExplosiveHit(30f / damage_over_dis, transform.position, explosion_force, explosion_radius, explosion_upforce);
 
             }
             
@@ -35,7 +37,7 @@ public class explode : MonoBehaviour
 
             if(rb != null)
             {
-                rb.AddExplosionForce(10f, transform.position, 3f, 5f, ForceMode.VelocityChange);
+                rb.AddExplosionForce(explosion_force, transform.position, explosion_radius, explosion_upforce, ForceMode.VelocityChange);
             }
         }
 
@@ -46,7 +48,7 @@ public class explode : MonoBehaviour
 
     void checkExplosionLOS()
     {
-        coll_check = Physics.OverlapSphere(transform.position, 6f);
+        coll_check = Physics.OverlapSphere(transform.position, 3f);
 
         Ray ray = new Ray(transform.position, coll_check[0].transform.position - transform.position);
         RaycastHit hit;
@@ -67,13 +69,20 @@ public class explode : MonoBehaviour
         print("FINISHED EXPLOSION LOS: " + gameObject.name);
     }
 
-
-
     private void OnDrawGizmos()
     {
-
         Gizmos.color = new Color(Color.red.r, Color.red.g, Color.red.b, 0.3f);
         Gizmos.DrawSphere(transform.position, 3f);
+
+        if(coll_check != null)
+        {
+            foreach (Collider col in coll_check)
+            {
+                Gizmos.DrawLine(transform.position, col.transform.position);
+            }
+        }
+        
+        
     }
 
 

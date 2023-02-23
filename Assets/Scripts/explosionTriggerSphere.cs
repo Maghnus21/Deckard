@@ -5,16 +5,18 @@ using UnityEngine;
 public class explosionTriggerSphere : MonoBehaviour
 {
     public GameObject parent_grenade;
-    GameObject test;
+    GameObject explosive_obj;
 
     RaycastHit hit;
     Ray ray;
+
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Gizmos.color = Color.green;
+        Random.seed = (int)System.DateTime.Now.Ticks;
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class explosionTriggerSphere : MonoBehaviour
 
         if (other.gameObject.GetComponent<explode>())
         {
-            test = other.gameObject;
+            explosive_obj = other.gameObject;
         }
 
         if(Physics.Raycast(ray, out hit, 6f))
@@ -46,8 +48,8 @@ public class explosionTriggerSphere : MonoBehaviour
 
                     if (parent_grenade.GetComponent<explode>().has_exploded)
                     {
-                        test.GetComponent<explode>().has_exploded = true;
-                        test.GetComponent<explode>().Invoke("Explode", .3f);
+                        explosive_obj.GetComponent<explode>().has_exploded = true;
+                        explosive_obj.GetComponent<explode>().Invoke("Explode", Random.Range(0.2f, 0.8f));
 
                     }
 
@@ -68,6 +70,7 @@ public class explosionTriggerSphere : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.green;
         Gizmos.DrawRay(ray);
     }
 }
