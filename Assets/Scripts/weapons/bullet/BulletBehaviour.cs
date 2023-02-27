@@ -25,7 +25,7 @@ public class BulletBehaviour : MonoBehaviour
 
     void Start()
     {
-        Destroy(this.gameObject, 3f);
+        
 
 
 
@@ -41,8 +41,10 @@ public class BulletBehaviour : MonoBehaviour
             {
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
 
-                hit.collider.GetComponentInParent<NPCBehaviour>().is_hostile = true;
-                
+                hit.collider.GetComponentInParent<NPCBehaviour>().updateHostileStatus();
+
+                Destroy(gameObject, 0.1f);
+
             }
             else
             {
@@ -54,8 +56,8 @@ public class BulletBehaviour : MonoBehaviour
             if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
         }
 
-        
-        
+
+        Destroy(this.gameObject, 3f);
 
 
     }

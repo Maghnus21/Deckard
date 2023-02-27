@@ -101,7 +101,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4
   bar: {fileID: 5572319621616614931, guid: c9b26156c03a1924d9766a78718649ef, type: 3}
-  damage: 45
+  damage: 27
   dummy_rebar: {fileID: 5572319621616614931, guid: c9b26156c03a1924d9766a78718649ef, type: 3}
 --- !u!54 &1839290970220416708
 Rigidbody:

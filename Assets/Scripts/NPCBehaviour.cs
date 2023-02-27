@@ -21,4 +21,11 @@ public class NPCBehaviour : MonoBehaviour
     {
         
     }
+
+    public void updateHostileStatus()
+    {
+        is_hostile = !is_hostile;
+
+        //GetComponentInParent<NPCAgroMusic>().playMusic();
+    }
 }
