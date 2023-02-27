@@ -11,6 +11,8 @@ public class explosiveHealth : MonoBehaviour
     public bool created_explosion;
     bool coroutine_started = false;
 
+    
+
     private void Awake()
     {
         health = GetComponent<Health>();
@@ -37,12 +39,19 @@ public class explosiveHealth : MonoBehaviour
         {
             StopCoroutine(explosion_countdown());
 
-            GameObject new_explosion = Instantiate(explosion, transform.position, transform.rotation);
-            new_explosion.GetComponent<explode>().Explode();
+            
 
-            created_explosion = true;
-
-            Destroy(new_explosion, 1f);
+            if (!created_explosion)
+            {
+                GameObject new_explosion = Instantiate(explosion, transform.position, transform.rotation);
+                new_explosion.GetComponent<explode>().Explode();
+                created_explosion = true;
+            }
+            else
+            {
+                print("Attempted instantiating additional explosive");
+            }
+            
             Destroy(this.gameObject);
         }
     }
@@ -59,5 +68,10 @@ public class explosiveHealth : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         health.health -= .001f;
+    }
+
+    void detonate()
+    {
+        health.health = 0;
     }
 }

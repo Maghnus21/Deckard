@@ -41,7 +41,7 @@ public class BulletBehaviour : MonoBehaviour
             {
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
 
-
+                hit.collider.GetComponentInParent<NPCBehaviour>().is_hostile = true;
                 
             }
             else

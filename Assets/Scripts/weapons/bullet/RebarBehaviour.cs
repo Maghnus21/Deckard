@@ -48,6 +48,8 @@ public class RebarBehaviour : MonoBehaviour
 
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
 
+                hit.collider.GetComponentInParent<NPCBehaviour>().is_hostile = true;
+
                 hit.collider.GetComponentInParent<Health>().impact_force = 70f;
                 hit.collider.GetComponentInParent<Health>().death_force_mode = false;
             }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class Health : MonoBehaviour
     public float impact_force = 20f;            //  default force applied to entity when hit with killing bullet
 
     public float health;
+
+
+    //  scripts for npc movement
+    NavMeshAgent npc_agent;
+    NPCNav npc_nav;
+    NPCBehaviour npc_behaviour;
+
+    BranchDialogueTest bdt;
 
     
 
@@ -37,7 +46,9 @@ public class Health : MonoBehaviour
         {
             health = 10f;
         }
-        
+
+
+        assignScripts();
     }
 
     // Start is called before the first frame update
@@ -83,6 +94,12 @@ public class Health : MonoBehaviour
     /// <param name="hit_rb">bone gameObject with rigidbody that was hit by RaycastHit passed via hit.rigidbody</param>
     void Die(Vector3 impact_direction, Rigidbody hit_rb)
     {
+
+        
+        disableScripts();
+
+
+
         float gib_chance_mutiplier = 0 - health;
         float rand_num = Random.Range(0f, 100f);
 
@@ -109,6 +126,9 @@ public class Health : MonoBehaviour
 
     void ExplosiveDie(Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
     {
+
+        disableScripts();
+
         float rand = Random.Range(0f, 100f);
 
         
@@ -160,5 +180,35 @@ public class Health : MonoBehaviour
             }
         }
             
+    }
+
+    //  this method use is solely for turning off scripts if npc has died/entered a ragdoll state
+    void disableScripts()
+    {
+        npc_agent.enabled = false;
+        npc_nav.enabled = false;
+        npc_behaviour.enabled = false;
+        bdt.enabled = false;
+    }
+
+    //  method only used for assigning scripts to npc specific fields
+    void assignScripts()
+    {
+        if (GetComponent<NavMeshAgent>())
+        {
+            npc_agent = GetComponent<NavMeshAgent>();
+        }
+        if (GetComponent<NPCNav>())
+        {
+            npc_nav = GetComponent<NPCNav>();
+        }
+        if (GetComponent<NPCBehaviour>())
+        {
+            npc_behaviour = GetComponent<NPCBehaviour>();
+        }
+        if (GetComponent<BranchDialogueTest>())
+        {
+            bdt = GetComponent<BranchDialogueTest>();
+        }
     }
 }

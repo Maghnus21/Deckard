@@ -920,6 +920,10 @@ GameObject:
   - component: {fileID: 3398175430158271312}
   - component: {fileID: 4272208543375217632}
   - component: {fileID: 6106960336163620329}
+  - component: {fileID: 9052802051011965010}
+  - component: {fileID: 2591631097693165978}
+  - component: {fileID: 8887758981172716194}
+  - component: {fileID: 1019264980808053476}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -1041,6 +1045,72 @@ MonoBehaviour:
       - end_on_response: 1
         next_branch_id: 4
         response_dialogue: ...
+--- !u!114 &9052802051011965010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587836256457489923}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f84c8632b9ec042ad4cff043c024de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dt: {fileID: 6106960336163620329}
+  player: {fileID: 0}
+  text: {fileID: 0}
+  dialog_box: {fileID: 0}
+  op1: {fileID: 0}
+  op2: {fileID: 0}
+--- !u!195 &2591631097693165978
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587836256457489923}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.34
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &8887758981172716194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587836256457489923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b314a03ce4fc7a94bb104e006007710a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1019264980808053476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2587836256457489923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501d94619e6ea2447b6a509a0f736700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc_status: {fileID: 11400000, guid: a2d3764d57afa58469a948a3feac3d7a, type: 2}
+  is_hostile: 0
 --- !u!1 &2694226185477798799
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class explode : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class explode : MonoBehaviour
     public bool manual_explode = false;
     public bool has_exploded = false;
 
+    public GameObject explosion_image_plane;
+    public GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("player");
+    }
+
+
     private void Update()
     {
         //  DEBUGGING
@@ -25,6 +35,8 @@ public class explode : MonoBehaviour
         {
             Explode();
         }
+
+        this.gameObject.transform.LookAt(player.transform.position);
     }
 
 
@@ -35,7 +47,9 @@ public class explode : MonoBehaviour
 
         checkExplosionLOS();
 
-        foreach (Collider collider in list)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosion_radius);     // to be kept until los fix
+
+        foreach (Collider collider in colliders)
         {
             //  check makes sure hit NPC doesn't instantiate multiple gib_body prefabs
             if (collider.gameObject.GetComponent<EntityHitbox>() && collider.gameObject.GetComponentInParent<Health>().health > 0)
@@ -58,6 +72,7 @@ public class explode : MonoBehaviour
             }
         }
 
+        Destroy(gameObject, .5f);
         
     }
 

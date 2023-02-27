@@ -29,6 +29,6 @@ public class grenadeThrow : MonoBehaviour
         GameObject grenade_clone = Instantiate(grenade, Camera.main.transform.position, Camera.main.transform.rotation);
         grenade_clone.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
 
-        grenade_clone.GetComponent<explode>().Invoke("Explode", delay_time);
+        grenade_clone.GetComponent<explosiveHealth>().Invoke("detonate", delay_time);
     }
 }

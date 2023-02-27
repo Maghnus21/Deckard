@@ -25,4 +25,6 @@ public class NPC : ScriptableObject
 
     //  this is the dialogue npc will say
     public DialogueScriptableObject dialogue;
+
+    public bool is_hostile_to_player = false;
 }
