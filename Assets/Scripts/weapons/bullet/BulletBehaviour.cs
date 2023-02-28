@@ -37,7 +37,7 @@ public class BulletBehaviour : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
-            if(hit.collider != null && !hit.collider.isTrigger && hit.collider.CompareTag("Suspect") || hit.collider.CompareTag("NPC") || hit.collider.GetComponent<EntityHitbox>())
+            if(hit.collider != null && hit.collider.GetComponent<EntityHitbox>())
             {
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
 

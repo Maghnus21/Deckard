@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06452dab57dbecf4398b0e72845f4f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 0}
+  npc: {fileID: 11400000, guid: 4c316f8b8d1f44c41b3a2dd4e4ba06be, type: 2}
   impact_force: 20
-  health: 0
+  health: 40
   death_force_mode: 1

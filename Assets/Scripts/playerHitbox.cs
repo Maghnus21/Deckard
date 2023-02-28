@@ -23,4 +23,9 @@ public class playerHitbox : MonoBehaviour
     {
         player_health.playerReceiveDamage(damage);
     }
+
+    public void explodeHitPlayer(float exp_damage, float exp_force, float exp_radius, float exp_up, Vector3 exp_pos)
+    {
+        player_health.playerReceiveDamage(exp_damage, exp_force, exp_radius, exp_up, exp_pos);
+    }
 }

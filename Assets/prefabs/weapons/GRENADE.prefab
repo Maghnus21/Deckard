@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenade: {fileID: 411368500579971830, guid: c57152d6312e83e40bfe96bc47387771, type: 3}
-  delay_time: 5
+  delay_time: 8
 --- !u!1001 &5642005570447121721
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class playerHealth : MonoBehaviour
 {
     public float health = 100f;
     public GameObject player_ragdoll;
+    Rigidbody[] rb;
 
     private void Update()
     {
@@ -24,8 +25,26 @@ public class playerHealth : MonoBehaviour
 
         if(health <= 0)
         {
-            playerDeath();
             GetComponent<PlayerHealthUI>().reduceHP(100);
+            playerDeath();
+            
+        }
+        else
+        {
+            GetComponent<PlayerHealthUI>().reduceHP(damage);
+        }
+    }
+
+    public void playerReceiveDamage(float damage, float exp_force, float exp_radius, float exp_up, Vector3 exp_pos)
+    {
+        health -= damage;
+
+
+        if (health <= 0)
+        {
+            GetComponent<PlayerHealthUI>().reduceHP(100);
+            playerDeath(exp_force, exp_radius, exp_up, exp_pos);
+
         }
         else
         {
@@ -36,6 +55,19 @@ public class playerHealth : MonoBehaviour
     void playerDeath()
     {
         GameObject corpse = Instantiate(player_ragdoll, transform.position, transform.rotation);
+        this.gameObject.SetActive(false);
+    }
+
+    void playerDeath(float exp_force, float exp_radius, float exp_up, Vector3 exp_pos)
+    {
+        GameObject corpse = Instantiate(player_ragdoll, transform.position, transform.rotation);
+        rb = corpse.GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rb2 in rb)
+        {
+            rb2.AddExplosionForce(exp_force, exp_pos, exp_radius, exp_up, ForceMode.Impulse);
+        }
+
         this.gameObject.SetActive(false);
     }
 }
