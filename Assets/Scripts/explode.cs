@@ -58,13 +58,15 @@ public class explode : MonoBehaviour
 
 
                 collider.gameObject.GetComponent<EntityHitbox>().ExplosiveHit(calculateDistanceDamage(entity_dis), transform.position, explosion_force, explosion_radius, explosion_upforce);
-                
-            } else if (collider.gameObject.GetComponent<playerHitbox>())
+
+            }
+            else if (collider.gameObject.GetComponent<playerHitbox>())
             {
                 float entity_dis = Vector3.Distance(transform.position, collider.transform.position);
                 collider.gameObject.GetComponent<playerHitbox>().explodeHitPlayer(calculateDistanceDamage(entity_dis), explosion_force, explosion_radius, explosion_upforce, transform.position);
                 print("HIT PLAYER");
             }
+            else { }
             
             
             Rigidbody rb = collider.GetComponent<Rigidbody>();

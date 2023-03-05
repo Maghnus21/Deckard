@@ -11,7 +11,8 @@ public class explosiveHealth : MonoBehaviour
     public bool created_explosion;
     bool coroutine_started = false;
 
-    
+
+
 
     private void Awake()
     {
@@ -65,7 +66,6 @@ public class explosiveHealth : MonoBehaviour
 
     IEnumerator explosion_countdown()
     {
-        
         yield return new WaitForSeconds(1f);
         health.health -= .001f;
     }

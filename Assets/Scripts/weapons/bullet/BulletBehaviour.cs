@@ -43,23 +43,18 @@ public class BulletBehaviour : MonoBehaviour
 
                 hit.collider.GetComponentInParent<NPCBehaviour>().updateHostileStatus();
 
-                Destroy(gameObject, 0.1f);
-
+                Destroy(this.gameObject);
             }
             else
             {
-                Destroy(gameObject, 0.1f);
+                
             }
 
 
 
             if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
+            Destroy(gameObject, 0.1f);
         }
-
-
-        Destroy(this.gameObject, 3f);
-
-
     }
 
     // Update is called once per frame
