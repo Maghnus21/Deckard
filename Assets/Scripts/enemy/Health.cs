@@ -17,8 +17,9 @@ public class Health : MonoBehaviour
 
     //  scripts for npc movement
     NavMeshAgent npc_agent;
-    NPCNav npc_nav;
+    AINavigation npc_nav;
     NPCBehaviour npc_behaviour;
+    Animator animator;
 
     BranchDialogueTest bdt;
 
@@ -187,8 +188,7 @@ public class Health : MonoBehaviour
     {
         npc_agent.enabled = false;
         npc_nav.enabled = false;
-        npc_behaviour.enabled = false;
-        bdt.enabled = false;
+        animator.enabled = false;
     }
 
     //  method only used for assigning scripts to npc specific fields
@@ -198,14 +198,20 @@ public class Health : MonoBehaviour
         {
             npc_agent = GetComponent<NavMeshAgent>();
         }
-        if (GetComponent<NPCNav>())
+        if (GetComponent<AINavigation>())
         {
-            npc_nav = GetComponent<NPCNav>();
+            npc_nav = GetComponent<AINavigation>();
         }
+        if (GetComponent<Animator>())
+        {
+            animator = GetComponent<Animator>();
+        }
+        /*
         if (GetComponent<NPCBehaviour>())
         {
             npc_behaviour = GetComponent<NPCBehaviour>();
         }
+        */
         if (GetComponent<BranchDialogueTest>())
         {
             bdt = GetComponent<BranchDialogueTest>();

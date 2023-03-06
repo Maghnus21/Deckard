@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ragdoll : MonoBehaviour
 {
     Rigidbody[] rigidbodies;
+    Animator animator;
+    NavMeshAgent nma;
+    AINavigation nav;
 
     public Rigidbody impact_body_part;
+
+    public bool trigger_rd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -14,22 +20,39 @@ public class Ragdoll : MonoBehaviour
         rigidbodies = GetComponentsInChildren<Rigidbody>();
 
         setRagdollState(true);
+
+        animator = gameObject.GetComponent<Animator>();
+        nma = gameObject.GetComponent<NavMeshAgent>();
+        nav = gameObject.GetComponent<AINavigation>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (trigger_rd)
+        {
+            ActivateRagdoll();
+        }
     }
 
     public void ActivateRagdoll()
     {
+        animator.enabled = false;
+        nma.enabled = false;
+        nav.enabled = false;
+
+
         setRagdollState(false);
+
+
     }
 
     public void DeactivateRagdoll()
     {
         setRagdollState(true);
+
+        this.gameObject.GetComponent<AINavigation>().enabled = false;
     }
 
     void setRagdollState(bool state)
