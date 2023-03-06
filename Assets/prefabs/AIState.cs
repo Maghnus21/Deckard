@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIState : MonoBehaviour
+public enum AIStateID
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Idle,
+    ChasePlayer,
+    Death
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public interface AIState
+{
+    AIStateID getID();
+    void Enter(AIAgent agent);
+    void Update(AIAgent agent);
+    void Exit(AIAgent agent);
+
 }

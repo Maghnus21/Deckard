@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public NPC npc;                             //  contains data etc health
     Ragdoll ragdoll;                            //  controlls ragdoll effects for entity
+    AIAgent agent;
     Rigidbody[] rigidbodies;
 
     public float impact_force = 20f;            //  default force applied to entity when hit with killing bullet
@@ -48,6 +49,7 @@ public class Health : MonoBehaviour
             health = 10f;
         }
 
+        agent = GetComponent<AIAgent>();
 
         assignScripts();
     }
@@ -113,10 +115,10 @@ public class Health : MonoBehaviour
         }
         else
         {
-            ragdoll.ActivateRagdoll();
-            impact_direction.y = 1f;
-            ragdoll.impact_body_part = hit_rb;
-            ragdoll.ApplyForce(impact_direction * impact_force, death_force_mode);
+            AIDeathState deathState = agent.stateMachine.getState(AIStateID.Death) as AIDeathState;
+            deathState.impact_direction = impact_direction;
+            deathState.hit_rb = hit_rb;
+            agent.stateMachine.ChangeState(AIStateID.Death);
 
             foreach (Rigidbody rb in rigidbodies)
             {
