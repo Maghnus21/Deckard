@@ -41,7 +41,7 @@ public class RebarBehaviour : MonoBehaviour
             }
 
 
-            if(hit.collider != null && hit.collider.gameObject.GetComponent<EntityHitbox>() && hit.collider.gameObject.GetComponentInParent<Health>().health > 0)
+            if(hit.collider != null && hit.collider.gameObject.GetComponent<EntityHitbox>())
             {
                 embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
                 embed_rebar.transform.SetParent(hit.transform, true);

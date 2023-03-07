@@ -13,6 +13,7 @@ public class AIAgent : MonoBehaviour
     public Ragdoll ragdoll;
     public Health health;
     public Transform player_transform;
+    public Transform agent_head;
 
     // Start is called before the first frame update
     void Start()

@@ -23,44 +23,44 @@ public class BulletBehaviour : MonoBehaviour
     Ray ray;
     float range = 1f;
 
+    float maxtime = 2f;
+    float time;
+
+
     void Start()
     {
-        
-
-
-
+        time = maxtime;
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
         ray = new Ray(transform.position, transform.forward * range);
 
 
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit) && hit.collider != null)
         {
-            if(hit.collider != null && hit.collider.GetComponent<EntityHitbox>())
+            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
+
+            if (hit.collider != null && hit.collider.GetComponent<EntityHitbox>())
             {
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
-
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                
             }
 
+            Destroy(this.gameObject, 0.1f);
+        }
+        /*
+        else
+        {
+            Destroy(gameObject, 1f);
+        }*/
+    }
 
+    private void Update()
+    {
+        time -= Time.deltaTime;
 
-            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
-            Destroy(gameObject, 0.1f);
+        if(time < 0f)
+        {
+            Destroy(this.gameObject);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    
 }

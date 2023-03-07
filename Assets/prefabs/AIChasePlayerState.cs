@@ -28,12 +28,16 @@ public class AIChasePlayerState : AIState
         timer -= Time.deltaTime;
         if (timer < 0f)
         {
-            float sqdistance = (agent.player_transform.position - agent.navMeshAgent.destination).magnitude;
-            if (sqdistance > agent.config.maxDistance * agent.config.maxDistance)
+            if (agent.navMeshAgent.enabled)
             {
-                agent.navMeshAgent.destination = agent.player_transform.position;
+                float sqdistance = (agent.player_transform.position - agent.navMeshAgent.destination).magnitude;
+                if (sqdistance > agent.config.maxDistance * agent.config.maxDistance)
+                {
+                    agent.navMeshAgent.destination = agent.player_transform.position;
+                }
+                timer = agent.config.maxTime;
             }
-            timer = agent.config.maxTime;
+            
         }
 
 
