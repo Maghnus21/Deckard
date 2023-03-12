@@ -83,5 +83,6 @@ public class playerPickup : MonoBehaviour
 
             thrownObject = hit.collider.gameObject;
         }
+        else { }
     }
 }

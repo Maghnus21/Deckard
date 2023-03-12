@@ -15,7 +15,7 @@ public class AIChasePlayerState : AIState
 
     public void Enter(AIAgent agent)
     {
-        
+        agent.branch_dialogue.enabled = false;
     }
 
     public void Exit(AIAgent agent)

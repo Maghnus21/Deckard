@@ -13,7 +13,8 @@ public class AIAgent : MonoBehaviour
     public Ragdoll ragdoll;
     public Health health;
     public Transform player_transform;
-    public Transform agent_head;
+    public BranchDialogueTest branch_dialogue;
+    public AINavigation ai_nav;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class AIAgent : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         ragdoll = GetComponent<Ragdoll>();
         health = GetComponent<Health>();
+        branch_dialogue = GetComponent<BranchDialogueTest>();
 
         if (player_transform == null)
         {

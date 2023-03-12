@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class BranchDialogueTest : MonoBehaviour
 {
     public DialogueTree dt;
+    public InterrogationDialogueTree interrogation_dia_tree;
     public GameObject player;
     player_look pl;
 
@@ -31,8 +32,9 @@ public class BranchDialogueTest : MonoBehaviour
     void Start()
     {
         dt = GetComponent<DialogueTree>();
+        interrogation_dia_tree = GetComponent<InterrogationDialogueTree>();
 
-        
+        pl = player.GetComponentInChildren<player_look>();
     }
 
     // Update is called once per frame
@@ -50,12 +52,14 @@ public class BranchDialogueTest : MonoBehaviour
 
     public void showDialogue()
     {
-        pl = player.GetComponentInChildren<player_look>();
+        //  freezes mouse movement while engaged in dialogue
         origina_sen = pl.mouse_sen;
         pl.mouse_sen = 0;
 
-        branch_choice = 0;
+        //  choice is button pressed. branch_choice is branch_id of response[choice]
         choice = 0;
+        branch_choice = 0;
+        
 
         dialog_box.SetActive(true);
 
@@ -67,16 +71,17 @@ public class BranchDialogueTest : MonoBehaviour
         text.text = dt.branches[0].sections[0].dialogue;
 
 
-        op1.GetComponentInChildren<TextMeshProUGUI>().text = dt.branches[0].sections[0].responses[0].response_dialogue;
-        op2.GetComponentInChildren<TextMeshProUGUI>().text = dt.branches[0].sections[0].responses[1].response_dialogue;
+        op1.GetComponentInChildren<TextMeshProUGUI>().text = dt.branches[branch_choice].sections[0].responses[0].response_dialogue;
+        op2.GetComponentInChildren<TextMeshProUGUI>().text = dt.branches[branch_choice].sections[0].responses[1].response_dialogue;
     }
 
     private void hideDialogue()
     {
-        pl.mouse_sen = origina_sen;
+        player.GetComponentInChildren<player_look>().mouse_sen = origina_sen;
+        //pl.mouse_sen = origina_sen;
         origina_sen = 0;
 
-        dialog_box.SetActive(false);
+        
 
 
         print(dt.branches[0].sections[0].dialogue);
@@ -91,6 +96,8 @@ public class BranchDialogueTest : MonoBehaviour
 
 
         this.gameObject.GetComponent<BranchDialogueTest>().enabled = false;
+
+        dialog_box.SetActive(false);
     }
 
     void updateDialogue(int num)
@@ -144,6 +151,15 @@ public class BranchDialogueTest : MonoBehaviour
             hideDialogue();
         }
         
+    }
+
+
+    public void dialogueButtonPress(int choice, int branch)
+    {
+        this.choice = choice;
+        this.branch_choice = branch;
+
+        print("Pressed button");
     }
 
 }

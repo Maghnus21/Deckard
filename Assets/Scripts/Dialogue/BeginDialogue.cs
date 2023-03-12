@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BeginDialogue : MonoBehaviour
 {
+    public GameObject npc_talking;
+    public branchDialogueManager branch_dialogue_manager;
+
     Ray ray;
     RaycastHit hit;
 
@@ -19,12 +22,13 @@ public class BeginDialogue : MonoBehaviour
         ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
 
-        if (Physics.Raycast(ray, out hit, 5f) && hit.collider.gameObject.GetComponentInParent<BranchDialogueTest>())
+        if (Physics.Raycast(ray, out hit, 5f) && hit.collider.gameObject.GetComponentInParent<BranchDialogueConvo>())
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                hit.collider.GetComponentInParent<BranchDialogueTest>().enabled = true;
-                hit.collider.GetComponentInParent<BranchDialogueTest>().showDialogue();
+                branch_dialogue_manager.showDialogue();
+
+                npc_talking = hit.collider.GetComponentInParent<BranchDialogueTest>().gameObject;
             }
         }
     }

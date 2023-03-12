@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DialogueBranchButton : MonoBehaviour
 {
+    public GameObject npc_talking;
+
+
     public bool is_pressed = false;
     public int branch_choice = 1;
     public int choice = 0;

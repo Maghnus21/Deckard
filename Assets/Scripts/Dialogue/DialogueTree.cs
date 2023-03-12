@@ -5,19 +5,6 @@ using UnityEngine;
 public class DialogueTree : MonoBehaviour
 {
     public DialogueBranch[] branches;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
 
 [System.Serializable]
@@ -44,6 +31,10 @@ public class DialogueResponse
 {
     //  ensures player can exit dialogue when conversation is completed
     public bool end_on_response = false;
+    public bool initialize_interrogation = false;
+    public bool turn_hostile = false;
+
+
     public int next_branch_id;
     
     [TextArea]
