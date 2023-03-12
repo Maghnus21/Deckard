@@ -26,9 +26,13 @@ public class BeginDialogue : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                branch_dialogue_manager.showDialogue();
+                
 
                 npc_talking = hit.collider.GetComponentInParent<BranchDialogueTest>().gameObject;
+
+                branch_dialogue_manager.talking_npc = npc_talking;
+
+                branch_dialogue_manager.showDialogue();
             }
         }
     }
