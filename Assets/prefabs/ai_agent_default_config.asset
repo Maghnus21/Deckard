@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86801d92c7f7bc546918507495af6f95, type: 3}
   m_Name: ai_agent_default_config
   m_EditorClassIdentifier: 
-  maxTime: 1
+  maxTime: 0.3
   maxDistance: 1
+  impact_force: 10
+  max_los_distance: 5

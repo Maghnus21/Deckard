@@ -34,11 +34,11 @@ public class AIIdleState : AIState
 
         float dot_product = Vector3.Dot(player_direction, agent_direction);
         
-        /*
+        
         if(dot_product > 0.0f)
         {
             agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
         }
-        */
+        
     }
 }
