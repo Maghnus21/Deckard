@@ -7,6 +7,7 @@ public class InterrogationSequence : MonoBehaviour
 
     public Camera kit_cam;
     public GameObject suspect;
+    public GameObject vk_button1 = null, vk_button2 = null, vk_button3 = null;
 
     RaycastHit hit;
 
@@ -16,6 +17,7 @@ public class InterrogationSequence : MonoBehaviour
         kit_cam = GetComponentInChildren<Camera>();
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -40,4 +42,5 @@ public class InterrogationSequence : MonoBehaviour
         }
 
     }
+    */
 }

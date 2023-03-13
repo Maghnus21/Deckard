@@ -65,8 +65,6 @@ public class branchDialogueManager : MonoBehaviour
 
         p_l.mouse_sen = 0;
 
-        
-
         dialogue_box.SetActive(true);
 
         DisplayConvo();
@@ -99,13 +97,13 @@ public class branchDialogueManager : MonoBehaviour
     {
         if (!talking_npc.GetComponent<DialogueTree>())
         {
+            print("no DialogueTree component attached to entity " + talking_npc.name);
             return;
         }
         else
         {
             dialogue_tree = talking_npc.GetComponent<DialogueTree>();
         }
-
     }
 
     /// <summary>
@@ -115,6 +113,7 @@ public class branchDialogueManager : MonoBehaviour
     {
         if (!talking_npc.GetComponent<InterrogationDialogueTree>())
         {
+            print("no InterrogationDialogueTree component attached to entity " + talking_npc.name);
             return;
         }
         else
@@ -202,6 +201,11 @@ public class branchDialogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the dialogue shown on screen
+    /// </summary>
+    /// <param name="branch_choice">Integer assigned to button parse from dialogue_tree's next_branch_id parameter</param>
+    /// <param name="response_choice">Integer parsed from button script to chose respose to dialogue, 3 buttons = integer values of 0 -> 2</param>
     public void UpdateConvo(int branch_choice, int response_choice)
     {
         if (dialogue_tree.branches[this.branch_choice].sections[0].responses[response_choice].end_on_response)
@@ -220,7 +224,20 @@ public class branchDialogueManager : MonoBehaviour
             DisplayConvo();
             print("continued conversation");
         }
+    }
 
-        
+
+    //  Interrogation functions
+
+    public void DisplayInterrogation()
+    {
+        dialogue_text.text = interrogation_dialogue_tree.branches[branch_choice].sections[0].dialogue;
+
+        DisplayInterrogationResponses();
+    }
+
+    void DisplayInterrogationResponses()
+    {
+        int interrogation_response_count = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses.GetLength(0);
     }
 }

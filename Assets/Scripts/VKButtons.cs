@@ -1,18 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VKButtons : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    struct button_info
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int interrogation_branch_choice;
+        public int interrogation_response_choice;
     }
 }

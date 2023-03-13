@@ -19,7 +19,6 @@ public class Health : MonoBehaviour
     //  scripts for npc movement
     NavMeshAgent npc_agent;
     AINavigation npc_nav;
-    NPCBehaviour npc_behaviour;
     Animator animator;
 
     BranchDialogueTest bdt;
