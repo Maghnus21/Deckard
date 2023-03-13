@@ -32,7 +32,7 @@ public class BeginDialogue : MonoBehaviour
 
                 branch_dialogue_manager.talking_npc = npc_talking;
 
-                branch_dialogue_manager.showDialogue();
+                branch_dialogue_manager.ShowDialogue();
             }
         }
     }

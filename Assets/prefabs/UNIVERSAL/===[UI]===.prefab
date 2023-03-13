@@ -576,7 +576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Button 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -856,10 +856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44711a75d4f22ae4ab6c9acc75399ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc_talking: {fileID: 0}
+  branch_dialogue_manager: {fileID: 0}
   is_pressed: 0
-  branch_choice: 1
-  choice: 1
+  branch_choice: 0
+  choice: 0
 --- !u!1 &2340980081050372192
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Button 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1576,10 +1576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44711a75d4f22ae4ab6c9acc75399ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc_talking: {fileID: 0}
+  branch_dialogue_manager: {fileID: 0}
   is_pressed: 0
-  branch_choice: 1
-  choice: 1
+  branch_choice: 0
+  choice: 0
 --- !u!1 &4837850820856774259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44711a75d4f22ae4ab6c9acc75399ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc_talking: {fileID: 0}
+  branch_dialogue_manager: {fileID: 0}
   is_pressed: 0
   branch_choice: 0
   choice: 0
@@ -2973,7 +2973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Button 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

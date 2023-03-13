@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class DialogueBranchButton : MonoBehaviour
 {
-    public GameObject npc_talking;
+    public branchDialogueManager branch_dialogue_manager;
 
 
     public bool is_pressed = false;
     public int branch_choice = 1;
     public int choice = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OnPress()
     {
-        is_pressed = !is_pressed;
+        branch_dialogue_manager.UpdateConvo(branch_choice, choice);
+
+        /*
+        branch_dialogue_manager.branch_choice = branch_choice;
+        branch_dialogue_manager.DisplayConvo();
+        */
+        print("Pressed button");
     }
 }
