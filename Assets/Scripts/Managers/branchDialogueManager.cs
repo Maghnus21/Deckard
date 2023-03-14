@@ -26,6 +26,14 @@ public class branchDialogueManager : MonoBehaviour
     int original_mouse_sensativity;
 
     bool in_convo = false;
+    bool in_interrogation = false;
+
+    RaycastHit hit;
+    Ray ray;
+
+    Camera cam;
+
+    public GameObject debug_cube;
 
     private void Awake()
     {
@@ -53,6 +61,30 @@ public class branchDialogueManager : MonoBehaviour
                 HideDialogue();
                 in_convo = !in_convo;
             }
+        }
+
+        if (in_interrogation)
+        {
+            cam = kit.GetComponentInChildren<Camera>();
+
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+
+           
+            
+                
+
+            if(Physics.Raycast(ray, out hit))
+            {
+                if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<VKButtons>())
+                {
+                    print("HIT " + hit.collider.name);
+                    //Instantiate(debug_cube, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.Euler(Vector3.zero));
+
+                    print(hit.collider.GetComponent<VKButtons>().interrogation_branch_choice);
+
+                }
+            }
+            
         }
     }
 
@@ -85,9 +117,11 @@ public class branchDialogueManager : MonoBehaviour
         branch_choice = 0;
         response_choice = 0;
 
+        //in_convo = false;
+
 
         dialogue_box.SetActive(false);
-        kit.GetComponent<InterrogationSequence>().kit_cam.enabled = false;
+        kit.GetComponent<VKKit>().kit_cam.enabled = false;
     }
 
     /// <summary>
@@ -212,11 +246,15 @@ public class branchDialogueManager : MonoBehaviour
         {
             print("exited conversation");
             HideDialogue();
+            in_convo = false;
         } else if (dialogue_tree.branches[this.branch_choice].sections[0].responses[response_choice].initialize_interrogation)
         {
-            HideDialogue();
+            print("begun interrogation");
+            //HideDialogue();
             kit.SetActive(true);
-            kit.GetComponent<InterrogationSequence>().kit_cam.enabled = true;
+            kit.GetComponent<VKKit>().kit_cam.enabled = true;
+            in_convo = true;
+            DisplayInterrogation();
         }
         else
         {
@@ -231,13 +269,19 @@ public class branchDialogueManager : MonoBehaviour
 
     public void DisplayInterrogation()
     {
+        in_interrogation = true;
+
+        //ShowDialogue();
+
         dialogue_text.text = interrogation_dialogue_tree.branches[branch_choice].sections[0].dialogue;
+
+        
 
         DisplayInterrogationResponses();
     }
 
     void DisplayInterrogationResponses()
     {
-        int interrogation_response_count = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses.GetLength(0);
+        
     }
 }

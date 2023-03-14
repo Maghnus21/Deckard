@@ -92,8 +92,11 @@ public class quakeLight : MonoBehaviour
             //  candle 3
             case 11: light_string = "mmmaaammmaaammmabcdefaaaammmmabcdefmmmaaaa"; break;
 
+            //  candle 3
+            case 12: light_string = "mmmkjjsmmmkkkmmmghijffffmmmmfghimmmdddd"; break;
+
             //  fluorescent flicker
-            case 12: light_string = "mmamammmmammamamaaamammma"; break;
+            case 13: light_string = "mmamammmmammamamaaamammma"; break;
 
             default:                light_string = "a";                break;
         }

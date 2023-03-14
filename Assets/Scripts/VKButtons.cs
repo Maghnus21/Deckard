@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class VKButtons : MonoBehaviour
 {
-    struct button_info
-    {
-        public int interrogation_branch_choice;
-        public int interrogation_response_choice;
-    }
+    public int interrogation_branch_choice;
+    public int interrogation_response_choice;
+    
 }

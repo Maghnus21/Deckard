@@ -15,10 +15,6 @@ public class DialogueBranchButton : MonoBehaviour
     {
         branch_dialogue_manager.UpdateConvo(branch_choice, choice);
 
-        /*
-        branch_dialogue_manager.branch_choice = branch_choice;
-        branch_dialogue_manager.DisplayConvo();
-        */
         print("Pressed button");
     }
 }

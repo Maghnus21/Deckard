@@ -30,7 +30,7 @@ public class beginInterrogation : MonoBehaviour
                 print("BEGUN INTERROGATION");
 
                 suspect = hit.collider.GetComponentInParent<InterrogationDialogueTree>().gameObject;
-                kit.GetComponent<InterrogationSequence>().suspect = suspect;
+                kit.GetComponent<VKKit>().suspect = suspect;
             }
         }
     }
