@@ -32,6 +32,8 @@ public class Gun : ScriptableObject
 
     public float ammo_reserve = 999;
 
+    public AmmoTypeScriptableObject ammo_type;
+
     public GameObject muzzle_flash;
 
     // speed of weapon rotation after firing [LOWER IS SLOWER];

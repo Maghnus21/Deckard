@@ -21,6 +21,7 @@ MonoBehaviour:
   fire_rate: 550
   magazine_size: 25
   ammo_reserve: 999
+  ammo_type: {fileID: 11400000, guid: fc4a99cb959ef0443a85380c7a49f9ad, type: 2}
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40
   recoilRotationReturn: 2
@@ -30,4 +31,4 @@ MonoBehaviour:
   is_melee_weapon: 0
   melee_damage: 0
   weapon_prefab: {fileID: 0}
-  animator: {fileID: 0}
+  is_throwable: 0

@@ -21,6 +21,7 @@ MonoBehaviour:
   fire_rate: 60
   magazine_size: 5
   ammo_reserve: 995
+  ammo_type: {fileID: 11400000, guid: 767f39d8702f85a4c84a48f584224670, type: 2}
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40
   recoilRotationReturn: 2
