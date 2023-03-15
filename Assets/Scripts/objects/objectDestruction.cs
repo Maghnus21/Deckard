@@ -5,29 +5,25 @@ using UnityEngine;
 
 public class objectDestruction : MonoBehaviour
 {
-    public GameObject object_breakable;
-    
+    public Health health;
+    public GameObject destructable_object;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
+        health = GetComponent<Health>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    [System.Obsolete]
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if(health.health <= 0)
         {
-            Instantiate(object_breakable, transform.position, transform.rotation);
+            Instantiate(destructable_object,transform.position, transform.rotation);
 
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
+
+    
 }

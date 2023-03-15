@@ -116,4 +116,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665933a84de23864cb6d93371cb475a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object_breakable: {fileID: 227974949163638707, guid: 8c4af09a81220b14fa7d04f34f4d5bd8, type: 3}
+  health: {fileID: 0}
+  destructable_object: {fileID: 227974949163638707, guid: 8c4af09a81220b14fa7d04f34f4d5bd8, type: 3}
+--- !u!114 &288057202836878065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323312550577435177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06452dab57dbecf4398b0e72845f4f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 0}
+  impact_force: 20
+  health: 0
+  death_force_mode: 1
+--- !u!114 &1876926354694221502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323312550577435177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d660b41ee105280429413ab992ec3778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 288057202836878065}
+  damage_multi: 1
