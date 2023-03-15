@@ -16,6 +16,8 @@ public class Gun : ScriptableObject
     //  reference to gun prefab
     public GameObject gun_prefab;
 
+    public GameObject gun_npc;
+
     //  reference to bullet
     public GameObject bullet;
 

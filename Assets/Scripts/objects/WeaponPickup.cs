@@ -49,14 +49,23 @@ public class WeaponPickup : MonoBehaviour
             {
 
             }
-            
-
-            
-
-
         }
 
+        if (other.CompareTag("NPC"))
+        {
+            EntityHitbox hitbox = other.gameObject.GetComponent<EntityHitbox>();
+            if (hitbox)
+            {
+                AIWeapon weapons = hitbox.health.GetComponent<AIWeapon>();
+                if(weapons != null)
+                {
+                    GameObject new_gun = Instantiate(weapon_scriptable_object.gun_npc);
 
+                    weapons.EpuipWeapon(new_gun, weapon_scriptable_object);
+                    Destroy(gameObject);
+                }
+            }
+        }
 
     }
 }
