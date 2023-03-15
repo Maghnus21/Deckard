@@ -9,7 +9,7 @@ public class AIDeathState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent.branch_dialogue.enabled = false;
+        //agent.branch_dialogue.enabled = false;
 
         agent.ragdoll.ActivateRagdoll();
         impact_direction.y = 1f;

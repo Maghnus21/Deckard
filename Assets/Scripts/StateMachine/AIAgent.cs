@@ -24,7 +24,7 @@ public class AIAgent : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         ragdoll = GetComponent<Ragdoll>();
         health = GetComponent<Health>();
-        branch_dialogue = GetComponent<BranchDialogueTest>();
+        //branch_dialogue = GetComponent<BranchDialogueTest>();
 
         if (player_transform == null)
         {

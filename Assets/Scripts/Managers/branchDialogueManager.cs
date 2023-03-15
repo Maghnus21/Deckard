@@ -43,6 +43,8 @@ public class branchDialogueManager : MonoBehaviour
         original_mouse_sensativity = p_l.mouse_sen;
 
         kit.SetActive(false);
+
+        HideDialogue();
     }
 
     // Start is called before the first frame update

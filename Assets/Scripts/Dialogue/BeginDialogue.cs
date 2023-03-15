@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BeginDialogue : MonoBehaviour
 {
@@ -22,13 +23,13 @@ public class BeginDialogue : MonoBehaviour
         ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
 
-        if (Physics.Raycast(ray, out hit, 5f) && hit.collider.gameObject.GetComponentInParent<BranchDialogueConvo>())
+        if (Physics.Raycast(ray, out hit, 5f) && hit.collider.gameObject.GetComponentInParent<DialogueTree>())
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 
 
-                npc_talking = hit.collider.GetComponentInParent<BranchDialogueTest>().gameObject;
+                npc_talking = hit.collider.GetComponentInParent<NavMeshAgent>().gameObject;
 
                 branch_dialogue_manager.talking_npc = npc_talking;
 
