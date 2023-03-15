@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+/*
 public class blenderImporter : AssetPostprocessor
 {
     private void OnPreprocessAnimation()
@@ -23,3 +24,4 @@ public class blenderImporter : AssetPostprocessor
         importer.clipAnimations = animations;
     }
 }
+*/
