@@ -6,6 +6,7 @@ public class AIDeathState : AIState
 {
     public Vector3 impact_direction;
     public Rigidbody hit_rb;
+    public AIWeapon weapon;
 
     public void Enter(AIAgent agent)
     {
@@ -15,6 +16,9 @@ public class AIDeathState : AIState
         impact_direction.y = 1f;
         agent.ragdoll.impact_body_part = hit_rb;
         agent.ragdoll.ApplyForce(impact_direction * agent.config.impact_force, agent.health.death_force_mode);
+
+        weapon = agent.GetComponent<AIWeapon>();
+        weapon.UnparentWeapon();
     }
 
     public void Exit(AIAgent agent)

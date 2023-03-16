@@ -62,6 +62,10 @@ public class WeaponPickup : MonoBehaviour
                     GameObject new_gun = Instantiate(weapon_scriptable_object.gun_npc);
 
                     weapons.EpuipWeapon(new_gun, weapon_scriptable_object);
+
+                    weapons.w_button = button;
+                    weapons.w_image = image;
+
                     Destroy(gameObject);
                 }
             }

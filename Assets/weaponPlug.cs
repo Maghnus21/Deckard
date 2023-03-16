@@ -6,5 +6,6 @@ using UnityEngine;
 public class weaponPlug : MonoBehaviour
 {
     public GameObject wepaon_plug;
+    public GameObject weapon_drop;
     
 }
