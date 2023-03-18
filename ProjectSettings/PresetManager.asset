@@ -4,12 +4,4 @@
 PresetManager:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_DefaultPresets:
-  - first:
-      m_NativeTypeID: 1041
-      m_ManagedTypePPtr: {fileID: 0}
-      m_ManagedTypeFallback: 
-    second:
-    - m_Preset: {fileID: 2655988077585873504, guid: 7ae37042220db0c4faa4acce25c10d3e, type: 2}
-      m_Filter: glob:"*/Characters*"
-      m_Disabled: 0
+  m_DefaultPresets: {}
