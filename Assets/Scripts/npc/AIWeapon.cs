@@ -14,11 +14,16 @@ public class AIWeapon : MonoBehaviour
     public GameObject w_button;
     public GameObject w_image;
 
+    public AIWeaponIK weapon_ik;
+    public MeshSocket mesh_socket;
+
     Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        weapon_ik = GetComponent<AIWeaponIK>();
+        mesh_socket = GetComponentInChildren<MeshSocket>();
     }
 
 
@@ -26,15 +31,36 @@ public class AIWeapon : MonoBehaviour
     {
         current_gun = gun;
         equipted_gun = picked_gun;
+
+        mesh_socket.Attach(equipted_gun.transform);
+        /*
         equipted_gun.transform.SetParent(character_socket.transform, false);
         equipted_gun.GetComponent<weaponPlug>().wepaon_plug.transform.SetParent(character_socket.transform, false);
+        */
         weapon_drop = equipted_gun.GetComponent<weaponPlug>().weapon_drop;
     }
 
     public void ActivateWeapon()
     {
-        animator.SetBool("equip", true);
+
+        StartCoroutine(EquipWeaponIK());
     }
+
+    
+    IEnumerator EquipWeaponIK()
+    {
+        animator.SetBool("equip", true);
+        yield return new WaitForSeconds(.5f);
+
+        while(animator.GetCurrentAnimatorStateInfo(1).normalizedTime < 1f)
+        {
+            yield return null;
+        }
+
+        //weapon_ik.SetAimTransform(GetComponent<AIAgent>().player_transform);
+        weapon_ik.enabled = true;
+    }
+    
 
     public bool HasWeapon()
     {
@@ -52,5 +78,10 @@ public class AIWeapon : MonoBehaviour
         Destroy(equipted_gun);
         //equipted_gun=null;
         current_gun = null;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        weapon_ik.SetTargetTransform(target);
     }
 }

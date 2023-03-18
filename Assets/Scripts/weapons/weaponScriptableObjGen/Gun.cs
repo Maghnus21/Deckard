@@ -18,6 +18,8 @@ public class Gun : ScriptableObject
 
     public GameObject gun_npc;
 
+    public GameObject gun_pickup;
+
     //  reference to bullet
     public GameObject bullet;
 

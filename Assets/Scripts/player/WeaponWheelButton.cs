@@ -14,7 +14,7 @@ public class WeaponWheelButton : MonoBehaviour
     private ColorBlock cb;
     private Color normal_colour;
 
-    public int stack_location;
+    public int stack_location = 12;
     public weapon weapon_script;
 
 
@@ -24,8 +24,6 @@ public class WeaponWheelButton : MonoBehaviour
         anim = GetComponent<Animator>();
         cb = GetComponent<Button>().colors;
         normal_colour = cb.normalColor;
-
-        
     }
 
     // Update is called once per frame
@@ -40,18 +38,28 @@ public class WeaponWheelButton : MonoBehaviour
 
     public void Selected()
     {
-        selected = true;
-        player.GetComponent<AudioSource>().clip = demo.clip;
-        player.GetComponent<AudioSource>().Play();
+        if(stack_location == 12)
+        {
+            print("No weapon/item in slot " + name);
+            return;
+        }
+        else
+        {
+            selected = true;
+            player.GetComponent<AudioSource>().clip = demo.clip;
+            player.GetComponent<AudioSource>().Play();
 
-        weapon_script = player.GetComponent<weapon>();
-        weapon_script.Equip(stack_location);
+            weapon_script = player.GetComponent<weapon>();
+
+            weapon_script.Equip(stack_location);
+        }
+
+        Deselected();
     }
 
     public void Deselected()
     {
         selected = false;
-        
     }
 
     public void HoverEnter()
@@ -61,7 +69,6 @@ public class WeaponWheelButton : MonoBehaviour
 
     public void HoverExit()
     {
-        anim.SetBool("hover", false);
-        
+        anim.SetBool("hover", false);   
     }
 }

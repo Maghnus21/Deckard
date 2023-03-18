@@ -16,6 +16,7 @@ MonoBehaviour:
   description: 
   gun_prefab: {fileID: 1078813186004044629, guid: d553f165e7595b34cbc6e37ff7e97105, type: 3}
   gun_npc: {fileID: 3714146151751633016, guid: 2d048a8269bd38b4c8b0bb3a97bc8dc1, type: 3}
+  gun_pickup: {fileID: 6463998072241800877, guid: c6a0d8a45dd081a4db587f8f1767f3fa, type: 3}
   bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
   ads_speed: 5
   bullet_speed: 500
@@ -29,6 +30,8 @@ MonoBehaviour:
   recoilRotation: {x: 5, y: 4, z: 6}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   gun_sprite: {fileID: 21300000, guid: 60a479eb00046f94390575bfd25feaa3, type: 3}
+  ui_weapon_wheel_button: {fileID: 0}
+  ui_weapon_wheel_image: {fileID: 0}
   is_melee_weapon: 0
   melee_damage: 0
   weapon_prefab: {fileID: 0}

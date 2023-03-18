@@ -7,6 +7,7 @@ public class AIDeathState : AIState
     public Vector3 impact_direction;
     public Rigidbody hit_rb;
     public AIWeapon weapon;
+    public AIWeaponIK weapon_IK;
 
     public void Enter(AIAgent agent)
     {
@@ -19,6 +20,8 @@ public class AIDeathState : AIState
 
         weapon = agent.GetComponent<AIWeapon>();
         weapon.UnparentWeapon();
+        weapon_IK = agent.weaponIK;
+        weapon_IK.enabled = false;
     }
 
     public void Exit(AIAgent agent)

@@ -44,6 +44,10 @@ public class BulletBehaviour : MonoBehaviour
             {
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
             }
+            if(hit.collider != null && hit.collider.GetComponent<playerHitbox>())
+            {
+                hit.collider.GetComponent<playerHitbox>().onRaycastHitPlayer(damage);
+            }
 
             Destroy(this.gameObject, 0.1f);
         }

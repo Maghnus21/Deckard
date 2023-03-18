@@ -16,6 +16,7 @@ public class AIAgent : MonoBehaviour
     public BranchDialogueTest branch_dialogue;
     public AINavigation ai_nav;
     public AIWeapon weapon;
+    public AIWeaponIK weaponIK;
 
     public bool is_aggressive = false;
 
@@ -26,6 +27,7 @@ public class AIAgent : MonoBehaviour
         ragdoll = GetComponent<Ragdoll>();
         health = GetComponent<Health>();
         weapon = GetComponent<AIWeapon>();
+        weaponIK = GetComponent<AIWeaponIK>();
         //branch_dialogue = GetComponent<BranchDialogueTest>();
 
         if (player_transform == null)
@@ -39,7 +41,9 @@ public class AIAgent : MonoBehaviour
         stateMachine.RegisterState(new AIIdleState());
         stateMachine.RegisterState(new AIChasePlayerState());
         stateMachine.RegisterState(new AIFindWeaponState());
+        stateMachine.RegisterState(new AIAttackPlayerState());
         stateMachine.RegisterState(new AIDeathState());
+        
 
         stateMachine.ChangeState(initialState);
     }
