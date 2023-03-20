@@ -7,10 +7,16 @@ public class WeaponPickup : MonoBehaviour
 {
     public BoxCollider trigger_col;
     public Gun weapon_scriptable_object;
-    public GameObject image;
+    public Image image;
     public GameObject button;
     WeaponWheelButton wwb;
     public int stack_location = 0;              //  default state is stack location 0
+
+    private void Start()
+    {
+        button = weapon_scriptable_object.weapon_wheel_button;
+        image = weapon_scriptable_object.weapon_wheel_button.GetComponentInChildren<Image>();
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -62,9 +68,6 @@ public class WeaponPickup : MonoBehaviour
                     GameObject new_gun = Instantiate(weapon_scriptable_object.gun_npc);
 
                     weapons.EpuipWeapon(new_gun, weapon_scriptable_object);
-
-                    weapons.w_button = button;
-                    weapons.w_image = image;
 
                     Destroy(gameObject);
                 }

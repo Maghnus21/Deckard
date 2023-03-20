@@ -30,9 +30,9 @@ MonoBehaviour:
   recoilRotation: {x: 5, y: 4, z: 6}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   gun_sprite: {fileID: 21300000, guid: 60a479eb00046f94390575bfd25feaa3, type: 3}
-  ui_weapon_wheel_button: {fileID: 0}
-  ui_weapon_wheel_image: {fileID: 0}
   is_melee_weapon: 0
   melee_damage: 0
   weapon_prefab: {fileID: 0}
   is_throwable: 0
+  weapon_wheel_button: {fileID: 9095745432524640662, guid: 8a3e2dd4c49c9304f8ec0858d4160204, type: 3}
+  stack_location: 2

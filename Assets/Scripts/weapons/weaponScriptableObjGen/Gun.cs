@@ -68,4 +68,9 @@ public class Gun : ScriptableObject
     public GameObject weapon_prefab;
 
     public bool is_throwable = false;
+
+
+
+    public GameObject weapon_wheel_button;
+    public int stack_location;
 }

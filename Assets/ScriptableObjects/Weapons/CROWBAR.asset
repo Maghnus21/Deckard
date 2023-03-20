@@ -15,12 +15,15 @@ MonoBehaviour:
   name: 
   description: 
   gun_prefab: {fileID: 0}
+  gun_npc: {fileID: 0}
+  gun_pickup: {fileID: 0}
   bullet: {fileID: 0}
   ads_speed: 0
   bullet_speed: 0
   fire_rate: 0
   magazine_size: 0
   ammo_reserve: 999
+  ammo_type: {fileID: 0}
   muzzle_flash: {fileID: 0}
   recoilRotationSpeed: 0
   recoilRotationReturn: 0
@@ -30,4 +33,6 @@ MonoBehaviour:
   is_melee_weapon: 1
   melee_damage: 35
   weapon_prefab: {fileID: 9015136308743234527, guid: c1ed4894163275a449c371ab4d270b6b, type: 3}
-  animator: {fileID: 0}
+  is_throwable: 0
+  weapon_wheel_button: {fileID: 2591533649646681420, guid: 126f42c49d5f92946ba3176b880d51a2, type: 3}
+  stack_location: 1

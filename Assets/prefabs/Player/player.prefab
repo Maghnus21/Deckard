@@ -500,9 +500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadout:
-  - {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
-  - {fileID: 11400000, guid: ad296e8e1c0f53e4bb5daf988432f40d, type: 2}
-  - {fileID: 11400000, guid: f6259357e84cea748a3fc44bfd2ecb19, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

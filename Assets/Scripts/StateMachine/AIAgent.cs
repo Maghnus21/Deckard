@@ -13,10 +13,12 @@ public class AIAgent : MonoBehaviour
     public Ragdoll ragdoll;
     public Health health;
     public Transform player_transform;
+    public GameObject player_gameobject;
     public BranchDialogueTest branch_dialogue;
     public AINavigation ai_nav;
     public AIWeapon weapon;
     public AIWeaponIK weaponIK;
+    public GameObject IK_gameobject_transform;
 
     public bool is_aggressive = false;
 
@@ -28,7 +30,7 @@ public class AIAgent : MonoBehaviour
         health = GetComponent<Health>();
         weapon = GetComponent<AIWeapon>();
         weaponIK = GetComponent<AIWeaponIK>();
-        //branch_dialogue = GetComponent<BranchDialogueTest>();
+        player_gameobject = GameObject.FindGameObjectWithTag("Player");
 
         if (player_transform == null)
         {

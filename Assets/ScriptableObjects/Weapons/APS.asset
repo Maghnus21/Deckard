@@ -15,6 +15,8 @@ MonoBehaviour:
   name: APS
   description: 
   gun_prefab: {fileID: 1078813186004044629, guid: 87856e09bc14fe045b3a48a87f5d671b, type: 3}
+  gun_npc: {fileID: 0}
+  gun_pickup: {fileID: 0}
   bullet: {fileID: 8142837571252986961, guid: 9db141f1df5337544bdc18f2da11dcbf, type: 3}
   ads_speed: 2
   bullet_speed: 100
@@ -32,3 +34,5 @@ MonoBehaviour:
   melee_damage: 0
   weapon_prefab: {fileID: 0}
   is_throwable: 0
+  weapon_wheel_button: {fileID: 5251260882119336922, guid: 168cd8181c04ac647bd873a6e895517b, type: 3}
+  stack_location: 3

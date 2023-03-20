@@ -17,7 +17,12 @@ public class AIWeapon : MonoBehaviour
     public AIWeaponIK weapon_ik;
     public MeshSocket mesh_socket;
 
+    public GameObject fire_point;
+
     Animator animator;
+
+    float fire_rate;
+    float next_round = 0;
 
     private void Start()
     {
@@ -33,10 +38,7 @@ public class AIWeapon : MonoBehaviour
         equipted_gun = picked_gun;
 
         mesh_socket.Attach(equipted_gun.transform);
-        /*
-        equipted_gun.transform.SetParent(character_socket.transform, false);
-        equipted_gun.GetComponent<weaponPlug>().wepaon_plug.transform.SetParent(character_socket.transform, false);
-        */
+
         weapon_drop = equipted_gun.GetComponent<weaponPlug>().weapon_drop;
     }
 
@@ -57,7 +59,6 @@ public class AIWeapon : MonoBehaviour
             yield return null;
         }
 
-        //weapon_ik.SetAimTransform(GetComponent<AIAgent>().player_transform);
         weapon_ik.enabled = true;
     }
     
@@ -71,17 +72,20 @@ public class AIWeapon : MonoBehaviour
     {
         GameObject dropped_weapon = Instantiate(weapon_drop, equipted_gun.transform.position, equipted_gun.transform.rotation) as GameObject;
 
-        dropped_weapon.GetComponent<WeaponPickup>().image = w_image;
-        dropped_weapon.GetComponent<WeaponPickup>().button = w_button;
-        //equipted_gun.transform.SetParent(null);
-        //equipted_gun.GetComponentInChildren<Rigidbody>().isKinematic = false;
         Destroy(equipted_gun);
-        //equipted_gun=null;
+
         current_gun = null;
     }
 
     public void SetTarget(Transform target)
     {
         weapon_ik.SetTargetTransform(target);
+    }
+
+    public void FireWeapon()
+    {
+        GameObject bullet = Instantiate(current_gun.bullet, equipted_gun.transform.position, equipted_gun.transform.rotation) as GameObject;
+
+        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 1f);
     }
 }
