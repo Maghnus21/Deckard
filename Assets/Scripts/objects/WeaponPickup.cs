@@ -63,11 +63,11 @@ public class WeaponPickup : MonoBehaviour
             if (hitbox)
             {
                 AIWeapon weapons = hitbox.health.GetComponent<AIWeapon>();
-                if(weapons != null)
+                if(weapons != null && weapons.equipted_gun == null)
                 {
                     GameObject new_gun = Instantiate(weapon_scriptable_object.gun_npc);
 
-                    weapons.EpuipWeapon(new_gun, weapon_scriptable_object);
+                    weapons.EquiptWeapon(new_gun, weapon_scriptable_object);
 
                     Destroy(gameObject);
                 }

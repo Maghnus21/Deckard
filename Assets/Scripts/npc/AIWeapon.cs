@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class AIWeapon : MonoBehaviour
 {
-    Gun current_gun;
-    GameObject equipted_gun;
+    public Gun current_gun;
+    public GameObject equipted_gun;
     public GameObject character_socket;
     public GameObject weapon_drop;
 
@@ -20,6 +20,7 @@ public class AIWeapon : MonoBehaviour
     public GameObject fire_point;
 
     Animator animator;
+    public AIHeadBone head_tracking;
 
     float fire_rate;
     float next_round = 0;
@@ -27,12 +28,14 @@ public class AIWeapon : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        head_tracking = GetComponent<AIHeadBone>();
         weapon_ik = GetComponent<AIWeaponIK>();
         mesh_socket = GetComponentInChildren<MeshSocket>();
+
     }
 
 
-    public void EpuipWeapon(GameObject picked_gun, Gun gun)
+    public void EquiptWeapon(GameObject picked_gun, Gun gun)
     {
         current_gun = gun;
         equipted_gun = picked_gun;
@@ -60,6 +63,7 @@ public class AIWeapon : MonoBehaviour
         }
 
         weapon_ik.enabled = true;
+        head_tracking.enabled = true;
     }
     
 
@@ -75,6 +79,7 @@ public class AIWeapon : MonoBehaviour
         Destroy(equipted_gun);
 
         current_gun = null;
+        
     }
 
     public void SetTarget(Transform target)
@@ -85,7 +90,7 @@ public class AIWeapon : MonoBehaviour
     public void FireWeapon()
     {
         GameObject bullet = Instantiate(current_gun.bullet, equipted_gun.transform.position, equipted_gun.transform.rotation) as GameObject;
-
-        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 1f);
+        print("bullet spawn " + equipted_gun.transform.position + "\tAgent transform" + transform.position);
+        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * .3f);
     }
 }

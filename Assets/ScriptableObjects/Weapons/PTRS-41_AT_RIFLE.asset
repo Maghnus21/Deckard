@@ -15,8 +15,8 @@ MonoBehaviour:
   name: PTRS-41 Anti-Tank Rifle
   description: 
   gun_prefab: {fileID: 1078813186004044629, guid: af129b8523e823e46b61550587076d57, type: 3}
-  gun_npc: {fileID: 0}
-  gun_pickup: {fileID: 0}
+  gun_npc: {fileID: 675749648048984817, guid: 012489a40eed6f1429bbe7007852136c, type: 3}
+  gun_pickup: {fileID: 6455761787134089848, guid: b68aaf6e4ec547a4c8ee950149d5cb42, type: 3}
   bullet: {fileID: 945675717639257529, guid: 7dbd620c45b086641ba34a63bf3968fc, type: 3}
   ads_speed: 3
   bullet_speed: 500

@@ -13,6 +13,8 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    public AIAgent agent;
+
     public GameObject bulllet_impact;
     public float damage = 20f;
 
@@ -21,7 +23,7 @@ public class BulletBehaviour : MonoBehaviour
 
     RaycastHit hit;
     Ray ray;
-    float range = 1f;
+    float range = .1f;
 
     float maxtime = 2f;
     float time;
@@ -43,6 +45,12 @@ public class BulletBehaviour : MonoBehaviour
             if (hit.collider != null && hit.collider.GetComponent<EntityHitbox>())
             {
                 hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
+
+                if (hit.collider.GetComponentInParent<AIAgent>())
+                {
+                    agent = hit.collider.GetComponentInParent<AIAgent>();
+                    agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
+                }
             }
             if(hit.collider != null && hit.collider.GetComponent<playerHitbox>())
             {

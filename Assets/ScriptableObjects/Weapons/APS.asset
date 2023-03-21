@@ -15,8 +15,8 @@ MonoBehaviour:
   name: APS
   description: 
   gun_prefab: {fileID: 1078813186004044629, guid: 87856e09bc14fe045b3a48a87f5d671b, type: 3}
-  gun_npc: {fileID: 0}
-  gun_pickup: {fileID: 0}
+  gun_npc: {fileID: 7965608043226540029, guid: 38e5c8366e401194da5a8017bdd9d98c, type: 3}
+  gun_pickup: {fileID: 8843297993750994872, guid: 98c2bf4c74cd67c438efe1bd607bfea1, type: 3}
   bullet: {fileID: 8142837571252986961, guid: 9db141f1df5337544bdc18f2da11dcbf, type: 3}
   ads_speed: 2
   bullet_speed: 100

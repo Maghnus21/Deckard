@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AIAttackPlayerState : AIState
@@ -27,13 +28,16 @@ public class AIAttackPlayerState : AIState
 
     public void Update(AIAgent agent)
     {
+        
         float distance = Vector3.Distance(agent.transform.position, agent.player_transform.position);
+        /*
         if(distance > 15f)
         {
             agent.is_aggressive = false;
 
             return;
         }
+        */
 
         agent.is_aggressive = true;
 
@@ -42,15 +46,16 @@ public class AIAttackPlayerState : AIState
             if(Time.time > next_round)
             {
                 agent.navMeshAgent.destination = agent.player_transform.position;
-                agent.weapon.FireWeapon();
+
+                if(distance < 10f)
+                {
+                    agent.weapon.FireWeapon();
+                    
+                }
+                
 
                 next_round = Time.time + fire_rate;
             }
-
-
-            
         }
-
-        
     }
 }

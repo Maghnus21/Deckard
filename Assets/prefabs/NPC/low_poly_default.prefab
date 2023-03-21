@@ -1731,6 +1731,8 @@ GameObject:
   - component: {fileID: 4054285885795414270}
   - component: {fileID: 4054285885795414271}
   - component: {fileID: 4054285885795414269}
+  - component: {fileID: 3224984133061396906}
+  - component: {fileID: 2700964621728093310}
   m_Layer: 0
   m_Name: low_poly_default
   m_TagString: NPC
@@ -1767,6 +1769,7 @@ Transform:
   - {fileID: 460384886977534976}
   - {fileID: 8195354069595339993}
   - {fileID: 403086477589520385}
+  - {fileID: 1926288787579073961}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1892,7 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c887a6330e4cf41acd145974753302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: 0
+  initialState: 3
   navMeshAgent: {fileID: 4054285885795414259}
   config: {fileID: 11400000, guid: c1eb81b77a0c0fb47a4095b87d9ddacd, type: 2}
   ragdoll: {fileID: 0}
@@ -1903,7 +1906,12 @@ MonoBehaviour:
   ai_nav: {fileID: 0}
   weapon: {fileID: 0}
   weaponIK: {fileID: 0}
+  mesh_socket: {fileID: 0}
   IK_gameobject_transform: {fileID: 0}
+  head_tracking: {fileID: 0}
+  available_gun: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
+  dialogue_tree: {fileID: 0}
+  interrogation_dialogue_tree: {fileID: 0}
   is_aggressive: 0
 --- !u!114 &4054285885795414269
 MonoBehaviour:
@@ -1917,6 +1925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0bd23e63dd9034cb06c4dc34fa6a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current_gun: {fileID: 0}
+  equipted_gun: {fileID: 0}
   character_socket: {fileID: 0}
   weapon_drop: {fileID: 0}
   w_button: {fileID: 0}
@@ -1924,6 +1934,101 @@ MonoBehaviour:
   weapon_ik: {fileID: 0}
   mesh_socket: {fileID: 0}
   fire_point: {fileID: 0}
+  head_tracking: {fileID: 0}
+--- !u!114 &3224984133061396906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783831113915127401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063cddaeb404e704e9725d66ee1f96ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target_transform: {fileID: 1926288787579073961}
+  aim_transform: {fileID: 0}
+  target_offset: {x: 0, y: 1, z: 0}
+  iterations: 10
+  weight: 1
+  angle_limit: 90
+  distance_limit: 2
+  human_bones:
+  - bone: 7
+    weight: 0.1
+  - bone: 8
+    weight: 0.5
+  - bone: 54
+    weight: 1
+--- !u!114 &2700964621728093310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783831113915127401}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be6c95b7692114fb976edb933af687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head_bone: 10
+  agent: {fileID: 0}
+  default_ik_target: {fileID: 1926288787579073961}
+  new_ik_target: {fileID: 0}
+  head_target_transform: {fileID: 0}
+  head_transform: {fileID: 0}
+  animator: {fileID: 0}
+  target_offset: {x: 0, y: 1.5, z: 0}
+  angle_limit: 80
+  max_look_dis: 8
+  head_move_seed: 3
+  weight: 1
+--- !u!1 &3954257481933256271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926288787579073961}
+  - component: {fileID: 8242243545001453912}
+  m_Layer: 0
+  m_Name: IKTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926288787579073961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954257481933256271}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4596221340679867603}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8242243545001453912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954257481933256271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c3a41feb465f743a7715490f3db76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4490915203634810739
 GameObject:
   m_ObjectHideFlags: 0

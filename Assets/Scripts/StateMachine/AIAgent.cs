@@ -18,7 +18,14 @@ public class AIAgent : MonoBehaviour
     public AINavigation ai_nav;
     public AIWeapon weapon;
     public AIWeaponIK weaponIK;
+    public MeshSocket mesh_socket;
     public GameObject IK_gameobject_transform;
+    public AIHeadBone head_tracking;
+    public Gun available_gun;
+    public DialogueTree dialogue_tree;
+    public InterrogationDialogueTree interrogation_dialogue_tree;
+
+    GameObject cloned_npc_gun;
 
     public bool is_aggressive = false;
 
@@ -30,11 +37,26 @@ public class AIAgent : MonoBehaviour
         health = GetComponent<Health>();
         weapon = GetComponent<AIWeapon>();
         weaponIK = GetComponent<AIWeaponIK>();
+        head_tracking = GetComponent<AIHeadBone>();
+        mesh_socket = GetComponentInChildren<MeshSocket>();
         player_gameobject = GameObject.FindGameObjectWithTag("Player");
+
+        
 
         if (player_transform == null)
         {
             player_transform = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        //  checks for any dialogue components attached to entity.
+        //  interrogationDialogueTree is used solely for suspects
+        if (GetComponent<DialogueTree>())
+        {
+            dialogue_tree = GetComponent<DialogueTree>();
+        }
+        if (GetComponent<InterrogationDialogueTree>())
+        {
+            interrogation_dialogue_tree = GetComponent<InterrogationDialogueTree>();
         }
 
 
@@ -45,6 +67,7 @@ public class AIAgent : MonoBehaviour
         stateMachine.RegisterState(new AIFindWeaponState());
         stateMachine.RegisterState(new AIAttackPlayerState());
         stateMachine.RegisterState(new AIDeathState());
+        stateMachine.RegisterState(new AIWeaponActive());
         
 
         stateMachine.ChangeState(initialState);
@@ -54,5 +77,11 @@ public class AIAgent : MonoBehaviour
     void Update()
     {
         stateMachine.Update();
+    }
+
+    public GameObject CloneNPCGun()
+    {
+        cloned_npc_gun = Instantiate(available_gun.gun_npc, transform.position, transform.rotation);
+        return cloned_npc_gun;
     }
 }

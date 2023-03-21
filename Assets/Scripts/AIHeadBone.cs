@@ -23,6 +23,8 @@ public class AIHeadBone : MonoBehaviour
     public float angle_limit = 80f;
     public float max_look_dis = 5f;
 
+    public float head_move_seed = 3f;
+
     [Range(0, 1)]
     public float weight = 1f;
 
@@ -40,6 +42,8 @@ public class AIHeadBone : MonoBehaviour
         default_ik_target = agent.IK_gameobject_transform.transform;
         new_ik_target = agent.player_transform;
 
+        head_target_transform = default_ik_target.transform;
+
         head_transform = animator.GetBoneTransform(head_bone);
     }
 
@@ -56,17 +60,25 @@ public class AIHeadBone : MonoBehaviour
         }
 
 
-        float distance = Vector3.Distance(transform.position, agent.player_transform.position);
-
-        if(distance < max_look_dis)
+        float distance = Vector3.Distance(transform.position, agent.player_transform.position);     
+        
+        if(distance <= 4f)
         {
-            default_ik_target.position = agent.transform.position;
+            //float step = head_move_seed * Time.deltaTime;
+            //default_ik_target.transform.position = Vector3.MoveTowards(default_ik_target.transform.position, agent.player_transform.position, step);
+
+            head_target_transform.position = agent.player_transform.position;
+
+
         }
         else
         {
+            //default_ik_target.transform.position = starting_pos;
             default_ik_target.position = starting_pos;
+            head_target_transform.position = default_ik_target.position;
+
+            
         }
-        
 
         Vector3 target_position = GetTargetPosition();
 

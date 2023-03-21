@@ -13,15 +13,18 @@ public class AIDeathState : AIState
     {
         //agent.branch_dialogue.enabled = false;
 
+
         agent.ragdoll.ActivateRagdoll();
         impact_direction.y = 1f;
         agent.ragdoll.impact_body_part = hit_rb;
         agent.ragdoll.ApplyForce(impact_direction * agent.config.impact_force, agent.health.death_force_mode);
 
-        weapon = agent.GetComponent<AIWeapon>();
-        weapon.UnparentWeapon();
-        weapon_IK = agent.weaponIK;
-        weapon_IK.enabled = false;
+
+        agent.weapon.UnparentWeapon();
+
+        agent.weapon.enabled = false;
+        agent.weaponIK.enabled = false;
+        agent.head_tracking.enabled = false;
     }
 
     public void Exit(AIAgent agent)
