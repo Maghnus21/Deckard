@@ -30,19 +30,15 @@ public class RebarBehaviour : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            //  conditional statement for when rebar hits wall, crate, etc
-            if (!hit.collider.CompareTag("Suspect"))
-            {
-                embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
-                embed_rebar.transform.SetParent(hit.transform, true);
-                //embed_rebar.GetComponentInChildren<Collider>().enabled = true;
-
-                Destroy(this.gameObject, .01f);
-            }
-
 
             if(hit.collider != null && hit.collider.gameObject.GetComponent<EntityHitbox>())
             {
+                if (hit.collider.GetComponentInParent<AIAgent>())
+                {
+                    hit.collider.GetComponentInParent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+                }
+
+
                 embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
                 embed_rebar.transform.SetParent(hit.transform, true);
 
@@ -50,6 +46,20 @@ public class RebarBehaviour : MonoBehaviour
 
                 hit.collider.GetComponentInParent<Health>().impact_force = 70f;
                 hit.collider.GetComponentInParent<Health>().death_force_mode = false;
+            }
+
+            if (hit.collider != null && hit.collider.GetComponent<playerHitbox>())
+            {
+                hit.collider.GetComponent<playerHitbox>().onRaycastHitPlayer(damage);
+            }
+            //  conditional statement for when rebar hits wall, crate, etc
+            else
+            {
+                embed_rebar = Instantiate(dummy_rebar, hit.point, transform.rotation);
+                embed_rebar.transform.SetParent(hit.transform, true);
+                //embed_rebar.GetComponentInChildren<Collider>().enabled = true;
+
+                Destroy(this.gameObject, .01f);
             }
 
 
@@ -68,7 +78,7 @@ public class RebarBehaviour : MonoBehaviour
                 Destroy(this.gameObject, .01f);
             }
             */
-            
+
         }
     }
 }
