@@ -23,10 +23,10 @@ public class BulletBehaviour : MonoBehaviour
 
     RaycastHit hit;
     Ray ray;
-    float range = .1f;
+    float range = 8f;
 
     float maxtime = 2f;
-    float time;
+    float time = 2;
 
 
     void Start()
@@ -35,10 +35,26 @@ public class BulletBehaviour : MonoBehaviour
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
-        ray = new Ray(transform.position, transform.forward * range);
+        ray = new Ray(transform.position, transform.forward);
+
+        if(Physics.Raycast(ray, out hit, 100f))
+        {
+            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
 
 
-        if(Physics.Raycast(ray, out hit) && hit.collider != null)
+
+        }
+
+        
+    }
+
+    private void Update()
+    {
+        /*
+        ray = new Ray(transform.position, transform.forward);
+
+
+        if (Physics.Raycast(ray, out hit, range) && hit.collider != null)
         {
             if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
 
@@ -52,27 +68,28 @@ public class BulletBehaviour : MonoBehaviour
                     agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
                 }
             }
-            if(hit.collider != null && hit.collider.GetComponent<playerHitbox>())
+            if (hit.collider != null && hit.collider.GetComponent<playerHitbox>())
             {
                 hit.collider.GetComponent<playerHitbox>().onRaycastHitPlayer(damage);
             }
 
             Destroy(this.gameObject, 0.1f);
         }
-        /*
-        else
-        {
-            Destroy(gameObject, 1f);
-        }*/
-    }
+        */
 
-    private void Update()
-    {
+
+
+
         time -= Time.deltaTime;
 
         if(time < 0f)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
 }

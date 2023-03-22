@@ -19,10 +19,10 @@ MonoBehaviour:
   gun_pickup: {fileID: 6463998072241800877, guid: c6a0d8a45dd081a4db587f8f1767f3fa, type: 3}
   bullet: {fileID: 945675717639257529, guid: 3410664aaea4d7044bf3bf6f711e8b50, type: 3}
   ads_speed: 5
-  bullet_speed: 500
+  bullet_speed: 400
   fire_rate: 700
   magazine_size: 20
-  ammo_reserve: 999
+  ammo_reserve: 983
   ammo_type: {fileID: 11400000, guid: 2f295e1ca081d044b85d51eb8ac19bc7, type: 2}
   muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   recoilRotationSpeed: 40

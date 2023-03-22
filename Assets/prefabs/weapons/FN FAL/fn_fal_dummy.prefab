@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wepaon_plug: {fileID: 3714146151751633016}
   weapon_drop: {fileID: 6463998072241800877, guid: c6a0d8a45dd081a4db587f8f1767f3fa, type: 3}
+  weapon_barrel_end: {fileID: 293120056498563975}
 --- !u!114 &6557351638370503825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6105226456331237441}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0.0030186176, z: 0.658076}
+  m_LocalPosition: {x: 0, y: 0.003018621, z: 0.7809999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

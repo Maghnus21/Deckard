@@ -24,6 +24,8 @@ public class AIAgent : MonoBehaviour
     public Gun available_gun;
     public DialogueTree dialogue_tree;
     public InterrogationDialogueTree interrogation_dialogue_tree;
+    public Vector3 impact_direction;
+    public Rigidbody hit_rb;
 
     GameObject cloned_npc_gun;
 
@@ -83,5 +85,13 @@ public class AIAgent : MonoBehaviour
     {
         cloned_npc_gun = Instantiate(available_gun.gun_npc, transform.position, transform.rotation);
         return cloned_npc_gun;
+    }
+
+    public void DisableScripts()
+    {
+        weapon.enabled = false;
+        weaponIK.enabled = false;
+        head_tracking.enabled = false;
+        ai_nav.enabled = false;
     }
 }
