@@ -91,6 +91,6 @@ public class AIWeapon : MonoBehaviour
     {
         GameObject bullet = Instantiate(current_gun.bullet, equipted_gun.GetComponent<weaponPlug>().weapon_barrel_end.position, equipted_gun.GetComponent<weaponPlug>().weapon_barrel_end.rotation) as GameObject;
         print("bullet spawn " + equipted_gun.transform.position + "\tAgent transform" + transform.position);
-        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 10f, ForceMode.Impulse);
+        bullet.GetComponent<BulletBehaviour>().FireBullet();
     }
 }

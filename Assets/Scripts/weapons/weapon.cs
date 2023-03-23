@@ -41,6 +41,8 @@ public class weapon : MonoBehaviour
     public ScriptableObject equipted_so;
     GameObject t_newWeapon;
 
+    public ParticleSystem bullet_impact_effect;
+
     void Awake()
     {
         
@@ -274,6 +276,8 @@ public class weapon : MonoBehaviour
         //Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
 
         GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
+        fired_bullet.GetComponent<BulletBehaviour>().bullet_impact_effect = bullet_impact_effect;
+        fired_bullet.GetComponent<BulletBehaviour>().FireBullet();
         //fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
 
         Recoil();

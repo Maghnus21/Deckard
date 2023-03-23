@@ -96,12 +96,6 @@ public class Health : MonoBehaviour
     /// <param name="hit_rb">bone gameObject with rigidbody that was hit by RaycastHit passed via hit.rigidbody</param>
     void Die(Vector3 impact_direction, Rigidbody hit_rb)
     {
-
-        
-        disableScripts();
-
-
-
         float gib_chance_mutiplier = 0 - health;
         float rand_num = Random.Range(0f, 100f);
 

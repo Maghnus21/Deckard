@@ -128,9 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b6e7028ab534b4fbef1e6a766077b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   bulllet_impact: {fileID: 4484868300359147474, guid: 79eacb08f8736f641a7d7200dd0bcdee, type: 3}
+  bullet_impact_effect: {fileID: 0}
   damage: 40
-  debug_collision_cube: 1
+  debug_collision_cube: 0
 --- !u!96 &277580712860775734
 TrailRenderer:
   serializedVersion: 2

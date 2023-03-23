@@ -16,6 +16,8 @@ public class BulletBehaviour : MonoBehaviour
     public AIAgent agent;
 
     public GameObject bulllet_impact;
+    public ParticleSystem bullet_impact_effect;
+    public TrailRenderer bullet_tracer;
     public float damage = 20f;
 
     public bool debug_collision_cube = false;
@@ -34,18 +36,6 @@ public class BulletBehaviour : MonoBehaviour
         time = maxtime;
         //  this is to prevent raycast from gun sight hitting bullet and sending world location data to change bullet spawn rotation
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-
-        ray = new Ray(transform.position, transform.forward);
-
-        if(Physics.Raycast(ray, out hit, 100f))
-        {
-            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
-
-
-
-        }
-
-        
     }
 
     private void Update()
@@ -87,6 +77,47 @@ public class BulletBehaviour : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void FireBullet()
+    {
+        
+
+        ray = new Ray(transform.position, transform.forward);
+
+
+        TrailRenderer tracer = Instantiate(bullet_tracer, ray.origin, Quaternion.identity);
+        tracer.AddPosition(ray.origin);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
+
+            bullet_impact_effect.transform.position = hit.point;
+            bullet_impact_effect.transform.forward = hit.normal;
+            bullet_impact_effect.Emit(1);
+
+            tracer.transform.position = hit.point;
+
+
+            if (hit.collider.GetComponent<EntityHitbox>())
+            {
+                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, transform.forward, hit.collider.GetComponent<Rigidbody>());
+
+                if (hit.collider.GetComponent<AIAgent>())
+                {
+                    hit.collider.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+                }
+            }
+
+            if (hit.collider.GetComponent<playerHitbox>())
+            {
+                hit.collider.GetComponent<playerHitbox>().onRaycastHitPlayer(damage);
+            }
+
+        }
+    }
+
+
 
     private void OnDrawGizmos()
     {
