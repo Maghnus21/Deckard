@@ -29,6 +29,7 @@ public class AIAgent : MonoBehaviour
 
     GameObject cloned_npc_gun;
 
+    public float aggression_level;
     public bool is_aggressive = false;
 
     // Start is called before the first frame update

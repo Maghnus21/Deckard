@@ -42,6 +42,9 @@ public class weapon : MonoBehaviour
     GameObject t_newWeapon;
 
     public ParticleSystem bullet_impact_effect;
+    public Transform bullet_raycast_destination;
+
+    public BulletBehaviour bulletBehaviour;
 
     void Awake()
     {
@@ -87,9 +90,6 @@ public class weapon : MonoBehaviour
         if (currentWeapon != null && !loadout[currentIndex].is_melee_weapon && !loadout[currentIndex].is_throwable)
         {
             Aim(Input.GetMouseButton(1));
-
-            //ammo_count_text.text = ((loadout[currentIndex].magazine_size - rounds_fired) + "/" + loadout[currentIndex].magazine_size).ToString();
-
 
             // 60 seconds divided by fire_rate from Gun scriptableObject
             fireRate = 60f / loadout[currentIndex].fire_rate;
@@ -183,6 +183,12 @@ public class weapon : MonoBehaviour
             Destroy(currentWeapon);
             currentWeapon = null;
         }
+
+
+        if (bulletBehaviour != null)
+        {
+            bulletBehaviour.UpdateBullets(Time.deltaTime);
+        }
     }
 
     public void Equip(int p_int)
@@ -219,6 +225,18 @@ public class weapon : MonoBehaviour
         }
         
         equipted_gun = loadout[currentIndex];
+
+        if (t_newWeapon.GetComponentInChildren<BulletBehaviour>())
+        {
+            bulletBehaviour = t_newWeapon.GetComponentInChildren<BulletBehaviour>();
+
+            bulletBehaviour.bullet_impact_effect = bullet_impact_effect;
+            bulletBehaviour.raycast_destination = bullet_raycast_destination;
+        }
+        else
+        {
+            bulletBehaviour = null;
+        }
     }
 
     void Aim(bool is_aiming)
@@ -244,27 +262,17 @@ public class weapon : MonoBehaviour
 
     void FireWeapon()
     {
-        Ray ray;
-        RaycastHit hit;
         Transform anchor = currentWeapon.transform.Find("anchor");
         Transform sight_look = currentWeapon.transform.Find("anchor/recoil/model/resources/sight_point");
 
-        ray = new Ray(sight_look.position, sight_look.forward);
-
-        Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
-
-        //  This will be changed to use sight of gun as point instead of forward of bullet spawn
-        if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(1))
-        {
-            bullet_spawn.LookAt(hit.point);
-        }
-        else
-        {
-            bullet_spawn.localRotation = Quaternion.Euler(Vector3.zero);
-        }
+        Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_point");
 
         // variables for muzzle flash time and random rotation to be applied to muzzle flash
         Vector3 randomRot = new Vector3(0f, 0f, Random.Range(-45f, 45f));
+
+        
+
+        bulletBehaviour.FireBullet();
 
         weaponSource.Play();
 
@@ -272,13 +280,6 @@ public class weapon : MonoBehaviour
         this.StartCoroutine(MuzzleFlash(.05f));
         //  converting randomRot to quarernion angles and applying to muzzle_flash_spwn
         GameObject.Find("anchor/recoil/model/resources/muzzle_flash_spwn").gameObject.transform.localRotation = Quaternion.Euler(randomRot);
-
-        //Transform bullet_spawn = currentWeapon.transform.Find("anchor/recoil/model/resources/bullet_spawn");
-
-        GameObject fired_bullet = Instantiate(loadout[currentIndex].bullet, bullet_spawn.transform.position, bullet_spawn.transform.rotation);
-        fired_bullet.GetComponent<BulletBehaviour>().bullet_impact_effect = bullet_impact_effect;
-        fired_bullet.GetComponent<BulletBehaviour>().FireBullet();
-        //fired_bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.transform.forward * loadout[currentIndex].bullet_speed, ForceMode.Impulse);
 
         Recoil();
     }

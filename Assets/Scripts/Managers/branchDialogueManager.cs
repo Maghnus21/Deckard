@@ -16,6 +16,7 @@ public class branchDialogueManager : MonoBehaviour
     public GameObject dialogue_box;
     public TextMeshProUGUI dialogue_text;
     public GameObject button1 = null, button2 = null, button3 = null;       //  pressable buttons for dialogue
+    public GameObject vk_button1 = null, vk_button2 = null, vk_button3 = null;      //  interrogation button buttons
 
     public GameObject player;
     public player_look p_l;
@@ -79,6 +80,20 @@ public class branchDialogueManager : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<VKButtons>())
                 {
+                    int branch_choice = hit.collider.GetComponent<VKButtons>().interrogation_branch_choice;
+                    int response_choice = hit.collider.GetComponent<VKButtons>().interrogation_response_choice;
+
+                    talking_npc.GetComponent<AIAgent>().aggression_level += hit.collider.GetComponent<VKButtons>().add_aggression;
+
+
+                    if(talking_npc.GetComponent<AIAgent>().aggression_level >= 9)
+                    {
+                        talking_npc.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+                    }
+
+
+                    UpdateInterrogationConvo(branch_choice, response_choice);
+
                     print("HIT " + hit.collider.name);
                     //Instantiate(debug_cube, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.Euler(Vector3.zero));
 
@@ -131,6 +146,7 @@ public class branchDialogueManager : MonoBehaviour
     /// </summary>
     void ParseDialogueInfo()
     {
+        //  if dialogueTree is attached to npc, link it to dialogue_tree
         if (!talking_npc.GetComponent<DialogueTree>())
         {
             print("no DialogueTree component attached to entity " + talking_npc.name);
@@ -147,6 +163,7 @@ public class branchDialogueManager : MonoBehaviour
     /// </summary>
     void ParseinterrogationDialogueInfo()
     {
+        //  if interrogationDialoguetree exists on npc, link to interrogation_dialogue_tree
         if (!talking_npc.GetComponent<InterrogationDialogueTree>())
         {
             print("no InterrogationDialogueTree component attached to entity " + talking_npc.name);
@@ -161,6 +178,7 @@ public class branchDialogueManager : MonoBehaviour
 
     public void DisplayConvo()
     {
+        //  displays dialogue text in textbox
         dialogue_text.text = dialogue_tree.branches[branch_choice].sections[0].dialogue;
 
         DisplayResponses();
@@ -174,6 +192,7 @@ public class branchDialogueManager : MonoBehaviour
         //  checks number of responses, turns off buttons depending on size of dialogue responses
         int responses_count = dialogue_tree.branches[branch_choice].sections[0].responses.GetLength(0);
 
+        //  scitch case to vary amout of buttons displayed on display, along with configuring them for interaction
         switch (responses_count)
         {
             case 1:     
@@ -224,6 +243,7 @@ public class branchDialogueManager : MonoBehaviour
     /// <param name="button">button gameobject to be configured</param>
     void ConfigureButton(GameObject button)
     {
+        //  button text is parsed the response dialogue
         button.GetComponentInChildren<TextMeshProUGUI>().text = dialogue_tree.branches[branch_choice].sections[0].responses[response_choice].response_dialogue;
 
         if (!button.GetComponent<DialogueBranchButton>())
@@ -284,6 +304,79 @@ public class branchDialogueManager : MonoBehaviour
 
     void DisplayInterrogationResponses()
     {
-        
+        button1.SetActive(true);
+        button2.SetActive(true);
+        button3.SetActive(true);
+        //response_choice = 0;
+
+        /*
+        ConfigureInterrogationButton(button1);
+        ConfigureInterrogationButton(button2);
+        ConfigureInterrogationButton(button3);
+        */
+
+        button1.GetComponentInChildren<TextMeshProUGUI>().text = "Green button: Relaxed response";
+        button2.GetComponentInChildren<TextMeshProUGUI>().text = "Yellow button: neutral response";
+        button3.GetComponentInChildren<TextMeshProUGUI>().text = "Red button: aggressive response";
+
+        response_choice = 0;
+
+        vk_button1 = kit.GetComponent<VKKit>().vk_button1;
+        vk_button2 = kit.GetComponent<VKKit>().vk_button2;
+        vk_button3 = kit.GetComponent<VKKit>().vk_button3;
+
+        ConfigureVKButton(vk_button1);
+        ConfigureVKButton(vk_button2);
+        ConfigureVKButton(vk_button3);
+
+    }
+
+    void ConfigureVKButton(GameObject vk_button)
+    {
+        vk_button.GetComponent<VKButtons>().interrogation_response_choice = response_choice;
+        vk_button.GetComponent<VKButtons>().interrogation_branch_choice = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses[response_choice++].next_branch_id;
+
+    }
+
+    void ConfigureInterrogationButton(GameObject button)
+    {
+        button.GetComponentInChildren<TextMeshProUGUI>().text = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses[response_choice].response_dialogue;
+
+        if (!button.GetComponent<DialogueBranchButton>())
+        {
+            return;
+        }
+        else
+        {
+            button.GetComponent<DialogueBranchButton>().choice = response_choice;
+            button.GetComponent<DialogueBranchButton>().branch_choice = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses[response_choice++].next_branch_id;      //  increments response_choice for next button
+        }
+    }
+
+    void UpdateInterrogationConvo(int branch_choice, int choice)
+    {
+
+        if (interrogation_dialogue_tree.branches[this.branch_choice].sections[0].responses[choice].end_on_response)
+        {
+            print("exited conversation");
+            HideDialogue();
+            in_convo = false;
+        }
+        else
+        {
+
+
+            this.branch_choice = branch_choice;
+            DisplayInterrogationConvo();
+        }
+
+            
+    }
+
+    void DisplayInterrogationConvo()
+    {
+        dialogue_text.text = interrogation_dialogue_tree.branches[branch_choice].sections[0].dialogue;
+
+        DisplayInterrogationResponses();
     }
 }

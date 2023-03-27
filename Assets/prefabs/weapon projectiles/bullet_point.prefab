@@ -50,8 +50,11 @@ MonoBehaviour:
   bulllet_impact: {fileID: 4484868300359147474, guid: 79eacb08f8736f641a7d7200dd0bcdee, type: 3}
   bullet_impact_effect: {fileID: 0}
   bullet_tracer: {fileID: 7227997016641106918}
-  damage: 40
-  debug_collision_cube: 0
+  damage: 20
+  bullet_speed: 100
+  bullet_drop: 0
+  debug_collision_cube: 1
+  raycast_destination: {fileID: 0}
 --- !u!1 &2061551252582978441
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +319,10 @@ MonoBehaviour:
   bullet_impact_effect: {fileID: 0}
   bullet_tracer: {fileID: 0}
   damage: 40
+  bullet_speed: 1000
+  bullet_drop: 0
   debug_collision_cube: 1
+  raycast_destination: {fileID: 0}
 --- !u!96 &3724841891295565287
 TrailRenderer:
   serializedVersion: 2

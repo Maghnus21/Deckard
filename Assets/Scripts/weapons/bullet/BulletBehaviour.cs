@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -13,15 +15,30 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
+    class Bullet
+    {
+        public float time;
+        public Vector3 initial_pos;
+        public Vector3 initial_vel;
+        //public TrailRenderer trail;
+    }
+
+
+
     public AIAgent agent;
 
     public GameObject bulllet_impact;
     public ParticleSystem bullet_impact_effect;
     public TrailRenderer bullet_tracer;
     public float damage = 20f;
+    public float bullet_speed = 1000;
+    public float bullet_drop = 0f;
 
     public bool debug_collision_cube = false;
 
+    public Transform raycast_destination;
+
+    float max_lifetime = 3f;
 
     RaycastHit hit;
     Ray ray;
@@ -31,6 +48,9 @@ public class BulletBehaviour : MonoBehaviour
     float time = 2;
 
 
+    List<Bullet> bullets = new List<Bullet>();
+
+
     void Start()
     {
         time = maxtime;
@@ -38,57 +58,42 @@ public class BulletBehaviour : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
 
-    private void Update()
+    public void UpdateBullets(float delta_time)
     {
-        /*
-        ray = new Ray(transform.position, transform.forward);
+        SimulateBullets(delta_time);
+        DestroyBullet();
+    }
 
-
-        if (Physics.Raycast(ray, out hit, range) && hit.collider != null)
+    void DestroyBullet()
+    {
+        foreach(Bullet bullet in bullets)
         {
-            if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
-
-            if (hit.collider != null && hit.collider.GetComponent<EntityHitbox>())
+            if(bullet.time >= max_lifetime)
             {
-                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, ray.direction, hit.rigidbody);
-
-                if (hit.collider.GetComponentInParent<AIAgent>())
-                {
-                    agent = hit.collider.GetComponentInParent<AIAgent>();
-                    agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
-                }
+                bullets.Remove(bullet);
             }
-            if (hit.collider != null && hit.collider.GetComponent<playerHitbox>())
-            {
-                hit.collider.GetComponent<playerHitbox>().onRaycastHitPlayer(damage);
-            }
-
-            Destroy(this.gameObject, 0.1f);
-        }
-        */
-
-
-
-
-        time -= Time.deltaTime;
-
-        if(time < 0f)
-        {
-            Destroy(this.gameObject);
         }
     }
 
-    public void FireBullet()
+    void SimulateBullets(float delta_time)
     {
-        
+        foreach(Bullet b in bullets)
+        {
+            Vector3 p0 = GetPosition(b);
+            b.time += delta_time;
+            Vector3 p1 = GetPosition(b);
+            RaycastSegment(p0, p1, b);
+        }
+    }
 
-        ray = new Ray(transform.position, transform.forward);
+    void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
+    {
+        Vector3 direction = end - start;
+        float distance = direction.magnitude;
+        ray.origin = start;
+        ray.direction = end - start;
 
-
-        TrailRenderer tracer = Instantiate(bullet_tracer, ray.origin, Quaternion.identity);
-        tracer.AddPosition(ray.origin);
-
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, distance))
         {
             if (debug_collision_cube) { Instantiate(bulllet_impact, hit.point, Quaternion.identity); }
 
@@ -96,28 +101,33 @@ public class BulletBehaviour : MonoBehaviour
             bullet_impact_effect.transform.forward = hit.normal;
             bullet_impact_effect.Emit(1);
 
-            tracer.transform.position = hit.point;
-
-
-            if (hit.collider.GetComponent<EntityHitbox>())
-            {
-                hit.collider.GetComponent<EntityHitbox>().OnRaycastHit(damage, transform.forward, hit.collider.GetComponent<Rigidbody>());
-
-                if (hit.collider.GetComponent<AIAgent>())
-                {
-                    hit.collider.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
-                }
-            }
-
-            if (hit.collider.GetComponent<playerHitbox>())
-            {
-                hit.collider.GetComponent<playerHitbox>().onRaycastHitPlayer(damage);
-            }
-
+            //bullet.trail.transform.position = hit.point;
         }
     }
 
+    public void FireBullet()
+    {
+        Vector3 velocity = (raycast_destination.position - transform.position).normalized * bullet_speed;
+        Bullet bullet = CreateBullet(transform.position, velocity);
+        bullets.Add(bullet);
+    }
 
+    Vector3 GetPosition(Bullet bullet)
+    {
+        Vector3 gravity = Vector3.down * bullet_drop;
+        return (bullet.initial_pos) + (bullet.initial_vel * bullet.time) + (0.5f * gravity * bullet.time * bullet.time);
+    }
+
+    Bullet CreateBullet(Vector3 position, Vector3 velocity)
+    {
+        Bullet bullet = new Bullet();
+        bullet.initial_pos = position;
+        bullet.initial_vel = velocity;
+        bullet.time = 0f;
+        //bullet.trail = Instantiate(bullet_tracer, position, Quaternion.identity);
+        //bullet.trail.AddPosition(position);
+        return bullet;
+    }
 
     private void OnDrawGizmos()
     {
