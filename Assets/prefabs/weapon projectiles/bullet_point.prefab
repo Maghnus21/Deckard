@@ -51,9 +51,9 @@ MonoBehaviour:
   bullet_impact_effect: {fileID: 0}
   bullet_tracer: {fileID: 7227997016641106918}
   damage: 20
-  bullet_speed: 100
+  bullet_speed: 10
   bullet_drop: 0
-  debug_collision_cube: 1
+  debug_collision_cube: 0
   raycast_destination: {fileID: 0}
 --- !u!1 &2061551252582978441
 GameObject:
