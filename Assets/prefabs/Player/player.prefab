@@ -342,8 +342,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.04
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 3500
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 2200006508574176948}
   - component: {fileID: 5525415511797313517}
   - component: {fileID: 7689683646258888370}
+  - component: {fileID: 4778242996640954765}
   - component: {fileID: 5582451428387772256}
   - component: {fileID: 7689683646258888365}
   - component: {fileID: 7689683646258888362}
@@ -569,6 +570,34 @@ MonoBehaviour:
   bullet_impact_effect: {fileID: 6767217539863786299}
   bullet_raycast_destination: {fileID: 0}
   bulletBehaviour: {fileID: 0}
+--- !u!114 &4778242996640954765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689683646258888358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cd1f9338ae53c4595c82b53108d9e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  equipted_gun: {fileID: 0}
+  main_cam: {fileID: 0}
+  player_chest: {fileID: 0}
+  bullet_impact_effect: {fileID: 0}
+  raycast_destination: {fileID: 0}
 --- !u!114 &5582451428387772256
 MonoBehaviour:
   m_ObjectHideFlags: 0
