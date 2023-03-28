@@ -20,6 +20,7 @@ public class explode : MonoBehaviour
     public bool has_exploded = false;
 
     public GameObject explosion_image_plane;
+    public ParticleSystem explosion_particles;
     public GameObject player;
 
     private void Start()
@@ -42,6 +43,9 @@ public class explode : MonoBehaviour
     public void Explode()
     {
         has_exploded = true;
+
+        explosion_particles.transform.position = transform.position;
+        explosion_particles.Emit(1);
 
         checkExplosionLOS();
 
@@ -77,7 +81,7 @@ public class explode : MonoBehaviour
             }
         }
 
-        Destroy(gameObject, .5f);
+        Destroy(gameObject, 2f);
         
     }
 
