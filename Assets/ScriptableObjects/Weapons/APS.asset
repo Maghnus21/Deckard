@@ -29,7 +29,7 @@ MonoBehaviour:
   recoilRotationReturn: 2
   recoilRotation: {x: 3, y: 1, z: 3}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
-  gun_sprite: {fileID: 21300000, guid: a287d81ef32405c43b7b53bc096288a2, type: 3}
+  ui_sprite: {fileID: 21300000, guid: a287d81ef32405c43b7b53bc096288a2, type: 3}
   is_melee_weapon: 0
   melee_damage: 0
   weapon_prefab: {fileID: 0}

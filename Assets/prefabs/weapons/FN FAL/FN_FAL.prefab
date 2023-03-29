@@ -205,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1078813186004044630}
   - component: {fileID: 5045988383048075016}
+  - component: {fileID: 2398309340017221551}
   m_Layer: 6
   m_Name: FN_FAL
   m_TagString: Untagged
@@ -243,6 +244,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 2
   smoothness: 2
+--- !u!114 &2398309340017221551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078813186004044629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f7f83ad06f8c94299b65af250003d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_stats: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
+  anchor: {fileID: 1078813184686433069}
+  recoil_point: {fileID: 2524585276964109798}
+  ads_state: {fileID: 1078813184590032282}
+  hip_state: {fileID: 1078813184772222974}
+  muzzle_flash: {fileID: 0}
+  player_chest: {fileID: 0}
+  main_camera: {fileID: 0}
 --- !u!1 &2807524678363257227
 GameObject:
   m_ObjectHideFlags: 0

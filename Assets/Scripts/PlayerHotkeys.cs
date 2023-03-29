@@ -16,7 +16,7 @@ public class PlayerHotkeys : MonoBehaviour
 
     //  object references to be parsed to weapons
     [Header("Objects only parsed to weapons")]
-    public Camera main_cam;
+    public Transform main_cam;
     public Transform player_chest;
     public ParticleSystem bullet_impact_effect;
     public Transform raycast_destination;
@@ -98,11 +98,16 @@ public class PlayerHotkeys : MonoBehaviour
 
             equipted_item = loadout[index_num];
 
-            
+
             if (equipted_item.is_melee_weapon || equipted_item.is_throwable) current_held_item = Instantiate(equipted_item.weapon_prefab, hand_point) as GameObject;
 
 
-            else current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
+            else
+            {
+                current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
+                current_held_item.GetComponent<FireWeapon>().player_chest = player_chest;
+                current_held_item.GetComponent<FireWeapon>().main_camera = main_cam;
+            }
         }
     }
 
