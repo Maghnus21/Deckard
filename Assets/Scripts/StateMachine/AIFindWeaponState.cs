@@ -35,7 +35,7 @@ public class AIFindWeaponState : AIState
 
     private WeaponPickup FindClosestWeapon(AIAgent agent)
     {
-        WeaponPickup[] weapons = Object.FindObjectsOfType<WeaponPickup>();
+        WeaponPickup[] weapons = Item.FindObjectsOfType<WeaponPickup>();
         WeaponPickup closest_weapon = null;
         float closest_distance = float.MaxValue;
 

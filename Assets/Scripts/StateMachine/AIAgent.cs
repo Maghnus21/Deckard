@@ -21,7 +21,7 @@ public class AIAgent : MonoBehaviour
     public MeshSocket mesh_socket;
     public GameObject IK_gameobject_transform;
     public AIHeadBone head_tracking;
-    public Gun available_gun;
+    public Item available_gun;
     public DialogueTree dialogue_tree;
     public InterrogationDialogueTree interrogation_dialogue_tree;
     public Vector3 impact_direction;

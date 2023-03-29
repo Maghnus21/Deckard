@@ -9,8 +9,8 @@ using UnityEngine.VFX;
 
 public class weapon : MonoBehaviour
 {
-    public Gun[] loadout = new Gun[9];
-    public Gun equipted_gun = null;
+    public Item[] loadout = new Item[9];
+    public Item equipted_gun = null;
     public Transform weaponPosition;
     public AudioClip weapon_fire_sound;
     public AudioSource weaponSource;

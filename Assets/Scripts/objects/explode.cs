@@ -26,6 +26,8 @@ public class explode : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("player");
+
+        Destroy(gameObject, 2f);
     }
 
 
@@ -79,10 +81,7 @@ public class explode : MonoBehaviour
             {
                 rb.AddExplosionForce(explosion_force, transform.position, explosion_radius, explosion_upforce, ForceMode.Impulse);
             }
-        }
-
-        Destroy(gameObject, 2f);
-        
+        }       
     }
 
     void checkExplosionLOS()

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class PlayerHotkeys : MonoBehaviour
 {
-    public Gun[] loadout = new Gun[10];
+    public Item[] loadout = new Item[10];
     //  current actuve Gun Scriptable Object
-    public Gun equipted_gun;
+    public Item equipted_item;
+    public Transform hand_point;
 
     //  weapon held by player
-    GameObject current_weapon = null;
+    GameObject current_held_item = null;
 
 
     //  object references to be parsed to weapons
@@ -72,6 +73,12 @@ public class PlayerHotkeys : MonoBehaviour
         {
             EquipWeapon(9);
         }
+
+
+        if (Input.GetKeyDown(KeyCode.V) && equipted_item != null)
+        {
+            UnequipWeapon();
+        }
     }
 
 
@@ -81,21 +88,30 @@ public class PlayerHotkeys : MonoBehaviour
         if (loadout[index_num] == null) { print("NO WEAPON IN GUN ARRAY INDEX " + index_num); return; }
 
         //  if player has equipted tried equiping same weapon, says weapon already equipted
-        if (equipted_gun == loadout[index_num]) print("Weapon " + equipted_gun.name + " already equipted");
+        if (equipted_item == loadout[index_num]) print("Weapon " + equipted_item.name + " already equipted");
 
         //  populates equipted_gun with Gun Scriptable Object and populates current_gun weapon weapon prefab using equipted_gun
-        if (equipted_gun != loadout[index_num])
+        if (equipted_item != loadout[index_num])
         {
-            equipted_gun = loadout[index_num];
-
-            if(equipted_gun.is_melee_weapon || equipted_gun.is_throwable) current_weapon = equipted_gun.weapon_prefab;
+            UnequipWeapon();
 
 
-            else current_weapon = equipted_gun.gun_prefab;
+            equipted_item = loadout[index_num];
+
+            
+            if (equipted_item.is_melee_weapon || equipted_item.is_throwable) current_held_item = Instantiate(equipted_item.weapon_prefab, hand_point) as GameObject;
+
+
+            else current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
         }
+    }
 
+    void UnequipWeapon()
+    {
+        equipted_item = null;
+        Destroy(current_held_item);
+        current_held_item = null;
 
-        //  instanciate weapon and add data from equipted_weapon to it if necessary
-        
+        print("Unequiped weapon");
     }
 }

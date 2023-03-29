@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AIWeapon : MonoBehaviour
 {
-    public Gun current_gun;
+    public Item current_gun;
     public GameObject equipted_gun;
     public GameObject character_socket;
     public GameObject weapon_drop;
@@ -35,7 +35,7 @@ public class AIWeapon : MonoBehaviour
     }
 
 
-    public void EquiptWeapon(GameObject picked_gun, Gun gun)
+    public void EquiptWeapon(GameObject picked_gun, Item gun)
     {
         current_gun = gun;
         equipted_gun = picked_gun;

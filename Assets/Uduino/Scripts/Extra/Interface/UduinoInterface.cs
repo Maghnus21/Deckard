@@ -66,11 +66,11 @@ namespace Uduino
                     GameObject tmpInterface = null;
                     if (useBLE)
                     {
-                        tmpInterface = (GameObject)Object.Instantiate(Resources.Load("UduinoInterface_Bluetooth"));
+                        tmpInterface = (GameObject)Item.Instantiate(Resources.Load("UduinoInterface_Bluetooth"));
                     }
                     else
                     {
-                        tmpInterface = (GameObject)Object.Instantiate(Resources.Load("UduinoInterface"));
+                        tmpInterface = (GameObject)Item.Instantiate(Resources.Load("UduinoInterface"));
                     }
                     targetInterface = tmpInterface.GetComponent<UduinoInterface>();
                     tmpInterface.gameObject.name = "UduinoInterface";

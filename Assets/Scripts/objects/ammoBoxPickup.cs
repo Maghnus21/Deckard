@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ammoBoxPickup : MonoBehaviour
 {
-    public Gun weapon_scriptable_object;
+    public Item weapon_scriptable_object;
     public float ammo_refil = 20;
     public int stack_location;
     // Start is called before the first frame update
