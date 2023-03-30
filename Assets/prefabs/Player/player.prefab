@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 1485999047524643215}
   - component: {fileID: 1561293362863479885}
   - component: {fileID: 2755747879086834329}
+  - component: {fileID: 5614637360922586166}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -595,6 +596,7 @@ MonoBehaviour:
   - {fileID: 0}
   equipted_item: {fileID: 0}
   hand_point: {fileID: 7689683645737106716}
+  current_held_item: {fileID: 0}
   main_cam: {fileID: 7689683646176636075}
   player_chest: {fileID: 6742666075449086324}
   bullet_impact_effect: {fileID: 0}
@@ -820,6 +822,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_health: {fileID: 1561293362863479885}
+--- !u!114 &5614637360922586166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689683646258888358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4497ac02e64aaff4b8d8695a2f475a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_hot_key: {fileID: 0}
+  player: {fileID: 7689683646258888358}
 --- !u!1 &9131878905258144793
 GameObject:
   m_ObjectHideFlags: 0

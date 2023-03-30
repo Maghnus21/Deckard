@@ -11,7 +11,7 @@ public class PlayerHotkeys : MonoBehaviour
     public Transform hand_point;
 
     //  weapon held by player
-    GameObject current_held_item = null;
+    public GameObject current_held_item = null;
 
 
     //  object references to be parsed to weapons
@@ -19,6 +19,7 @@ public class PlayerHotkeys : MonoBehaviour
     public Transform main_cam;
     public Transform player_chest;
     public ParticleSystem bullet_impact_effect;
+    public TrailRenderer bullet_trail;
     public Transform raycast_destination;
     public TextMeshProUGUI ammo_text;
 
@@ -107,6 +108,9 @@ public class PlayerHotkeys : MonoBehaviour
                 current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
                 current_held_item.GetComponent<FireWeapon>().player_chest = player_chest;
                 current_held_item.GetComponent<FireWeapon>().main_camera = main_cam;
+                current_held_item.GetComponent<FireWeapon>().raycast_destination = raycast_destination;
+                current_held_item.GetComponent<FireWeapon>().hit_effect = bullet_impact_effect;
+                current_held_item.GetComponent<FireWeapon>().bullet_trail = bullet_trail;
             }
         }
     }
