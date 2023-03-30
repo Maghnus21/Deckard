@@ -69,12 +69,23 @@ public class FireWeapon : MonoBehaviour
         fire_rate = 60f / weapon_stats.fire_rate;
     }
 
-    // Update is called once per frame
-    void Update()
+    Vector3 GetPosition(Bullet bullet)
     {
-
-        
+        Vector3 gravity = Vector3.down * bullet_drop;
+        return (bullet.initial_pos) + (bullet.initial_vel * bullet.time) + (0.5f * gravity * bullet.time * bullet.time);
     }
+
+    Bullet CreateBullet(Vector3 position, Vector3 velovity)
+    {
+        Bullet bullet = new Bullet();
+        bullet.initial_pos = position;
+        bullet.initial_vel = velovity;
+        bullet.time = 0f;
+        bullet.tracer = Instantiate(bullet_trail, position, Quaternion.identity);
+        bullet.tracer.AddPosition(position);
+        return bullet;
+    }
+
 
     public void StartFiring()
     {
@@ -83,35 +94,33 @@ public class FireWeapon : MonoBehaviour
         FireBullet();
     }
 
-    public void StopFiring()
-    {
-        is_firing = false;
-    }
+    
 
-    /*
-    Vector3 GetPosition(Bullet bullet)
+    public void UpdateFiring(float delta_time)
     {
-        Vector3 gravity = Vector3.down * bullet_drop;
-        return (bullet.initial_pos) + (bullet.initial_vel * bullet.time) + (0.5f * gravity * bullet.time * bullet.time);
-    }
+        acculumated_time += delta_time;
 
-    Bullet CreateBullet(Vector3 position, Vector3 velocity)
-    {
-        Bullet bullet = new Bullet();
-        bullet.initial_pos = position;
-        bullet.initial_vel = velocity;
-        bullet.time = 0f;
-        bullet.tracer = Instantiate(bullet_trail, position, Quaternion.identity);
-        bullet.tracer.AddPosition(position);
-        return bullet;
-    }
+        while (acculumated_time >= 0f)
+        {
+            FireBullet();
 
+            acculumated_time -= fire_rate;
+        }
+    }
+   
     public void UpdateBullets(float delta_time)
     {
         SimulateBullets(delta_time);
         DestroyBullets();
     }
 
+    void DestroyBullets()
+    {
+        foreach(Bullet bullet in bullets)
+        {
+            if(bullet.time == max_lifetime) bullets.Remove(bullet);
+        }
+    }
     void SimulateBullets(float delta_time)
     {
         foreach(Bullet bullet in bullets)
@@ -123,23 +132,10 @@ public class FireWeapon : MonoBehaviour
         }
     }
 
-    void DestroyBullets()
-    {
-        foreach(Bullet bullet in bullets)
-        {
-            if(bullet.time >= max_lifetime)
-            {
-                bullets.Remove(bullet);
-            }
-        }
-    }
-    
-    
     void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
     {
         Vector3 direction = end - start;
         float distance = direction.magnitude;
-
         ray.origin = start;
         ray.direction = end - start;
 
@@ -156,39 +152,22 @@ public class FireWeapon : MonoBehaviour
         }
         else bullet.tracer.transform.position = end;
     }
-    */
-
-    public void UpdateFiring(float delta_time)
-    {
-        acculumated_time += delta_time;
-
-        while (acculumated_time >= 0f)
-        {
-            FireBullet();
-
-            acculumated_time -= fire_rate;
-        }
-    }
-   
     
     public void FireBullet()
     {
-        /*
-        Vector3 velocity;
 
-        if (is_ads) velocity = (raycast_destination.position - raycast_origin.position).normalized * bullet_speed;
-        else velocity = raycast_origin.forward.normalized * bullet_speed;
-
+        Vector3 velocity = (raycast_destination.position - raycast_origin.position).normalized * bullet_speed;
         var bullet = CreateBullet(raycast_origin.position, velocity);
         bullets.Add(bullet);
-        */
 
-        
+        /*
         ray.origin = raycast_origin.position;
 
+        /*
         if(is_ads)  ray.direction = raycast_destination.position - raycast_origin.position;
         else ray.direction = raycast_origin.forward;
-
+        */
+        /*
         var tracer = Instantiate(bullet_trail, ray.origin, Quaternion.identity);
         tracer.AddPosition(ray.origin);
 
@@ -202,9 +181,13 @@ public class FireWeapon : MonoBehaviour
 
             tracer.transform.position = hit.point;
         }
-        
+        */
         
         //Recoil();
     }
 
+    public void StopFiring()
+    {
+        is_firing = false;
+    }
 }

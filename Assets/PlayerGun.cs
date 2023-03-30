@@ -31,6 +31,7 @@ public class PlayerGun : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0)) active_player_weapon.StartFiring();
                 if (active_player_weapon.is_firing) active_player_weapon.UpdateFiring(Time.deltaTime);
+                active_player_weapon.UpdateBullets(Time.deltaTime);
                 if (Input.GetMouseButtonUp(0)) active_player_weapon.StopFiring();
 
 

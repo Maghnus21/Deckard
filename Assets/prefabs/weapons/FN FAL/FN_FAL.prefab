@@ -268,8 +268,8 @@ MonoBehaviour:
   muzzle_flash: {fileID: 6404873894494841161}
   player_chest: {fileID: 0}
   main_camera: {fileID: 0}
-  bullet_speed: 10
-  bullet_drop: 0
+  bullet_speed: 100
+  bullet_drop: 9
   max_lifetime: 3
   hip_recoil_mod: 1
   ads_recoil_mod: 2
