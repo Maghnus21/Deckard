@@ -597,11 +597,13 @@ MonoBehaviour:
   equipted_item: {fileID: 0}
   hand_point: {fileID: 7689683645737106716}
   current_held_item: {fileID: 0}
-  main_cam: {fileID: 7689683646176636075}
+  main_cam: {fileID: 7689683645042883035}
   player_chest: {fileID: 6742666075449086324}
-  bullet_impact_effect: {fileID: 0}
-  raycast_destination: {fileID: 0}
+  bullet_impact_effect: {fileID: 6767217539863786299}
+  bullet_trail: {fileID: 2780178030140457215, guid: e71198e9f6744144bad8f3a410c66c6c, type: 3}
+  raycast_destination: {fileID: 4813189118981716801}
   ammo_text: {fileID: 0}
+  player_gun: {fileID: 0}
 --- !u!114 &5582451428387772256
 MonoBehaviour:
   m_ObjectHideFlags: 0

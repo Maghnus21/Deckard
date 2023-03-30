@@ -6,27 +6,38 @@ public class PlayerGun : MonoBehaviour
 {
     public PlayerHotkeys player_hot_key;
     public GameObject player;
+    public FireWeapon active_player_weapon;
 
     private void Start()
     {
         player_hot_key = player.GetComponent<PlayerHotkeys>();
+        
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (player_hot_key.current_held_item)
         {
-            if(player_hot_key.equipted_item != null && player_hot_key.equipted_item.is_throwable) { }
+            
+
+            if (player_hot_key.equipted_item != null && player_hot_key.equipted_item.is_throwable) { }
 
 
             if (player_hot_key.equipted_item != null && player_hot_key.equipted_item.is_melee_weapon) { }
 
             else
             {
-                if (Input.GetMouseButtonDown(0)) player_hot_key.current_held_item.GetComponent<FireWeapon>().FireGun();
+                active_player_weapon = player_hot_key.current_held_item.GetComponent<FireWeapon>();
 
+
+                if (Input.GetMouseButton(0)) active_player_weapon.StartFiring();
+                //if(active_player_weapon.is_firing) active_player_weapon.UpdateFiring(Time.deltaTime);
+                if (Input.GetMouseButtonUp(1)) player_hot_key.current_held_item.GetComponent<FireWeapon>().StopFiring();
+
+                /*
                 if (Input.GetMouseButton(1)) player_hot_key.current_held_item.GetComponent<FireWeapon>().Aim(true);
                 else player_hot_key.current_held_item.GetComponent<FireWeapon>().Aim(false);
+                */
             }
             
         }

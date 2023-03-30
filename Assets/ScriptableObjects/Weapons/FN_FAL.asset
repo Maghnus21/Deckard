@@ -20,7 +20,7 @@ MonoBehaviour:
   bullet: {fileID: 517572019693814528, guid: a8f365291038b7c4193ed0f2eff552f9, type: 3}
   ads_speed: 5
   bullet_speed: 400
-  fire_rate: 700
+  fire_rate: 100
   magazine_size: 20
   ammo_reserve: 945
   ammo_type: {fileID: 11400000, guid: 2f295e1ca081d044b85d51eb8ac19bc7, type: 2}

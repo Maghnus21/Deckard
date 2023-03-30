@@ -22,12 +22,14 @@ public class PlayerHotkeys : MonoBehaviour
     public TrailRenderer bullet_trail;
     public Transform raycast_destination;
     public TextMeshProUGUI ammo_text;
+    public PlayerGun player_gun;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player_gun = GetComponent<PlayerGun>();
+        player_gun.enabled = false;
     }
 
     // Update is called once per frame
@@ -85,6 +87,8 @@ public class PlayerHotkeys : MonoBehaviour
 
     void EquipWeapon(int index_num)
     {
+        
+
         //  if array index is empty, output error of no gun in array index
         if (loadout[index_num] == null) { print("NO WEAPON IN GUN ARRAY INDEX " + index_num); return; }
 
@@ -95,7 +99,7 @@ public class PlayerHotkeys : MonoBehaviour
         if (equipted_item != loadout[index_num])
         {
             UnequipWeapon();
-
+            player_gun.enabled = true;
 
             equipted_item = loadout[index_num];
 
@@ -117,6 +121,8 @@ public class PlayerHotkeys : MonoBehaviour
 
     void UnequipWeapon()
     {
+        player_gun.enabled = false;
+
         equipted_item = null;
         Destroy(current_held_item);
         current_held_item = null;
