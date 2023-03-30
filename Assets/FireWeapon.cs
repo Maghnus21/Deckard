@@ -66,22 +66,13 @@ public class FireWeapon : MonoBehaviour
     {
         main_camera = Camera.main.transform;
 
-        fire_rate = 60f / 60f;
+        fire_rate = 60f / weapon_stats.fire_rate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, weapon_stats.recoilRotationReturn * Time.deltaTime);
-        Rot = Vector3.Slerp(Rot, rotationalRecoil, weapon_stats.recoilRotationSpeed * Time.deltaTime);
 
-        
-        recoil_point.localRotation = Quaternion.Euler(Rot / recoil_mod);
-
-        //main_camera.localRotation = Quaternion.Euler(Rot / 3);
-        player_chest.localRotation = Quaternion.Euler(Rot / 3);
-        */
         
     }
 
@@ -96,7 +87,7 @@ public class FireWeapon : MonoBehaviour
     {
         is_firing = false;
     }
-    
+
     /*
     Vector3 GetPosition(Bullet bullet)
     {
@@ -165,8 +156,8 @@ public class FireWeapon : MonoBehaviour
         }
         else bullet.tracer.transform.position = end;
     }
-    
-    
+    */
+
     public void UpdateFiring(float delta_time)
     {
         acculumated_time += delta_time;
@@ -178,27 +169,8 @@ public class FireWeapon : MonoBehaviour
             acculumated_time -= fire_rate;
         }
     }
-    */
-    /*public void Aim(bool is_aiming)
-    {
-        //  anchor linearly interpolates between ads and hip position if is_aiming is true
-        if (is_aiming)
-        {
-            anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * weapon_stats.ads_speed);
-            Camera.main.fieldOfView = 30f;
-            recoil_mod = ads_recoil_mod;
-            is_ads = true;
-        }
-        else
-        {
-            anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * weapon_stats.ads_speed);
-            Camera.main.fieldOfView = 65f;
-            recoil_mod = hip_recoil_mod;
-            is_ads = false;
-        }
-    }
-    */
-
+   
+    
     public void FireBullet()
     {
         /*
@@ -231,36 +203,8 @@ public class FireWeapon : MonoBehaviour
             tracer.transform.position = hit.point;
         }
         
-
+        
         //Recoil();
     }
-
-    /*
-    void Recoil()
-    {
-        Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
-        rotationalRecoil += new Vector3(-weapon_stats.recoilRotation.x, Random.Range(-weapon_stats.recoilRotation.y, weapon_stats.recoilRotation.y), Random.Range(-weapon_stats.recoilRotation.z, weapon_stats.recoilRotation.z));
-    }
-    
-    void UpdateAmmo()
-    {
-
-    }
-
-    void DsiplayAmmo()
-    {
-
-    }
-
-
-
-    IEnumerator MuzzleFlash(float seconds)
-    {
-        yield return null;
-    }
-    */
-
-
-
 
 }

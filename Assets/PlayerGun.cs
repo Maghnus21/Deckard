@@ -29,10 +29,10 @@ public class PlayerGun : MonoBehaviour
             {
                 active_player_weapon = player_hot_key.current_held_item.GetComponent<FireWeapon>();
 
+                if (Input.GetMouseButtonDown(0)) active_player_weapon.StartFiring();
+                if (active_player_weapon.is_firing) active_player_weapon.UpdateFiring(Time.deltaTime);
+                if (Input.GetMouseButtonUp(0)) active_player_weapon.StopFiring();
 
-                if (Input.GetMouseButton(0)) active_player_weapon.StartFiring();
-                //if(active_player_weapon.is_firing) active_player_weapon.UpdateFiring(Time.deltaTime);
-                if (Input.GetMouseButtonUp(1)) player_hot_key.current_held_item.GetComponent<FireWeapon>().StopFiring();
 
                 /*
                 if (Input.GetMouseButton(1)) player_hot_key.current_held_item.GetComponent<FireWeapon>().Aim(true);
@@ -41,6 +41,8 @@ public class PlayerGun : MonoBehaviour
             }
             
         }
+
         
+
     }
 }
