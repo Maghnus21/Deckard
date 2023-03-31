@@ -19,6 +19,8 @@ public class FireWeapon : MonoBehaviour
     public Transform raycast_destination;
     public ParticleSystem hit_effect;
     public TrailRenderer bullet_trail;
+    public AudioClip weapon_fire_sound;
+    public AudioSource weapon_audio;
 
     List<Bullet> bullets = new List<Bullet>();
 
@@ -65,6 +67,7 @@ public class FireWeapon : MonoBehaviour
     void Start()
     {
         main_camera = Camera.main.transform;
+        weapon_audio = GetComponentInChildren<AudioSource>();
 
         fire_rate = 60f / weapon_stats.fire_rate;
     }
@@ -114,22 +117,22 @@ public class FireWeapon : MonoBehaviour
         DestroyBullets();
     }
 
-    void DestroyBullets()
-    {
-        foreach(Bullet bullet in bullets)
-        {
-            if(bullet.time == max_lifetime) bullets.Remove(bullet);
-        }
-    }
+    
     void SimulateBullets(float delta_time)
     {
-        foreach(Bullet bullet in bullets)
+        bullets.ForEach(bullet =>
         {
             Vector3 p0 = GetPosition(bullet);
             bullet.time += delta_time;
             Vector3 p1 = GetPosition(bullet);
             RaycastSegment(p0, p1, bullet);
-        }
+
+        });
+    }
+
+    void DestroyBullets()
+    {
+        bullets.RemoveAll(bullet => bullet.time > max_lifetime);
     }
 
     void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
@@ -147,18 +150,24 @@ public class FireWeapon : MonoBehaviour
             hit_effect.transform.forward = hit.normal;
             hit_effect.Emit(1);
 
-            bullet.tracer.transform.position = hit.point;
+            if(bullet.tracer != null)bullet.tracer.transform.position = hit.point;
             bullet.time = max_lifetime;
         }
-        else bullet.tracer.transform.position = end;
+        else if (bullet.tracer != null) bullet.tracer.transform.position = end;
     }
     
     public void FireBullet()
     {
 
+        weapon_audio.clip = weapon_fire_sound;
+        weapon_audio.Play();
+
+
         Vector3 velocity = (raycast_destination.position - raycast_origin.position).normalized * bullet_speed;
         var bullet = CreateBullet(raycast_origin.position, velocity);
         bullets.Add(bullet);
+
+        
 
         /*
         ray.origin = raycast_origin.position;
