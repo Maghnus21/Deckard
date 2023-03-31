@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 1078813186004044630}
   - component: {fileID: 5045988383048075016}
   - component: {fileID: 2398309340017221551}
+  - component: {fileID: 536115518598856322}
   m_Layer: 6
   m_Name: FN_FAL
   m_TagString: Untagged
@@ -264,10 +265,6 @@ MonoBehaviour:
   weapon_fire_sound: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   weapon_audio: {fileID: 5882310097934263970}
   weapon_stats: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
-  anchor: {fileID: 1078813184686433069}
-  recoil_point: {fileID: 2524585276964109798}
-  ads_state: {fileID: 1078813184590032282}
-  hip_state: {fileID: 1078813184772222974}
   muzzle_flash: {fileID: 6404873894494841161}
   player_chest: {fileID: 0}
   main_camera: {fileID: 0}
@@ -277,6 +274,22 @@ MonoBehaviour:
   hip_recoil_mod: 1
   ads_recoil_mod: 2
   is_firing: 0
+--- !u!114 &536115518598856322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078813186004044629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f96cdb444f3f6428441bbddc755f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchor: {fileID: 1078813184686433069}
+  recoil_point: {fileID: 2524585276964109798}
+  ads_state: {fileID: 1078813184590032282}
+  hip_state: {fileID: 1078813184772222974}
 --- !u!1 &2807524678363257227
 GameObject:
   m_ObjectHideFlags: 0

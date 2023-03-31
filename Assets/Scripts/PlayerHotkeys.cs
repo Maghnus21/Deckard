@@ -109,8 +109,8 @@ public class PlayerHotkeys : MonoBehaviour
             else
             {
                 current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
-                current_held_item.GetComponent<FireWeapon>().player_chest = player_chest;
-                current_held_item.GetComponent<FireWeapon>().main_camera = main_cam;
+                //current_held_item.GetComponent<FireWeapon>().player_chest = player_chest;
+                //current_held_item.GetComponent<FireWeapon>().main_camera = main_cam;
                 current_held_item.GetComponent<FireWeapon>().raycast_destination = raycast_destination;
                 current_held_item.GetComponent<FireWeapon>().hit_effect = bullet_impact_effect;
             }

@@ -21,6 +21,7 @@ public class FireWeapon : MonoBehaviour
     public TrailRenderer bullet_trail;
     public AudioClip weapon_fire_sound;
     public AudioSource weapon_audio;
+    public WeaponRecoil weapon_recoil;
 
     List<Bullet> bullets = new List<Bullet>();
 
@@ -29,45 +30,25 @@ public class FireWeapon : MonoBehaviour
 
     public Item weapon_stats;
 
-    [Header("Transforms for recoil and aiming")]
-    public Transform anchor;
-    public Transform recoil_point;
-    public Transform ads_state;
-    public Transform hip_state;
-
     [Header("")]
     public GameObject muzzle_flash;
     private IEnumerator coroutine;
-
-    public Transform player_chest;
-    public Transform main_camera;
-
-    //  vector3 variables for recoil
-    Vector3 rotationalRecoil;
-    Vector3 Rot;
 
     public float bullet_speed = 1000f;
     public float bullet_drop = 0f;
     public float max_lifetime = 3f;
 
-
-    public float hip_recoil_mod = 1f;
-    public float ads_recoil_mod = 2f;
-    float recoil_mod = 1f;
-
     float fire_rate;
 
     float acculumated_time;
-
-    bool is_ads = false;
 
     public bool is_firing;
 
     // Start is called before the first frame update
     void Start()
     {
-        main_camera = Camera.main.transform;
         weapon_audio = GetComponentInChildren<AudioSource>();
+        weapon_recoil = GetComponentInChildren<WeaponRecoil>();
 
         fire_rate = 60f / weapon_stats.fire_rate;
     }
@@ -162,11 +143,14 @@ public class FireWeapon : MonoBehaviour
         weapon_audio.clip = weapon_fire_sound;
         weapon_audio.Play();
 
+        //  allows gun to hit object in middle of screen. keep commented out for possible future feature
+        //Vector3 velocity = (raycast_destination.position - raycast_origin.position).normalized * bullet_speed;
 
-        Vector3 velocity = (raycast_destination.position - raycast_origin.position).normalized * bullet_speed;
+        Vector3 velocity = raycast_origin.forward.normalized * bullet_speed;
         var bullet = CreateBullet(raycast_origin.position, velocity);
         bullets.Add(bullet);
 
+        weapon_recoil.Recoil();
         
 
         /*

@@ -7,6 +7,7 @@ public class PlayerGun : MonoBehaviour
     public PlayerHotkeys player_hot_key;
     public GameObject player;
     public FireWeapon active_player_weapon;
+    public WeaponRecoil active_player_weapon_recoil;
 
     private void Start()
     {
@@ -34,11 +35,11 @@ public class PlayerGun : MonoBehaviour
                 active_player_weapon.UpdateBullets(Time.deltaTime);
                 if (Input.GetMouseButtonUp(0)) active_player_weapon.StopFiring();
 
-
-                /*
-                if (Input.GetMouseButton(1)) player_hot_key.current_held_item.GetComponent<FireWeapon>().Aim(true);
-                else player_hot_key.current_held_item.GetComponent<FireWeapon>().Aim(false);
-                */
+                active_player_weapon_recoil = player_hot_key.current_held_item.GetComponent<WeaponRecoil>();
+                
+                if (Input.GetMouseButton(1)) active_player_weapon_recoil.Aim(true);
+                else active_player_weapon_recoil.Aim(false);
+                
             }
             
         }
