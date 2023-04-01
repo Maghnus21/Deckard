@@ -264,16 +264,15 @@ MonoBehaviour:
   bullet_trail: {fileID: 2780178030140457215, guid: e71198e9f6744144bad8f3a410c66c6c, type: 3}
   weapon_fire_sound: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   weapon_audio: {fileID: 5882310097934263970}
+  weapon_recoil: {fileID: 0}
+  bullet_shape: {fileID: 0}
   weapon_stats: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
   muzzle_flash: {fileID: 6404873894494841161}
-  player_chest: {fileID: 0}
-  main_camera: {fileID: 0}
-  bullet_speed: 100
+  bullet_speed: 200
   bullet_drop: 9
   max_lifetime: 2
-  hip_recoil_mod: 1
-  ads_recoil_mod: 2
   is_firing: 0
+  in_full_auto: 1
 --- !u!114 &536115518598856322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +289,14 @@ MonoBehaviour:
   recoil_point: {fileID: 2524585276964109798}
   ads_state: {fileID: 1078813184590032282}
   hip_state: {fileID: 1078813184772222974}
+  player_chest: {fileID: 0}
+  main_camera: {fileID: 0}
+  recoil_rotation: {x: 5, y: 4, z: 6}
+  recoil_speed: 40
+  recoil_return: 3
+  ads_speed: 5
+  hip_recoil_mod: 1
+  ads_recoil_mod: 3
 --- !u!1 &2807524678363257227
 GameObject:
   m_ObjectHideFlags: 0

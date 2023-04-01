@@ -24,7 +24,7 @@ public class WeaponRecoil : MonoBehaviour
 
     public int ads_speed = 5;
     public float hip_recoil_mod = 1f;
-    public float ads_recoil_mod = 2f;
+    public float ads_recoil_mod = 3f;
     float recoil_mod = 1f;
 
     bool is_ads = false;
@@ -52,11 +52,13 @@ public class WeaponRecoil : MonoBehaviour
         {
             anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * ads_speed);
             Camera.main.fieldOfView = 30f;
+            recoil_mod = ads_recoil_mod;
         }
         else
         {
             anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * ads_speed);
             Camera.main.fieldOfView = 65f;
+            recoil_mod = hip_recoil_mod;
         }
     }
 
@@ -89,7 +91,7 @@ public class WeaponRecoil : MonoBehaviour
     public void Recoil()
     {
         Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
-        rotationalRecoil += new Vector3(-recoil_rotation.x, Random.Range(-recoil_rotation.y, recoil_rotation.y), Random.Range(-recoil_rotation.z, recoil_rotation.z));
+        rotationalRecoil += new Vector3(-recoil_rotation.x, Random.Range(-recoil_rotation.y, recoil_rotation.y), Random.Range(-recoil_rotation.z, recoil_rotation.z)) / recoil_mod;
     }
 
 }

@@ -22,6 +22,7 @@ public class FireWeapon : MonoBehaviour
     public AudioClip weapon_fire_sound;
     public AudioSource weapon_audio;
     public WeaponRecoil weapon_recoil;
+    public GameObject bullet_shape;
 
     List<Bullet> bullets = new List<Bullet>();
 
@@ -43,6 +44,7 @@ public class FireWeapon : MonoBehaviour
     float acculumated_time;
 
     public bool is_firing;
+    public bool in_full_auto;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +72,6 @@ public class FireWeapon : MonoBehaviour
         return bullet;
     }
 
-
     public void StartFiring()
     {
         is_firing = true;
@@ -78,16 +79,14 @@ public class FireWeapon : MonoBehaviour
         FireBullet();
     }
 
-    
-
     public void UpdateFiring(float delta_time)
     {
         acculumated_time += delta_time;
 
-        while (acculumated_time >= 0f)
+        //  can only fire if acculumated is equal or exceeded fire_rate. if fire_rate is replaced with '0f', causes bug where first shot fired creates 2 bullets but not after
+        while (acculumated_time >= fire_rate)
         {
             FireBullet();
-
             acculumated_time -= fire_rate;
         }
     }
@@ -97,7 +96,6 @@ public class FireWeapon : MonoBehaviour
         SimulateBullets(delta_time);
         DestroyBullets();
     }
-
     
     void SimulateBullets(float delta_time)
     {
@@ -131,10 +129,19 @@ public class FireWeapon : MonoBehaviour
             hit_effect.transform.forward = hit.normal;
             hit_effect.Emit(1);
 
-            if(bullet.tracer != null)bullet.tracer.transform.position = hit.point;
+            if (bullet_shape != null)
+            {
+                GameObject embed_rebar = Instantiate(bullet_shape, hit.point, transform.rotation) as GameObject;
+                embed_rebar.transform.parent = hit.collider.transform;
+            }
+
+            if (bullet.tracer != null) bullet.tracer.transform.position = hit.point;
             bullet.time = max_lifetime;
         }
-        else if (bullet.tracer != null) bullet.tracer.transform.position = end;
+        else 
+        { 
+            if (bullet.tracer != null) bullet.tracer.transform.position = end; 
+        }
     }
     
     public void FireBullet()
@@ -143,15 +150,34 @@ public class FireWeapon : MonoBehaviour
         weapon_audio.clip = weapon_fire_sound;
         weapon_audio.Play();
 
-        //  allows gun to hit object in middle of screen. keep commented out for possible future feature
+        //  allows gun to hit object in middle of screen. keep commented out for possible future inclusion
         //Vector3 velocity = (raycast_destination.position - raycast_origin.position).normalized * bullet_speed;
 
-        Vector3 velocity = raycast_origin.forward.normalized * bullet_speed;
+        
+        Vector3 velocity;
+
+        if (!weapon_recoil.enabled)
+        {
+            Vector3 v = (raycast_origin.forward + new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), Random.Range(-.1f, .1f))) * bullet_speed;
+            velocity = v;
+        }
+        else
+        {
+            Vector3 v = raycast_origin.forward.normalized * bullet_speed;
+            velocity = v;
+        }        
+
+        //Vector3 velocity = raycast_origin.forward.normalized * bullet_speed;
+        
         var bullet = CreateBullet(raycast_origin.position, velocity);
         bullets.Add(bullet);
 
+        
+        if (!weapon_recoil.enabled) return;
+
         weapon_recoil.Recoil();
         
+
 
         /*
         ray.origin = raycast_origin.position;
@@ -175,7 +201,7 @@ public class FireWeapon : MonoBehaviour
             tracer.transform.position = hit.point;
         }
         */
-        
+
         //Recoil();
     }
 
