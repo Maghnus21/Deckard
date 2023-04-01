@@ -22,6 +22,8 @@ public class AIWeapon : MonoBehaviour
     Animator animator;
     public AIHeadBone head_tracking;
 
+    public ParticleSystem hit_effect;
+
     float fire_rate;
     float next_round = 0;
 
@@ -40,9 +42,10 @@ public class AIWeapon : MonoBehaviour
         current_gun = gun;
         equipted_gun = picked_gun;
 
-        mesh_socket.Attach(equipted_gun.transform);
+        equipted_gun.GetComponent<FireWeapon>().hit_effect = hit_effect;
+        equipted_gun.GetComponent<WeaponRecoil>().enabled = false;
 
-        weapon_drop = equipted_gun.GetComponent<weaponPlug>().weapon_drop;
+        mesh_socket.Attach(equipted_gun.transform);
     }
 
     public void ActivateWeapon()
@@ -74,8 +77,6 @@ public class AIWeapon : MonoBehaviour
 
     public void UnparentWeapon()
     {
-        GameObject dropped_weapon = Instantiate(weapon_drop, equipted_gun.transform.position, equipted_gun.transform.rotation) as GameObject;
-
         Destroy(equipted_gun);
 
         current_gun = null;
@@ -89,8 +90,8 @@ public class AIWeapon : MonoBehaviour
 
     public void FireWeapon()
     {
-        GameObject bullet = Instantiate(current_gun.bullet, equipted_gun.GetComponent<weaponPlug>().weapon_barrel_end.position, equipted_gun.GetComponent<weaponPlug>().weapon_barrel_end.rotation) as GameObject;
         print("bullet spawn " + equipted_gun.transform.position + "\tAgent transform" + transform.position);
-        bullet.GetComponent<BulletBehaviour>().FireBullet();
+
+        equipted_gun.GetComponent<FireWeapon>().FireBullet();
     }
 }

@@ -65,7 +65,7 @@ public class WeaponPickup : MonoBehaviour
                 AIWeapon weapons = hitbox.health.GetComponent<AIWeapon>();
                 if(weapons != null && weapons.equipted_gun == null)
                 {
-                    GameObject new_gun = Instantiate(weapon_scriptable_object.gun_npc);
+                    GameObject new_gun = Instantiate(weapon_scriptable_object.gun_prefab);
 
                     weapons.EquiptWeapon(new_gun, weapon_scriptable_object);
 

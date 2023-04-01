@@ -135,8 +135,13 @@ public class FireWeapon : MonoBehaviour
                 embed_rebar.transform.parent = hit.collider.transform;
             }
 
+            if (hit.collider) print("Hit " + hit.collider.name);
+
             if (bullet.tracer != null) bullet.tracer.transform.position = hit.point;
             bullet.time = max_lifetime;
+
+            
+
         }
         else 
         { 
