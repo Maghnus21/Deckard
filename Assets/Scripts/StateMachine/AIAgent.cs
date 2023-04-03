@@ -14,7 +14,6 @@ public class AIAgent : MonoBehaviour
     public Health health;
     public Transform player_transform;
     public GameObject player_gameobject;
-    public BranchDialogueTest branch_dialogue;
     public AINavigation ai_nav;
     public AIWeapon weapon;
     public AIWeaponIK weaponIK;
@@ -22,7 +21,7 @@ public class AIAgent : MonoBehaviour
     public GameObject IK_gameobject_transform;
     public AIHeadBone head_tracking;
     public Item available_gun;
-    public DialogueTree dialogue_tree;
+    public DialogueTreeScriptableObject dialogue_tree;
     public InterrogationDialogueTree interrogation_dialogue_tree;
     public Vector3 impact_direction;
     public Rigidbody hit_rb;
@@ -53,10 +52,6 @@ public class AIAgent : MonoBehaviour
 
         //  checks for any dialogue components attached to entity.
         //  interrogationDialogueTree is used solely for suspects
-        if (GetComponent<DialogueTree>())
-        {
-            dialogue_tree = GetComponent<DialogueTree>();
-        }
         if (GetComponent<InterrogationDialogueTree>())
         {
             interrogation_dialogue_tree = GetComponent<InterrogationDialogueTree>();
@@ -90,9 +85,16 @@ public class AIAgent : MonoBehaviour
 
     public void DisableScripts()
     {
-        weapon.enabled = false;
-        weaponIK.enabled = false;
-        head_tracking.enabled = false;
-        ai_nav.enabled = false;
+        if(weapon.enabled)
+            weapon.enabled = false;
+
+        if(weaponIK.enabled)
+            weaponIK.enabled = false;
+
+        if(head_tracking.enabled)
+            head_tracking.enabled = false;
+
+        if(ai_nav.enabled)
+            ai_nav.enabled = false;
     }
 }

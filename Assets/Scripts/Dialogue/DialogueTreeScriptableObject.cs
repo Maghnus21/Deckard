@@ -2,27 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Dialogue Tree SO", menuName = "Dialogue Tree SO")]
-public class DialogueTreeDialogueTreeScriptableObject : ScriptableObject
+[CreateAssetMenu(fileName = "New Dialogue Tree", menuName = "Dialogue Tree")]
+public class DialogueTreeScriptableObject : ScriptableObject
 {
     public DialogueBranch[] branches;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
 
 [System.Serializable]
-public class DialogueBranchSO
+public class DialogueBranch
 {
     public string branch_name;
     public int branch_id;
@@ -32,7 +19,7 @@ public class DialogueBranchSO
 }
 
 [System.Serializable]
-public class DialogueSectionSO
+public class DialogueSection
 {
     [TextArea]
     public string dialogue;
@@ -41,10 +28,13 @@ public class DialogueSectionSO
 }
 
 [System.Serializable]
-public class DialogueResponseSO
+public class DialogueResponse
 {
     //  ensures player can exit dialogue when conversation is completed
     public bool end_on_response = false;
+    public bool initialize_interrogation = false;
+    public bool turn_hostile = false;
+
     public int next_branch_id;
     
     [TextArea]

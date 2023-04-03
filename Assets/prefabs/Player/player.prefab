@@ -456,7 +456,6 @@ GameObject:
   - component: {fileID: 7689683646258888366}
   - component: {fileID: 7689683646258888367}
   - component: {fileID: 3621378335234463941}
-  - component: {fileID: 7021936322731484276}
   - component: {fileID: 1485999047524643215}
   - component: {fileID: 1561293362863479885}
   - component: {fileID: 2755747879086834329}
@@ -562,7 +561,7 @@ MonoBehaviour:
   equipted_gun: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
   weaponPosition: {fileID: 7689683645737106716}
   weapon_fire_sound: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
-  weaponSource: {fileID: 7021936322731484276}
+  weaponSource: {fileID: 0}
   ammo_count_text: {fileID: 0}
   recoilPoint: {fileID: 0}
   main_camera: {fileID: 7689683645042883035}
@@ -600,7 +599,6 @@ MonoBehaviour:
   main_cam: {fileID: 7689683645042883035}
   player_chest: {fileID: 6742666075449086324}
   bullet_impact_effect: {fileID: 6767217539863786299}
-  bullet_trail: {fileID: 2780178030140457215, guid: e71198e9f6744144bad8f3a410c66c6c, type: 3}
   raycast_destination: {fileID: 4813189118981716801}
   ammo_text: {fileID: 0}
   player_gun: {fileID: 0}
@@ -687,102 +685,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_looking_at: {fileID: 0}
---- !u!82 &7021936322731484276
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689683646258888358}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 5
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1485999047524643215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +740,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_hot_key: {fileID: 0}
   player: {fileID: 7689683646258888358}
+  active_player_weapon: {fileID: 0}
+  active_player_weapon_recoil: {fileID: 0}
 --- !u!1 &9131878905258144793
 GameObject:
   m_ObjectHideFlags: 0

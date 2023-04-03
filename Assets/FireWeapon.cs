@@ -140,7 +140,11 @@ public class FireWeapon : MonoBehaviour
             if (bullet.tracer != null) bullet.tracer.transform.position = hit.point;
             bullet.time = max_lifetime;
 
-            
+            var entity_hitbox= hit.collider.GetComponent<EntityHitbox>();
+            if (entity_hitbox) entity_hitbox.OnRaycastHit(30f, direction, hit.collider.attachedRigidbody);
+
+            var ai_agent = hit.collider.GetComponentInParent<AIAgent>();
+            if (ai_agent) ai_agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
 
         }
         else 

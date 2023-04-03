@@ -12,21 +12,21 @@ public class AIDeathState : AIState
 
 
         
-        /*
+        
         agent.ragdoll.ActivateRagdoll();
         agent.impact_direction.y = 1f;
         agent.ragdoll.impact_body_part = agent.hit_rb;
         agent.ragdoll.ApplyForce(agent.impact_direction * agent.config.impact_force, agent.health.death_force_mode);
-        */
+        
 
         agent.weapon.UnparentWeapon();
-
-        agent.DisableScripts();
-        /*
+        
+        //  disable scripts here
         agent.weapon.enabled = false;
         agent.weaponIK.enabled = false;
         agent.head_tracking.enabled = false;
-        */
+        agent.enabled = false;
+        
     }
 
     public void Exit(AIAgent agent)

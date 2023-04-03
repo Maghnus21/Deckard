@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
     AINavigation npc_nav;
     Animator animator;
 
-    BranchDialogueTest bdt;
+    
 
     
 
@@ -200,16 +200,6 @@ public class Health : MonoBehaviour
         if (GetComponent<Animator>())
         {
             animator = GetComponent<Animator>();
-        }
-        /*
-        if (GetComponent<NPCBehaviour>())
-        {
-            npc_behaviour = GetComponent<NPCBehaviour>();
-        }
-        */
-        if (GetComponent<BranchDialogueTest>())
-        {
-            bdt = GetComponent<BranchDialogueTest>();
         }
     }
 }

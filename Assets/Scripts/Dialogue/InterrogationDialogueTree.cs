@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InterrogationDialogueTree : MonoBehaviour
 {
-    public DialogueBranch[] branches;
+    public InterrogationDialogueBranch[] branches;
 }
 
 [System.Serializable]

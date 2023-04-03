@@ -8,7 +8,7 @@ public class branchDialogueManager : MonoBehaviour
 {
 
     public GameObject talking_npc;
-    public DialogueTree dialogue_tree;
+    public DialogueTreeScriptableObject dialogue_tree;
     public InterrogationDialogueTree interrogation_dialogue_tree;
     public GameObject kit;
 
@@ -147,14 +147,14 @@ public class branchDialogueManager : MonoBehaviour
     void ParseDialogueInfo()
     {
         //  if dialogueTree is attached to npc, link it to dialogue_tree
-        if (!talking_npc.GetComponent<DialogueTree>())
+        if (!talking_npc.GetComponent<AIAgent>().dialogue_tree)
         {
             print("no DialogueTree component attached to entity " + talking_npc.name);
             return;
         }
         else
         {
-            dialogue_tree = talking_npc.GetComponent<DialogueTree>();
+            dialogue_tree = talking_npc.GetComponent<AIAgent>().dialogue_tree;
         }
     }
 

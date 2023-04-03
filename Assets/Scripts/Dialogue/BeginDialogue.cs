@@ -23,9 +23,9 @@ public class BeginDialogue : MonoBehaviour
         ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
 
-        if (Physics.Raycast(ray, out hit, 5f) && hit.collider.gameObject.GetComponentInParent<DialogueTree>())
+        if (Physics.Raycast(ray, out hit, 5f))
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && hit.collider.gameObject.GetComponentInParent<AIAgent>().dialogue_tree != null)
             {
                 
 
