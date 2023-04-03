@@ -11,8 +11,8 @@ public class AIAttackPlayerState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent.weapon.ActivateWeapon();
-        agent.weapon.SetTarget(agent.player_transform);
+        agent.ai_weapon.ActivateWeapon();
+        agent.ai_weapon.SetTarget(agent.player_transform);
         agent.navMeshAgent.stoppingDistance = 8f;
     }
 
@@ -49,7 +49,7 @@ public class AIAttackPlayerState : AIState
 
                 if(distance < 10f)
                 {
-                    agent.weapon.FireWeapon();
+                    agent.ai_weapon.FireWeapon();
                     
                 }
                 

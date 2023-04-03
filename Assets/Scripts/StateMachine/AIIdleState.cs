@@ -7,8 +7,7 @@ public class AIIdleState : AIState
 {
     public void Enter(AIAgent agent)
     {
-        agent.weaponIK.enabled = false;
-        agent.weapon.enabled = false;
+        agent.ai_weapon.enabled = false;
     }
 
     public void Exit(AIAgent agent)

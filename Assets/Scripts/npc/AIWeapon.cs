@@ -23,6 +23,7 @@ public class AIWeapon : MonoBehaviour
     public AIHeadBone head_tracking;
 
     public ParticleSystem hit_effect;
+    public MeshSockets sockets;
 
     float fire_rate;
     float next_round = 0;
@@ -33,19 +34,22 @@ public class AIWeapon : MonoBehaviour
         head_tracking = GetComponent<AIHeadBone>();
         weapon_ik = GetComponent<AIWeaponIK>();
         mesh_socket = GetComponentInChildren<MeshSocket>();
+        sockets = GetComponent<MeshSockets>();
 
     }
 
 
-    public void EquiptWeapon(GameObject picked_gun, Item gun)
+    public void EquiptWeapon(Item gun)
     {
+        ActivateWeapon();
+
         current_gun = gun;
-        equipted_gun = picked_gun;
+        equipted_gun = Instantiate(gun.gun_prefab) as GameObject;
 
         equipted_gun.GetComponent<FireWeapon>().hit_effect = hit_effect;
         equipted_gun.GetComponent<WeaponRecoil>().enabled = false;
 
-        mesh_socket.Attach(equipted_gun.transform);
+        sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.RightHand);
     }
 
     public void ActivateWeapon()
@@ -64,9 +68,6 @@ public class AIWeapon : MonoBehaviour
         {
             yield return null;
         }
-
-        weapon_ik.enabled = true;
-        head_tracking.enabled = true;
     }
     
 

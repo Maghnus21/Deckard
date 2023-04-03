@@ -1724,15 +1724,12 @@ GameObject:
   - component: {fileID: 4596221340679867603}
   - component: {fileID: 4054285885795414268}
   - component: {fileID: 4054285885795414261}
-  - component: {fileID: 4054285885795414258}
   - component: {fileID: 4054285885795414259}
   - component: {fileID: 4054285885795414256}
   - component: {fileID: 4054285885795414257}
   - component: {fileID: 4054285885795414270}
   - component: {fileID: 4054285885795414271}
   - component: {fileID: 4054285885795414269}
-  - component: {fileID: 3224984133061396906}
-  - component: {fileID: 2700964621728093310}
   m_Layer: 0
   m_Name: low_poly_default
   m_TagString: NPC
@@ -1803,19 +1800,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5447f121d35a06c4aac29ed8d3c38378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  branches: []
---- !u!114 &4054285885795414258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3783831113915127401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c053d9c0c932eb34d95d92c3c6d795fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   branches: []
@@ -1902,7 +1886,6 @@ MonoBehaviour:
   health: {fileID: 0}
   player_transform: {fileID: 0}
   player_gameobject: {fileID: 0}
-  branch_dialogue: {fileID: 0}
   ai_nav: {fileID: 0}
   weapon: {fileID: 0}
   weaponIK: {fileID: 0}
@@ -1938,56 +1921,8 @@ MonoBehaviour:
   mesh_socket: {fileID: 0}
   fire_point: {fileID: 0}
   head_tracking: {fileID: 0}
---- !u!114 &3224984133061396906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3783831113915127401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063cddaeb404e704e9725d66ee1f96ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target_transform: {fileID: 1926288787579073961}
-  aim_transform: {fileID: 0}
-  target_offset: {x: 0, y: 1, z: 0}
-  iterations: 10
-  weight: 1
-  angle_limit: 90
-  distance_limit: 2
-  human_bones:
-  - bone: 7
-    weight: 0.1
-  - bone: 8
-    weight: 0.5
-  - bone: 54
-    weight: 1
---- !u!114 &2700964621728093310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3783831113915127401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79be6c95b7692114fb976edb933af687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head_bone: 10
-  agent: {fileID: 0}
-  default_ik_target: {fileID: 1926288787579073961}
-  new_ik_target: {fileID: 0}
-  head_target_transform: {fileID: 0}
-  head_transform: {fileID: 0}
-  animator: {fileID: 0}
-  target_offset: {x: 0, y: 1.5, z: 0}
-  angle_limit: 80
-  max_look_dis: 8
-  head_move_seed: 3
-  weight: 1
+  hit_effect: {fileID: 0}
+  sockets: {fileID: 0}
 --- !u!1 &3954257481933256271
 GameObject:
   m_ObjectHideFlags: 0

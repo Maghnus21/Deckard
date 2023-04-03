@@ -4,29 +4,22 @@ using UnityEngine;
 
 public class AIDeathState : AIState
 {
-    
 
+    float time = 0;
     public void Enter(AIAgent agent)
     {
-        //agent.branch_dialogue.enabled = false;
-
-
-        
-        
         agent.ragdoll.ActivateRagdoll();
         agent.impact_direction.y = 1f;
         agent.ragdoll.impact_body_part = agent.hit_rb;
         agent.ragdoll.ApplyForce(agent.impact_direction * agent.config.impact_force, agent.health.death_force_mode);
         
 
-        agent.weapon.UnparentWeapon();
-        
+        agent.ai_weapon.UnparentWeapon();
+
         //  disable scripts here
-        agent.weapon.enabled = false;
-        agent.weaponIK.enabled = false;
-        agent.head_tracking.enabled = false;
+        if (agent.ai_weapon.enabled)
+            agent.ai_weapon.enabled = false;
         agent.enabled = false;
-        
     }
 
     public void Exit(AIAgent agent)
@@ -41,6 +34,6 @@ public class AIDeathState : AIState
 
     public void Update(AIAgent agent)
     {
-        
+    
     }
 }

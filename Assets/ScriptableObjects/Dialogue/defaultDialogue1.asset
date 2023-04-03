@@ -26,10 +26,10 @@ MonoBehaviour:
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
-        next_branch_id: 1
+        next_branch_id: 3
         response_dialogue: fine
   - branch_name: 
-    branch_id: 1
+    branch_id: 3
     sections:
     - dialogue: thanks man
       responses:

@@ -21,6 +21,8 @@ public class branchDialogueManager : MonoBehaviour
     public GameObject player;
     public player_look p_l;
 
+    DialogueBranch dialogue_branch;
+
     public int branch_choice = 0;
     int response_choice = 0;
 
@@ -179,7 +181,20 @@ public class branchDialogueManager : MonoBehaviour
     public void DisplayConvo()
     {
         //  displays dialogue text in textbox
-        dialogue_text.text = dialogue_tree.branches[branch_choice].sections[0].dialogue;
+        
+        foreach(DialogueBranch dialogueBranch in dialogue_tree.branches)
+        {
+            if (dialogueBranch.branch_id == branch_choice)
+            { 
+                dialogue_branch = dialogueBranch;
+                dialogue_text.text = dialogueBranch.sections[0].dialogue;
+            }
+            else { }
+
+            
+        }
+        
+        //dialogue_text.text = dialogue_tree.branches[branch_choice].sections[0].dialogue;
 
         DisplayResponses();
     }
@@ -190,7 +205,7 @@ public class branchDialogueManager : MonoBehaviour
     void DisplayResponses()
     {
         //  checks number of responses, turns off buttons depending on size of dialogue responses
-        int responses_count = dialogue_tree.branches[branch_choice].sections[0].responses.GetLength(0);
+        int responses_count = dialogue_branch.sections[0].responses.GetLength(0);
 
         //  scitch case to vary amout of buttons displayed on display, along with configuring them for interaction
         switch (responses_count)
@@ -243,8 +258,9 @@ public class branchDialogueManager : MonoBehaviour
     /// <param name="button">button gameobject to be configured</param>
     void ConfigureButton(GameObject button)
     {
+        
         //  button text is parsed the response dialogue
-        button.GetComponentInChildren<TextMeshProUGUI>().text = dialogue_tree.branches[branch_choice].sections[0].responses[response_choice].response_dialogue;
+        button.GetComponentInChildren<TextMeshProUGUI>().text = dialogue_branch.sections[0].responses[response_choice].response_dialogue;
 
         if (!button.GetComponent<DialogueBranchButton>())
         {
@@ -253,7 +269,7 @@ public class branchDialogueManager : MonoBehaviour
         else
         {
             button.GetComponent<DialogueBranchButton>().choice = response_choice;
-            button.GetComponent<DialogueBranchButton>().branch_choice = dialogue_tree.branches[branch_choice].sections[0].responses[response_choice++].next_branch_id;      //  increments response_choice for next button
+            button.GetComponent<DialogueBranchButton>().branch_choice = dialogue_branch.sections[0].responses[response_choice++].next_branch_id;      //  increments response_choice for next button
         }
     }
 
@@ -264,12 +280,12 @@ public class branchDialogueManager : MonoBehaviour
     /// <param name="response_choice">Integer parsed from button script to chose respose to dialogue, 3 buttons = integer values of 0 -> 2</param>
     public void UpdateConvo(int branch_choice, int response_choice)
     {
-        if (dialogue_tree.branches[this.branch_choice].sections[0].responses[response_choice].end_on_response)
+        if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
         {
             print("exited conversation");
             HideDialogue();
             in_convo = false;
-        } else if (dialogue_tree.branches[this.branch_choice].sections[0].responses[response_choice].initialize_interrogation)
+        } else if (dialogue_branch.sections[0].responses[response_choice].initialize_interrogation)
         {
             print("begun interrogation");
             //HideDialogue();
