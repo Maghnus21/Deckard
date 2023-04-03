@@ -7,9 +7,18 @@ public class AIFindWeaponState : AIState
 {
     public void Enter(AIAgent agent)
     {
-        WeaponPickup pickup = FindClosestWeapon(agent);
-        agent.navMeshAgent.destination = pickup.transform.position;
-        agent.navMeshAgent.speed = 6;
+        if (agent.available_gun != null)
+        {
+            agent.ai_weapon.EquiptWeapon(agent.available_gun);
+        }
+
+        else
+        {
+            WeaponPickup pickup = FindClosestWeapon(agent);
+            agent.navMeshAgent.destination = pickup.transform.position;
+            agent.navMeshAgent.speed = 6;
+        }
+        
     }
 
     public void Exit(AIAgent agent)

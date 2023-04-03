@@ -13,8 +13,6 @@ public class MeshSocket : MonoBehaviour
     void Start()
     {
         attach_point = transform.GetChild(0);
-
-        GetComponentInParent<AIWeaponIK>().SetAimTransform(attach_point);
     }
 
     public void Attach(Transform object_transform)
