@@ -14,7 +14,7 @@ public class AIWeapon : MonoBehaviour
     public GameObject w_button;
     public GameObject w_image;
 
-    public AIWeaponIK weapon_ik;
+
     public MeshSocket mesh_socket;
 
     public GameObject fire_point;
@@ -32,7 +32,6 @@ public class AIWeapon : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         head_tracking = GetComponent<AIHeadBone>();
-        weapon_ik = GetComponent<AIWeaponIK>();
         mesh_socket = GetComponentInChildren<MeshSocket>();
         sockets = GetComponent<MeshSockets>();
 
@@ -78,6 +77,8 @@ public class AIWeapon : MonoBehaviour
 
     public void UnparentWeapon()
     {
+        GameObject dropped_weapon = Instantiate(current_gun.gun_pickup, equipted_gun.transform.position, equipted_gun.transform.rotation) as GameObject;
+
         Destroy(equipted_gun);
 
         current_gun = null;
@@ -86,12 +87,16 @@ public class AIWeapon : MonoBehaviour
 
     public void SetTarget(Transform target)
     {
-        weapon_ik.SetTargetTransform(target);
+
     }
 
     public void FireWeapon()
     {
         print("bullet spawn " + equipted_gun.transform.position + "\tAgent transform" + transform.position);
+
+
+        equipted_gun.GetComponent<FireWeapon>().bullet_speed = 10f;
+        equipted_gun.GetComponent<FireWeapon>().bullet_drop = 0f;
 
         equipted_gun.GetComponent<FireWeapon>().FireBullet();
     }
