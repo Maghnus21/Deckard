@@ -1887,11 +1887,8 @@ MonoBehaviour:
   player_transform: {fileID: 0}
   player_gameobject: {fileID: 0}
   ai_nav: {fileID: 0}
-  weapon: {fileID: 0}
-  weaponIK: {fileID: 0}
-  mesh_socket: {fileID: 0}
+  ai_weapon: {fileID: 0}
   IK_gameobject_transform: {fileID: 0}
-  head_tracking: {fileID: 0}
   available_gun: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
   dialogue_tree: {fileID: 0}
   interrogation_dialogue_tree: {fileID: 0}
@@ -1917,7 +1914,6 @@ MonoBehaviour:
   weapon_drop: {fileID: 0}
   w_button: {fileID: 0}
   w_image: {fileID: 0}
-  weapon_ik: {fileID: 0}
   mesh_socket: {fileID: 0}
   fire_point: {fileID: 0}
   head_tracking: {fileID: 0}

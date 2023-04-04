@@ -8,18 +8,15 @@ public class AIDeathState : AIState
     float time = 0;
     public void Enter(AIAgent agent)
     {
+        Debug.Log(agent.name + " entered state: AIDeathState");
+
         agent.ragdoll.ActivateRagdoll();
         agent.impact_direction.y = 1f;
         agent.ragdoll.impact_body_part = agent.hit_rb;
         agent.ragdoll.ApplyForce(agent.impact_direction * agent.config.impact_force, agent.health.death_force_mode);
         
 
-        agent.ai_weapon.UnparentWeapon();
-
-        //  disable scripts here
-        if (agent.ai_weapon.enabled)
-            agent.ai_weapon.enabled = false;
-        agent.enabled = false;
+        agent.ai_weapon.DropWeapon();
     }
 
     public void Exit(AIAgent agent)

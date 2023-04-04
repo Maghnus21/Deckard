@@ -22,6 +22,7 @@ public class AIAgent : MonoBehaviour
     public InterrogationDialogueTree interrogation_dialogue_tree;
     public Vector3 impact_direction;
     public Rigidbody hit_rb;
+    public MeshSockets mesh_sockets;
 
     GameObject cloned_npc_gun;
 
@@ -35,6 +36,7 @@ public class AIAgent : MonoBehaviour
         ragdoll = GetComponent<Ragdoll>();
         health = GetComponent<Health>();
         ai_weapon = GetComponent<AIWeapon>();
+        mesh_sockets = GetComponent<MeshSockets>();
         //weaponIK = GetComponent<AIWeaponIK>();
         //head_tracking = GetComponent<AIHeadBone>();
         //mesh_socket = GetComponentInChildren<MeshSocket>();
@@ -60,7 +62,6 @@ public class AIAgent : MonoBehaviour
         stateMachine.RegisterState(new AIIdleState());
         stateMachine.RegisterState(new AIChasePlayerState());
         stateMachine.RegisterState(new AIFindWeaponState());
-        stateMachine.RegisterState(new AIAttackPlayerState());
         stateMachine.RegisterState(new AIDeathState());        
 
         stateMachine.ChangeState(initialState);

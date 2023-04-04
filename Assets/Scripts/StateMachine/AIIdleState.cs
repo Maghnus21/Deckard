@@ -7,6 +7,8 @@ public class AIIdleState : AIState
 {
     public void Enter(AIAgent agent)
     {
+        Debug.Log(agent.name + " entered state: AIIdleState");
+
         agent.ai_weapon.enabled = false;
     }
 

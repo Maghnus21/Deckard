@@ -7,18 +7,22 @@ public class AIFindWeaponState : AIState
 {
     public void Enter(AIAgent agent)
     {
-        if (agent.available_gun != null)
+        Debug.Log(agent.name + " entered state: AIFindWeaponState");
+        if (agent.ai_weapon.HasWeapon())
         {
-            agent.ai_weapon.EquiptWeapon(agent.available_gun);
+            agent.ai_weapon.ActivateWeapon();
+            //agent.ai_weapon.EquiptWeapon();
+            agent.stateMachine.ChangeState(AIStateID.Idle);
         }
 
-        else
-        {
+
+        else 
+        { 
             WeaponPickup pickup = FindClosestWeapon(agent);
             agent.navMeshAgent.destination = pickup.transform.position;
             agent.navMeshAgent.speed = 6;
         }
-        
+
     }
 
     public void Exit(AIAgent agent)
@@ -33,7 +37,10 @@ public class AIFindWeaponState : AIState
 
     public void Update(AIAgent agent)
     {
-    
+        if (agent.ai_weapon.HasWeapon())
+        {
+            agent.ai_weapon.ActivateWeapon();
+        }
     }
 
     private WeaponPickup FindClosestWeapon(AIAgent agent)

@@ -14,11 +14,6 @@ public class AIWeapon : MonoBehaviour
     public GameObject w_button;
     public GameObject w_image;
 
-
-    public MeshSocket mesh_socket;
-
-    public GameObject fire_point;
-
     Animator animator;
     public AIHeadBone head_tracking;
 
@@ -31,30 +26,21 @@ public class AIWeapon : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        head_tracking = GetComponent<AIHeadBone>();
-        mesh_socket = GetComponentInChildren<MeshSocket>();
         sockets = GetComponent<MeshSockets>();
 
     }
 
 
-    public void EquiptWeapon(Item gun)
+    public void EquiptWeapon(GameObject weapon)
     {
-        ActivateWeapon();
-
-        current_gun = gun;
-        equipted_gun = Instantiate(gun.gun_prefab) as GameObject;
-
-        equipted_gun.GetComponent<FireWeapon>().hit_effect = hit_effect;
-        equipted_gun.GetComponent<WeaponRecoil>().enabled = false;
-
-        sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.RightHand);
+        equipted_gun = weapon;
+        sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.Spine);
     }
 
     public void ActivateWeapon()
     {
-
-        StartCoroutine(EquipWeaponIK());
+        animator.SetBool("equip", true);
+        //StartCoroutine(EquipWeaponIK());
     }
 
     
@@ -68,36 +54,23 @@ public class AIWeapon : MonoBehaviour
             yield return null;
         }
     }
-    
+
+    public void DropWeapon()
+    {
+        Destroy(equipted_gun.gameObject);
+    }
 
     public bool HasWeapon()
     {
         return equipted_gun != null;
     }
 
-    public void UnparentWeapon()
+    public void OnAnimationEvent(string event_name)
     {
-        GameObject dropped_weapon = Instantiate(current_gun.gun_pickup, equipted_gun.transform.position, equipted_gun.transform.rotation) as GameObject;
-
-        Destroy(equipted_gun);
-
-        current_gun = null;
-        
-    }
-
-    public void SetTarget(Transform target)
-    {
-
-    }
-
-    public void FireWeapon()
-    {
-        print("bullet spawn " + equipted_gun.transform.position + "\tAgent transform" + transform.position);
-
-
-        equipted_gun.GetComponent<FireWeapon>().bullet_speed = 10f;
-        equipted_gun.GetComponent<FireWeapon>().bullet_drop = 0f;
-
-        equipted_gun.GetComponent<FireWeapon>().FireBullet();
+        if (event_name == "equip_weapon")
+        {
+            sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.RightHand);
+        }
+            
     }
 }
