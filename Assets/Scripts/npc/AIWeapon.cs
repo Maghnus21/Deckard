@@ -19,6 +19,7 @@ public class AIWeapon : MonoBehaviour
 
     public ParticleSystem hit_effect;
     public MeshSockets sockets;
+    public AIWeaponIK ai_weapon_ik;
 
     float fire_rate;
     float next_round = 0;
@@ -27,7 +28,7 @@ public class AIWeapon : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         sockets = GetComponent<MeshSockets>();
-
+        ai_weapon_ik = GetComponent<AIWeaponIK>();
     }
 
 
@@ -35,12 +36,13 @@ public class AIWeapon : MonoBehaviour
     {
         equipted_gun = weapon;
         sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.Spine);
+        GetComponent<AIAgent>().ai_weapon_ik.aim_transform = equipted_gun.transform;
     }
 
     public void ActivateWeapon()
     {
-        animator.SetBool("equip", true);
-        //StartCoroutine(EquipWeaponIK());
+        //animator.SetBool("equip", true);
+        StartCoroutine(EquipWeaponIK());
     }
 
     
@@ -53,6 +55,8 @@ public class AIWeapon : MonoBehaviour
         {
             yield return null;
         }
+
+        ai_weapon_ik.SetAimTransform(equipted_gun.GetComponent<FireWeapon>().raycast_origin);
     }
 
     public void DropWeapon()

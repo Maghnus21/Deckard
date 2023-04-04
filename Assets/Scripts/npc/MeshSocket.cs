@@ -6,13 +6,21 @@ public class MeshSocket : MonoBehaviour
 {
 
     public MeshSockets.SocketID socketID;
+    public HumanBodyBones bone;
 
+    public Vector3 offset;
+    public Vector3 rotation;
     public Transform attach_point;
 
     // Start is called before the first frame update
     void Start()
     {
-        attach_point = transform.GetChild(0);
+        Animator animator = GetComponentInParent<Animator>();
+
+        attach_point = new GameObject("socket" + socketID).transform;
+        attach_point.SetParent(animator.GetBoneTransform(bone));
+        attach_point.localPosition = offset;
+        attach_point.localRotation = Quaternion.Euler(rotation);
     }
 
     public void Attach(Transform object_transform)

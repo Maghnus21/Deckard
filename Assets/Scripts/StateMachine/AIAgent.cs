@@ -23,6 +23,7 @@ public class AIAgent : MonoBehaviour
     public Vector3 impact_direction;
     public Rigidbody hit_rb;
     public MeshSockets mesh_sockets;
+    public AIWeaponIK ai_weapon_ik;
 
     GameObject cloned_npc_gun;
 
@@ -37,6 +38,7 @@ public class AIAgent : MonoBehaviour
         health = GetComponent<Health>();
         ai_weapon = GetComponent<AIWeapon>();
         mesh_sockets = GetComponent<MeshSockets>();
+        ai_weapon_ik = GetComponent<AIWeaponIK>();
         //weaponIK = GetComponent<AIWeaponIK>();
         //head_tracking = GetComponent<AIHeadBone>();
         //mesh_socket = GetComponentInChildren<MeshSocket>();
