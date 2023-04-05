@@ -24,11 +24,27 @@ public class AIWeapon : MonoBehaviour
     float fire_rate;
     float next_round = 0;
 
+    bool weapon_active = false;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         sockets = GetComponent<MeshSockets>();
         ai_weapon_ik = GetComponent<AIWeaponIK>();
+    }
+
+    private void Update()
+    {
+        if (equipted_gun && weapon_active)
+        {
+            equipted_gun.GetComponent<FireWeapon>().UpdateWeapon(Time.deltaTime);
+        }
+    }
+
+    public void SetFiring(bool enabled)
+    {
+        if (enabled) equipted_gun.GetComponent<FireWeapon>().StartFiring();
+        else equipted_gun.GetComponent<FireWeapon>().StopFiring();
     }
 
 
@@ -37,6 +53,7 @@ public class AIWeapon : MonoBehaviour
         equipted_gun = weapon;
         sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.Spine);
         GetComponent<AIAgent>().ai_weapon_ik.aim_transform = equipted_gun.transform;
+        
     }
 
     public void ActivateWeapon()
@@ -57,6 +74,11 @@ public class AIWeapon : MonoBehaviour
         }
 
         ai_weapon_ik.SetAimTransform(equipted_gun.GetComponent<FireWeapon>().raycast_origin);
+        equipted_gun.GetComponent<WeaponRecoil>().enabled = false;
+        equipted_gun.GetComponent<weaponSway>().enabled = false;
+        equipted_gun.GetComponent<FireWeapon>().hit_effect = hit_effect;
+
+        weapon_active = true;
     }
 
     public void DropWeapon()
@@ -76,5 +98,10 @@ public class AIWeapon : MonoBehaviour
             sockets.Attach(equipted_gun.transform, MeshSockets.SocketID.RightHand);
         }
             
+    }
+
+    public void SetWeaponTarget(Transform target)
+    {
+        ai_weapon_ik.SetTargetTransform(target);  
     }
 }

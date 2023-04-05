@@ -79,9 +79,20 @@ public class FireWeapon : MonoBehaviour
         FireBullet();
     }
 
+    public void UpdateWeapon(float delta_time)
+    {
+        if (is_firing)
+            UpdateFiring(delta_time);
+
+        acculumated_time += delta_time;
+
+        UpdateBullets(delta_time);
+    }
+
     public void UpdateFiring(float delta_time)
     {
-        acculumated_time += delta_time;
+
+        
 
         //  can only fire if acculumated is equal or exceeded fire_rate. if fire_rate is replaced with '0f', causes bug where first shot fired creates 2 bullets but not after
         while (acculumated_time >= fire_rate)
@@ -186,33 +197,6 @@ public class FireWeapon : MonoBehaviour
         if (!weapon_recoil.enabled) return;
 
         weapon_recoil.Recoil();
-        
-
-
-        /*
-        ray.origin = raycast_origin.position;
-
-        /*
-        if(is_ads)  ray.direction = raycast_destination.position - raycast_origin.position;
-        else ray.direction = raycast_origin.forward;
-        */
-        /*
-        var tracer = Instantiate(bullet_trail, ray.origin, Quaternion.identity);
-        tracer.AddPosition(ray.origin);
-
-        if(Physics.Raycast(ray, out hit))
-        {
-            //Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
-
-            hit_effect.transform.position = hit.point;
-            hit_effect.transform.forward = hit.normal;
-            hit_effect.Emit(1);
-
-            tracer.transform.position = hit.point;
-        }
-        */
-
-        //Recoil();
     }
 
     public void StopFiring()

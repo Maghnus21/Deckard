@@ -51,7 +51,7 @@ public class PlayerGun : MonoBehaviour
                 if (active_player_weapon.is_firing) active_player_weapon.UpdateFiring(Time.deltaTime);
                 
                 if (Input.GetMouseButtonUp(0)) active_player_weapon.StopFiring();
-                active_player_weapon.UpdateBullets(Time.deltaTime);
+                active_player_weapon.UpdateWeapon(Time.deltaTime);
 
                 active_player_weapon_recoil = player_hot_key.current_held_item.GetComponent<WeaponRecoil>();
                 

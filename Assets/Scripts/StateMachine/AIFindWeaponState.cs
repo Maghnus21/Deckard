@@ -13,7 +13,7 @@ public class AIFindWeaponState : AIState
             agent.ai_weapon.ActivateWeapon();
             //agent.ai_weapon.EquiptWeapon();
             agent.ai_weapon_ik.enabled = true;
-            agent.stateMachine.ChangeState(AIStateID.Idle);
+            agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
         }
 
 
@@ -40,7 +40,7 @@ public class AIFindWeaponState : AIState
     {
         if (agent.ai_weapon.HasWeapon())
         {
-            agent.ai_weapon.ActivateWeapon();
+            agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
         }
     }
 
