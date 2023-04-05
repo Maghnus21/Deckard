@@ -24,6 +24,8 @@ public class AIAgent : MonoBehaviour
     public Rigidbody hit_rb;
     public MeshSockets mesh_sockets;
     public AIWeaponIK ai_weapon_ik;
+    public AudioSource npc_audio_source;
+    public AudioClip npc_aggression_audio;
 
     GameObject cloned_npc_gun;
 

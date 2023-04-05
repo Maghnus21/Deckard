@@ -156,8 +156,11 @@ public class FireWeapon : MonoBehaviour
 
             
             var ai_agent = hit.collider.GetComponentInParent<AIAgent>();
-            if (ai_agent) ai_agent.stateMachine.ChangeState(AIStateID.FindWeapon);
-            
+            if (ai_agent) ai_agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
+
+            var player_hitbox = hit.collider.GetComponent<playerHitbox>();
+            if (player_hitbox) player_hitbox.onRaycastHitPlayer(20f);
+
         }
         else 
         { 
