@@ -5,6 +5,7 @@ using UnityEngine;
 public enum AIStateID
 {
     Idle,
+    Patrol,
     ChasePlayer,
     FindWeapon,
     AttackPlayer,

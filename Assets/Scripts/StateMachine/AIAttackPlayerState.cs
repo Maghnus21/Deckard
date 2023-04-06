@@ -20,6 +20,9 @@ public class AIAttackPlayerState : AIState
             agent.ai_weapon.ActivateWeapon();
         }
         else agent.stateMachine.ChangeState(AIStateID.FindWeapon);
+
+        if (!agent.ai_weapon_ik.enabled) agent.ai_weapon_ik.enabled = true;
+
         agent.ai_weapon_ik.SetTargetTransform(agent.player_transform);
 
         agent.navMeshAgent.stoppingDistance = 5f;
@@ -42,8 +45,14 @@ public class AIAttackPlayerState : AIState
         if((time += Time.deltaTime) >= player_poling)
             agent.navMeshAgent.destination = agent.player_transform.position;
 
-        if (agent.player_gameobject.GetComponent<playerHealth>().health <= 0)
+        if (agent.player_gameobject.GetComponent<playerHealth>().health <= 0) 
+        {
+            agent.is_aggressive = false;
+            agent.ai_weapon.SetFiring(false);
             agent.stateMachine.ChangeState(AIStateID.Idle);
+            agent.npc_audio_source.Stop();
+        }
+            
     }
 
     

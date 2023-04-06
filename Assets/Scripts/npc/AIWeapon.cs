@@ -58,7 +58,7 @@ public class AIWeapon : MonoBehaviour
 
     public void ActivateWeapon()
     {
-        //animator.SetBool("equip", true);
+        
         StartCoroutine(EquipWeaponIK());
     }
 

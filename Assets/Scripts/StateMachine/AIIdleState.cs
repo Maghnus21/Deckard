@@ -9,7 +9,7 @@ public class AIIdleState : AIState
     {
         Debug.Log(agent.name + " entered state: AIIdleState");
 
-        agent.ai_weapon.enabled = false;
+        //agent.ai_weapon.enabled = false;
     }
 
     public void Exit(AIAgent agent)
@@ -27,7 +27,13 @@ public class AIIdleState : AIState
         
         if(agent.is_aggressive)
         {
-            agent.stateMachine.ChangeState(AIStateID.ChasePlayer);
+            if (agent.ai_weapon.equipted_gun != null)
+                agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
+
+            else 
+            { 
+                agent.stateMachine.ChangeState(AIStateID.FindWeapon);
+            }
         }
         
     }

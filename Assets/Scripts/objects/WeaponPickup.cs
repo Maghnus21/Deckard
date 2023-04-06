@@ -65,7 +65,7 @@ public class WeaponPickup : MonoBehaviour
                 AIWeapon weapons = hitbox.health.GetComponent<AIWeapon>();
                 if(weapons != null && weapons.equipted_gun == null)
                 {
-
+                    //  places gun on npc back
                     weapons.EquiptWeapon(Instantiate(weapon_scriptable_object.gun_prefab) as GameObject);
 
                     Destroy(gameObject);
