@@ -52,7 +52,8 @@ public class FireWeapon : MonoBehaviour
         weapon_audio = GetComponentInChildren<AudioSource>();
         weapon_recoil = GetComponentInChildren<WeaponRecoil>();
 
-        fire_rate = 60f / weapon_stats.fire_rate;
+        fire_rate = 60f / weapon_stats.weapon_specs.fire_rate;
+        if(weapon_stats.weapon_specs.bullet_type.bullet_shape != null) bullet_shape = weapon_stats.weapon_specs.bullet_type.bullet_shape;
     }
 
     Vector3 GetPosition(Bullet bullet)
@@ -152,14 +153,14 @@ public class FireWeapon : MonoBehaviour
             bullet.time = max_lifetime;
 
             var entity_hitbox= hit.collider.GetComponent<EntityHitbox>();
-            if (entity_hitbox) entity_hitbox.OnRaycastHit(30f, direction, hit.collider.attachedRigidbody);
+            if (entity_hitbox) entity_hitbox.OnRaycastHit(weapon_stats.bullets_specs.bullet_damage, direction, hit.collider.attachedRigidbody);
 
             
             var ai_agent = hit.collider.GetComponentInParent<AIAgent>();
             if (ai_agent) ai_agent.is_aggressive = true;
 
             var player_hitbox = hit.collider.GetComponent<playerHitbox>();
-            if (player_hitbox) player_hitbox.onRaycastHitPlayer(20f);
+            if (player_hitbox) player_hitbox.onRaycastHitPlayer(weapon_stats.bullets_specs.bullet_damage/0.75f);
 
         }
         else 

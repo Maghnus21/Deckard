@@ -264,7 +264,7 @@ MonoBehaviour:
   weapon_fire_sound: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   weapon_audio: {fileID: 2343074600831814006}
   weapon_recoil: {fileID: 1913221913492267000}
-  bullet_shape: {fileID: 5572319621616614931, guid: c9b26156c03a1924d9766a78718649ef, type: 3}
+  bullet_shape: {fileID: 0}
   weapon_stats: {fileID: 11400000, guid: f6259357e84cea748a3fc44bfd2ecb19, type: 2}
   muzzle_flash: {fileID: 0}
   bullet_speed: 150

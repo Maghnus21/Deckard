@@ -10,6 +10,8 @@ public class AIDeathState : AIState
     {
         Debug.Log(agent.name + " entered state: AIDeathState");
 
+        agent.npc_audio_source.Stop();
+
         agent.ragdoll.ActivateRagdoll();
         agent.impact_direction.y = 1f;
         agent.ragdoll.impact_body_part = agent.hit_rb;
@@ -17,6 +19,14 @@ public class AIDeathState : AIState
         
 
         agent.ai_weapon.DropWeapon();
+
+        //  ai_weapon_ik must be disabled first as errors prevent rest being disabled
+        //  don't fucking touch please
+        agent.ai_weapon_ik.enabled = false;
+
+        agent.ai_weapon.enabled = false;
+        agent.mesh_sockets.enabled = false;
+        agent.enabled = false;
     }
 
     public void Exit(AIAgent agent)

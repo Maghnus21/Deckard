@@ -92,8 +92,9 @@ public class weapon : MonoBehaviour
             Aim(Input.GetMouseButton(1));
 
             // 60 seconds divided by fire_rate from Gun scriptableObject
-            fireRate = 60f / loadout[currentIndex].fire_rate;
+            //fireRate = 60f / loadout[currentIndex].fire_rate;
 
+            /*
             if (rounds_fired < loadout[currentIndex].magazine_size)
             {
                 if (Input.GetMouseButton(0) && Time.time > nextRound)
@@ -105,6 +106,7 @@ public class weapon : MonoBehaviour
                     DisplayAmmoCount();
                 }
             }
+            */
             if (rounds_fired > 0 && Input.GetKeyDown(KeyCode.R))
             {
                 Debug.Log("GUN RELOADED");
@@ -118,9 +120,9 @@ public class weapon : MonoBehaviour
 
             recoilPoint = currentWeapon.transform.Find("anchor/recoil");
 
-            rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, loadout[currentIndex].recoilRotationReturn * Time.deltaTime);
+            //rotationalRecoil = Vector3.Lerp(rotationalRecoil, Vector3.zero, loadout[currentIndex].recoilRotationReturn * Time.deltaTime);
 
-            Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
+            //Rot = Vector3.Slerp(Rot, rotationalRecoil, loadout[currentIndex].recoilRotationSpeed * Time.deltaTime);
 
 
             if (Input.GetMouseButton(1))
@@ -288,7 +290,7 @@ public class weapon : MonoBehaviour
     void Recoil()
     {
         Mathf.Clamp(rotationalRecoil.x, -90f, 90f);
-        rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
+        //rotationalRecoil += new Vector3(-loadout[currentIndex].recoilRotation.x, Random.Range(-loadout[currentIndex].recoilRotation.y, loadout[currentIndex].recoilRotation.y), Random.Range(-loadout[currentIndex].recoilRotation.z, loadout[currentIndex].recoilRotation.z));
     }
 
     void UpdateAmmoCount()
@@ -302,7 +304,7 @@ public class weapon : MonoBehaviour
 
     public void DisplayAmmoCount()
     {
-        ammo_count_text.text = (loadout[currentIndex].magazine_size - rounds_fired + "/" + loadout[currentIndex].magazine_size + "\nAmmo Reserve - " + loadout[currentIndex].ammo_reserve).ToString();
+        //ammo_count_text.text = (loadout[currentIndex].magazine_size - rounds_fired + "/" + loadout[currentIndex].magazine_size + "\nAmmo Reserve - " + loadout[currentIndex].ammo_reserve).ToString();
     }
 
     IEnumerator MuzzleFlash(float seconds)

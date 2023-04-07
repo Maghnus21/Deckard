@@ -108,7 +108,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            AIDeathState deathState = agent.stateMachine.getState(AIStateID.Death) as AIDeathState;
+            
             GetComponent<AIAgent>().impact_direction = impact_direction;
             GetComponent<AIAgent>().hit_rb = hit_rb;
             agent.stateMachine.ChangeState(AIStateID.Death);
