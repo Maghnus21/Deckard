@@ -54,6 +54,7 @@ public class FireWeapon : MonoBehaviour
 
         fire_rate = 60f / weapon_stats.weapon_specs.fire_rate;
         if(weapon_stats.weapon_specs.bullet_type.bullet_shape != null) bullet_shape = weapon_stats.weapon_specs.bullet_type.bullet_shape;
+        bullet_speed = weapon_stats.weapon_specs.bullet_type.bullet_velocity;
     }
 
     Vector3 GetPosition(Bullet bullet)
@@ -77,7 +78,8 @@ public class FireWeapon : MonoBehaviour
     {
         is_firing = true;
         acculumated_time = 0f;
-        FireBullet();
+        for (int i = 0; i < weapon_stats.weapon_specs.number_of_bullets; i++)
+            FireBullet();
     }
 
     public void UpdateWeapon(float delta_time)
@@ -98,7 +100,8 @@ public class FireWeapon : MonoBehaviour
         //  can only fire if acculumated is equal or exceeded fire_rate. if fire_rate is replaced with '0f', causes bug where first shot fired creates 2 bullets but not after
         while (acculumated_time >= fire_rate)
         {
-            FireBullet();
+            for (int i=0; i<weapon_stats.weapon_specs.number_of_bullets; i++) 
+                FireBullet();
             acculumated_time -= fire_rate;
         }
     }
@@ -188,7 +191,7 @@ public class FireWeapon : MonoBehaviour
         }
         else
         {
-            Vector3 v = raycast_origin.forward.normalized * bullet_speed;
+            Vector3 v = (raycast_origin.forward + new Vector3(Random.Range(-.03f, .03f), Random.Range(-.03f, .03f), Random.Range(-.03f, .03f))).normalized * bullet_speed;
             velocity = v;
         }        
 

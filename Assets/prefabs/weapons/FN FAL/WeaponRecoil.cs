@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponRecoil : MonoBehaviour
 {
 
+    public Item weapon_stats;
+
     [Header("Transforms for recoil and aiming")]
     public Transform anchor;
     public Transform recoil_point;
@@ -32,7 +34,11 @@ public class WeaponRecoil : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        weapon_stats = GetComponent<FireWeapon>().weapon_stats;
+
+        recoil_rotation = weapon_stats.weapon_specs.recoil_rotation;
+        recoil_speed = weapon_stats.weapon_specs.recoil_speed;
+        recoil_return = weapon_stats.weapon_specs.recoil_return;
     }
 
     // Update is called once per frame

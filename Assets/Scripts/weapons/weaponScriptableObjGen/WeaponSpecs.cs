@@ -12,6 +12,10 @@ public class WeaponSpecs : ScriptableObject
     //  reference to BulletSpecs scriptable object
     public BulletsSpecs bullet_type;
 
+    public int number_of_bullets = 1;
+
+    public Vector3 bullet_spread = new Vector3(.1f, .1f, .1f);
+
     //  if set as false, weapon should be fired as semi-automatic
     public bool is_full_automatic = false;
 
