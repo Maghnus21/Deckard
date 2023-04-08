@@ -147,7 +147,7 @@ public class FireWeapon : MonoBehaviour
                 embed_rebar.transform.parent = hit.collider.transform;
             }
 
-            if (hit.collider) print("Hit " + hit.collider.name);
+            //if (hit.collider) print("Hit " + hit.collider.name);      debugging
 
             if (bullet.tracer != null) bullet.tracer.transform.position = hit.point;
             bullet.time = max_lifetime;
@@ -160,7 +160,7 @@ public class FireWeapon : MonoBehaviour
             if (ai_agent) ai_agent.is_aggressive = true;
 
             var player_hitbox = hit.collider.GetComponent<playerHitbox>();
-            if (player_hitbox) player_hitbox.onRaycastHitPlayer(weapon_stats.bullets_specs.bullet_damage/0.75f);
+            if (player_hitbox) player_hitbox.onRaycastHitPlayer(weapon_stats.bullets_specs.bullet_damage/0.85f);
 
         }
         else 
