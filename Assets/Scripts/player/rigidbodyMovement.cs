@@ -101,7 +101,7 @@ public class rigidbodyMovement : MonoBehaviour
         is_crouching = true;
 
         //  linearally interpolates between current position and crouching position 
-        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, GameObject.Find("player/camera/CameraPositions/crouch").transform.position, Time.deltaTime * 5f);// GameObject.Find("player/camera/CameraPositions/crouch").transform.position;
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, GameObject.Find("player/CameraRecoilParent/camera/CameraPositions/crouch").transform.position, Time.deltaTime * 5f);// GameObject.Find("player/camera/CameraPositions/crouch").transform.position;
 
         //  changes height of character by half and moves center of character collider from 1 to 0.5
         c_collider.height = 1f;
@@ -114,7 +114,7 @@ public class rigidbodyMovement : MonoBehaviour
 
 
         //  linearally interpolates between current position and crouching position
-        GameObject.Find("player/weapon").transform.position = Vector3.Lerp(GameObject.Find("player/weapon").transform.position, GameObject.Find("player/camera/CameraPositions/crouch").transform.position, Time.deltaTime * 5f);
+        GameObject.Find("player/weapon").transform.position = Vector3.Lerp(GameObject.Find("player/weapon").transform.position, GameObject.Find("player/CameraRecoilParent/camera/CameraPositions/crouch").transform.position, Time.deltaTime * 5f);
     }
 
     void PlayerStand()
@@ -122,7 +122,7 @@ public class rigidbodyMovement : MonoBehaviour
         is_crouching = false;
 
         //  linearally interpolates between current position and standing position 
-        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, GameObject.Find("player/camera/CameraPositions/stand").transform.position, Time.deltaTime * 4f);
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, GameObject.Find("player/CameraRecoilParent/camera/CameraPositions/stand").transform.position, Time.deltaTime * 4f);
 
         //  changes height of character to 2 and moves center of character collider from 0.5 to 1
         c_collider.height = 2f;
@@ -132,7 +132,7 @@ public class rigidbodyMovement : MonoBehaviour
         move_vec = transform.TransformDirection(player_movement) * speed;
 
         //  linearally interpolates between current position and standing position
-        GameObject.Find("player/weapon").transform.position = Vector3.Lerp(GameObject.Find("player/weapon").transform.position, GameObject.Find("player/camera/CameraPositions/stand").transform.position, Time.deltaTime * 5f);
+        GameObject.Find("player/weapon").transform.position = Vector3.Lerp(GameObject.Find("player/weapon").transform.position, GameObject.Find("player/CameraRecoilParent/camera/CameraPositions/stand").transform.position, Time.deltaTime * 5f);
 
     }
 }

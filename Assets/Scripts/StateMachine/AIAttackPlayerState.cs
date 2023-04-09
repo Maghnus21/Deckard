@@ -45,6 +45,8 @@ public class AIAttackPlayerState : AIState
         if((time += Time.deltaTime) >= player_poling)
             agent.navMeshAgent.destination = agent.player_transform.position;
 
+        float distance = (agent.player_transform.position - agent.transform.position).magnitude;
+
         if (agent.player_gameobject.GetComponent<playerHealth>().health <= 0) 
         {
             agent.is_aggressive = false;

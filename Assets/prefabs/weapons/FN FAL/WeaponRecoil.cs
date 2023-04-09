@@ -50,8 +50,8 @@ public class WeaponRecoil : MonoBehaviour
         Rot = Vector3.Slerp(Rot, rotationalRecoil, recoil_speed * Time.deltaTime);
 
         recoil_point.localRotation = Quaternion.Euler(Rot);
-        if(main_camera != null) main_camera.localRotation = Quaternion.Euler(Rot / 2);
-        if(player_chest != null) player_chest.localRotation = Quaternion.Euler(Rot);
+        if(main_camera != null) main_camera.localRotation = Quaternion.Euler(new Vector3(Rot.x / 2f, 0f, 0f));
+        //if(player_chest != null) player_chest.localRotation = Quaternion.Euler(new Vector3(Rot.x / 2, 0f, 0f));
     }
 
     public void Aim(bool is_aiming)

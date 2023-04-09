@@ -34,6 +34,7 @@ public class DialogueResponse
     public bool end_on_response = false;
     public bool initialize_interrogation = false;
     public bool turn_hostile = false;
+    public bool event_trigger = false;
 
     public int next_branch_id;
     
