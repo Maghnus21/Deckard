@@ -27,13 +27,17 @@ public class BeginDialogue : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (hit.collider.gameObject.GetComponentInParent<AIAgent>().enabled && hit.collider.gameObject.GetComponentInParent<AIAgent>().dialogue_tree != null)
+                if (hit.collider.gameObject.GetComponentInParent<AIAgent>() && hit.collider.gameObject.GetComponentInParent<AIAgent>().enabled && hit.collider.gameObject.GetComponentInParent<AIAgent>().dialogue_tree != null)
                 {
                     npc_talking = hit.collider.GetComponentInParent<NavMeshAgent>().gameObject;
 
                     branch_dialogue_manager.talking_npc = npc_talking;
 
                     branch_dialogue_manager.ShowDialogue();
+                }
+                else
+                {
+                    return;
                 }
                 
             }
