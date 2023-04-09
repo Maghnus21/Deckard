@@ -16,6 +16,7 @@ MonoBehaviour:
   magazine_size: 20
   bullet_type: {fileID: 11400000, guid: 146738e0af495ec4c88cb03c998c5deb, type: 2}
   number_of_bullets: 1
+  bullet_spread: {x: 0, y: 0, z: 0}
   is_full_automatic: 1
   recoil_rotation: {x: 5, y: 4, z: 6}
   recoil_speed: 40

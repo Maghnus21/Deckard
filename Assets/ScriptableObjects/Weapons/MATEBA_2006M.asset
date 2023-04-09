@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
+  m_Name: MATEBA_2006M
+  m_EditorClassIdentifier: 
+  item_name: 
+  description: 
+  gun_prefab: {fileID: 1078813186004044629, guid: 049220db10c2e5d40941e293832dc219, type: 3}
+  weapon_specs: {fileID: 11400000, guid: 19cfc7db08728b74e80cd12f8ffa43c1, type: 2}
+  bullets_specs: {fileID: 11400000, guid: 3623bc3f77195d441add8a90fdf9b7ca, type: 2}
+  gun_pickup: {fileID: 0}
+  ads_speed: 0
+  ammo_reserve: 999
+  ammo_type: {fileID: 0}
+  muzzle_flash: {fileID: 0}
+  gun_fire: {fileID: 0}
+  ui_sprite: {fileID: 0}
+  is_melee_weapon: 0
+  melee_damage: 0
+  weapon_prefab: {fileID: 0}
+  is_throwable: 0
+  weapon_wheel_button: {fileID: 0}
+  stack_location: 0

@@ -191,7 +191,12 @@ public class FireWeapon : MonoBehaviour
         }
         else
         {
-            Vector3 v = (raycast_origin.forward + new Vector3(Random.Range(-.03f, .03f), Random.Range(-.03f, .03f), Random.Range(-.03f, .03f))).normalized * bullet_speed;
+            float w_x = weapon_stats.weapon_specs.bullet_spread.x;
+            float w_y = weapon_stats.weapon_specs.bullet_spread.y;
+            float w_z = weapon_stats.weapon_specs.bullet_spread.z;
+
+
+            Vector3 v = (raycast_origin.forward + new Vector3(Random.Range(-w_x, w_x), Random.Range(-w_y, w_y), Random.Range(-w_z, w_z))).normalized * bullet_speed;
             velocity = v;
         }        
 

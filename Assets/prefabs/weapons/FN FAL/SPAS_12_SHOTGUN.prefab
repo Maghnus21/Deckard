@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25608875457647243a4cf30b4e5bfe88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 2
+  intensity: 10
   smoothness: 2
 --- !u!114 &2398309340017221551
 MonoBehaviour:

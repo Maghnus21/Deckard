@@ -35,6 +35,7 @@ public class WeaponRecoil : MonoBehaviour
     void Start()
     {
         weapon_stats = GetComponent<FireWeapon>().weapon_stats;
+        Rot.x = Mathf.Clamp(Rot.x, -90f, 90f);
 
         recoil_rotation = weapon_stats.weapon_specs.recoil_rotation;
         recoil_speed = weapon_stats.weapon_specs.recoil_speed;
@@ -49,6 +50,8 @@ public class WeaponRecoil : MonoBehaviour
         Rot = Vector3.Slerp(Rot, rotationalRecoil, recoil_speed * Time.deltaTime);
 
         recoil_point.localRotation = Quaternion.Euler(Rot);
+        if(main_camera != null) main_camera.localRotation = Quaternion.Euler(Rot / 2);
+        if(player_chest != null) player_chest.localRotation = Quaternion.Euler(Rot);
     }
 
     public void Aim(bool is_aiming)
