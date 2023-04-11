@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7266663686931348302}
   - component: {fileID: 900617178310171737}
   - component: {fileID: 4841691529734929100}
+  - component: {fileID: 2400866832449189754}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -57,7 +58,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.55770576
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -115,6 +116,19 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &2400866832449189754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151394617562499394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b861df9c29446444ebc820301f966184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choice: 1
 --- !u!1001 &7574637433406610095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,9 +225,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9d459838cca8c3c48b54e8cf155eaf03, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ae189cabb8474844eafdf79aa4c44856, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.527
+  m_Volume: 0.333
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -297,6 +311,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5913781541842357979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340846832414550014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06452dab57dbecf4398b0e72845f4f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 0}
+  impact_force: 20
+  health: 0
+  death_force_mode: 1
 --- !u!114 &2802845405587247826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +346,20 @@ MonoBehaviour:
   - {fileID: 8622263500900991258}
   - {fileID: 2425547451577525720}
   audio_source: {fileID: 5505203846680690202}
+--- !u!114 &8686995962538666616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340846832414550014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d660b41ee105280429413ab992ec3778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: -5913781541842357979}
+  damage_multi: 1
 --- !u!4 &7968061674855775556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c3bcb5816a738224e9b9835d0cbe9cd5, type: 3}

@@ -6,6 +6,7 @@ public class meshSwitch : MonoBehaviour
 {
     public GameObject[] unbroken_objects;
     public GameObject[] broken_objects;
+    Health health;
 
     public AudioSource audio_source;
 
@@ -14,25 +15,20 @@ public class meshSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (health.health <= 0f)
         {
             foreach (GameObject obj in unbroken_objects)
             {
                 obj.SetActive(false);
             }
 
-            foreach(GameObject obj in broken_objects)
+            foreach (GameObject obj in broken_objects)
             {
                 obj?.SetActive(true);
             }
@@ -42,8 +38,8 @@ public class meshSwitch : MonoBehaviour
                 audio_source.Play();
                 is_broken = true;
             }
-            
-            
+
+
 
         }
     }
