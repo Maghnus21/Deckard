@@ -479,6 +479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87054668676072755}
+  - component: {fileID: 6629495026368414712}
   m_Layer: 0
   m_Name: fluorescent_light_ceiling
   m_TagString: Untagged
@@ -506,6 +507,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &6629495026368414712
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756208286428716937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1870411771499583853, guid: 01dc97f775895314697906b6dbeb4090, type: 3}
 --- !u!1 &4068026556370761602
 GameObject:
   m_ObjectHideFlags: 0
