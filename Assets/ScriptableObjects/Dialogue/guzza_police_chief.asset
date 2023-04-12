@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70283e46ea0d8a04e9ee2740ca7e8283, type: 3}
+  m_Name: guzza_police_chief
+  m_EditorClassIdentifier: 
+  branches:
+  - branch_name: 
+    branch_id: 0
+    sections:
+    - dialogue: heya nick
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 1
+        response_dialogue: heard a story from a little bird you might have a job
+          for me
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 4
+        response_dialogue: hi guzza. i'd gotten word from a friend you might have
+          a bounty that needs clearing
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: bye guzza [EXIT]
+  - branch_name: 
+    branch_id: 1
+    sections:
+    - dialogue: 'straight to the point like always. yah, we''ve had reports of an
+        apparent ersatz held up in the manus industries monolith-class colony building
+        next door. '
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 2
+        response_dialogue: wait, how could he have been there, i'd heard stories
+          from before my time that they're practically ancient and next to impossible
+          to enter
+  - branch_name: 
+    branch_id: 2
+    sections:
+    - dialogue: you're right, but theres reports of the exterior durashell showing
+        cracks and an eye-witness said they'd seen the suspect enter through the
+        front door. he could have found a key after breaking in, or bought one, who
+        knows, but i don't care since it's my job to drink while you work
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 3
+        response_dialogue: great, any clue how to get in?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 5
+        response_dialogue: wouldn't mind a bit of fuisce help with the interrogation
+  - branch_name: 
+    branch_id: 3
+    sections:
+    - dialogue: beats me, you could ask the local scav bastards where to find one
+        but after that, you're on your own
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: thats just great. have a glass ready for when i come back
+          [EXIT]
+  - branch_name: 
+    branch_id: 4
+    sections:
+    - dialogue: datas a bit stale but should be recent enough to catch our man. its
+        a ersatz human held up in the manus industries monolith-class colony building
+        next door. if you run, you might get them before they realize.
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 2
+        response_dialogue: wait, how'd they get in? i know they're ancient but next
+          to impossible to crack open
+  - branch_name: 
+    branch_id: 5
+    sections:
+    - dialogue: you can bring your own booze, this is a fine vintage for myself,
+        besides i've no clue how to get in. you could check the local scavs but who
+        knows that they'd want in return
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 2
+        response_dialogue: i'll take my leave then. thanks guzza [EXIT]

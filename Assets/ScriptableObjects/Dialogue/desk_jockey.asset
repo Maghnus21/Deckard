@@ -30,12 +30,12 @@ MonoBehaviour:
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 2
-        response_dialogue: mind if i talk to the cheif, he should be expecting me
+        response_dialogue: mind if i talk to the chief, he should be expecting me
   - branch_name: 
     branch_id: 1
     sections:
     - dialogue: the big man is on the second floor. use the lift up the stairs, take
-        a left then a right, you got that, right? i have to fill too many fourms
+        a right then a left, you got that, right? i have to fill too many fourms
         so please leave me alone
       responses:
       - end_on_response: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
   - branch_name: 
     branch_id: 2
     sections:
-    - dialogue: head you the stair to the lift, second floor, take the left then
-        right.
+    - dialogue: head up the stairs to the lift, second floor, take the right then
+        left.
       responses:
       - end_on_response: 1
         initialize_interrogation: 0

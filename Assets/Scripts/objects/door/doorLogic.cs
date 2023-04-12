@@ -182,4 +182,6 @@ public class doorLogic : MonoBehaviour
 
         door_audio.Stop();
     }
+
+    
 }
