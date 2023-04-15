@@ -76,6 +76,8 @@ public class AIWeapon : MonoBehaviour
         ai_weapon_ik.SetAimTransform(equipted_gun.GetComponent<FireWeapon>().raycast_origin);
         equipted_gun.GetComponent<WeaponRecoil>().enabled = false;
         equipted_gun.GetComponent<weaponSway>().enabled = false;
+        equipted_gun.GetComponent<WeaponAnimTest>().enabled = false;
+        equipted_gun.GetComponentInChildren<Animator>().enabled = false;
         equipted_gun.GetComponent<FireWeapon>().hit_effect = hit_effect;
 
         weapon_active = true;

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: spas_anim_override
+  m_Controller: {fileID: 9100000, guid: 58da96f4f6cfa86438161028af878812, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -83702847794351419, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
+    m_OverrideClip: {fileID: -566168141458267778, guid: b0d35ca9729202a48a66a15a4af96d62, type: 3}
+  - m_OriginalClip: {fileID: -4360749586610497192, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
+    m_OverrideClip: {fileID: 7558491748229996582, guid: b0d35ca9729202a48a66a15a4af96d62, type: 3}
+  - m_OriginalClip: {fileID: -9214684359950808986, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
+    m_OverrideClip: {fileID: -8677866687060546121, guid: b0d35ca9729202a48a66a15a4af96d62, type: 3}

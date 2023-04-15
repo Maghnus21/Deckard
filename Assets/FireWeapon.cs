@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Animations;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class FireWeapon : MonoBehaviour
@@ -23,6 +24,7 @@ public class FireWeapon : MonoBehaviour
     public AudioSource weapon_audio;
     public WeaponRecoil weapon_recoil;
     public GameObject bullet_shape;
+    public RuntimeAnimatorController rac;
 
     List<Bullet> bullets = new List<Bullet>();
 
@@ -44,13 +46,15 @@ public class FireWeapon : MonoBehaviour
     float acculumated_time;
 
     public bool is_firing;
-    public bool in_full_auto;
+    public bool can_fire = true;
 
     // Start is called before the first frame update
     void Start()
     {
         weapon_audio = GetComponentInChildren<AudioSource>();
         weapon_recoil = GetComponentInChildren<WeaponRecoil>();
+        if(GetComponentInChildren<Animator>())
+            GetComponentInChildren<Animator>().runtimeAnimatorController = rac;
 
         fire_rate = 60f / weapon_stats.weapon_specs.fire_rate;
         if(weapon_stats.weapon_specs.bullet_type.bullet_shape != null) bullet_shape = weapon_stats.weapon_specs.bullet_type.bullet_shape;
@@ -214,5 +218,10 @@ public class FireWeapon : MonoBehaviour
     public void StopFiring()
     {
         is_firing = false;
+    }
+
+    public void NewAnimEvent(string event_name)
+    {
+        print(event_name);
     }
 }
