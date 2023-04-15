@@ -7,11 +7,11 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mateba_anim_override
-  m_Controller: {fileID: 9100000, guid: 58da96f4f6cfa86438161028af878812, type: 2}
+  m_Controller: {fileID: 9100000, guid: 36db5b9e451159b40b18e90ac0478389, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: -83702847794351419, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
     m_OverrideClip: {fileID: -1141649821356813566, guid: ebeca1870946498499d6a39891103e43, type: 3}
-  - m_OriginalClip: {fileID: -9214684359950808986, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
-    m_OverrideClip: {fileID: 3928418169561385645, guid: ebeca1870946498499d6a39891103e43, type: 3}
   - m_OriginalClip: {fileID: -4360749586610497192, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
     m_OverrideClip: {fileID: -4541965945383096432, guid: ebeca1870946498499d6a39891103e43, type: 3}
+  - m_OriginalClip: {fileID: -9214684359950808986, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}
+    m_OverrideClip: {fileID: 3928418169561385645, guid: ebeca1870946498499d6a39891103e43, type: 3}

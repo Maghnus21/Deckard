@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 5045988383048075016}
   - component: {fileID: 2398309340017221551}
   - component: {fileID: 536115518598856322}
-  - component: {fileID: 4543919702474307150}
+  - component: {fileID: -4118018593507524383}
   m_Layer: 6
   m_Name: FN_FAL
   m_TagString: Untagged
@@ -268,7 +268,7 @@ MonoBehaviour:
   weapon_audio: {fileID: 5882310097934263970}
   weapon_recoil: {fileID: 536115518598856322}
   bullet_shape: {fileID: 0}
-  rac: {fileID: 9100000, guid: 58da96f4f6cfa86438161028af878812, type: 2}
+  rac: {fileID: 9100000, guid: 36db5b9e451159b40b18e90ac0478389, type: 2}
   weapon_stats: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
   muzzle_flash: {fileID: 6404873894494841161}
   bullet_speed: 200
@@ -301,19 +301,20 @@ MonoBehaviour:
   ads_speed: 5
   hip_recoil_mod: 1
   ads_recoil_mod: 3
---- !u!114 &4543919702474307150
+--- !u!114 &-4118018593507524383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078813186004044629}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3607842652af3a0408fb569fe8ffa025, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f34aad965f465b4d97d856115a2f810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gun_anim: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!1 &2807524678363257227
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +928,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5244292101167707408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694132021195471299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52a3f5a6b0467c4caf4a56d62f93239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
 --- !u!4 &5363567938896143225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf7912633d2ba7e49aa0a3d76da3e6d8, type: 3}

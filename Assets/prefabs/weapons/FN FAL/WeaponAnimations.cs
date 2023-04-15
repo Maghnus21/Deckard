@@ -20,14 +20,20 @@ public class WeaponAnimations : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            gun_anim.SetTrigger("fire");
+            gun_anim.Play("Idle");
+            gun_anim.SetTrigger("Fire");
+            //gun_anim.Play("Fire");
+            //gun_anim.SetBool("Fire_Weapon", true);
+            
+
             GetComponent<FireWeapon>().can_fire = false;
+            //gun_anim.SetBool("Fire_Weapon", false);
         }
         else
 
@@ -35,7 +41,7 @@ public class WeaponAnimations : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             weapon.can_fire = false;
-            gun_anim.SetTrigger("reload");
+            gun_anim.SetTrigger("Reload");
         }
     }
 }
