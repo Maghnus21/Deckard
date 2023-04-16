@@ -145,7 +145,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.80970156
-        functionName: CanFire
+        functionName: ReloadFinished
         data: ready
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

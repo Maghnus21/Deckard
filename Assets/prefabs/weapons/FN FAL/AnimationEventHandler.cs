@@ -18,11 +18,11 @@ public class AnimationEventHandler : MonoBehaviour
         
     }
 
-    public void CanFire(string event_name)
+    public void ReloadFinished(string event_name)
     {
         if(event_name == "ready")
         {
-            weapon.can_fire = true;
+            weapon.ReloadWeapon();
         }
     }
 }

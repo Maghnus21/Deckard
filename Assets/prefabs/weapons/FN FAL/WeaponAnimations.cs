@@ -23,7 +23,7 @@ public class WeaponAnimations : MonoBehaviour
     void LateUpdate()
     {
 
-
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             gun_anim.Play("Idle");
@@ -43,5 +43,17 @@ public class WeaponAnimations : MonoBehaviour
             weapon.can_fire = false;
             gun_anim.SetTrigger("Reload");
         }
+        */
+    }
+
+    public void PlayFireAnimation()
+    {
+        gun_anim.Play("Idle");
+        gun_anim.SetTrigger("Fire");
+    }
+
+    public void PlayReloadAnimation()
+    {
+        gun_anim.SetTrigger("Reload");
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 using static UnityEngine.Rendering.DebugUI.Table;
@@ -25,6 +26,7 @@ public class FireWeapon : MonoBehaviour
     public WeaponRecoil weapon_recoil;
     public GameObject bullet_shape;
     public RuntimeAnimatorController rac;
+    public TextMeshProUGUI ammo_display;
 
     List<Bullet> bullets = new List<Bullet>();
 
@@ -47,6 +49,7 @@ public class FireWeapon : MonoBehaviour
 
     public bool is_firing;
     public bool can_fire = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,11 +89,24 @@ public class FireWeapon : MonoBehaviour
             FireBullet();
     }
 
+    public void FirePlayerBullet()
+    {
+        for (int i = 0; i < weapon_stats.weapon_specs.number_of_bullets; i++)
+            FireBullet();
+    }
+
     public void UpdateWeapon(float delta_time)
     {
         if (is_firing)
             UpdateFiring(delta_time);
 
+        acculumated_time += delta_time;
+
+        UpdateBullets(delta_time);
+    }
+
+    public void UpdatePlayerWeapon(float delta_time)
+    {
         acculumated_time += delta_time;
 
         UpdateBullets(delta_time);
@@ -220,8 +236,17 @@ public class FireWeapon : MonoBehaviour
         is_firing = false;
     }
 
-    public void NewAnimEvent(string event_name)
+    public void DisplayAmmoCount()
     {
-        print(event_name);
+        int current_magazine_ammo = (weapon_stats.weapon_specs.magazine_size - weapon_stats.weapon_specs.bullets_fired);
+
+        ammo_display.text = "AMMO COUNT\n" + current_magazine_ammo + " / " + weapon_stats.weapon_specs.magazine_size;
+    }
+
+    public void ReloadWeapon()
+    {
+        weapon_stats.weapon_specs.bullets_fired = 0;
+
+        DisplayAmmoCount();
     }
 }

@@ -12,7 +12,17 @@ public class WeaponSpecs : ScriptableObject
     //  reference to BulletSpecs scriptable object
     public BulletsSpecs bullet_type;
 
+    //  number of bullets gun will fire with each button press
     public int number_of_bullets = 1;
+
+    //  player only value
+    public int bullets_fired = 0;
+
+    //  player only value
+    public int ammo_reserve = 0;
+
+    //  player only value
+    public int max_ammo_reserve = 200;
 
     public Vector3 bullet_spread = new Vector3(.1f, .1f, .1f);
 
@@ -24,8 +34,10 @@ public class WeaponSpecs : ScriptableObject
     // y and z are randomaly decided with random.range function
     // present values will act as default
     public Vector3 recoil_rotation = new Vector3(5, 4, 6);
+
     // speed of weapon rotation after firing [LOWER IS SLOWER];
     public int recoil_speed = 40;
+
     // speed of weapon rotation returning to default position [LOWER IS SLOWER]
     public int recoil_return = 3;
 

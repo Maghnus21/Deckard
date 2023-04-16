@@ -22,6 +22,8 @@ public class PlayerHotkeys : MonoBehaviour
     public Transform raycast_destination;
     public TextMeshProUGUI ammo_text;
     public PlayerGun player_gun;
+    public TextMeshProUGUI ammo_count;
+
 
 
     // Start is called before the first frame update
@@ -109,12 +111,14 @@ public class PlayerHotkeys : MonoBehaviour
             else
             {
                 current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
-                //current_held_item.GetComponent<FireWeapon>().player_chest = player_chest;
-                //current_held_item.GetComponent<FireWeapon>().main_camera = main_cam;
+ 
                 current_held_item.GetComponent<FireWeapon>().raycast_destination = raycast_destination;
                 current_held_item.GetComponent<FireWeapon>().hit_effect = bullet_impact_effect;
                 current_held_item.GetComponent<WeaponRecoil>().main_camera = main_cam;
                 current_held_item.GetComponent<WeaponRecoil>().player_chest = player_chest;
+                current_held_item.GetComponent<FireWeapon>().ammo_display = ammo_count;
+
+                current_held_item.GetComponent<FireWeapon>().DisplayAmmoCount();
             }
         }
     }

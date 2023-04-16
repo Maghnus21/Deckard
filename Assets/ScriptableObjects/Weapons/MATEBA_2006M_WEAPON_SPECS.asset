@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02227f04a5531343b8f502c316604c3, type: 3}
   m_Name: MATEBA_2006M_WEAPON_SPECS
   m_EditorClassIdentifier: 
-  fire_rate: 90
+  fire_rate: 120
   magazine_size: 6
   bullet_type: {fileID: 11400000, guid: 3623bc3f77195d441add8a90fdf9b7ca, type: 2}
   number_of_bullets: 1
+  bullets_fired: 6
+  ammo_reserve: 0
+  max_ammo_reserve: 200
   bullet_spread: {x: 0, y: 0, z: 0}
   is_full_automatic: 0
   recoil_rotation: {x: 40, y: 4, z: 6}

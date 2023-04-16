@@ -115,8 +115,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.92164177
-        functionName: CanFire
+      - time: 0.79299873
+        functionName: ReloadFinished
         data: ready
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

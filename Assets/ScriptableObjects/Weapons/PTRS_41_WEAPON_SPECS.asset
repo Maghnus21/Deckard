@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: PTRS_41_WEAPON_SPECS
   m_EditorClassIdentifier: 
   fire_rate: 40
-  magazine_size: 30
+  magazine_size: 5
   bullet_type: {fileID: 11400000, guid: f665e79b9b81e2a44aede8169fe42d12, type: 2}
   number_of_bullets: 1
+  bullets_fired: 0
+  ammo_reserve: 0
+  max_ammo_reserve: 200
   bullet_spread: {x: 0, y: 0, z: 0}
   is_full_automatic: 0
   recoil_rotation: {x: 50, y: 4, z: 6}

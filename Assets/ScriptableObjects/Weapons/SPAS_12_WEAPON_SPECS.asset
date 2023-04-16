@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02227f04a5531343b8f502c316604c3, type: 3}
   m_Name: SPAS_12_WEAPON_SPECS
   m_EditorClassIdentifier: 
-  fire_rate: 80
-  magazine_size: 12
+  fire_rate: 75
+  magazine_size: 8
   bullet_type: {fileID: 11400000, guid: 7de7f11a9c9836241895d6418cab6323, type: 2}
   number_of_bullets: 8
+  bullets_fired: 0
+  ammo_reserve: 0
+  max_ammo_reserve: 200
   bullet_spread: {x: 0.03, y: 0.03, z: 0.03}
   is_full_automatic: 0
   recoil_rotation: {x: 4, y: 2, z: 2}
