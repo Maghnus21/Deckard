@@ -270,6 +270,7 @@ MonoBehaviour:
   weapon_recoil: {fileID: 536115518598856322}
   bullet_shape: {fileID: 0}
   rac: {fileID: 22100000, guid: 791982a6eb6b90047b090b62ccf23fa3, type: 2}
+  ammo_display: {fileID: 0}
   weapon_stats: {fileID: 11400000, guid: 1e03501cece7bb640bbbfd5e8722223f, type: 2}
   muzzle_flash: {fileID: 6404873894494841161}
   bullet_speed: 200
@@ -556,7 +557,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a0e61811b9be584ba8781aa67545271, type: 2}
+  - {fileID: 2100000, guid: 655d4224b0db7fa429933a98f23cec95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -616,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6404873894494841161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.031000018}
+  m_LocalPosition: {x: 4.6566134e-10, y: 0.0071944594, z: -0.27219373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -809,7 +810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7994165747476178645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.02}
+  m_LocalPosition: {x: -0, y: 0.008, z: -0.267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

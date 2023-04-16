@@ -16,7 +16,7 @@ MonoBehaviour:
   magazine_size: 6
   bullet_type: {fileID: 11400000, guid: 3623bc3f77195d441add8a90fdf9b7ca, type: 2}
   number_of_bullets: 1
-  bullets_fired: 6
+  bullets_fired: 0
   ammo_reserve: 0
   max_ammo_reserve: 200
   bullet_spread: {x: 0, y: 0, z: 0}

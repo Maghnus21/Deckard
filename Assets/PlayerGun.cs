@@ -30,7 +30,7 @@ public class PlayerGun : MonoBehaviour
             
 
             if (player_hot_key.equipted_item != null && player_hot_key.equipted_item.is_throwable) {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     GameObject throwable = Instantiate(player_hot_key.equipted_item.weapon_prefab, Camera.main.transform.position, Camera.main.transform.rotation) as GameObject;
 
@@ -59,31 +59,10 @@ public class PlayerGun : MonoBehaviour
                 }
                 */
 
-                /*
-                if(Input.GetMouseButton(0) && active_player_weapon.weapon_stats.weapon_specs.bullets_fired >= active_player_weapon.weapon_stats.weapon_specs.magazine_size)
-                {
-                    print("WEAPON OUT OF BULLETS");
-                }
-                else
-                {
-                    if (Input.GetMouseButton(0) && Time.time > next_round)
-                    {
-                        next_round = Time.time + fire_rate;
-                        active_player_weapon.FirePlayerBullet();
-                        if(player_hot_key.current_held_item.GetComponent<WeaponAnimations>()) player_hot_key.current_held_item.GetComponent<WeaponAnimations>().PlayFireAnimation();
-
-                        active_player_weapon.weapon_stats.weapon_specs.bullets_fired++;
-
-                        active_player_weapon.DisplayAmmoCount();
-                    }
-                }
-                */
+                int rounds_left = active_player_weapon.weapon_stats.weapon_specs.magazine_size - active_player_weapon.weapon_stats.weapon_specs.bullets_fired;
 
                 if (Input.GetMouseButton(0))
                 {
-                    int rounds_left = active_player_weapon.weapon_stats.weapon_specs.magazine_size - active_player_weapon.weapon_stats.weapon_specs.bullets_fired;
-
-
                     if (rounds_left > 0 && Time.time > next_round)
                     {
                         next_round = Time.time + fire_rate;
@@ -94,8 +73,11 @@ public class PlayerGun : MonoBehaviour
 
                         active_player_weapon.DisplayAmmoCount();
                     }
-                    else if(rounds_left <= 0)
-                        print("WEAPON OUT OF BULLETS");
+                }
+
+                if(Input.GetMouseButtonDown(0) && rounds_left <= 0)
+                {
+                    print("WEAPON OUT OF BULLETS");
                 }
 
                 if (Input.GetKeyDown(KeyCode.R))

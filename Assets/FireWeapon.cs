@@ -85,12 +85,16 @@ public class FireWeapon : MonoBehaviour
     {
         is_firing = true;
         acculumated_time = 0f;
+        StartCoroutine(MuzzleFlash(.05f));
+
         for (int i = 0; i < weapon_stats.weapon_specs.number_of_bullets; i++)
             FireBullet();
     }
 
     public void FirePlayerBullet()
     {
+        StartCoroutine(MuzzleFlash(.05f));
+
         for (int i = 0; i < weapon_stats.weapon_specs.number_of_bullets; i++)
             FireBullet();
     }
@@ -248,5 +252,18 @@ public class FireWeapon : MonoBehaviour
         weapon_stats.weapon_specs.bullets_fired = 0;
 
         DisplayAmmoCount();
+    }
+
+    IEnumerator MuzzleFlash(float seconds)
+    {
+        Vector3 randomRot = new Vector3(muzzle_flash.transform.rotation.x, muzzle_flash.transform.rotation.y, Random.Range(-30f, 30f));
+
+        muzzle_flash.transform.localRotation = Quaternion.Euler(randomRot);
+
+        muzzle_flash.SetActive(true);
+
+        yield return new WaitForSeconds(seconds);
+
+        muzzle_flash.SetActive(false);
     }
 }

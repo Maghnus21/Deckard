@@ -269,6 +269,7 @@ MonoBehaviour:
   weapon_recoil: {fileID: 536115518598856322}
   bullet_shape: {fileID: 0}
   rac: {fileID: 9100000, guid: 36db5b9e451159b40b18e90ac0478389, type: 2}
+  ammo_display: {fileID: 0}
   weapon_stats: {fileID: 11400000, guid: 8f2e36af5c6f44d43b17dc1c2c710f3e, type: 2}
   muzzle_flash: {fileID: 6404873894494841161}
   bullet_speed: 200
@@ -555,7 +556,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a0e61811b9be584ba8781aa67545271, type: 2}
+  - {fileID: 2100000, guid: 655d4224b0db7fa429933a98f23cec95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
