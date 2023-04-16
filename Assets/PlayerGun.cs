@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerGun : MonoBehaviour
 {
-    public PlayerHotkeys player_hot_key;
+    public PlayerInventory player_hot_key;
     public GameObject player;
     public FireWeapon active_player_weapon;
     public WeaponRecoil active_player_weapon_recoil;
@@ -19,7 +19,7 @@ public class PlayerGun : MonoBehaviour
 
     private void Start()
     {
-        player_hot_key = player.GetComponent<PlayerHotkeys>();
+        player_hot_key = player.GetComponent<PlayerInventory>();
         
     }
 
