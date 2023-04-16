@@ -73,6 +73,19 @@ public class PlayerInventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V) && equipted_item != null)
             UnequipWeapon();
+
+        /*
+        RaycastHit hit;
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Physics.Raycast(ray, out hit, 5f) && hit.collider.GetComponentInParent<ItemPickup>() && hit.collider.GetComponentInParent<ItemPickup>().enabled)
+                hit.collider.GetComponentInParent<ItemPickup>().PickUpItem(this);
+
+
+
+        }
+        */
         
     }
 
@@ -101,7 +114,7 @@ public class PlayerInventory : MonoBehaviour
 
             else
             {
-                current_held_item = Instantiate(equipted_item.gun_prefab, hand_point) as GameObject;
+                current_held_item = Instantiate(equipted_item.item_prefab, hand_point) as GameObject;
  
                 current_held_item.GetComponent<FireWeapon>().raycast_destination = raycast_destination;
                 current_held_item.GetComponent<FireWeapon>().hit_effect = bullet_impact_effect;

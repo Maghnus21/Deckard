@@ -202,7 +202,7 @@ public class weapon : MonoBehaviour
 
         if (!loadout[currentIndex].is_melee_weapon && !loadout[currentIndex].is_throwable)
         {
-            t_newWeapon = Instantiate(loadout[p_int].gun_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
+            t_newWeapon = Instantiate(loadout[p_int].item_prefab, weaponPosition.position, weaponPosition.rotation, weaponPosition) as GameObject;
         }
         else if(loadout[currentIndex].is_melee_weapon)
         {

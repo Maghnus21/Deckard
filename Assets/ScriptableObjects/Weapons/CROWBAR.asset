@@ -12,24 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
   m_Name: CROWBAR
   m_EditorClassIdentifier: 
-  name: 
+  item_name: 
   description: 
-  gun_prefab: {fileID: 0}
-  gun_npc: {fileID: 0}
+  item_prefab: {fileID: 9015136308743234527, guid: c1ed4894163275a449c371ab4d270b6b, type: 3}
+  weapon_specs: {fileID: 0}
+  bullets_specs: {fileID: 0}
   gun_pickup: {fileID: 0}
-  bullet: {fileID: 0}
   ads_speed: 0
-  bullet_speed: 0
-  fire_rate: 0
-  magazine_size: 0
   ammo_reserve: 999
   ammo_type: {fileID: 0}
   muzzle_flash: {fileID: 0}
-  recoilRotationSpeed: 0
-  recoilRotationReturn: 0
-  recoilRotation: {x: 10, y: 5, z: 7}
   gun_fire: {fileID: 0}
-  gun_sprite: {fileID: 0}
+  ui_sprite: {fileID: 0}
   is_melee_weapon: 1
   melee_damage: 35
   weapon_prefab: {fileID: 9015136308743234527, guid: c1ed4894163275a449c371ab4d270b6b, type: 3}

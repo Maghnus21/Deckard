@@ -11,10 +11,11 @@ public class Item : ScriptableObject
     //  name of gun
     public string item_name;
 
+    [TextArea]
     public string description;
 
     //  reference to gun prefab
-    public GameObject gun_prefab;
+    public GameObject item_prefab;
 
     public WeaponSpecs weapon_specs;
 

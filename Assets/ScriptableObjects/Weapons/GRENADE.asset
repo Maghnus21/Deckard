@@ -12,22 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
   m_Name: GRENADE
   m_EditorClassIdentifier: 
-  name: 
+  item_name: 
   description: 
-  gun_prefab: {fileID: 0}
-  gun_npc: {fileID: 0}
+  item_prefab: {fileID: 4705942099736492296, guid: 4b8404dc50608584db9e95d1575abb18, type: 3}
+  weapon_specs: {fileID: 0}
+  bullets_specs: {fileID: 0}
   gun_pickup: {fileID: 0}
-  bullet: {fileID: 0}
   ads_speed: 0
-  bullet_speed: 0
-  fire_rate: 0
-  magazine_size: 0
   ammo_reserve: 999
   ammo_type: {fileID: 0}
   muzzle_flash: {fileID: 0}
-  recoilRotationSpeed: 0
-  recoilRotationReturn: 0
-  recoilRotation: {x: 10, y: 5, z: 7}
   gun_fire: {fileID: 0}
   ui_sprite: {fileID: 0}
   is_melee_weapon: 0

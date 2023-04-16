@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item_name: 
   description: 
-  gun_prefab: {fileID: 1078813186004044629, guid: af129b8523e823e46b61550587076d57, type: 3}
+  item_prefab: {fileID: 1078813186004044629, guid: af129b8523e823e46b61550587076d57, type: 3}
   weapon_specs: {fileID: 11400000, guid: c2299ebb77644b044898f60e574c2deb, type: 2}
   bullets_specs: {fileID: 11400000, guid: f665e79b9b81e2a44aede8169fe42d12, type: 2}
   gun_pickup: {fileID: 6455761787134089848, guid: b68aaf6e4ec547a4c8ee950149d5cb42, type: 3}
