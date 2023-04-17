@@ -53,4 +53,7 @@ public class Item : ScriptableObject
 
     public GameObject weapon_wheel_button;
     public int stack_location;
+
+    public bool is_key = false;
+    public int keycode = 0000;
 }

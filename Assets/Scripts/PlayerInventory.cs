@@ -94,6 +94,14 @@ public class PlayerInventory : MonoBehaviour
 
         }
         */
+
+        RaycastHit hit;
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+
+        if (Input.GetKeyDown(KeyCode.F))
+            if (Physics.Raycast(ray, out hit, 5f))
+                if (hit.collider.GetComponent<KeyCheck>())
+                    CheckKeys(hit.collider.GetComponent<KeyCheck>());
         
     }
 
@@ -173,5 +181,21 @@ public class PlayerInventory : MonoBehaviour
                 else i++;
             }
         }
+    }
+
+    void CheckKeys(KeyCheck key_check)
+    {
+        bool opened_door = false;
+
+        foreach (Item item in items)
+            if (item.is_key && item.keycode == key_check.keycode)
+            {
+                opened_door = true;
+                key_check.AllowEntry(); 
+                return;
+            }
+
+        if (opened_door == false) key_check.DenyEntry();
+        
     }
 }

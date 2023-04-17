@@ -19,12 +19,16 @@ public class rigidbodyMovement : MonoBehaviour
     public Rigidbody player_body;
     public CapsuleCollider c_collider;
 
+    public LayerMask avoid_layer;
+
     public float speed;
     public float sprint;
     public float jump;
 
     bool is_crouching = false;
     public bool is_climbing = false;
+
+    public bool can_jump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +45,14 @@ public class rigidbodyMovement : MonoBehaviour
     }
 
     private void MovePlayer()
-    {    
+    {
+
+        if (Physics.CheckSphere(transform.position, .4f, 1 << avoid_layer))
+        {
+            can_jump = true;
+        }
+        else can_jump = false;
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             PlayerCrouch();
@@ -82,7 +93,7 @@ public class rigidbodyMovement : MonoBehaviour
                 Vector3 climb = new Vector3(transform.position.x, transform.position.y + .1f / camera_multi, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, climb, 1f);
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) )
             {
                 player_body.AddForce(Camera.main.transform.forward * jump, ForceMode.Impulse);
             }
@@ -90,7 +101,7 @@ public class rigidbodyMovement : MonoBehaviour
         }
         
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && can_jump)
         {
             player_body.AddForce(Vector3.up * jump, ForceMode.VelocityChange);
         }
