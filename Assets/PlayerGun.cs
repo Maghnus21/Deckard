@@ -14,6 +14,7 @@ public class PlayerGun : MonoBehaviour
 
     public float delay_time = 4f;
     public float throw_force = 3f;
+    public bool can_ads = true;
 
     float next_round = 0;
 
@@ -61,7 +62,7 @@ public class PlayerGun : MonoBehaviour
 
                 int rounds_left = active_player_weapon.weapon_stats.weapon_specs.magazine_size - active_player_weapon.weapon_stats.weapon_specs.bullets_fired;
 
-                if (Input.GetMouseButton(0) && !Input.GetKey(KeyCode.Tab))
+                if (Input.GetMouseButton(0) && !Input.GetKey(KeyCode.Tab) && can_ads)
                 {
                     if (rounds_left > 0 && Time.time > next_round)
                     {
@@ -85,7 +86,11 @@ public class PlayerGun : MonoBehaviour
                     if (active_player_weapon.weapon_stats.weapon_specs.magazine_size - active_player_weapon.weapon_stats.weapon_specs.bullets_fired == active_player_weapon.weapon_stats.weapon_specs.magazine_size)
                         return;
 
-                    if (player_hot_key.current_held_item.GetComponent<WeaponAnimations>()) player_hot_key.current_held_item.GetComponent<WeaponAnimations>().PlayReloadAnimation();
+                    if (player_hot_key.current_held_item.GetComponent<WeaponAnimations>())
+                    { 
+                        player_hot_key.current_held_item.GetComponent<WeaponAnimations>().PlayReloadAnimation();
+                        can_ads = false;
+                    }
                     else active_player_weapon.ReloadWeapon();
                     print("RELOADED WEAPON");
                 }
@@ -99,7 +104,7 @@ public class PlayerGun : MonoBehaviour
 
                 active_player_weapon_recoil = player_hot_key.current_held_item.GetComponent<WeaponRecoil>();
                 
-                if (Input.GetMouseButton(1)) active_player_weapon_recoil.Aim(true);
+                if (Input.GetMouseButton(1) && can_ads) active_player_weapon_recoil.Aim(true);
                 else active_player_weapon_recoil.Aim(false);
                 
             }

@@ -294,6 +294,11 @@ public class branchDialogueManager : MonoBehaviour
             in_convo = true;
             DisplayInterrogation();
         }
+        else if (dialogue_branch.sections[0].responses[response_choice].turn_hostile)
+        {
+            talking_npc.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+            HideDialogue();
+        }
         else
         {
             this.branch_choice = branch_choice;
