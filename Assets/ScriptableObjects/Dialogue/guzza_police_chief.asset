@@ -79,13 +79,12 @@ MonoBehaviour:
     - dialogue: beats me, you could ask the local scav bastards where to find one
         but after that, you're on your own
       responses:
-      - end_on_response: 1
+      - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 0
+        next_branch_id: 6
         response_dialogue: thats just great. have a glass ready for when i come back
-          [EXIT]
   - branch_name: 
     branch_id: 4
     sections:
@@ -107,9 +106,21 @@ MonoBehaviour:
         besides i've no clue how to get in. you could check the local scavs but who
         knows that they'd want in return
       responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 6
+        response_dialogue: i'll take my leave then. thanks guzza
+  - branch_name: 
+    branch_id: 6
+    sections:
+    - dialogue: speaking of the scav leader, theres a bounty on his head, but you
+        can do whatever you want with this info
+      responses:
       - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 2
-        response_dialogue: i'll take my leave then. thanks guzza [EXIT]
+        next_branch_id: 0
+        response_dialogue: i'll keep that in mind, thanks guzza [EXIT]

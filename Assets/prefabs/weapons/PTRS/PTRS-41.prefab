@@ -263,7 +263,7 @@ MonoBehaviour:
   raycast_destination: {fileID: 0}
   hit_effect: {fileID: 0}
   bullet_trail: {fileID: 2780178030140457215, guid: e71198e9f6744144bad8f3a410c66c6c, type: 3}
-  weapon_fire_sound: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
+  weapon_fire_sound: {fileID: 8300000, guid: b9092618222f42448866e063347a2098, type: 3}
   weapon_audio: {fileID: 603955229574220037}
   weapon_recoil: {fileID: 6470273191831881769}
   bullet_shape: {fileID: 0}
