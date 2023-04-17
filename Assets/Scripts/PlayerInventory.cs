@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -26,7 +27,10 @@ public class PlayerInventory : MonoBehaviour
     public TextMeshProUGUI ammo_text;
     public PlayerGun player_gun;
     public TextMeshProUGUI ammo_count;
+    public GameObject weapon_wheel_ui;
 
+
+    WeaponWheelButton[] wwbs;
 
 
     // Start is called before the first frame update
@@ -34,6 +38,10 @@ public class PlayerInventory : MonoBehaviour
     {
         player_gun = GetComponent<PlayerGun>();
         player_gun.enabled = false;
+
+        wwbs = weapon_wheel_ui.GetComponentsInChildren<WeaponWheelButton>();
+
+        AssignWWSprites();
     }
 
     // Update is called once per frame
@@ -90,7 +98,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
 
-    void EquipWeapon(int index_num)
+    public void EquipWeapon(int index_num)
     {
         
 
@@ -150,5 +158,20 @@ public class PlayerInventory : MonoBehaviour
             if (item2.name == item.name)
                 items.Remove(item2);
         
+    }
+
+    public void AssignWWSprites()
+    {
+        foreach(WeaponWheelButton wwb in wwbs)
+        {
+            for (int i = 0; i < loadout.Length; i++)
+            {
+                if (loadout[i].stack_location == wwb.stack_location)
+                {
+                    wwb.button_image.sprite = loadout[i].ui_sprite;
+                }
+                else i++;
+            }
+        }
     }
 }

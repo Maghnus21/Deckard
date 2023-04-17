@@ -23,10 +23,10 @@ MonoBehaviour:
   ammo_type: {fileID: 0}
   muzzle_flash: {fileID: 0}
   gun_fire: {fileID: 0}
-  ui_sprite: {fileID: 0}
+  ui_sprite: {fileID: 21300000, guid: 87de6186c4f36f54d92f8f7d4f4c03de, type: 3}
   is_melee_weapon: 1
   melee_damage: 35
   weapon_prefab: {fileID: 9015136308743234527, guid: c1ed4894163275a449c371ab4d270b6b, type: 3}
   is_throwable: 0
   weapon_wheel_button: {fileID: 2591533649646681420, guid: 126f42c49d5f92946ba3176b880d51a2, type: 3}
-  stack_location: 1
+  stack_location: 0

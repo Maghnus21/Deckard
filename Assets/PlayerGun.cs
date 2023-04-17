@@ -30,7 +30,7 @@ public class PlayerGun : MonoBehaviour
             
 
             if (player_hot_key.equipted_item != null && player_hot_key.equipted_item.is_throwable) {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.Tab))
                 {
                     GameObject throwable = Instantiate(player_hot_key.equipted_item.weapon_prefab, Camera.main.transform.position, Camera.main.transform.rotation) as GameObject;
 
@@ -61,7 +61,7 @@ public class PlayerGun : MonoBehaviour
 
                 int rounds_left = active_player_weapon.weapon_stats.weapon_specs.magazine_size - active_player_weapon.weapon_stats.weapon_specs.bullets_fired;
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && !Input.GetKey(KeyCode.Tab))
                 {
                     if (rounds_left > 0 && Time.time > next_round)
                     {
@@ -75,7 +75,7 @@ public class PlayerGun : MonoBehaviour
                     }
                 }
 
-                if(Input.GetMouseButtonDown(0) && rounds_left <= 0)
+                if(Input.GetMouseButtonDown(0) && rounds_left <= 0 && !Input.GetKey(KeyCode.Tab))
                 {
                     print("WEAPON OUT OF BULLETS");
                 }

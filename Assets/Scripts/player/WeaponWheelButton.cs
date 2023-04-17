@@ -15,7 +15,7 @@ public class WeaponWheelButton : MonoBehaviour
     private Color normal_colour;
 
     public int stack_location = 12;
-    public weapon weapon_script;
+    public PlayerInventory weapon_script;
 
 
     // Start is called before the first frame update
@@ -46,12 +46,12 @@ public class WeaponWheelButton : MonoBehaviour
         else
         {
             selected = true;
-            player.GetComponent<AudioSource>().clip = demo.clip;
-            player.GetComponent<AudioSource>().Play();
+            //player.GetComponentInChildren<AudioSource>().clip = demo.clip;
+            //player.GetComponentInChildren<AudioSource>().Play();
 
-            weapon_script = player.GetComponent<weapon>();
+            weapon_script = player.GetComponent<PlayerInventory>();
 
-            weapon_script.Equip(stack_location);
+            weapon_script.EquipWeapon(stack_location);
         }
 
         Deselected();
@@ -70,5 +70,11 @@ public class WeaponWheelButton : MonoBehaviour
     public void HoverExit()
     {
         anim.SetBool("hover", false);   
+    }
+
+    public void AssignSprite(Sprite sprite)
+    {
+        button_image.sprite = sprite;
+        print("Assigned sprite");
     }
 }

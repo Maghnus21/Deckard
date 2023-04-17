@@ -29,4 +29,4 @@ MonoBehaviour:
   weapon_prefab: {fileID: 0}
   is_throwable: 0
   weapon_wheel_button: {fileID: 9095745432524640662, guid: 8a3e2dd4c49c9304f8ec0858d4160204, type: 3}
-  stack_location: 4
+  stack_location: 3
