@@ -30,4 +30,5 @@ MonoBehaviour:
   is_throwable: 0
   weapon_wheel_button: {fileID: 0}
   stack_location: 0
+  is_key: 1
   keycode: 451

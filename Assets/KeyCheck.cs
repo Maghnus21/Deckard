@@ -11,11 +11,16 @@ public class KeyCheck : MonoBehaviour
 
     public doorLogic door_logic;
 
+    public Transform player_transform;
+
+    public Light light;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player_transform = GameObject.FindGameObjectWithTag("Player").transform;
+        light.enabled = false;
     }
 
     // Update is called once per frame
@@ -24,33 +29,49 @@ public class KeyCheck : MonoBehaviour
         
     }
 
-    public void CheckKeycode(List<Item> items)
+    public void CheckKeycode(bool open_door)
     {
-        Item key = null;
-        bool accept_key = false;
+        StopAllCoroutines();
 
-        foreach(Item item in items)
-        {
-            if(item.is_key) key = item;
-
-            if (key != null && key.keycode == keycode) AllowEntry();
-            
-        }
-
+        if (open_door) AllowEntry();
+        else DenyEntry();
 
     }
 
-    public void DenyEntry()
+    void DenyEntry()
     {
-        audio_source.clip = deny;
-        audio_source.Play();
+        StartCoroutine(DenyLight(1f));
     }
 
-    public void AllowEntry()
+    void AllowEntry()
+    {
+        StartCoroutine(DelayOpenDoor(1f));
+    }
+
+    IEnumerator DelayOpenDoor(float time)
     {
         audio_source.clip = accept;
         audio_source.Play();
 
-        door_logic.Open(GameObject.FindGameObjectWithTag("Player").transform.position);
+        light.enabled = true;
+        light.color = Color.green;
+
+        yield return new WaitForSeconds(time);
+
+        light.enabled = false;
+        door_logic.Open(player_transform.position);
+    }
+
+    IEnumerator DenyLight(float time)
+    {
+        audio_source.clip = deny;
+        audio_source.Play();
+
+        light.enabled = true;
+        light.color = Color.red;
+
+        yield return new WaitForSeconds(time);
+
+        light.enabled = false;
     }
 }

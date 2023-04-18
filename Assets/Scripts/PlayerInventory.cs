@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject current_held_item = null;
 
     [Header("Player Inventory")]
-    public List<Item> items = new List<Item>();
+    public List<Item> player_inventory = new List<Item>();
 
 
     //  object references to be parsed to weapons
@@ -157,14 +157,14 @@ public class PlayerInventory : MonoBehaviour
     public void AddItemToInv(Item item)
     {
         print("Added " + item.name + " to player inventory");
-        items.Add(item);
+        player_inventory.Add(item);
     }
 
     public void RemoveItemFromInv(Item item)
     {
-        foreach (Item item2 in items)
+        foreach (Item item2 in player_inventory)
             if (item2.name == item.name)
-                items.Remove(item2);
+                player_inventory.Remove(item2);
         
     }
 
@@ -187,15 +187,19 @@ public class PlayerInventory : MonoBehaviour
     {
         bool opened_door = false;
 
-        foreach (Item item in items)
-            if (item.is_key && item.keycode == key_check.keycode)
+        foreach (Item item in player_inventory)
+        {
+            print("checking inventory");
+            if (item.is_key == true && item.keycode == key_check.keycode)
             {
+                print("ACCEPTED KEY");
                 opened_door = true;
-                key_check.AllowEntry(); 
-                return;
             }
+            else opened_door = false;
+        }
+            
 
-        if (opened_door == false) key_check.DenyEntry();
+        key_check.CheckKeycode(opened_door);
         
     }
 }

@@ -532,10 +532,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_body: {fileID: 3573910784258634815}
   c_collider: {fileID: 2200006508574176948}
+  avoid_layer:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 5
   sprint: 9
   jump: 5
   is_climbing: 0
+  can_jump: 1
 --- !u!114 &7689683646258888370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,19 +595,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad296e8e1c0f53e4bb5daf988432f40d, type: 2}
   - {fileID: 11400000, guid: 9b2d9b8682395e340b27bdaee45e1386, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   equipted_item: {fileID: 0}
   hand_point: {fileID: 7689683645737106716}
   current_held_item: {fileID: 0}
-  items: []
+  player_inventory: []
   main_cam: {fileID: 7689683645042883035}
-  player_chest: {fileID: 0}
+  player_chest: {fileID: 7266765880120517717}
   bullet_impact_effect: {fileID: 0}
   raycast_destination: {fileID: 4813189118981716801}
   ammo_text: {fileID: 0}
   player_gun: {fileID: 0}
   ammo_count: {fileID: 0}
+  weapon_wheel_ui: {fileID: 0}
 --- !u!114 &5582451428387772256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +749,7 @@ MonoBehaviour:
   active_player_weapon_recoil: {fileID: 0}
   delay_time: 4
   throw_force: 3
+  can_ads: 1
 --- !u!1 &8095173688241620763
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,5 +946,10 @@ PrefabInstance:
 --- !u!4 &1550805548665217810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4247532321896805462, guid: db0667a24c6b64240a18837dc89abe54, type: 3}
+  m_PrefabInstance: {fileID: 3420436957447264068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7266765880120517717 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5453692415024050961, guid: db0667a24c6b64240a18837dc89abe54, type: 3}
   m_PrefabInstance: {fileID: 3420436957447264068}
   m_PrefabAsset: {fileID: 0}
