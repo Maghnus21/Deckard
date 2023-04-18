@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class KeyCheck : MonoBehaviour
 {
-    public int keycode = 0000;
+    [HideInInspector]
+    public int keycode;
+    public Item key_item;
 
     public AudioSource audio_source;
     public AudioClip accept, deny;
@@ -20,6 +22,8 @@ public class KeyCheck : MonoBehaviour
     void Start()
     {
         player_transform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        keycode = key_item.keycode;
         light.enabled = false;
     }
 

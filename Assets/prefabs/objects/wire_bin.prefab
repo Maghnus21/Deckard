@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8338255123308892199}
   m_Layer: 0
   m_Name: wire_bin
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

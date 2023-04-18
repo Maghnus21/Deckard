@@ -422,8 +422,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9686275, g: 0.9490197, b: 0.80392164, a: 1}
-  m_Intensity: 10
+  m_Color: {r: 1, g: 0.70053875, b: 0.4198113, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -989,3 +989,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  player_gun: {fileID: 0}

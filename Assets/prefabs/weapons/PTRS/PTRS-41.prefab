@@ -669,6 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  player_gun: {fileID: 0}
 --- !u!1001 &3053052667828078248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -792,19 +793,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7006534769448552818, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
       propertyPath: m_Color.b
-      value: 0.80392164
+      value: 0.4198113
       objectReference: {fileID: 0}
     - target: {fileID: 7006534769448552818, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
       propertyPath: m_Color.g
-      value: 0.9490197
+      value: 0.70053875
       objectReference: {fileID: 0}
     - target: {fileID: 7006534769448552818, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
       propertyPath: m_Color.r
-      value: 0.9686275
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7006534769448552818, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
       propertyPath: m_Intensity
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7006534769448552818, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
       propertyPath: m_ColorTemperature
