@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: -8552528767528472178}
   - component: {fileID: 6470273191831881769}
   - component: {fileID: 6445063299748256992}
+  - component: {fileID: 7763104756338262049}
   m_Layer: 6
   m_Name: PTRS-41
   m_TagString: Untagged
@@ -315,6 +316,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun_anim: {fileID: 0}
   weapon: {fileID: 0}
+--- !u!114 &7763104756338262049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078813186004044629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcf957d8e2b9674da3c8237d5dd34c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2807524678363257227
 GameObject:
   m_ObjectHideFlags: 0

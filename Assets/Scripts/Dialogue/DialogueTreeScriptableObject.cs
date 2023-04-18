@@ -13,7 +13,6 @@ public class DialogueBranch
 {
     public string branch_name;
     public int branch_id;
-    //public bool end_on_final;
 
     public DialogueSection[] sections;
 }

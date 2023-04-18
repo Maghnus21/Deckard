@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: colony_building_key
   m_EditorClassIdentifier: 
   item_name: Manus Industries Colony Building key
-  description: a metal triangular tumbler key, thats oddly quite heavy for its size
-  item_prefab: {fileID: 2150791833593409327, guid: 6a62c8d057cf33540970c940642b1672, type: 3}
+  description: a metal triangular tumbler key, thats oddly quite heavy for its size.
+    use on the lock in front of the colony building
+  item_prefab: {fileID: 3705554185862770624, guid: de018f8ccca012f4c833f66127208d3c, type: 3}
   weapon_specs: {fileID: 0}
   bullets_specs: {fileID: 0}
   gun_pickup: {fileID: 0}

@@ -47,7 +47,7 @@ public class rigidbodyMovement : MonoBehaviour
     private void MovePlayer()
     {
 
-        if (Physics.CheckSphere(transform.position, .4f, 1 << avoid_layer))
+        if (Physics.CheckSphere(transform.position, .1f, 1 << avoid_layer))
         {
             can_jump = true;
         }

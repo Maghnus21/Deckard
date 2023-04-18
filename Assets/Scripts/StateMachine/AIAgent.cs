@@ -32,6 +32,9 @@ public class AIAgent : MonoBehaviour
     public float aggression_level;
     public bool is_aggressive = false;
 
+
+    public List<AIAgent> agents = new List<AIAgent>();
+
     // Start is called before the first frame update
     void Start()
     {

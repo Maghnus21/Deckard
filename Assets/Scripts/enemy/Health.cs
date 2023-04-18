@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     AIAgent agent;
     Rigidbody[] rigidbodies;
 
+    public DropItems drop_items;
+
     public float impact_force = 20f;            //  default force applied to entity when hit with killing bullet
 
     public float health;
@@ -34,6 +36,8 @@ public class Health : MonoBehaviour
     {
         Random.seed = (int)System.DateTime.Now.Ticks;
 
+        if(GetComponent<DropItems>())
+            drop_items = GetComponent<DropItems>();
 
         if(npc != null)
         {
@@ -96,6 +100,9 @@ public class Health : MonoBehaviour
     /// <param name="hit_rb">bone gameObject with rigidbody that was hit by RaycastHit passed via hit.rigidbody</param>
     void Die(Vector3 impact_direction, Rigidbody hit_rb)
     {
+        if (drop_items != null && drop_items.enabled)
+            drop_items.DropItemsInList();
+
         float gib_chance_mutiplier = 0 - health;
         float rand_num = Random.Range(0f, 100f);
 
@@ -122,6 +129,8 @@ public class Health : MonoBehaviour
 
     void ExplosiveDie(Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
     {
+        if (drop_items != null && drop_items.enabled)
+            drop_items.DropItemsInList();
 
         disableScripts();
 

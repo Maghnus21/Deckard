@@ -28,6 +28,12 @@ public class AIAttackPlayerState : AIState
         agent.navMeshAgent.stoppingDistance = 5f;
 
         agent.ai_weapon.SetFiring(true);
+
+        if(agent.agents.Count > 0)
+        {
+            foreach (AIAgent ai_agent in agent.agents)
+                ai_agent.is_aggressive = true;
+        }
     }
 
     public void Exit(AIAgent agent)

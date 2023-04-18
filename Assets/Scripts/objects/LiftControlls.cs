@@ -8,7 +8,7 @@ public class LiftControlls : MonoBehaviour
     RaycastHit hit;
     Ray ray;
 
-    float range = 3f;
+    float range = 5f;
 
     LiftButtons lift_buttons;
     public Image is_looking_at;

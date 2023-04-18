@@ -95,6 +95,9 @@ public class FireWeapon : MonoBehaviour
     {
         StartCoroutine(MuzzleFlash(.05f));
 
+        if (GetComponent<WeaponPushback>() && GetComponent<WeaponPushback>().enabled)
+            GetComponent<WeaponPushback>().Pushback();
+
         for (int i = 0; i < weapon_stats.weapon_specs.number_of_bullets; i++)
             FireBullet();
     }

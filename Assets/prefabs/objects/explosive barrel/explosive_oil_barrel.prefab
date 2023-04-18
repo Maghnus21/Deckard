@@ -175,6 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fall_damage_treshold: 50
+  fall_damage_treshold: 40
   final_vel: 0
   health: {fileID: 0}
