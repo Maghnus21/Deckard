@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3188832084280276246}
   - component: {fileID: 3188832084280276245}
   - component: {fileID: 3188832084280276244}
+  - component: {fileID: 3815624188595028863}
   m_Layer: 0
   m_Name: explosive_oil_barrel
   m_TagString: Pickup
@@ -162,3 +163,18 @@ MonoBehaviour:
   impact_force: 20
   health: 40
   death_force_mode: 1
+--- !u!114 &3815624188595028863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341986375758891080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 50
+  final_vel: 0
+  health: {fileID: 0}

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -5156161921120770206}
   - component: {fileID: 3227761381645203967}
   - component: {fileID: 7368981203443068072}
+  - component: {fileID: 3603731308509953779}
   m_Layer: 0
   m_Name: vent
   m_TagString: Pickup
@@ -162,3 +163,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 3227761381645203967}
   destructable_object: {fileID: 3024946441329945124, guid: 2dd335043d1a6854f925827e217709d4, type: 3}
+--- !u!114 &3603731308509953779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369992748709349824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 25
+  final_vel: 0
+  health: {fileID: 0}

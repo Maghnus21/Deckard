@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3961746560197717541}
   - component: {fileID: 8605397204470088529}
   - component: {fileID: 8605397204470088528}
+  - component: {fileID: 618586654726963471}
   m_Layer: 0
   m_Name: plywood_broken3
   m_TagString: Pickup
@@ -115,6 +116,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 826384980803109118, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &618586654726963471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116390027768882155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
 --- !u!1 &3365347190143312577
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +144,7 @@ GameObject:
   - component: {fileID: 8953213834855950391}
   - component: {fileID: 8605397205939493358}
   - component: {fileID: 8605397205939493353}
+  - component: {fileID: 9072032876211230187}
   m_Layer: 0
   m_Name: plywood_broken2
   m_TagString: Pickup
@@ -230,6 +247,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8302013991605726570, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &9072032876211230187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3365347190143312577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
 --- !u!1 &4955153797737083885
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +275,7 @@ GameObject:
   - component: {fileID: 8736490783349034227}
   - component: {fileID: 8605397205732535442}
   - component: {fileID: 8605397205732535437}
+  - component: {fileID: 5923398397675974777}
   m_Layer: 0
   m_Name: plywood_broken6
   m_TagString: Pickup
@@ -345,6 +378,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3574968522263148342, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &5923398397675974777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955153797737083885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
 --- !u!1 &5079849401781132828
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +406,7 @@ GameObject:
   - component: {fileID: 6118143342404756488}
   - component: {fileID: 8605397205162565497}
   - component: {fileID: 8605397205162565496}
+  - component: {fileID: 3948508014640325409}
   m_Layer: 0
   m_Name: plywood_broken4
   m_TagString: Pickup
@@ -460,6 +509,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1985377545999360589, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &3948508014640325409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079849401781132828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
 --- !u!1 &5431473365299257880
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +537,7 @@ GameObject:
   - component: {fileID: 5339381347083448456}
   - component: {fileID: 8605397204470088535}
   - component: {fileID: 8605397204470088534}
+  - component: {fileID: 6431146946401984788}
   m_Layer: 0
   m_Name: plywood_broken1
   m_TagString: Pickup
@@ -575,6 +640,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2988499585220871284, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &6431146946401984788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5431473365299257880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
 --- !u!1 &6195499613906110956
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +668,7 @@ GameObject:
   - component: {fileID: 8994026854082485092}
   - component: {fileID: 8605397204470088531}
   - component: {fileID: 8605397204470088530}
+  - component: {fileID: 2310704146536119321}
   m_Layer: 0
   m_Name: plywood_broken5
   m_TagString: Pickup
@@ -690,6 +771,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 104942902712173705, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &2310704146536119321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195499613906110956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
 --- !u!1 &8912037605279366683
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +837,7 @@ GameObject:
   - component: {fileID: 2884906858716787842}
   - component: {fileID: 8605397205045262773}
   - component: {fileID: 8605397205045262772}
+  - component: {fileID: 2741061506734680646}
   m_Layer: 0
   m_Name: plywood_broken7
   m_TagString: Pickup
@@ -843,3 +940,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4212139296153346745, guid: 4f59f3515cf28d244b41e8290cb8d769, type: 3}
+--- !u!114 &2741061506734680646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976748905479996826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1019889ab06a23419875bb220089ce2, type: 3}
   m_Name: 145X99MM
   m_EditorClassIdentifier: 
-  bullet_damage: 120
-  bullet_velocity: 300
+  bullet_damage: 200
+  bullet_velocity: 150
   bullet_drop: 0
   bullet_shape: {fileID: 0}

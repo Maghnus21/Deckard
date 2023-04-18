@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -8441675338166409507}
   - component: {fileID: 8592034636065273370}
   - component: {fileID: -4662318493296748214}
+  - component: {fileID: 3381791898781013790}
   m_Layer: 0
   m_Name: plywood_8x4
   m_TagString: Untagged
@@ -162,3 +163,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 8592034636065273370}
   destructable_object: {fileID: 8912037605279366683, guid: 5aada1432992ec54788af67b4eac8d7b, type: 3}
+--- !u!114 &3381791898781013790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493189046181252149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 30
+  final_vel: 0
+  health: {fileID: 0}

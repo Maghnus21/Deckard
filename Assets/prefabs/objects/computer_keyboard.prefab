@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8409604473262894089}
   - component: {fileID: -6273691010982961796}
   - component: {fileID: -901852560635433734}
+  - component: {fileID: 9026015246863620100}
   m_Layer: 0
   m_Name: computer_keyboard
   m_TagString: Pickup
@@ -162,3 +163,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: -6273691010982961796}
   destructable_object: {fileID: 3255799152896285784, guid: 7cc7c6a2624a2524cb06225fd056f25e, type: 3}
+--- !u!114 &9026015246863620100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607184859188768371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 10
+  final_vel: 0
+  health: {fileID: 0}
