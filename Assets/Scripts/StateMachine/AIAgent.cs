@@ -26,6 +26,8 @@ public class AIAgent : MonoBehaviour
     public AIWeaponIK ai_weapon_ik;
     public AudioSource npc_audio_source;
     public AudioClip npc_aggression_audio;
+    public EnemyLOS npc_los;
+    public NPCBoxTrigger npc_box_trigger;
 
     GameObject cloned_npc_gun;
 
@@ -44,6 +46,8 @@ public class AIAgent : MonoBehaviour
         ai_weapon = GetComponent<AIWeapon>();
         mesh_sockets = GetComponent<MeshSockets>();
         ai_weapon_ik = GetComponent<AIWeaponIK>();
+        npc_los = GetComponent<EnemyLOS>();
+        npc_box_trigger = GetComponentInChildren<NPCBoxTrigger>();
         //weaponIK = GetComponent<AIWeaponIK>();
         //head_tracking = GetComponent<AIHeadBone>();
         //mesh_socket = GetComponentInChildren<MeshSocket>();

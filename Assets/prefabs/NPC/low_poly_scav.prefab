@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5578674758691714447}
   m_Layer: 0
   m_Name: pelvis_master_CO
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3274894092263205799}
   m_Layer: 0
   m_Name: arm_upper_l
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7511966261341185728}
   m_Layer: 0
   m_Name: leg_upper.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 1370697014055674169}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,6 +291,119 @@ Transform:
   m_Father: {fileID: 8049450955371049383}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &826908310407303805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2401158515999985394}
+  - component: {fileID: 1048247097909281336}
+  - component: {fileID: 3987646702207487306}
+  - component: {fileID: 4057424206304325282}
+  - component: {fileID: 6260171285107042317}
+  m_Layer: 2
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2401158515999985394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826908310407303805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.87921286, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8049450955371049383}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1048247097909281336
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826908310407303805}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3987646702207487306
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826908310407303805}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4057424206304325282
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826908310407303805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 3, z: 40}
+  m_Center: {x: 0, y: 0, z: 19}
+--- !u!114 &6260171285107042317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826908310407303805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9423f6bd3125241932843883cd4672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  can_fire: 0
+  weapon: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!1 &1079715850246510793
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +415,7 @@ GameObject:
   - component: {fileID: 6401368976869849263}
   m_Layer: 0
   m_Name: spine3
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,7 +450,7 @@ GameObject:
   - component: {fileID: 1946843672549373193}
   m_Layer: 0
   m_Name: arm_upper_r
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,7 +564,7 @@ GameObject:
   - component: {fileID: 6616287893369667699}
   m_Layer: 0
   m_Name: palm_thumb.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,7 +597,7 @@ GameObject:
   - component: {fileID: 3081624025024270339}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,7 +714,7 @@ GameObject:
   - component: {fileID: 7511966260898420549}
   m_Layer: 0
   m_Name: arm_lower.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +826,7 @@ GameObject:
   - component: {fileID: 7511966261793366106}
   m_Layer: 0
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -834,7 +947,7 @@ GameObject:
   - component: {fileID: 2794476886444457050}
   m_Layer: 0
   m_Name: leg_upper_r
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,7 +1061,7 @@ GameObject:
   - component: {fileID: 4768726604888820544}
   m_Layer: 0
   m_Name: fingers.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,7 +1095,7 @@ GameObject:
   - component: {fileID: 7511966261757641570}
   m_Layer: 0
   m_Name: arm_lower.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,7 +1204,7 @@ GameObject:
   - component: {fileID: 717576046967780598}
   m_Layer: 0
   m_Name: chest
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1208,7 +1321,7 @@ GameObject:
   - component: {fileID: 7511966260632775811}
   m_Layer: 0
   m_Name: leg_lower.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1316,7 +1429,7 @@ GameObject:
   - component: {fileID: 1863353381010194069}
   m_Layer: 0
   m_Name: fingers.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1348,7 +1461,7 @@ GameObject:
   - component: {fileID: 6959651266134511850}
   m_Layer: 0
   m_Name: foot_r
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1464,7 +1577,7 @@ GameObject:
   - component: {fileID: 7511966261677917032}
   m_Layer: 0
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,7 +1640,7 @@ GameObject:
   - component: {fileID: 3116515845407959483}
   m_Layer: 0
   m_Name: shoulder.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1562,7 +1675,7 @@ GameObject:
   - component: {fileID: 7511966262152492366}
   m_Layer: 0
   m_Name: leg_lower.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1671,7 +1784,7 @@ GameObject:
   - component: {fileID: 6999549639819700853}
   m_Layer: 0
   m_Name: hip
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1785,7 +1898,7 @@ GameObject:
   - component: {fileID: 1042104924583355053}
   m_Layer: 0
   m_Name: toes.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1817,7 +1930,7 @@ GameObject:
   - component: {fileID: 2173716885729380123}
   m_Layer: 0
   m_Name: leg_lower_r
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,7 +2047,7 @@ GameObject:
   - component: {fileID: 7511966261421820658}
   m_Layer: 0
   m_Name: spine2
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2041,7 +2154,7 @@ GameObject:
   - component: {fileID: 2086630979307162678}
   m_Layer: 0
   m_Name: heel.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2076,7 +2189,7 @@ GameObject:
   - component: {fileID: 7511966260487616103}
   m_Layer: 0
   m_Name: arm_upper.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2185,7 +2298,7 @@ GameObject:
   - component: {fileID: 1558980844322491067}
   m_Layer: 0
   m_Name: leg_lower_l
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2299,7 +2412,7 @@ GameObject:
   - component: {fileID: 1896162275540118411}
   m_Layer: 0
   m_Name: toes.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2331,7 +2444,7 @@ GameObject:
   - component: {fileID: 2615496313570130207}
   m_Layer: 0
   m_Name: leg_upper_l
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2445,7 +2558,7 @@ GameObject:
   - component: {fileID: 3098351055136632502}
   m_Layer: 0
   m_Name: spine1
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2477,7 +2590,7 @@ GameObject:
   - component: {fileID: 6675194775283089406}
   m_Layer: 0
   m_Name: pelvis_rotation_CO
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2508,7 +2621,7 @@ GameObject:
   - component: {fileID: 7942147807702705344}
   m_Layer: 0
   m_Name: thumb.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2540,7 +2653,7 @@ GameObject:
   - component: {fileID: 9043411007859319312}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2655,7 +2768,7 @@ GameObject:
   - component: {fileID: 3130631330568503012}
   m_Layer: 0
   m_Name: hand_r
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2769,7 +2882,7 @@ GameObject:
   - component: {fileID: 3592082272473450999}
   m_Layer: 0
   m_Name: palm_fingers.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2802,7 +2915,7 @@ GameObject:
   - component: {fileID: 4087445509431646677}
   m_Layer: 0
   m_Name: neck
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2835,7 +2948,7 @@ GameObject:
   - component: {fileID: 8898266203595115087}
   m_Layer: 0
   m_Name: arm_lower_l
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2952,7 +3065,7 @@ GameObject:
   - component: {fileID: 7511966262114972644}
   m_Layer: 0
   m_Name: leg_upper.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3063,7 +3176,7 @@ GameObject:
   - component: {fileID: 7511966260951412133}
   m_Layer: 0
   m_Name: arm_upper.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3179,9 +3292,10 @@ GameObject:
   - component: {fileID: 7511966260631940695}
   - component: {fileID: 7511966260631940688}
   - component: {fileID: 7511966260631940689}
+  - component: {fileID: 6306862335234658266}
   m_Layer: 0
   m_Name: low_poly_scav
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3193,8 +3307,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7277452313858517789}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 245.624, y: 44.577034, z: -333.75}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3218,7 +3332,7 @@ Transform:
   - {fileID: 478050953953779636}
   - {fileID: 7511966262368501068}
   - {fileID: 7511966262409108617}
-  - {fileID: 7406006187862645451}
+  - {fileID: 2401158515999985394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3280,7 +3394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_gun: {fileID: 0}
-  equipted_gun: {fileID: 7406006187862645448}
+  equipted_gun: {fileID: 0}
   character_socket: {fileID: 0}
   weapon_drop: {fileID: 0}
   w_button: {fileID: 0}
@@ -3364,6 +3478,8 @@ MonoBehaviour:
   ai_weapon_ik: {fileID: 0}
   npc_audio_source: {fileID: 7511966262368501069}
   npc_aggression_audio: {fileID: 8300000, guid: 81bc5259d638b19428cb5420483504a5, type: 3}
+  npc_los: {fileID: 0}
+  npc_box_trigger: {fileID: 0}
   aggression_level: 0
   is_aggressive: 0
   agents: []
@@ -3413,6 +3529,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6306862335234658266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277452313858517789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b929ff3f1501b941bfa70c3b7af5ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polling_time: 0.75
+  npc_eyes: {fileID: 392547970511745828}
+  has_los: 0
 --- !u!1 &7511966260951259077
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3555,7 @@ GameObject:
   - component: {fileID: 7511966260951259078}
   m_Layer: 0
   m_Name: offset
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3455,7 +3586,7 @@ GameObject:
   - component: {fileID: 7511966261211996010}
   m_Layer: 0
   m_Name: offset
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3487,7 +3618,7 @@ GameObject:
   - component: {fileID: 7511966261342621072}
   m_Layer: 0
   m_Name: spineSocket
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3537,7 +3668,7 @@ GameObject:
   - component: {fileID: 7511966262368501069}
   m_Layer: 0
   m_Name: audio_point
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3665,7 +3796,7 @@ GameObject:
   - component: {fileID: 7511966262399064251}
   m_Layer: 0
   m_Name: rightHandSocket
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3714,7 +3845,7 @@ GameObject:
   - component: {fileID: 7511966262409108617}
   m_Layer: 0
   m_Name: meshSockets
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3747,7 +3878,7 @@ GameObject:
   - component: {fileID: 4969396679459159783}
   m_Layer: 0
   m_Name: shoulder.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3780,7 +3911,7 @@ GameObject:
   - component: {fileID: 7207463790732641820}
   m_Layer: 0
   m_Name: foot_l
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3894,7 +4025,7 @@ GameObject:
   - component: {fileID: 3784816571276761578}
   m_Layer: 0
   m_Name: palm_thumb.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3926,7 +4057,7 @@ GameObject:
   - component: {fileID: 2782592935699164121}
   m_Layer: 0
   m_Name: thumb.L
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3957,7 +4088,7 @@ GameObject:
   - component: {fileID: 1042100195232349839}
   m_Layer: 0
   m_Name: heel.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3990,7 +4121,7 @@ GameObject:
   - component: {fileID: 6519031118999127327}
   m_Layer: 0
   m_Name: hand_l
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4104,7 +4235,7 @@ GameObject:
   - component: {fileID: 6212726004868499426}
   m_Layer: 0
   m_Name: palm_fingers.R
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4138,7 +4269,7 @@ GameObject:
   - component: {fileID: 6155593241734440291}
   m_Layer: 0
   m_Name: arm_lower_r
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4252,6 +4383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HitEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 7968935872940071006, guid: 8408aa238e69e2d4e8d1e5694928e96f, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 7970735053387952754, guid: 8408aa238e69e2d4e8d1e5694928e96f, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -4307,71 +4442,4 @@ ParticleSystem:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7970735053387952754, guid: 8408aa238e69e2d4e8d1e5694928e96f, type: 3}
   m_PrefabInstance: {fileID: 7511966260620619206}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &7511966262031978909
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8049450955371049383}
-    m_Modifications:
-    - target: {fileID: 1078813186004044629, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_Name
-      value: SPAS_12_SHOTGUN
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_RootOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
---- !u!1 &7406006187862645448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1078813186004044629, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-  m_PrefabInstance: {fileID: 7511966262031978909}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7406006187862645451 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1078813186004044630, guid: 42660e718cd6a1f43a8a1a0cc42a0920, type: 3}
-  m_PrefabInstance: {fileID: 7511966262031978909}
   m_PrefabAsset: {fileID: 0}

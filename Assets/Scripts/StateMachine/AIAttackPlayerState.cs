@@ -27,7 +27,8 @@ public class AIAttackPlayerState : AIState
 
         agent.navMeshAgent.stoppingDistance = 5f;
 
-        agent.ai_weapon.SetFiring(true);
+        if(!agent.GetComponentInChildren<NPCBoxTrigger>())
+            agent.ai_weapon.SetFiring(true);
 
         if(agent.agents.Count > 0)
         {
@@ -48,7 +49,7 @@ public class AIAttackPlayerState : AIState
 
     public void Update(AIAgent agent)
     {
-        if((time += Time.deltaTime) >= player_poling)
+        if ((time += Time.deltaTime) >= player_poling)
             agent.navMeshAgent.destination = agent.player_transform.position;
 
         float distance = (agent.player_transform.position - agent.transform.position).magnitude;
