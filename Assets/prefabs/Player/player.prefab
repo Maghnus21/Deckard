@@ -748,7 +748,7 @@ MonoBehaviour:
   active_player_weapon: {fileID: 0}
   active_player_weapon_recoil: {fileID: 0}
   delay_time: 4
-  throw_force: 3
+  throw_force: 9
   can_ads: 1
 --- !u!1 &8095173688241620763
 GameObject:
