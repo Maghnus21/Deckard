@@ -67,22 +67,28 @@ public class playerPickup : MonoBehaviour
     void PickUpObject()
     {
         //  bitshifting playermask lets raycast pass through player collider and pick up objects within clamp range
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, range, 1 << playerMask) && hit.collider.CompareTag("Pickup") || hit.collider.CompareTag("EntityDead"))
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+
+        if (Physics.Raycast(ray, out hit, range, 1 << playerMask))
         {
-            if (hit.collider.GetComponent<Rigidbody>().isKinematic == false)
+            if (hit.collider.CompareTag("Pickup") || hit.collider.CompareTag("EntityDead"))
             {
-                hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+                if (hit.collider.GetComponent<Rigidbody>().isKinematic == false)
+                {
+                    hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+                }
+
+                holding_obj = true;
+
+
+                hit.collider.transform.parent = transform;
+                hit.collider.transform.localPosition = Vector3.zero;
+                hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+
+                thrownObject = hit.collider.gameObject;
             }
-
-            holding_obj = true;
-
-
-            hit.collider.transform.parent = transform;
-            hit.collider.transform.localPosition = Vector3.zero;
-            hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-
-            thrownObject = hit.collider.gameObject;
+            else { print("CAN PICKUP  OBJ"); }
         }
-        else { }
+        
     }
 }
