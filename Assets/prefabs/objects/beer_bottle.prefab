@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7767953961428957397}
   - component: {fileID: 8737536210057622264}
   - component: {fileID: 3246476251791608706}
+  - component: {fileID: 6475758435023087986}
   m_Layer: 0
   m_Name: beer_bottle
   m_TagString: Pickup
@@ -115,3 +116,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6475758435023087986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128342604738730240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92e8575a8059dd49b3c0be09b0d1a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fall_damage_treshold: 1
+  final_vel: 0
+  health: {fileID: 0}
