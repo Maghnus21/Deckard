@@ -78,9 +78,9 @@ public class DialogueManager : MonoBehaviour
             
                 
 
-            if(Physics.Raycast(ray, out hit))
+            if(Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<VKButtons>())
+                if (Physics.Raycast(ray, out hit) && hit.collider.GetComponent<VKButtons>())
                 {
                     int branch_choice = hit.collider.GetComponent<VKButtons>().interrogation_branch_choice;
                     int response_choice = hit.collider.GetComponent<VKButtons>().interrogation_response_choice;
@@ -336,10 +336,13 @@ public class DialogueManager : MonoBehaviour
         ConfigureInterrogationButton(button2);
         ConfigureInterrogationButton(button3);
         */
-
-        button1.GetComponentInChildren<TextMeshProUGUI>().text = "Green button: Relaxed response";
-        button2.GetComponentInChildren<TextMeshProUGUI>().text = "Yellow button: neutral response";
-        button3.GetComponentInChildren<TextMeshProUGUI>().text = "Red button: aggressive response";
+        response_choice = 0;
+        ConfigureInterrogationButton(button1);
+        ConfigureInterrogationButton(button2);
+        ConfigureInterrogationButton(button3);
+        //button1.GetComponentInChildren<TextMeshProUGUI>().text = interrogation_dialogue_tree.branches[0].sections[0].responses[0].response_dialogue;
+        //button2.GetComponentInChildren<TextMeshProUGUI>().text = interrogation_dialogue_tree.branches[0].sections[0].responses[1].response_dialogue;
+        //button3.GetComponentInChildren<TextMeshProUGUI>().text = interrogation_dialogue_tree.branches[0].sections[0].responses[2].response_dialogue;
 
         response_choice = 0;
 

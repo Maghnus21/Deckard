@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adeb999b0c934bc47a8aff7ac44713e9, type: 3}
+  m_Name: Suspect1_real
+  m_EditorClassIdentifier: 
+  branches:
+  - branch_name: 
+    branch_id: 0
+    sections:
+    - dialogue: ...
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 1
+        response_dialogue: Do you dream?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 2
+        response_dialogue: You ever had repeated or similar dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 3
+        response_dialogue: You have frequently drempt of a cottege, haven't you.
+  - branch_name: 
+    branch_id: 1
+    sections:
+    - dialogue: who doesn't
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 4
+        response_dialogue: are there others in those dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 5
+        response_dialogue: do you see family member in your dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 6
+        response_dialogue: how lonely are the dreamscapes?
+  - branch_name: 
+    branch_id: 2
+    sections:
+    - dialogue: of a small building, yah
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 4
+        response_dialogue: are there others in those dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 5
+        response_dialogue: do you see family member in your dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 6
+        response_dialogue: how lonely are the dreamscapes?
+  - branch_name: 
+    branch_id: 3
+    sections:
+    - dialogue: often. please stop bothering me
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 4
+        response_dialogue: are there others in those dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 5
+        response_dialogue: do you see family member in your dreams?
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 6
+        response_dialogue: how lonely are the dreamscapes?
+  - branch_name: 
+    branch_id: 4
+    sections:
+    - dialogue: sometimes...
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 7
+        response_dialogue: are these people ever in distress
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 8
+        response_dialogue: does blood stain their clothes
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 9
+        response_dialogue: you're hands are bloody in those dreams, aren't they
+  - branch_name: 
+    branch_id: 5
+    sections:
+    - dialogue: no, but i see other people
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 7
+        response_dialogue: are these people ever in distress
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 8
+        response_dialogue: does blood stain their clothes
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 9
+        response_dialogue: you're hands are bloody in those dreams, aren't they
+  - branch_name: 
+    branch_id: 6
+    sections:
+    - dialogue: very. now please stop reminding me
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 7
+        response_dialogue: are these people ever in distress
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 8
+        response_dialogue: does blood stain their clothes
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 9
+        response_dialogue: you're hands are bloody in those dreams, aren't they
+  - branch_name: 
+    branch_id: 7
+    sections:
+    - dialogue: when they hit their toe, yes
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 0
+        response_dialogue: thanks for your time [EXIT]
+  - branch_name: 
+    branch_id: 8
+    sections:
+    - dialogue: yes, blood from cuts and meat.
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 0
+        response_dialogue: ok, thanks for your time [EXIT]
+  - branch_name: 
+    branch_id: 9
+    sections:
+    - dialogue: more often then i'd lke. now,  beat it.
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        next_branch_id: 0
+        response_dialogue: i will, thank you for your time [EXIT]
