@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adeb999b0c934bc47a8aff7ac44713e9, type: 3}
-  m_Name: Suspect1_real
+  m_Name: Suspect1_fake
   m_EditorClassIdentifier: 
   branches:
   - branch_name: 
