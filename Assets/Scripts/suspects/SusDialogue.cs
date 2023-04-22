@@ -86,7 +86,7 @@ public class SusDialogue : MonoBehaviour
 
     public void TriggerDialogue(int i)
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, i);
+        FindObjectOfType<oldDialogueManager>().StartDialogue(dialogue, i);
     }
 
     public void endInterrogation()

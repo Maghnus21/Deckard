@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
+  drop_items: {fileID: 0}
   impact_force: 20
   health: 0
   death_force_mode: 1

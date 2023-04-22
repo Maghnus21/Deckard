@@ -1,170 +1,404 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-
-/// <summary>
-/// 
-/// This code contains code to use a queue-based dialogue system as to save time in future. Array based code will be seperated into seperate functions to allow NPCs with
-/// small amounts of dialogue, eg 1 line, to display dialogue on the screen, without the need to define the array size constantly
-/// 
-/// </summary>
-
 
 public class DialogueManager : MonoBehaviour
 {
-    //  dialogue sentences stored in queue to be displayed on ui
-    public Queue<string> sentences;
 
-    //  dialogue sentences stored in string array to be displayed on ui
-    public string[] array = new string[9];
-
-    //  reference to ui element
-    public TextMeshProUGUI text;
-    Image dialogue_box;
+    public GameObject talking_npc;
+    public DialogueTreeScriptableObject dialogue_tree;
+    public InterrogationDialogueTreeScriptableObject interrogation_dialogue_tree;
+    public GameObject kit;
 
 
+    public GameObject dialogue_box;
+    public TextMeshProUGUI dialogue_text;
+    public GameObject button1 = null, button2 = null, button3 = null;       //  pressable buttons for dialogue
+    public GameObject vk_button1 = null, vk_button2 = null, vk_button3 = null;      //  interrogation button buttons
 
-    void Awake()
+    public GameObject player;
+    public player_look p_l;
+
+    DialogueBranch dialogue_branch;
+
+    int branch_choice = 0;
+    int response_choice = 0;
+
+    int original_mouse_sensativity;
+
+    bool in_convo = false;
+    bool in_interrogation = false;
+
+    RaycastHit hit;
+    Ray ray;
+
+    Camera cam;
+
+    public GameObject debug_cube;
+
+    private void Awake()
     {
-        dialogue_box = text.GetComponentInParent<Image>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        p_l = player.GetComponentInChildren<player_look>();
 
-        dialogue_box.enabled = false;
-        text.enabled = false;
+        original_mouse_sensativity = p_l.mouse_sen;
+
+        kit.SetActive(false);
+
+        HideDialogue();
     }
-
 
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();   
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (in_convo)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                HideDialogue();
+                in_convo = !in_convo;
+            }
+        }
+
+        if (in_interrogation)
+        {
+            cam = kit.GetComponentInChildren<Camera>();
+
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+
+           
+            
+                
+
+            if(Physics.Raycast(ray, out hit))
+            {
+                if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<VKButtons>())
+                {
+                    int branch_choice = hit.collider.GetComponent<VKButtons>().interrogation_branch_choice;
+                    int response_choice = hit.collider.GetComponent<VKButtons>().interrogation_response_choice;
+
+                    talking_npc.GetComponent<AIAgent>().aggression_level += hit.collider.GetComponent<VKButtons>().add_aggression;
+
+
+                    if(talking_npc.GetComponent<AIAgent>().aggression_level >= 9)
+                    {
+                        talking_npc.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+                    }
+
+
+                    UpdateInterrogationConvo(branch_choice, response_choice);
+
+                    print("HIT " + hit.collider.name);
+                    //Instantiate(debug_cube, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.Euler(Vector3.zero));
+
+                    print(hit.collider.GetComponent<VKButtons>().interrogation_branch_choice);
+
+                }
+            }
+            
+        }
     }
 
-    //  dialogue from susDialogue script
-    /// <summary>
-    /// ARRAY BASED DIALOGUE ONLY. sends data to DisplayNextSentence method to show dialogue on screen
-    /// </summary>
-    /// <param name="dialogue"></param>
-    /// <param name="i"></param>
-    public void StartDialogue(Dialogue dialogue, int i)
+    public void ShowDialogue()
     {
-        CancelInvoke();
+        in_convo = !in_convo;
 
-        Debug.Log("Starting dialogue w/ " + dialogue.suspectInfo.name);
+        ParseDialogueInfo();
+        ParseinterrogationDialogueInfo();
 
-        //  clearing sentences queue of any data
-        sentences.Clear();
-        
-        
-        //  enqueues each sentence in the dialogue.sentences into an array
-        foreach(string sentence in dialogue.suspectInfo.active_script.dialogue)
-        {
-            sentences.Enqueue(sentence);
-        }
-        
+        p_l.mouse_sen = 0;
 
-        //  receives string data from DialogueScriptableObject dialogue array stored in Dialogue and stores them in array array
-        foreach(string k in array)
-        {
-            array = dialogue.suspectInfo.active_script.dialogue;
-        }
+        dialogue_box.SetActive(true);
 
-        Debug.Log(i);   //  DEBUG USE
-        DisplayNextSentence(i);
-    }
-
-    public void StartDialogueQueue(Dialogue dialogue)
-    {
-        CancelInvoke();
-
-        //Debug.Log("Starting queue dialogue w/ " + dialogue.suspectInfo.name);
-
-        //  clearing sentences queue of any data
-        sentences.Clear();
-
-
-        //  enqueues each sentence in the dialogue.sentences into an array
-        foreach (string sentence in dialogue.dialogue.dialogue)
-        {
-            sentences.Enqueue(sentence);
-        }
-
-        //Debug.Log(i);   //  DEBUG USE
-        DisplayNextSentence();
-    }
-
-    /// <summary>
-    /// displays dialogue on screen from queue
-    /// </summary>
-    public void DisplayNextSentence()
-    {
-        if(sentences.Count == 0)
-        {
-            EndDialogue();
-            Invoke("CloseDialogueBox", 5f);
-        }
-
-        dialogue_box.enabled = true;
-        text.enabled = true;
-
-        string sentence = sentences.Dequeue();
-        Debug.Log("ANSWER FROM QUEUE: " + sentence);
-        text.text = sentence;
-
-        //  string stored in array is now displayed on the text element
-        /*
-        Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
-        text.text = array[i];
-        */
-
-        //  closes dialogue box after 5 seconds as long as no new input is displayed
-        Invoke("CloseDialogueBox", 5f);
+        DisplayConvo();
     }
 
     /// <summary>
-    /// displays dialogue on screen from array
+    /// Hides the dialogue box, resets the mouse sensitivity and clears the talking_npc, dialogue_tree and interrogation_dialogue_tree fields
     /// </summary>
-    /// <param name="i"></param>
-    public void DisplayNextSentence(int i)
+    public void HideDialogue()
     {
-        dialogue_box.enabled = true;
-        text.enabled = true;
+        p_l.mouse_sen = original_mouse_sensativity;
 
-        // if there are no sentences in sentences, exits out of loop and
-        if (sentences.Count == 0)
+        //  clearing fields for next npc player will talk to
+        talking_npc = null;
+        dialogue_tree = null;
+        interrogation_dialogue_tree = null;
+
+        branch_choice = 0;
+        response_choice = 0;
+
+        //in_convo = false;
+
+
+        dialogue_box.SetActive(false);
+        kit.GetComponent<VKKit>().kit_cam.enabled = false;
+    }
+
+    /// <summary>
+    /// Parses DialogueTree data to the dialogue_tree field if DialogueTree scriptable object is attached to talking_npc AIAgent component
+    /// </summary>
+    void ParseDialogueInfo()
+    {
+        //  if dialogueTree is attached to npc, link it to dialogue_tree
+        if (!talking_npc.GetComponent<AIAgent>().dialogue_tree)
         {
-            EndDialogue();
+            print("no DialogueTree component attached to entity " + talking_npc.name);
             return;
         }
+        else
+        {
+            dialogue_tree = talking_npc.GetComponent<AIAgent>().dialogue_tree;
+        }
+    }
 
-        string sentence = sentences.Dequeue();
-        Debug.Log("ANSWER FROM QUEUE: " + sentence);
-        //text.text = sentence;
-
-        //  string stored in array is now displayed on the text element
-        Debug.Log("ANSWER FROM STRING ARRAY: " + array[i]);
-        text.text = array[i];
-
-        //  closes dialogue box after 5 seconds as long as no new input is displayed
-        Invoke("CloseDialogueBox", 5f);
+    /// <summary>
+    /// Parses InterrogationDialogueTree data to the interrogation_dialogue_tree field if InterrogationDialogueTree component is atttached to talking_npc
+    /// </summary>
+    void ParseinterrogationDialogueInfo()
+    {
+        //  if interrogationDialoguetree exists on npc, link to interrogation_dialogue_tree
+        if (!talking_npc.GetComponent<AIAgent>().interrogation_dialogue_tree)
+        {
+            print("no InterrogationDialogueTree component attached to entity " + talking_npc.name);
+            return;
+        }
+        else
+        {
+            interrogation_dialogue_tree = talking_npc.GetComponent<AIAgent>().interrogation_dialogue_tree;
+        }
     }
 
 
-    void EndDialogue()
+    public void DisplayConvo()
     {
-        Debug.Log("ENDED CONVERSATION");
+        //  displays dialogue text in textbox
+        
+        foreach(DialogueBranch dialogueBranch in dialogue_tree.branches)
+        {
+            if (dialogueBranch.branch_id == branch_choice)
+            { 
+                dialogue_branch = dialogueBranch;
+                dialogue_text.text = dialogueBranch.sections[0].dialogue;
+            }
+            else { }
+
+            
+        }
+        
+        //dialogue_text.text = dialogue_tree.branches[branch_choice].sections[0].dialogue;
+
+        DisplayResponses();
     }
 
-    void CloseDialogueBox()
+    /// <summary>
+    /// Reads number of dialogue responses and sets appropriate buttons as active 
+    /// </summary>
+    void DisplayResponses()
     {
-        dialogue_box.enabled = false;
-        text.enabled = false;
+        //  checks number of responses, turns off buttons depending on size of dialogue responses
+        int responses_count = dialogue_branch.sections[0].responses.GetLength(0);
+
+        //  scitch case to vary amout of buttons displayed on display, along with configuring them for interaction
+        switch (responses_count)
+        {
+            case 1:     
+                //  only sets button1 as active. rest are set is inactive
+                button1.SetActive(true);
+                button2.SetActive(false);
+                button3.SetActive(false);
+
+                //  configures button1 to display dialogue responses
+                ConfigureButton(button1);
+                break;
+
+            case 2:     
+                //  only sets button1 and button2 as active. button3 is set as inactive
+                button1.SetActive(true);
+                button2.SetActive(true);
+                button3.SetActive(false);
+
+                //  configures button1 and button2 to display dialogue responses
+                ConfigureButton(button1);
+                ConfigureButton(button2);
+                break;
+
+            case 3:
+                //  sets all buttons as active
+                button1.SetActive(true);
+                button2.SetActive(true);
+                button3.SetActive(true);
+
+                //  configures all buttons to display appropriate dialogue responses 
+                ConfigureButton(button1);
+                ConfigureButton(button2);
+                ConfigureButton(button3);
+                break;
+
+            default:
+                break;
+
+        }
+
+        //  resets response_choice for next node of responses
+        response_choice = 0;
+    }
+
+    /// <summary>
+    /// Configures parsed button gameobject with a TextMeshProUGUI component with appropriate dialogue responses
+    /// </summary>
+    /// <param name="button">button gameobject to be configured</param>
+    void ConfigureButton(GameObject button)
+    {
+        
+        //  button text is parsed the response dialogue
+        button.GetComponentInChildren<TextMeshProUGUI>().text = dialogue_branch.sections[0].responses[response_choice].response_dialogue;
+
+        if (!button.GetComponent<DialogueBranchButton>())
+        {
+            return;
+        }
+        else
+        {
+            button.GetComponent<DialogueBranchButton>().choice = response_choice;
+            button.GetComponent<DialogueBranchButton>().branch_choice = dialogue_branch.sections[0].responses[response_choice++].next_branch_id;      //  increments response_choice for next button
+        }
+    }
+
+    /// <summary>
+    /// Updates the dialogue shown on screen
+    /// </summary>
+    /// <param name="branch_choice">Integer assigned to button parse from dialogue_tree's next_branch_id parameter</param>
+    /// <param name="response_choice">Integer parsed from button script to chose respose to dialogue, 3 buttons = integer values of 0 -> 2</param>
+    public void UpdateConvo(int branch_choice, int response_choice)
+    {
+        if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
+        {
+            print("exited conversation");
+            HideDialogue();
+            in_convo = false;
+        } else if (dialogue_branch.sections[0].responses[response_choice].initialize_interrogation)
+        {
+            print("begun interrogation");
+            //HideDialogue();
+            kit.SetActive(true);
+            kit.GetComponent<VKKit>().kit_cam.enabled = true;
+            in_convo = true;
+            DisplayInterrogation();
+        }
+        else if (dialogue_branch.sections[0].responses[response_choice].turn_hostile)
+        {
+            talking_npc.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+            HideDialogue();
+            in_convo = false;
+        }
+        else
+        {
+            this.branch_choice = branch_choice;
+            DisplayConvo();
+            print("continued conversation");
+        }
+    }
+
+
+    //  Interrogation functions
+
+    public void DisplayInterrogation()
+    {
+        in_interrogation = true;
+
+        //ShowDialogue();
+
+        dialogue_text.text = interrogation_dialogue_tree.branches[branch_choice].sections[0].dialogue;
+
+        
+
+        DisplayInterrogationResponses();
+    }
+
+    void DisplayInterrogationResponses()
+    {
+        button1.SetActive(true);
+        button2.SetActive(true);
+        button3.SetActive(true);
+        //response_choice = 0;
+
+        /*
+        ConfigureInterrogationButton(button1);
+        ConfigureInterrogationButton(button2);
+        ConfigureInterrogationButton(button3);
+        */
+
+        button1.GetComponentInChildren<TextMeshProUGUI>().text = "Green button: Relaxed response";
+        button2.GetComponentInChildren<TextMeshProUGUI>().text = "Yellow button: neutral response";
+        button3.GetComponentInChildren<TextMeshProUGUI>().text = "Red button: aggressive response";
+
+        response_choice = 0;
+
+        vk_button1 = kit.GetComponent<VKKit>().vk_button1;
+        vk_button2 = kit.GetComponent<VKKit>().vk_button2;
+        vk_button3 = kit.GetComponent<VKKit>().vk_button3;
+
+        ConfigureVKButton(vk_button1);
+        ConfigureVKButton(vk_button2);
+        ConfigureVKButton(vk_button3);
+
+    }
+
+    void ConfigureVKButton(GameObject vk_button)
+    {
+        vk_button.GetComponent<VKButtons>().interrogation_response_choice = response_choice;
+        vk_button.GetComponent<VKButtons>().interrogation_branch_choice = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses[response_choice++].next_branch_id;
+
+    }
+
+    void ConfigureInterrogationButton(GameObject button)
+    {
+        button.GetComponentInChildren<TextMeshProUGUI>().text = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses[response_choice].response_dialogue;
+
+        if (!button.GetComponent<DialogueBranchButton>())
+        {
+            return;
+        }
+        else
+        {
+            button.GetComponent<DialogueBranchButton>().choice = response_choice;
+            button.GetComponent<DialogueBranchButton>().branch_choice = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses[response_choice++].next_branch_id;      //  increments response_choice for next button
+        }
+    }
+
+    void UpdateInterrogationConvo(int branch_choice, int choice)
+    {
+
+        if (interrogation_dialogue_tree.branches[this.branch_choice].sections[0].responses[choice].end_on_response)
+        {
+            print("exited conversation");
+            HideDialogue();
+            in_convo = false;
+        }
+        else
+        {
+
+
+            this.branch_choice = branch_choice;
+            DisplayInterrogationConvo();
+        }
+
+            
+    }
+
+    void DisplayInterrogationConvo()
+    {
+        dialogue_text.text = interrogation_dialogue_tree.branches[branch_choice].sections[0].dialogue;
+
+        DisplayInterrogationResponses();
     }
 }

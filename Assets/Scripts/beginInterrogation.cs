@@ -25,11 +25,11 @@ public class beginInterrogation : MonoBehaviour
         if(Physics.Raycast(ray, out hit, 3))
         {
 
-            if(Input.GetKeyDown(KeyCode.F) && hit.collider.gameObject.GetComponentInParent<InterrogationDialogueTree>())
+            if(Input.GetKeyDown(KeyCode.F) && hit.collider.gameObject.GetComponentInParent<AIAgent>() && hit.collider.gameObject.GetComponentInParent<AIAgent>().interrogation_dialogue_tree != null)
             {
                 print("BEGUN INTERROGATION");
 
-                suspect = hit.collider.GetComponentInParent<InterrogationDialogueTree>().gameObject;
+                suspect = hit.collider.GetComponentInParent<AIAgent>().gameObject;
                 kit.GetComponent<VKKit>().suspect = suspect;
             }
         }

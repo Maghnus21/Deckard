@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueBranchButton : MonoBehaviour
 {
-    public branchDialogueManager branch_dialogue_manager;
+    public DialogueManager branch_dialogue_manager;
 
 
     public bool is_pressed = false;

@@ -19,7 +19,7 @@ public class AIAgent : MonoBehaviour
     public GameObject IK_gameobject_transform;
     public Item available_gun;
     public DialogueTreeScriptableObject dialogue_tree;
-    public InterrogationDialogueTree interrogation_dialogue_tree;
+    public InterrogationDialogueTreeScriptableObject interrogation_dialogue_tree;
     public Vector3 impact_direction;
     public Rigidbody hit_rb;
     public MeshSockets mesh_sockets;
@@ -59,14 +59,6 @@ public class AIAgent : MonoBehaviour
         {
             player_transform = GameObject.FindGameObjectWithTag("Player").transform;
         }
-
-        //  checks for any dialogue components attached to entity.
-        //  interrogationDialogueTree is used solely for suspects
-        if (GetComponent<InterrogationDialogueTree>())
-        {
-            interrogation_dialogue_tree = GetComponent<InterrogationDialogueTree>();
-        }
-
 
         stateMachine = new AIStateMachine(this);
 

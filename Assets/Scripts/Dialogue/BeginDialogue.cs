@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class BeginDialogue : MonoBehaviour
 {
     public GameObject npc_talking;
-    public branchDialogueManager branch_dialogue_manager;
+    public DialogueManager branch_dialogue_manager;
 
     Ray ray;
     RaycastHit hit;

@@ -30,6 +30,6 @@ public class QueueDialogue : MonoBehaviour
 
     public void TriggerQueueDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogueQueue(dialogue);
+        FindObjectOfType<oldDialogueManager>().StartDialogueQueue(dialogue);
     }
 }
