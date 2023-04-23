@@ -47,6 +47,6 @@ public class FallDamage : MonoBehaviour
 
     float CalculateFallDamage()
     {
-        return final_vel * .15f * GetComponent<Rigidbody>().mass;
+        return final_vel * .3f * GetComponent<Rigidbody>().mass;
     }
 }

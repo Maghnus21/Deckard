@@ -83,7 +83,7 @@ public class playerPickup : MonoBehaviour
 
                 hit.collider.transform.parent = transform;
                 hit.collider.transform.localPosition = Vector3.zero;
-                hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                //hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
                 thrownObject = hit.collider.gameObject;
             }

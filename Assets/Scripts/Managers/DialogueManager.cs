@@ -423,6 +423,7 @@ public class DialogueManager : MonoBehaviour
             else
                 StartCoroutine(DisplayConsoleText("suspect_type: [UNKNOWN]", 3f));
 
+            kit.SetActive(false);
             //  turns npc hostile if is aggressive is enabled
             if (talking_npc.GetComponent<AIAgent>().aggression_level >= interrogation_dialogue_tree.turn_hostile_level)
                 talking_npc.GetComponent<AIAgent>().is_aggressive = true;
