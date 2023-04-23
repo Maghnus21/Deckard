@@ -272,6 +272,15 @@ public class DialogueManager : MonoBehaviour
     /// <param name="response_choice">Integer parsed from button script to chose respose to dialogue, 3 buttons = integer values of 0 -> 2</param>
     public void UpdateConvo(int branch_choice, int response_choice)
     {
+        if (dialogue_branch.droppable_item != null)
+        {
+            GameObject dropped_item = Instantiate(dialogue_branch.droppable_item.item_prefab) as GameObject;
+            dropped_item.transform.position = player.transform.position;
+
+            StopAllCoroutines();
+            StartCoroutine(DisplayConsoleText("picked_up: [" + dialogue_branch.droppable_item.item_name + "]", 3f));
+        }
+
         if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
         {
             print("exited conversation");
@@ -292,8 +301,11 @@ public class DialogueManager : MonoBehaviour
             HideDialogue();
             in_convo = false;
         }
+        
         else
         {
+            
+
             this.branch_choice = branch_choice;
             DisplayConvo();
             print("continued conversation");
@@ -440,6 +452,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator DisplayConsoleText(string text, float time)
     {
+        
         console_text.enabled = true;
         console_text.text = text;
 

@@ -6,6 +6,8 @@ using UnityEngine;
 public class DialogueTreeScriptableObject : ScriptableObject
 {
     public DialogueBranch[] branches;
+
+    
 }
 
 [System.Serializable]
@@ -13,6 +15,8 @@ public class DialogueBranch
 {
     public string branch_name;
     public int branch_id;
+
+    public Item droppable_item;
 
     public DialogueSection[] sections;
 }
