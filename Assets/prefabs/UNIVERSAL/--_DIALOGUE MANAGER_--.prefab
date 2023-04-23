@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5151060416902798719}
+  - component: {fileID: 2986825470008536158}
   m_Layer: 0
   m_Name: --_DIALOGUE MANAGER_--
   m_TagString: Untagged
@@ -31,3 +32,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2986825470008536158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5151060416902798717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ec2bc37bac7b24993ba54cadde11b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  console_text: {fileID: 0}
+  talking_npc: {fileID: 0}
+  dialogue_tree: {fileID: 0}
+  interrogation_dialogue_tree: {fileID: 0}
+  kit: {fileID: 0}
+  dialogue_box: {fileID: 0}
+  dialogue_text: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  button3: {fileID: 0}
+  vk_button1: {fileID: 0}
+  vk_button2: {fileID: 0}
+  vk_button3: {fileID: 0}
+  player: {fileID: 0}
+  p_l: {fileID: 0}
+  debug_cube: {fileID: 4484868300359147474, guid: 79eacb08f8736f641a7d7200dd0bcdee, type: 3}

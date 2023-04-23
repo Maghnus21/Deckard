@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public TextMeshProUGUI console_text;
 
     public GameObject talking_npc;
     public DialogueTreeScriptableObject dialogue_tree;
@@ -84,15 +85,6 @@ public class DialogueManager : MonoBehaviour
                 {
                     int branch_choice = hit.collider.GetComponent<VKButtons>().interrogation_branch_choice;
                     int response_choice = hit.collider.GetComponent<VKButtons>().interrogation_response_choice;
-
-                    talking_npc.GetComponent<AIAgent>().aggression_level += hit.collider.GetComponent<VKButtons>().add_aggression;
-
-
-                    if(talking_npc.GetComponent<AIAgent>().aggression_level >= 9)
-                    {
-                        talking_npc.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
-                    }
-
 
                     UpdateInterrogationConvo(branch_choice, response_choice);
 
@@ -326,9 +318,28 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayInterrogationResponses()
     {
-        button1.SetActive(true);
-        button2.SetActive(true);
-        button3.SetActive(true);
+        int size = interrogation_dialogue_tree.branches[branch_choice].sections[0].responses.Length;
+
+        switch (size)
+        {
+            case 1:
+                button1.SetActive(true);
+                button2.SetActive(false);
+                button3.SetActive(false);
+                break;
+            case 3:
+                button1.SetActive(true);
+                button2.SetActive(true);
+                button3.SetActive(true);
+                break;
+            default:
+                button1.SetActive(true);
+                button2.SetActive(true);
+                button3.SetActive(true);
+                print("Response length of " + interrogation_dialogue_tree.name + "exceeds max limit of 3. setting to default 3 responses");
+                break;
+        }
+        
         //response_choice = 0;
 
         /*
@@ -384,13 +395,35 @@ public class DialogueManager : MonoBehaviour
         if (interrogation_dialogue_tree.branches[this.branch_choice].sections[0].responses[choice].end_on_response)
         {
             print("exited conversation");
+
+
+            if (talking_npc.GetComponent<AIAgent>().aggression_level >= interrogation_dialogue_tree.reveal_human_type_level && talking_npc.GetComponent<AIAgent>().aggression_level < interrogation_dialogue_tree.turn_hostile_level)
+                //  display text on screen to say suspect is human
+                if (interrogation_dialogue_tree.is_real_human) StartCoroutine(DisplayConsoleText("suspect_type: [HUMAN]", 3f));
+                // display text on screen saying suspect is fake, 
+                else
+                {
+                    StartCoroutine(DisplayConsoleText("suspect_type: [ERSATZ]", 3f));
+                    if (interrogation_dialogue_tree.post_interro_ersatz_dialogue != null)
+                        talking_npc.GetComponent<AIAgent>().dialogue_tree = interrogation_dialogue_tree.post_interro_ersatz_dialogue;
+                }
+
+            else
+                StartCoroutine(DisplayConsoleText("suspect_type: [UNKNOWN]", 3f));
+
+            //  turns npc hostile if is aggressive is enabled
+            if (talking_npc.GetComponent<AIAgent>().aggression_level >= interrogation_dialogue_tree.turn_hostile_level)
+                talking_npc.GetComponent<AIAgent>().is_aggressive = true;
+
+            
+
             HideDialogue();
             in_convo = false;
         }
         else
         {
 
-
+            talking_npc.GetComponent<AIAgent>().aggression_level += interrogation_dialogue_tree.branches[this.branch_choice].sections[0].responses[choice].add_aggression;
             this.branch_choice = branch_choice;
             DisplayInterrogationConvo();
         }
@@ -403,5 +436,15 @@ public class DialogueManager : MonoBehaviour
         dialogue_text.text = interrogation_dialogue_tree.branches[branch_choice].sections[0].dialogue;
 
         DisplayInterrogationResponses();
+    }
+
+    IEnumerator DisplayConsoleText(string text, float time)
+    {
+        console_text.enabled = true;
+        console_text.text = text;
+
+        yield return new WaitForSeconds(time);
+
+        console_text.enabled = false;
     }
 }

@@ -19,18 +19,18 @@ MonoBehaviour:
     - dialogue: ...
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 0
         next_branch_id: 1
         response_dialogue: Do you dream?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 2
         response_dialogue: You ever had repeated or similar dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 3
         response_dialogue: You have frequently drempt of a cottege, haven't you.
   - branch_name: 
@@ -39,18 +39,18 @@ MonoBehaviour:
     - dialogue: who doesn't
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 4
         response_dialogue: are there others in those dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 2
         next_branch_id: 5
         response_dialogue: do you see family member in your dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 6
         response_dialogue: how lonely are the dreamscapes?
   - branch_name: 
@@ -59,18 +59,18 @@ MonoBehaviour:
     - dialogue: of a small building, yah
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 4
         response_dialogue: are there others in those dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 2
         next_branch_id: 5
         response_dialogue: do you see family member in your dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 6
         response_dialogue: how lonely are the dreamscapes?
   - branch_name: 
@@ -79,18 +79,18 @@ MonoBehaviour:
     - dialogue: often. please stop bothering me
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 4
         response_dialogue: are there others in those dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 2
         next_branch_id: 5
         response_dialogue: do you see family member in your dreams?
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 6
         response_dialogue: how lonely are the dreamscapes?
   - branch_name: 
@@ -99,18 +99,18 @@ MonoBehaviour:
     - dialogue: sometimes...
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 7
         response_dialogue: are these people ever in distress
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 2
         next_branch_id: 8
         response_dialogue: does blood stain their clothes
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 9
         response_dialogue: you're hands are bloody in those dreams, aren't they
   - branch_name: 
@@ -119,18 +119,18 @@ MonoBehaviour:
     - dialogue: no, but i see other people
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 7
         response_dialogue: are these people ever in distress
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 2
         next_branch_id: 8
         response_dialogue: does blood stain their clothes
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 9
         response_dialogue: you're hands are bloody in those dreams, aren't they
   - branch_name: 
@@ -139,28 +139,28 @@ MonoBehaviour:
     - dialogue: very. now please stop reminding me
       responses:
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 1
         next_branch_id: 7
         response_dialogue: are these people ever in distress
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 2
         next_branch_id: 8
         response_dialogue: does blood stain their clothes
       - end_on_response: 0
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 3
         next_branch_id: 9
         response_dialogue: you're hands are bloody in those dreams, aren't they
   - branch_name: 
     branch_id: 7
     sections:
-    - dialogue: when they hit their toe, yes
+    - dialogue: when they hit their toe against a table leg, yes
       responses:
       - end_on_response: 1
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 0
         next_branch_id: 0
         response_dialogue: thanks for your time [EXIT]
   - branch_name: 
@@ -169,8 +169,8 @@ MonoBehaviour:
     - dialogue: yes, blood from cuts and meat.
       responses:
       - end_on_response: 1
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 0
         next_branch_id: 0
         response_dialogue: ok, thanks for your time [EXIT]
   - branch_name: 
@@ -179,7 +179,11 @@ MonoBehaviour:
     - dialogue: more often then i'd lke. now,  beat it.
       responses:
       - end_on_response: 1
-        initialize_interrogation: 0
         turn_hostile: 0
+        add_aggression: 0
         next_branch_id: 0
         response_dialogue: i will, thank you for your time [EXIT]
+  is_real_human: 0
+  post_interro_ersatz_dialogue: {fileID: 0}
+  reveal_human_type_level: 4
+  turn_hostile_level: 8

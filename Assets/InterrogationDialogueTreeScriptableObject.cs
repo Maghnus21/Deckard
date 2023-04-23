@@ -6,6 +6,12 @@ using UnityEngine;
 public class InterrogationDialogueTreeScriptableObject : ScriptableObject
 {
     public InterrogationDialogueBranch[] branches;
+
+    public bool is_real_human = true;
+    public DialogueTreeScriptableObject post_interro_ersatz_dialogue;
+
+    public float reveal_human_type_level = 4;
+    public float turn_hostile_level = 8;
 }
 
 [System.Serializable]
@@ -32,8 +38,8 @@ public class InterrogationDialogueResponse
 {
     //  ensures player can exit dialogue when conversation is completed
     public bool end_on_response = false;
-    public bool initialize_interrogation = false;
     public bool turn_hostile = false;
+    public float add_aggression;
 
 
     public int next_branch_id;
