@@ -35,6 +35,14 @@ public class BeginDialogue : MonoBehaviour
 
                     branch_dialogue_manager.ShowDialogue();
                 }
+                else if (hit.collider.GetComponent<TalkableEntity>() && hit.collider.GetComponent<TalkableEntity>().enabled && hit.collider.GetComponent<TalkableEntity>().phone_dialogue != null)
+                {
+                    npc_talking = hit.collider.gameObject;
+
+                    branch_dialogue_manager.talking_npc = npc_talking;
+
+                    branch_dialogue_manager.ShowDialogue();
+                }
                 else
                 {
                     return;

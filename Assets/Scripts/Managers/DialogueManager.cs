@@ -141,14 +141,20 @@ public class DialogueManager : MonoBehaviour
     void ParseDialogueInfo()
     {
         //  if dialogueTree is attached to npc, link it to dialogue_tree
-        if (!talking_npc.GetComponent<AIAgent>().dialogue_tree)
+        if (talking_npc.GetComponent<AIAgent>() && !talking_npc.GetComponent<AIAgent>().dialogue_tree)
+        {
+            print("no DialogueTree component attached to entity " + talking_npc.name);
+            return;
+        }
+        if (!talking_npc.GetComponent<TalkableEntity>() && !talking_npc.GetComponent<TalkableEntity>().phone_dialogue)
         {
             print("no DialogueTree component attached to entity " + talking_npc.name);
             return;
         }
         else
         {
-            dialogue_tree = talking_npc.GetComponent<AIAgent>().dialogue_tree;
+            if (talking_npc.GetComponent<AIAgent>()) dialogue_tree = talking_npc.GetComponent<AIAgent>().dialogue_tree;
+            else if (talking_npc.GetComponent<TalkableEntity>()) dialogue_tree = talking_npc.GetComponent<TalkableEntity>().phone_dialogue;
         }
     }
 
@@ -158,13 +164,14 @@ public class DialogueManager : MonoBehaviour
     void ParseinterrogationDialogueInfo()
     {
         //  if interrogationDialoguetree exists on npc, link to interrogation_dialogue_tree
-        if (!talking_npc.GetComponent<AIAgent>().interrogation_dialogue_tree)
+        if (talking_npc.GetComponent<AIAgent>() && !talking_npc.GetComponent<AIAgent>().interrogation_dialogue_tree)
         {
             print("no InterrogationDialogueTree component attached to entity " + talking_npc.name);
             return;
         }
         else
         {
+            if (talking_npc.GetComponent<TalkableEntity>()) return;
             interrogation_dialogue_tree = talking_npc.GetComponent<AIAgent>().interrogation_dialogue_tree;
         }
     }
