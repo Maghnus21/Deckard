@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70283e46ea0d8a04e9ee2740ca7e8283, type: 3}
+  m_Name: TutorialPhone
+  m_EditorClassIdentifier: 
+  branches:
+  - branch_name: 
+    branch_id: 0
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: morning nick, i've got a job for you. i know you took a break and
+        you're a bit strapped for cash, so i thought it might be a nice and easy
+        job to get into the habit again
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 1
+        response_dialogue: what's the job like
+  - branch_name: 
+    branch_id: 1
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: there's a listing for a possible ersatz nearby, that means you'll
+        have to dust off the old AE. its a new listing and i don't have many details,
+        so i'd recommend you give guzza a buzz before doing anythinng elde
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 2
+        response_dialogue: would you mind giving me a refresh of how the AE works,
+          you know yourself its been a while
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: i've head over to guzza now. thank to you later [EXIT]
+  - branch_name: 
+    branch_id: 2
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: i see the drink had done your head in. fine...
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 3
+        response_dialogue: '[CONTINUE]'
+  - branch_name: 
+    branch_id: 3
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: the current ersatz protocol states that all aemaeth models contain
+        similar memories due to intentional manufacturing defects, often consisting
+        of small buildings, strangers and violence. the Auge Entdecken device is
+        meant to pull those memories out
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 4
+        response_dialogue: '[CONTINUE]'
+  - branch_name: 
+    branch_id: 4
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: the buttons on the Auge Entdecken device, AE, are green, yellow,
+        and red, outputting various intensities of the same question. green give
+        the least intense question but gives very little info, but red is the most
+        intense and gives the clearest answer
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 5
+        response_dialogue: '[CONTINUE]'
+  - branch_name: 
+    branch_id: 5
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: you can't constantly press the red button or else the suspect will
+        get agravated. you know yourself that its not uncommon to hear trainees getting
+        shot because they were impatient.
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 6
+        response_dialogue: '[CONTINUE]'
+  - branch_name: 
+    branch_id: 6
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: 'you got all that '
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 7
+        response_dialogue: yah... could you go through that again
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: most of it, i'll go see guzza now. thanks ecne
+  - branch_name: 
+    branch_id: 7
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: i'll be like a broken record player at this rate. fine
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 3
+        response_dialogue: '[CONTINUE]'

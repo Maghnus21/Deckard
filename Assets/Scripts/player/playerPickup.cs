@@ -25,8 +25,6 @@ public class playerPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * range, color: Color.green);
-
         if (Input.GetKeyDown(KeyCode.F) && transform.childCount == 0)
         {
             PickUpObject();
@@ -40,6 +38,9 @@ public class playerPickup : MonoBehaviour
         {
             playerThrow();
         }
+
+        //if (thrownObject != null)
+            //UpdateObjectRotation();
     }
     
     void playerThrow()
@@ -81,14 +82,20 @@ public class playerPickup : MonoBehaviour
                 holding_obj = true;
 
 
-                hit.collider.transform.parent = transform;
+                hit.collider.transform.SetParent(transform, false);
                 hit.collider.transform.localPosition = Vector3.zero;
-                //hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                
+                hit.collider.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
                 thrownObject = hit.collider.gameObject;
             }
             else { print("CAN PICKUP  OBJ"); }
         }
         
+    }
+
+    void UpdateObjectRotation()
+    {
+        thrownObject.transform.localRotation = Quaternion.Euler(0f, 0f, thrownObject.transform.localRotation.z);
     }
 }

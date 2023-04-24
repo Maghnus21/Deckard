@@ -15,7 +15,7 @@ public class player_look : MonoBehaviour
     //  referencce to item_slot empty game object. holds item at item_slot local position. no rotation on x axis so item will remain upright
     public Transform itemTransform;
     Vector3 itemRotation;
-    float itemDistance;
+    float itemDistance = 3f;
 
     public int mouse_sen = 10;
     float mouseX, mouseY, xRotation = 0f;
@@ -47,6 +47,6 @@ public class player_look : MonoBehaviour
         // for rotating weapon with camera
         weapon.localRotation = transform.localRotation;
 
-        itemTransform.position = transform.position + transform.forward * itemDistance;
+        //itemTransform.position = transform.position + transform.forward * itemDistance;
     }
 }
