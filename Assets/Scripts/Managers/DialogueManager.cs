@@ -146,7 +146,7 @@ public class DialogueManager : MonoBehaviour
             print("no DialogueTree component attached to entity " + talking_npc.name);
             return;
         }
-        if (!talking_npc.GetComponent<TalkableEntity>() && !talking_npc.GetComponent<TalkableEntity>().phone_dialogue)
+        if (talking_npc.GetComponent<TalkableEntity>() && !talking_npc.GetComponent<TalkableEntity>().phone_dialogue)
         {
             print("no DialogueTree component attached to entity " + talking_npc.name);
             return;

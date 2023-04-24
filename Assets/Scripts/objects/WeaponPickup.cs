@@ -10,12 +10,16 @@ public class WeaponPickup : MonoBehaviour
     public Image image;
     public GameObject button;
     WeaponWheelButton wwb;
-    public int stack_location = 0;              //  default state is stack location 0
+    PlayerInventory player_inv;
+
+    public AudioManager audio_man;
+    public AudioClip pickup;
 
     private void Start()
     {
         button = weapon_scriptable_object.weapon_wheel_button;
         image = weapon_scriptable_object.weapon_wheel_button.GetComponentInChildren<Image>();
+
     }
 
 
@@ -24,37 +28,15 @@ public class WeaponPickup : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            wwb = button.GetComponent<WeaponWheelButton>();
-            if (other.GetComponent<weapon>().loadout[stack_location] == null)
-            {
-                other.GetComponent<weapon>().loadout[stack_location] = weapon_scriptable_object;
+            //wwb = button.GetComponent<WeaponWheelButton>();
+            player_inv = other.GetComponent<PlayerInventory>();
 
-                image.GetComponent<Image>().sprite = other.GetComponent<weapon>().loadout[stack_location].ui_sprite;
+            player_inv.loadout[weapon_scriptable_object.stack_location] = weapon_scriptable_object;
 
-                button.GetComponent<WeaponWheelButton>().stack_location = stack_location;
+            audio_man.PlaySound(other.GetComponentInChildren<AudioSource>(), pickup);
 
-                Destroy(gameObject);
-
-
-            }
-            else if(other.GetComponent<weapon>().loadout[stack_location] != null && other.GetComponent<weapon>().loadout[stack_location].ammo_reserve < 999)
-            {
-                if(other.GetComponent<weapon>().loadout[stack_location].ammo_reserve + 20 > 999)
-                {
-                    other.GetComponent<weapon>().loadout[stack_location].ammo_reserve = 999;
-                }
-                else
-                {
-                    other.GetComponent<weapon>().loadout[stack_location].ammo_reserve += 20;
-                }
-                other.GetComponent<weapon>().DisplayAmmoCount();
-
-                Destroy(gameObject);
-            }
-            else
-            {
-
-            }
+            Destroy(gameObject);
+            
         }
 
         if (other.CompareTag("NPC"))

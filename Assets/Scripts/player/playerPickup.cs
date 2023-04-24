@@ -13,6 +13,10 @@ public class playerPickup : MonoBehaviour
     bool holding_obj = false;
 
     GameObject thrownObject;
+    public AudioSource player_audio;
+
+    public AudioManager audio_man;
+    public AudioClip clip;
 
 
 
@@ -67,6 +71,8 @@ public class playerPickup : MonoBehaviour
 
     void PickUpObject()
     {
+
+
         //  bitshifting playermask lets raycast pass through player collider and pick up objects within clamp range
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
@@ -74,6 +80,8 @@ public class playerPickup : MonoBehaviour
         {
             if (hit.collider.CompareTag("Pickup") || hit.collider.CompareTag("EntityDead"))
             {
+                audio_man.PlaySound(player_audio, clip);
+
                 if (hit.collider.GetComponent<Rigidbody>().isKinematic == false)
                 {
                     hit.collider.GetComponent<Rigidbody>().isKinematic = true;

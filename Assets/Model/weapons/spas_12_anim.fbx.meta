@@ -144,7 +144,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.80970156
+      - time: 0.7597269
         functionName: ReloadFinished
         data: ready
         objectReferenceParameter: {instanceID: 0}

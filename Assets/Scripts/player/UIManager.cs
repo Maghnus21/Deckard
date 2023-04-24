@@ -1,18 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI console_text;
+
+    private void Awake()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        console_text.enabled = false;
+    }
+
+    public void DisplayPickupItemText(string text)
+    {
+        //StopAllCoroutines();
+
+        console_text.enabled = true;
+
+        console_text.text = text;
+
+        
+    }
+
+    IEnumerator ConsoleTextDisplay()
     {
         
+
+        yield return new WaitForSeconds(3f);
+
+        console_text.enabled = false;
     }
 }
