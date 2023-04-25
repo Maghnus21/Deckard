@@ -305,6 +305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item_specs: {fileID: 11400000, guid: 6209f5e042579b14abf87d08d4abb5ee, type: 2}
-  audio_man: {fileID: 0}
-  clip: {fileID: 0}
-  ui_man: {fileID: 8573799787681796619, guid: ed5d03214f2fbfc46be0959073cc7072, type: 3}
+  audio_man: {fileID: 6778549957681757765, guid: 1bc83ee84db14834d90370c4231cc758, type: 3}
+  clip: {fileID: 8300000, guid: 00362d228a3072840b329df655cff9a3, type: 3}
+  ui_man: {fileID: 4901755216577009155, guid: fd0efe651aab5274cbd9f97234b440fb, type: 3}

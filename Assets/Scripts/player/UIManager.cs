@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,31 +11,38 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        console_text.enabled = false;
     }
 
     private void Start()
     {
-        console_text.enabled = false;
+        
     }
 
+    public void DisplayPickupItemText(Item item)
+    {
+        StopAllCoroutines();
+        StartCoroutine(DisplayConsoleText("picked_up: [" + item.item_name + "]", 3f));
+        //console_text.gameObject.SetActive(true);
+    }
     public void DisplayPickupItemText(string text)
     {
-        //StopAllCoroutines();
+        StopAllCoroutines();
+        //console_text.gameObject.SetActive(true);
 
+        StartCoroutine(DisplayConsoleText(text, 3f));
+    }
+
+    IEnumerator DisplayConsoleText(string text, float time)
+    {
         console_text.enabled = true;
-
         console_text.text = text;
 
-        
-    }
-
-    IEnumerator ConsoleTextDisplay()
-    {
-        
-
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(time);
 
         console_text.enabled = false;
+
+        
     }
+
 }

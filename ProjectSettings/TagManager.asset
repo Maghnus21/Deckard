@@ -14,6 +14,7 @@ TagManager:
   - EntityDead
   - Ladder
   - Plug
+  - UIManager
   layers:
   - Default
   - TransparentFX

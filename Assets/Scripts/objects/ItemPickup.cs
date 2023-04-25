@@ -15,6 +15,8 @@ public class ItemPickup : MonoBehaviour
     private void Start()
     {
         main_object = GetComponentInParent<Rigidbody>().gameObject;
+
+        ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         
     }
 
@@ -22,9 +24,7 @@ public class ItemPickup : MonoBehaviour
     {
         player_inv.player_inventory.Add(item_specs);
 
-        string pickup = ("picked_up: [" + item_specs.item_name + "]");
-
-        ui_man.DisplayPickupItemText(pickup);
+        ui_man.DisplayPickupItemText(item_specs);
 
         Destroy(main_object);
     }

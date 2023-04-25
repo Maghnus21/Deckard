@@ -8,7 +8,7 @@ public class InterrogationDialogueTreeScriptableObject : ScriptableObject
     public InterrogationDialogueBranch[] branches;
 
     public bool is_real_human = true;
-    public DialogueTreeScriptableObject post_interro_ersatz_dialogue;
+    public DialogueTreeScriptableObject post_interrogation_dialogue;
 
     public float reveal_human_type_level = 4;
     public float turn_hostile_level = 8;

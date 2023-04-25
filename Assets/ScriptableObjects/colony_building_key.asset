@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
   m_Name: colony_building_key
   m_EditorClassIdentifier: 
-  item_name: Manus Industries Colony Building key
+  item_name: MANUS INDUSTRIES COLONY BUILDING KEY
   description: a metal triangular tumbler key, thats oddly quite heavy for its size.
-    use on the lock in front of the colony building
+    used on the lock in front of the colony building
   item_prefab: {fileID: 3705554185862770624, guid: de018f8ccca012f4c833f66127208d3c, type: 3}
   weapon_specs: {fileID: 0}
   bullets_specs: {fileID: 0}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI console_text;
+    public UIManager ui_man;
 
     public GameObject talking_npc;
     public DialogueTreeScriptableObject dialogue_tree;
@@ -285,7 +285,7 @@ public class DialogueManager : MonoBehaviour
             dropped_item.transform.position = player.transform.position;
 
             StopAllCoroutines();
-            StartCoroutine(DisplayConsoleText("picked_up: [" + dialogue_branch.droppable_item.item_name + "]", 3f));
+            ui_man.DisplayPickupItemText("picked_up: [" + dialogue_branch.droppable_item.item_name + "]");
         }
 
         if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
@@ -418,17 +418,17 @@ public class DialogueManager : MonoBehaviour
 
             if (talking_npc.GetComponent<AIAgent>().aggression_level >= interrogation_dialogue_tree.reveal_human_type_level && talking_npc.GetComponent<AIAgent>().aggression_level < interrogation_dialogue_tree.turn_hostile_level)
                 //  display text on screen to say suspect is human
-                if (interrogation_dialogue_tree.is_real_human) StartCoroutine(DisplayConsoleText("suspect_type: [HUMAN]", 3f));
+                if (interrogation_dialogue_tree.is_real_human) ui_man.DisplayPickupItemText("suspect_type: [HUMAN]");
                 // display text on screen saying suspect is fake, 
                 else
                 {
-                    StartCoroutine(DisplayConsoleText("suspect_type: [ERSATZ]", 3f));
-                    if (interrogation_dialogue_tree.post_interro_ersatz_dialogue != null)
-                        talking_npc.GetComponent<AIAgent>().dialogue_tree = interrogation_dialogue_tree.post_interro_ersatz_dialogue;
+                    ui_man.DisplayPickupItemText("suspect_type: [ERSATZ]");
+                    if (interrogation_dialogue_tree.post_interrogation_dialogue != null)
+                        talking_npc.GetComponent<AIAgent>().dialogue_tree = interrogation_dialogue_tree.post_interrogation_dialogue;
                 }
 
             else
-                StartCoroutine(DisplayConsoleText("suspect_type: [UNKNOWN]", 3f));
+                ui_man.DisplayPickupItemText("suspect_type: [UNKNOWN]");
 
             kit.SetActive(false);
             //  turns npc hostile if is aggressive is enabled
@@ -458,14 +458,5 @@ public class DialogueManager : MonoBehaviour
         DisplayInterrogationResponses();
     }
 
-    IEnumerator DisplayConsoleText(string text, float time)
-    {
-        
-        console_text.enabled = true;
-        console_text.text = text;
-
-        yield return new WaitForSeconds(time);
-
-        console_text.enabled = false;
-    }
+    
 }
