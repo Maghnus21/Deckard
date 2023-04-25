@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
   m_Name: MATEBA_2006M
   m_EditorClassIdentifier: 
-  item_name: 
+  item_name: MATEBER_2006M
   description: 
   item_prefab: {fileID: 1078813186004044629, guid: 049220db10c2e5d40941e293832dc219, type: 3}
   weapon_specs: {fileID: 11400000, guid: 19cfc7db08728b74e80cd12f8ffa43c1, type: 2}
@@ -30,3 +30,5 @@ MonoBehaviour:
   is_throwable: 0
   weapon_wheel_button: {fileID: 0}
   stack_location: 1
+  is_key: 0
+  keycode: 0

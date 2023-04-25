@@ -17,7 +17,7 @@ public class ItemPickup : MonoBehaviour
         main_object = GetComponentInParent<Rigidbody>().gameObject;
 
         ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
-        
+
     }
 
     public void PickUpItem(PlayerInventory player_inv)

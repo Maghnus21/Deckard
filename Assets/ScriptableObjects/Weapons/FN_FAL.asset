@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0b599a038dfd54caf2e4e68352f948, type: 3}
   m_Name: FN_FAL
   m_EditorClassIdentifier: 
-  item_name: 
+  item_name: FAL
   description: 
   item_prefab: {fileID: 1078813186004044629, guid: d553f165e7595b34cbc6e37ff7e97105, type: 3}
   weapon_specs: {fileID: 11400000, guid: 293796c8d1453ed4aa4c636992556c09, type: 2}
@@ -30,3 +30,5 @@ MonoBehaviour:
   is_throwable: 0
   weapon_wheel_button: {fileID: 9095745432524640662, guid: 8a3e2dd4c49c9304f8ec0858d4160204, type: 3}
   stack_location: 3
+  is_key: 0
+  keycode: 0

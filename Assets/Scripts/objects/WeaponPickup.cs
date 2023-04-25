@@ -15,8 +15,12 @@ public class WeaponPickup : MonoBehaviour
     public AudioManager audio_man;
     public AudioClip pickup;
 
+    public UIManager ui_man;
+
     private void Start()
     {
+        ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+
         button = weapon_scriptable_object.weapon_wheel_button;
         image = weapon_scriptable_object.weapon_wheel_button.GetComponentInChildren<Image>();
 
@@ -34,6 +38,7 @@ public class WeaponPickup : MonoBehaviour
             player_inv.loadout[weapon_scriptable_object.stack_location] = weapon_scriptable_object;
 
             audio_man.PlaySound(other.GetComponentInChildren<AudioSource>(), pickup);
+            ui_man.DisplayPickupItemText(weapon_scriptable_object);
 
             Destroy(gameObject);
             
