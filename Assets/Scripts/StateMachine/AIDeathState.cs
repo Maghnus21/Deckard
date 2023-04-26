@@ -20,12 +20,15 @@ public class AIDeathState : AIState
 
         agent.ai_weapon.DropWeapon();
 
+        agent.ai_weapon.enabled = false;
+
         //  ai_weapon_ik must be disabled first as errors prevent rest being disabled
         //  don't fucking touch please
         agent.ai_weapon_ik.enabled = false;
 
-        agent.ai_weapon.enabled = false;
+        
         agent.mesh_sockets.enabled = false;
+        agent.enemy_los.enabled = false;
         agent.enabled = false;
     }
 

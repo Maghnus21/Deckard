@@ -27,8 +27,7 @@ public class AIAttackPlayerState : AIState
 
         agent.navMeshAgent.stoppingDistance = 5f;
 
-        if(!agent.GetComponentInChildren<NPCBoxTrigger>())
-            agent.ai_weapon.SetFiring(true);
+        agent.ai_weapon.SetFiring(true);
 
         if(agent.agents.Count > 0)
         {

@@ -30,11 +30,21 @@ public class AIChasePlayerState : AIState
         {
             if (agent.navMeshAgent.enabled)
             {
-                float sqdistance = (agent.player_transform.position - agent.navMeshAgent.destination).magnitude;
-                if (sqdistance > agent.config.maxDistance * agent.config.maxDistance)
+                float sqdistance = (agent.player_transform.position - agent.navMeshAgent.destination).magnitude;                    
+
+                if(agent.player_gameobject.GetComponent<playerHealth>().health > 0f)
                 {
-                    agent.navMeshAgent.destination = agent.player_transform.position;
+                    if (sqdistance > agent.config.maxDistance * agent.config.maxDistance)
+                    {
+
+                        agent.navMeshAgent.destination = agent.player_transform.position;
+                    }
+                    
                 }
+                else
+                    agent.stateMachine.ChangeState(AIStateID.Idle);
+
+
                 timer = agent.config.maxTime;
             }
             

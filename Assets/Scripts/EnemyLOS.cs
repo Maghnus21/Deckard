@@ -10,15 +10,23 @@ public class EnemyLOS : MonoBehaviour
     Transform player;
     public Transform npc_eyes;
 
+    public NPCBoxTrigger box_trigger;
+
     Ray ray;
     RaycastHit hit;
 
     public bool has_los = false;
+    bool player_is_target = false;
+
+    public bool attack_on_sight = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (GetComponentInChildren<NPCBoxTrigger>())
+            box_trigger = GetComponentInChildren<NPCBoxTrigger>();
 
         StartCoroutine(CheckLOS(polling_time));
     }
@@ -56,6 +64,22 @@ public class EnemyLOS : MonoBehaviour
                 else
                     has_los = false;
             }
+
+            if (GetComponent<Health>().health > 0f)
+            {
+                if (has_los && box_trigger.in_trigger && attack_on_sight)
+                {
+                    player_is_target = true;
+                    GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
+                }
+
+                else if (!has_los && player_is_target)
+                    GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.ChasePlayer);
+            }
+                
+
+            
+
         }
         
     }

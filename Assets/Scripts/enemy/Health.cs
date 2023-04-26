@@ -103,7 +103,7 @@ public class Health : MonoBehaviour
         if (drop_items != null && drop_items.enabled)
             drop_items.DropItemsInList();
 
-        float gib_chance_mutiplier = 0 - health;
+        float gib_chance_mutiplier =health/-80f;
         float rand_num = Random.Range(0f, 100f);
 
         if(rand_num <= gib_chance_mutiplier)
