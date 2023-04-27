@@ -23,6 +23,7 @@ public class ammoBoxPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            /*
             if (other.gameObject.GetComponent<weapon>().loadout[stack_location].ammo_reserve < 999 - ammo_refil)
             {
                 other.gameObject.GetComponent<weapon>().loadout[stack_location].ammo_reserve += ammo_refil;
@@ -31,11 +32,11 @@ public class ammoBoxPickup : MonoBehaviour
             }
             else if (other.gameObject.GetComponent<weapon>().loadout[stack_location].ammo_reserve > 999 - ammo_refil && other.gameObject.GetComponent<weapon>().loadout[stack_location].ammo_reserve < 999)
             {
-                other.gameObject.GetComponent<weapon>().loadout[stack_location].ammo_reserve = 999;
+                //other.gameObject.GetComponent<weapon>().loadout[stack_location].ammo_reserve = 999;
                 other.gameObject.GetComponent<weapon>().DisplayAmmoCount();
                 Destroy(gameObject);
             }
-
+            */
         }
     }
 }

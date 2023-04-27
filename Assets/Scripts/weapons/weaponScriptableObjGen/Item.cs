@@ -11,6 +11,8 @@ public class Item : ScriptableObject
     //  name of gun
     public string item_name;
 
+    public int item_amount = 0;
+
     [TextArea]
     public string description;
 
@@ -21,16 +23,7 @@ public class Item : ScriptableObject
 
     public BulletsSpecs bullets_specs;
 
-    public GameObject gun_pickup;
-
-    // aim speed
-    public float ads_speed;
-
-    public float ammo_reserve = 999;
-
-    public AmmoTypeScriptableObject ammo_type;
-
-    public GameObject muzzle_flash;
+    public GameObject gun_pickup;   
 
     public AudioClip gun_fire;
 

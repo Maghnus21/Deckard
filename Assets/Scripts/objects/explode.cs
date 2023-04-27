@@ -56,7 +56,7 @@ public class explode : MonoBehaviour
         foreach (Collider collider in colliders)
         {
             //  check makes sure hit NPC doesn't instantiate multiple gib_body prefabs
-            if (collider.gameObject.GetComponent<EntityHitbox>() && collider.gameObject.GetComponentInParent<Health>().health > 0)
+            if (collider.gameObject.GetComponent<EntityHitbox>() && collider.gameObject.GetComponentInParent<Health>().health > 0f)
             {
                 print("HIT HITBOX" + collider.gameObject.name);
 

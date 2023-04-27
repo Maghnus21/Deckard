@@ -252,12 +252,12 @@ public class weapon : MonoBehaviour
         //  anchor linearly interpolates between ads and hip position if is_aiming is true
         if (is_aiming)
         {
-            anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+            //anchor.position = Vector3.Lerp(anchor.position, ads_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
             Camera.main.fieldOfView = 30f;
         }
         else
         {
-            anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
+            //anchor.position = Vector3.Lerp(anchor.position, hip_state.position, Time.deltaTime * loadout[currentIndex].ads_speed);
             Camera.main.fieldOfView = 65f;
         }
     }
@@ -295,7 +295,7 @@ public class weapon : MonoBehaviour
 
     void UpdateAmmoCount()
     {
-        loadout[currentIndex].ammo_reserve -= rounds_fired;
+        //loadout[currentIndex].ammo_reserve -= rounds_fired;
 
         rounds_fired = 0;
 

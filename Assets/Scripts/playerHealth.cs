@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour
 {
+    float max_health = 100f;
     public float health = 100f;
     public GameObject player_ragdoll;
     Rigidbody[] rb;
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.H))
         {
             playerReceiveDamage(10);
         }
+        */
     }
 
 
@@ -69,5 +72,23 @@ public class playerHealth : MonoBehaviour
         }
 
         this.gameObject.SetActive(false);
+    }
+
+    public void PlayerHeal(float heal)
+    {
+        if(health >= max_health-heal)
+        { 
+            
+            GetComponent<PlayerHealthUI>().reduceHP(-(max_health - health));
+            health = max_health;
+        }
+        else
+        {
+            health += heal;
+            GetComponent<PlayerHealthUI>().reduceHP(-heal);
+        }
+            
+
+        
     }
 }

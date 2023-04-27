@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,18 @@ public class PlayerInventory : MonoBehaviour
 
     [Header("Player Inventory")]
     public List<Item> player_inventory = new List<Item>();
+
+    public Item medipen_amount;
+
+    public AudioClip injector;
+
+    [Header("Managers")]
+    public UIManager ui_man;
+    public AudioManager audio_man;
+
+    [Header("Player script references")]
+    public playerHealth player_health;
+    public AudioSource player_source;
 
 
     //  object references to be parsed to weapons
@@ -35,10 +48,17 @@ public class PlayerInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+
         player_gun = GetComponent<PlayerGun>();
         player_gun.enabled = false;
 
+        player_health = GetComponent<playerHealth>();
+        player_source = GetComponentInChildren<AudioSource>();
+
         wwbs = weapon_wheel_ui.GetComponentsInChildren<WeaponWheelButton>();
+
+        ui_man.UpdateMedipenDisplay("medipen_count: [" + medipen_amount.item_amount + "]");
 
         AssignWWSprites();
     }
@@ -81,6 +101,9 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V) && equipted_item != null)
             UnequipWeapon();
 
+        if (Input.GetKeyDown(KeyCode.H))
+            UseMediPen();
+
         /*
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
@@ -104,6 +127,28 @@ public class PlayerInventory : MonoBehaviour
         
     }
 
+    private void UseMediPen()
+    {
+        if (medipen_amount.item_amount > 0 && player_health.health < 100f)
+        {
+            medipen_amount.item_amount--;
+
+            ui_man.UpdateMedipenDisplay("medipen_count: [" + medipen_amount.item_amount + "]");
+
+            float remainder_hp = 100f - player_health.health;
+            player_health.PlayerHeal(35f);
+            //ui_man.DisplayPlainText("used: [MEDIPEN]");
+            audio_man.PlaySound(player_source, injector);
+        }
+        else if(medipen_amount.item_amount == 0)
+            ui_man.DisplayPlainText("medipen_count: [DEPLETED]");
+    }
+
+    public void UpdateMedipenCount()
+    {
+        medipen_amount.item_amount++;
+        ui_man.UpdateMedipenDisplay("medipen_count: [" + medipen_amount.item_amount + "]");
+    }
 
     public void EquipWeapon(int index_num)
     {

@@ -6,6 +6,8 @@ using TMPro;
 
 public class PlayerHealthUI : MonoBehaviour
 {
+    public float default_scale;
+
     public Canvas canvas;
     public Image player_hp;
     public Image player_nrg;
@@ -14,7 +16,7 @@ public class PlayerHealthUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        default_scale = player_hp.rectTransform.localScale.x;
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class PlayerHealthUI : MonoBehaviour
 
     public void reduceHP(float damage)
     {
-        float percentage = damage / 100;
+        float percentage = (damage / 100);
         player_hp.rectTransform.localScale += new Vector3(-percentage, 0f, 0f);
     }
 

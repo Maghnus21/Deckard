@@ -62,7 +62,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.57, y: 0.53, z: 2.52}
+  m_Size: {x: 0.8, y: 0.53, z: 2.75}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6149120989040355117
 MonoBehaviour:
@@ -82,6 +82,7 @@ MonoBehaviour:
   button: {fileID: 0}
   audio_man: {fileID: 6778549957681757765, guid: 1bc83ee84db14834d90370c4231cc758, type: 3}
   pickup: {fileID: 8300000, guid: 00362d228a3072840b329df655cff9a3, type: 3}
+  ui_man: {fileID: 0}
 --- !u!1001 &1259055480292604268
 PrefabInstance:
   m_ObjectHideFlags: 0

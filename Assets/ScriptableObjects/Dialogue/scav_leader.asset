@@ -68,8 +68,8 @@ MonoBehaviour:
     droppable_item: {fileID: 0}
     sections:
     - dialogue: there's another lot of scavs next door. came flooding in like rats
-        as soon as rumours of the durashell cracking. the bastards cracked into it
-        somehow and every minute they pull scrap out means less money for me. clean
+        as soon as rumours of the durashell cracking. we fired a few warning shots
+        through their windows but the sealed them up the next day with plywood. clean
         out their base and i'll give you the key
       responses:
       - end_on_response: 1

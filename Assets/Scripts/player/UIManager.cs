@@ -7,6 +7,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI console_text;
+    public TextMeshProUGUI medipen;
 
     private void Awake()
     {
@@ -49,6 +50,11 @@ public class UIManager : MonoBehaviour
         console_text.enabled = false;
 
         
+    }
+
+    public void UpdateMedipenDisplay(string text)
+    {
+        medipen.text = text;
     }
 
 }
