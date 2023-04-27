@@ -286,6 +286,13 @@ public class DialogueManager : MonoBehaviour
 
             StopAllCoroutines();
             ui_man.DisplayPickupItemText("picked_up: [" + dialogue_branch.droppable_item.item_name + "]");
+
+            if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
+            {
+                print("exited conversation");
+                HideDialogue();
+                in_convo = false;
+            }
         }
 
         if (dialogue_branch.sections[0].responses[response_choice].end_on_response)

@@ -15,6 +15,7 @@ MonoBehaviour:
   branches:
   - branch_name: 
     branch_id: 0
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: heya nick
       responses:
@@ -40,6 +41,7 @@ MonoBehaviour:
         response_dialogue: bye guzza [EXIT]
   - branch_name: 
     branch_id: 1
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: 'straight to the point like always. yah, we''ve had reports of an
         apparent ersatz held up in the manus industries monolith-class colony building
@@ -55,6 +57,7 @@ MonoBehaviour:
           to enter
   - branch_name: 
     branch_id: 2
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: you're right, but theres reports of the exterior durashell showing
         cracks and an eye-witness said they'd seen the suspect enter through the
@@ -75,18 +78,21 @@ MonoBehaviour:
         response_dialogue: wouldn't mind a bit of fuisce help with the interrogation
   - branch_name: 
     branch_id: 3
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: beats me, you could ask the local scav bastards where to find one
-        but after that, you're on your own
+        but after that, you're on your own. if you go out the front door, throught
+        the garage and out the alleyway, they'll be in the crumbling building
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 6
+        next_branch_id: 5
         response_dialogue: thats just great. have a glass ready for when i come back
   - branch_name: 
     branch_id: 4
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: datas a bit stale but should be recent enough to catch our man. its
         a ersatz human held up in the manus industries monolith-class colony building
@@ -101,6 +107,7 @@ MonoBehaviour:
           to impossible to crack open
   - branch_name: 
     branch_id: 5
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: you can bring your own booze, this is a fine vintage for myself,
         besides i've no clue how to get in. you could check the local scavs but who
@@ -112,8 +119,15 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 6
         response_dialogue: i'll take my leave then. thanks guzza
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 7
+        response_dialogue: where are those scavs anyways
   - branch_name: 
     branch_id: 6
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: speaking of the scav leader, theres a bounty on his head, but you
         can do whatever you want with this info
@@ -124,3 +138,16 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: i'll keep that in mind, thanks guzza [EXIT]
+  - branch_name: 
+    branch_id: 7
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: if you go out the front door, throught the garage and out the alleyway,
+        they'll be in the crumbling building
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 6
+        response_dialogue: alright

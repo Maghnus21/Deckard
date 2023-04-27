@@ -15,6 +15,7 @@ MonoBehaviour:
   branches:
   - branch_name: 
     branch_id: 0
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: yes, what the fuck do you want?
       responses:
@@ -36,9 +37,10 @@ MonoBehaviour:
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 3
-        response_dialogue: you should know theres a bounty for your head
+        response_dialogue: fine
   - branch_name: 
     branch_id: 1
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: why didn't you say so in the first place, the key's all ready for
         a new home for 8000 credits
@@ -49,6 +51,12 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 2
         response_dialogue: steep enough, anything i can do to take it off your hands
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 4
+        response_dialogue: fine, ill take it
       - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
@@ -57,6 +65,7 @@ MonoBehaviour:
         response_dialogue: you know what, nevermind [EXIT]
   - branch_name: 
     branch_id: 2
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: there's another lot of scavs next door. came flooding in like rats
         as soon as rumours of the durashell cracking. the bastards cracked into it
@@ -71,6 +80,7 @@ MonoBehaviour:
         response_dialogue: fine, i'll be back in a little while [EXIT]
   - branch_name: 
     branch_id: 3
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: good luck to whoever wants it
       responses:
@@ -79,10 +89,22 @@ MonoBehaviour:
         turn_hostile: 1
         event_trigger: 0
         next_branch_id: 0
-        response_dialogue: i'll chance my luck then [EXIT]
+        response_dialogue: i'd say ill chance my luck
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 1
         response_dialogue: just a heads up, im just here for the key
+  - branch_name: 
+    branch_id: 4
+    droppable_item: {fileID: 11400000, guid: 6209f5e042579b14abf87d08d4abb5ee, type: 2}
+    sections:
+    - dialogue: pleasure doing business
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: thanks [EXIT]
