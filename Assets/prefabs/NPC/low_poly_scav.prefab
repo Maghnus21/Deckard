@@ -401,9 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9423f6bd3125241932843883cd4672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  can_fire: 0
-  weapon: {fileID: 0}
-  agent: {fileID: 0}
+  in_trigger: 0
 --- !u!1 &1079715850246510793
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +411,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6401368976869849263}
+  - component: {fileID: 7095452182433171622}
+  - component: {fileID: 947703754798182558}
   m_Layer: 0
   m_Name: spine3
   m_TagString: NPC
@@ -438,6 +438,33 @@ Transform:
   m_Father: {fileID: 2227109738023745248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7095452182433171622
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079715850246510793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0033333334, y: 0.0011, z: 0.002}
+  m_Center: {x: 0, y: 0.0006, z: 0}
+--- !u!114 &947703754798182558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079715850246510793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d660b41ee105280429413ab992ec3778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  damage_multi: 1
 --- !u!1 &1152509651017687567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3507,7 @@ MonoBehaviour:
   npc_aggression_audio: {fileID: 8300000, guid: 81bc5259d638b19428cb5420483504a5, type: 3}
   npc_los: {fileID: 0}
   npc_box_trigger: {fileID: 0}
+  enemy_los: {fileID: 0}
   aggression_level: 0
   is_aggressive: 0
   agents: []
@@ -3543,7 +3571,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   polling_time: 0.75
   npc_eyes: {fileID: 392547970511745828}
+  box_trigger: {fileID: 0}
   has_los: 0
+  attack_on_sight: 0
 --- !u!1 &7511966260951259077
 GameObject:
   m_ObjectHideFlags: 0

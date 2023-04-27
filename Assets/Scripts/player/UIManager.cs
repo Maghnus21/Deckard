@@ -33,6 +33,13 @@ public class UIManager : MonoBehaviour
         StartCoroutine(DisplayConsoleText(text, 3f));
     }
 
+    public void DisplayPlainText(string text)
+    {
+        StopAllCoroutines();
+
+        StartCoroutine(DisplayConsoleText(text, 3f));
+    }
+
     IEnumerator DisplayConsoleText(string text, float time)
     {
         console_text.enabled = true;

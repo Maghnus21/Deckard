@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3603640574158515656}
   - component: {fileID: 3603640574158515657}
   - component: {fileID: 3603640574158515658}
+  - component: {fileID: 6645640720105563899}
   m_Layer: 0
   m_Name: box_trigger
   m_TagString: Untagged
@@ -59,3 +60,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio_device: {fileID: 0}
+--- !u!114 &6645640720105563899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603640574158515659}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3d2d5065964444cb267f6839a9e6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: press "F" to pickup / interact with game objects
+  display_text: 1
+  ui_man: {fileID: 0}

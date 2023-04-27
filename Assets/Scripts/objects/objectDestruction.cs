@@ -19,7 +19,8 @@ public class objectDestruction : MonoBehaviour
     {
         if(health.health <= 0)
         {
-            Instantiate(destructable_object,transform.position, transform.rotation);
+            if(destructable_object != null)
+                Instantiate(destructable_object,transform.position, transform.rotation);
 
             Destroy(this.gameObject);
         }
