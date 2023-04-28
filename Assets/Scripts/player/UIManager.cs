@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI console_text;
     public TextMeshProUGUI medipen;
+
+    public Button restart_button;
 
     private void Awake()
     {
@@ -55,6 +58,11 @@ public class UIManager : MonoBehaviour
     public void UpdateMedipenDisplay(string text)
     {
         medipen.text = text;
+    }
+
+    public void EnableRestart(bool set_on)
+    {
+        restart_button.gameObject.SetActive(set_on);
     }
 
 }

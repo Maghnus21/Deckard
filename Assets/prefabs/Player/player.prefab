@@ -725,12 +725,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9b2d9b8682395e340b27bdaee45e1386, type: 2}
   - {fileID: 0}
   equipted_item: {fileID: 0}
   hand_point: {fileID: 7689683645737106716}
   current_held_item: {fileID: 0}
   player_inventory: []
+  medipen_amount: {fileID: 11400000, guid: af51b49ea90997c42ac8113ccc017f0a, type: 2}
+  injector: {fileID: 8300000, guid: c9e47e6754789854bbae25d27f148fcd, type: 3}
+  ui_man: {fileID: 0}
+  audio_man: {fileID: 0}
+  player_health: {fileID: 0}
+  player_source: {fileID: 0}
   main_cam: {fileID: 7689683645042883035}
   player_chest: {fileID: 7266765880120517717}
   bullet_impact_effect: {fileID: 0}
@@ -790,6 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6835d4341ce52fa4fa685f0cb9b715f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  default_scale: 0
   canvas: {fileID: 0}
   player_hp: {fileID: 0}
   player_nrg: {fileID: 0}
@@ -850,6 +857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   player_ragdoll: {fileID: 6131678638940152372, guid: e3d50a5cc99f22d468d96fdb6cd18e8c, type: 3}
+  ui_man: {fileID: 0}
 --- !u!114 &2755747879086834329
 MonoBehaviour:
   m_ObjectHideFlags: 0

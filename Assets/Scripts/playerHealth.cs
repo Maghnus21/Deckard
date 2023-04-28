@@ -9,6 +9,18 @@ public class playerHealth : MonoBehaviour
     public GameObject player_ragdoll;
     Rigidbody[] rb;
 
+    public UIManager ui_man;
+    public AudioManager audio_man;
+
+    public AudioClip hurt;
+
+    private void Start()
+    {
+        ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+
+        ui_man.EnableRestart(false);
+    }
+
     private void Update()
     {
         /*
@@ -24,6 +36,8 @@ public class playerHealth : MonoBehaviour
     public void playerReceiveDamage(float damage)
     {
         health -= damage;
+
+        audio_man.PlaySound(GetComponentInChildren<AudioSource>(), hurt);
         
 
         if(health <= 0)
@@ -42,6 +56,7 @@ public class playerHealth : MonoBehaviour
     {
         health -= damage;
 
+        audio_man.PlaySound(GetComponentInChildren<AudioSource>(), hurt);
 
         if (health <= 0)
         {
@@ -57,12 +72,16 @@ public class playerHealth : MonoBehaviour
 
     void playerDeath()
     {
+        ui_man.EnableRestart(true);
+
         GameObject corpse = Instantiate(player_ragdoll, transform.position, transform.rotation);
         this.gameObject.SetActive(false);
     }
 
     void playerDeath(float exp_force, float exp_radius, float exp_up, Vector3 exp_pos)
     {
+        ui_man.EnableRestart(true);
+
         GameObject corpse = Instantiate(player_ragdoll, transform.position, transform.rotation);
         rb = corpse.GetComponentsInChildren<Rigidbody>();
 
