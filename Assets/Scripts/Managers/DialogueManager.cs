@@ -42,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         p_l = player.GetComponentInChildren<player_look>();
 
         original_mouse_sensativity = p_l.mouse_sen;

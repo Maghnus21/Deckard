@@ -185,6 +185,6 @@ MonoBehaviour:
         next_branch_id: 0
         response_dialogue: i can see that. thank you for your time [EXIT]
   is_real_human: 1
-  post_interro_ersatz_dialogue: {fileID: 11400000, guid: 7ead49579a6e7aa4b969a627aa0fde97, type: 2}
+  post_interrogation_dialogue: {fileID: 11400000, guid: 7ead49579a6e7aa4b969a627aa0fde97, type: 2}
   reveal_human_type_level: 4
   turn_hostile_level: 8
