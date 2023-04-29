@@ -24,10 +24,10 @@ MonoBehaviour:
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 0
+        next_branch_id: 1
         response_dialogue: the defeat of creation, right?
   - branch_name: 
-    branch_id: 0
+    branch_id: 1
     droppable_item: {fileID: 0}
     sections:
     - dialogue: yes, at some pooint, all creatures must do so. it is the ultimate

@@ -15,6 +15,7 @@ MonoBehaviour:
   branches:
   - branch_name: 
     branch_id: 0
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: would you mind if i question you now
       responses:
@@ -23,4 +24,4 @@ MonoBehaviour:
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 0
-        response_dialogue: ...
+        response_dialogue: ... [INITIALIZE INTERROGATION]
