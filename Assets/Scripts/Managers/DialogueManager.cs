@@ -422,6 +422,7 @@ public class DialogueManager : MonoBehaviour
         if (interrogation_dialogue_tree.branches[this.branch_choice].sections[0].responses[choice].end_on_response)
         {
             print("exited conversation");
+            talking_npc.GetComponent<AIAgent>().has_been_interrogated = true;
 
 
             if (talking_npc.GetComponent<AIAgent>().aggression_level >= interrogation_dialogue_tree.reveal_human_type_level && talking_npc.GetComponent<AIAgent>().aggression_level < interrogation_dialogue_tree.turn_hostile_level)

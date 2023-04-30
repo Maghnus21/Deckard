@@ -123,9 +123,9 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
             if (Physics.Raycast(ray, out hit, 5f))
             { 
-                if (hit.collider.GetComponent<KeyCheck>())
+                if (hit.collider.GetComponent<KeyCheck>() && hit.collider.GetComponent<KeyCheck>().enabled)
                     CheckKeys(hit.collider.GetComponent<KeyCheck>());
-                if (hit.collider.GetComponent<ItemDeposit>())
+                else if (hit.collider.GetComponent<ItemDeposit>() && hit.collider.GetComponent<ItemDeposit>().enabled)
                     hit.collider.GetComponent<ItemDeposit>().DepositItem(player_inventory);
             }
     }
@@ -241,6 +241,8 @@ public class PlayerInventory : MonoBehaviour
             {
                 print("ACCEPTED KEY");
                 opened_door = true;
+                key_check.CheckKeycode(opened_door);
+                return;
             }
             else opened_door = false;
         }

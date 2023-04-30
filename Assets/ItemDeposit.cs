@@ -7,6 +7,8 @@ public class ItemDeposit : MonoBehaviour
     public AudioManager audio_man;
     public AudioClip accept, deny;
 
+    public UIManager ui_man;
+
     public AudioSource audio_source;
 
     public Item deposit_item;
@@ -16,7 +18,7 @@ public class ItemDeposit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ui_man = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class ItemDeposit : MonoBehaviour
             {
                 correct_item = true;
                 AccreptItem();
+                this.enabled = false;
                 return;
             }
             correct_item = false;
@@ -50,6 +53,8 @@ public class ItemDeposit : MonoBehaviour
     void AccreptItem()
     {
         audio_man.PlaySound(audio_source, accept);
+        ui_man.DisplayPlainText("Deposited eye");
+        accepted_depot = true;
     }
 
     void DenyItem()

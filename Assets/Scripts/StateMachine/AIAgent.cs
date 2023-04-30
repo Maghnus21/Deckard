@@ -35,6 +35,8 @@ public class AIAgent : MonoBehaviour
     public float aggression_level;
     public bool is_aggressive = false;
 
+    public bool has_been_interrogated = false;
+
 
     public List<AIAgent> agents = new List<AIAgent>();
 

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70283e46ea0d8a04e9ee2740ca7e8283, type: 3}
+  m_Name: guzza_phone_fake
+  m_EditorClassIdentifier: 
+  branches:
+  - branch_name: 
+    branch_id: 0
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: you feel your earpiece vibrate faintly in your ear. a call from guzza
+      responses:
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 1
+        response_dialogue: '[CONTINUE]'
+  - branch_name: 
+    branch_id: 1
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: nick, i'm getting a reading that says you've got a third eye. dump
+        it in the vacuum transporter next to the desk jocky on your way home
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: '[EXIT]'

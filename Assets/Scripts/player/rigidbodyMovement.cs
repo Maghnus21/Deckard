@@ -15,6 +15,7 @@ public class rigidbodyMovement : MonoBehaviour
 {
     public AudioManager audio_man;
     public AudioClip jump_clip;
+    public AudioSource audio_source;
 
 
     private Vector3 player_movement;
@@ -37,7 +38,7 @@ public class rigidbodyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio_source = GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
@@ -108,7 +109,7 @@ public class rigidbodyMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && can_jump)
         {
             if (audio_man != null)
-                audio_man.PlaySound(GetComponentInChildren<AudioSource>(), jump_clip);
+                audio_man.PlaySound(audio_source, jump_clip);
 
             player_body.AddForce(Vector3.up * jump, ForceMode.VelocityChange);
         }

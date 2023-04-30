@@ -132,12 +132,12 @@ MonoBehaviour:
     - dialogue: speaking of the scav leader, theres a bounty on his head, but you
         can do whatever you want with this info
       responses:
-      - end_on_response: 1
+      - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 0
-        response_dialogue: i'll keep that in mind, thanks guzza [EXIT]
+        next_branch_id: 8
+        response_dialogue: i'll keep that in mind
   - branch_name: 
     branch_id: 7
     droppable_item: {fileID: 0}
@@ -149,5 +149,19 @@ MonoBehaviour:
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 6
+        next_branch_id: 8
         response_dialogue: alright
+  - branch_name: 
+    branch_id: 8
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: before you go, if they are an ersatz, dump the eye in the vacuum
+        transporter with the red light. someone from the lab will eventually pick
+        it up
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: will do, thanks guzza
