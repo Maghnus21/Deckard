@@ -26,11 +26,12 @@ MonoBehaviour:
         next_branch_id: 1
         response_dialogue: '[CONTINUE]'
   - branch_name: 
-    branch_id: 0
+    branch_id: 1
     droppable_item: {fileID: 0}
     sections:
     - dialogue: '"One of the first geneticaly modified trees produced on the Eala.
-        Capable of producing enough oxygen to support a residential zone"'
+        A birch tree capable of producing enough oxygen to support a residential
+        zone"'
       responses:
       - end_on_response: 1
         initialize_interrogation: 0

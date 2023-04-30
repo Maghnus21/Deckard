@@ -662,11 +662,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c99a5659c70315448cfa52685e0d27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio_man: {fileID: 0}
+  jump_clip: {fileID: 8300000, guid: 5406f612da9e5ca4186ee1031aae045c, type: 3}
   player_body: {fileID: 3573910784258634815}
   c_collider: {fileID: 2200006508574176948}
   avoid_layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   speed: 5
   sprint: 9
   jump: 5
@@ -858,6 +860,8 @@ MonoBehaviour:
   health: 100
   player_ragdoll: {fileID: 6131678638940152372, guid: e3d50a5cc99f22d468d96fdb6cd18e8c, type: 3}
   ui_man: {fileID: 0}
+  audio_man: {fileID: 0}
+  hurt: {fileID: 0}
 --- !u!114 &2755747879086834329
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -122,9 +122,12 @@ public class PlayerInventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
             if (Physics.Raycast(ray, out hit, 5f))
+            { 
                 if (hit.collider.GetComponent<KeyCheck>())
                     CheckKeys(hit.collider.GetComponent<KeyCheck>());
-        
+                if (hit.collider.GetComponent<ItemDeposit>())
+                    hit.collider.GetComponent<ItemDeposit>().DepositItem(player_inventory);
+            }
     }
 
     private void UseMediPen()

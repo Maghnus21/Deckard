@@ -13,6 +13,10 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class rigidbodyMovement : MonoBehaviour
 {
+    public AudioManager audio_man;
+    public AudioClip jump_clip;
+
+
     private Vector3 player_movement;
     Vector3 move_vec;
 
@@ -103,6 +107,9 @@ public class rigidbodyMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && can_jump)
         {
+            if (audio_man != null)
+                audio_man.PlaySound(GetComponentInChildren<AudioSource>(), jump_clip);
+
             player_body.AddForce(Vector3.up * jump, ForceMode.VelocityChange);
         }
     }
