@@ -33,7 +33,9 @@ MonoBehaviour:
     sections:
     - dialogue: there's a listing for a possible ersatz nearby, that means you'll
         have to dust off the old AE. its a new listing and i don't have many details,
-        so i'd recommend you give guzza a buzz before doing anythinng elde
+        so i'd recommend you give guzza a buzz before doing anythinng else. they
+        should have a few panda cars with their red and blue lights on outside the
+        building
       responses:
       - end_on_response: 0
         initialize_interrogation: 0

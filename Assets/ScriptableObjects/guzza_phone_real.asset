@@ -30,7 +30,8 @@ MonoBehaviour:
     droppable_item: {fileID: 0}
     sections:
     - dialogue: nick, i'm got a reading from your AE saying the suspect was human.
-        unfortunate to string you along just for that. head back home and get a rest
+        unfortunate to string you along just for that. go home, its been a long hard
+        day, take a rest
       responses:
       - end_on_response: 1
         initialize_interrogation: 0

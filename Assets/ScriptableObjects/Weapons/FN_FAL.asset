@@ -13,15 +13,12 @@ MonoBehaviour:
   m_Name: FN_FAL
   m_EditorClassIdentifier: 
   item_name: FAL
+  item_amount: 0
   description: 
   item_prefab: {fileID: 1078813186004044629, guid: d553f165e7595b34cbc6e37ff7e97105, type: 3}
   weapon_specs: {fileID: 11400000, guid: 293796c8d1453ed4aa4c636992556c09, type: 2}
   bullets_specs: {fileID: 11400000, guid: 146738e0af495ec4c88cb03c998c5deb, type: 2}
   gun_pickup: {fileID: 6463998072241800877, guid: c6a0d8a45dd081a4db587f8f1767f3fa, type: 3}
-  ads_speed: 5
-  ammo_reserve: 945
-  ammo_type: {fileID: 11400000, guid: 2f295e1ca081d044b85d51eb8ac19bc7, type: 2}
-  muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   ui_sprite: {fileID: 21300000, guid: 60a479eb00046f94390575bfd25feaa3, type: 3}
   is_melee_weapon: 0
@@ -29,6 +26,6 @@ MonoBehaviour:
   weapon_prefab: {fileID: 0}
   is_throwable: 0
   weapon_wheel_button: {fileID: 9095745432524640662, guid: 8a3e2dd4c49c9304f8ec0858d4160204, type: 3}
-  stack_location: 3
+  stack_location: 4
   is_key: 0
   keycode: 0

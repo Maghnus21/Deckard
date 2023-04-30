@@ -13,15 +13,12 @@ MonoBehaviour:
   m_Name: APS
   m_EditorClassIdentifier: 
   item_name: APS
+  item_amount: 0
   description: 
   item_prefab: {fileID: 1078813186004044629, guid: 87856e09bc14fe045b3a48a87f5d671b, type: 3}
   weapon_specs: {fileID: 11400000, guid: 150d172f0ded84f449f4ddbedb328104, type: 2}
   bullets_specs: {fileID: 11400000, guid: f78f883e90d79f84fb0a3f44a101c2c5, type: 2}
   gun_pickup: {fileID: 8843297993750994872, guid: 98c2bf4c74cd67c438efe1bd607bfea1, type: 3}
-  ads_speed: 2
-  ammo_reserve: 999
-  ammo_type: {fileID: 11400000, guid: fc4a99cb959ef0443a85380c7a49f9ad, type: 2}
-  muzzle_flash: {fileID: 5346996111665953348, guid: c51b06852a639a44e9e4e70a6409d7ef, type: 3}
   gun_fire: {fileID: 8300000, guid: ab99d3d7295ee7a4091d272c5b16f9a2, type: 3}
   ui_sprite: {fileID: 21300000, guid: a287d81ef32405c43b7b53bc096288a2, type: 3}
   is_melee_weapon: 0
@@ -29,6 +26,6 @@ MonoBehaviour:
   weapon_prefab: {fileID: 0}
   is_throwable: 0
   weapon_wheel_button: {fileID: 5251260882119336922, guid: 168cd8181c04ac647bd873a6e895517b, type: 3}
-  stack_location: 2
+  stack_location: 3
   is_key: 0
   keycode: 0

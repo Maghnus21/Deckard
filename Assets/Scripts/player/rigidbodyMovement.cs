@@ -108,7 +108,7 @@ public class rigidbodyMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && can_jump)
         {
-            if (audio_man != null)
+            if (audio_man != null && jump_clip != null )
                 audio_man.PlaySound(audio_source, jump_clip);
 
             player_body.AddForce(Vector3.up * jump, ForceMode.VelocityChange);

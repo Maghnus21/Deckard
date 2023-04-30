@@ -98,6 +98,7 @@ public class PlayerInventory : MonoBehaviour
             EquipWeapon(9);
 
 
+
         if (Input.GetKeyDown(KeyCode.V) && equipted_item != null)
             UnequipWeapon();
 

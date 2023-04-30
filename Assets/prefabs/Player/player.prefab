@@ -664,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio_man: {fileID: 0}
   jump_clip: {fileID: 8300000, guid: 5406f612da9e5ca4186ee1031aae045c, type: 3}
+  audio_source: {fileID: 0}
   player_body: {fileID: 3573910784258634815}
   c_collider: {fileID: 2200006508574176948}
   avoid_layer:

@@ -30,7 +30,8 @@ MonoBehaviour:
     droppable_item: {fileID: 0}
     sections:
     - dialogue: nick, i'm getting a reading that says you've got a third eye. dump
-        it in the vacuum transporter next to the desk jocky on your way home
+        it in the vacuum transporter next to the desk jocky on your way home. after
+        that, head back home, it's been a hard long day, take a nap or something
       responses:
       - end_on_response: 1
         initialize_interrogation: 0

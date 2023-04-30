@@ -15,6 +15,7 @@ MonoBehaviour:
   branches:
   - branch_name: 
     branch_id: 0
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: yes, yes, hello
       responses:
@@ -31,8 +32,15 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 2
         response_dialogue: mind if i talk to the chief, he should be expecting me
+      - end_on_response: 0
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 5
+        response_dialogue: where do i leave an ersatz eye when i find one
   - branch_name: 
     branch_id: 1
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: the big man is on the second floor. use the lift up the stairs, take
         a right then a left, you got that, right? i have to fill too many fourms
@@ -53,6 +61,7 @@ MonoBehaviour:
         response_dialogue: fine, i won't keep you away from your paperwork [EXIT]
   - branch_name: 
     branch_id: 2
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: head up the stairs to the lift, second floor, take the right then
         left.
@@ -72,6 +81,7 @@ MonoBehaviour:
         response_dialogue: thanks [EXIT]
   - branch_name: 
     branch_id: 3
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: most have been evicted from here to another station. this dump doesn't
         have a high enough population density so the heads want to cut this place
@@ -83,3 +93,16 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: i see, good luck with the work [EXIT]
+  - branch_name: 
+    branch_id: 5
+    droppable_item: {fileID: 0}
+    sections:
+    - dialogue: you see the box to your right, with that bloody light. press the
+        f button on it and it should take those eyeballs from you
+      responses:
+      - end_on_response: 1
+        initialize_interrogation: 0
+        turn_hostile: 0
+        event_trigger: 0
+        next_branch_id: 0
+        response_dialogue: good to know [EXIT]
