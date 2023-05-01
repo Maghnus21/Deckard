@@ -23,6 +23,7 @@ public class ChangeDiaryNotes : MonoBehaviour
                 entity.phone_dialogue = fake;
             else
                 entity.phone_dialogue = real;
+
         this.enabled = false;
     }
 }

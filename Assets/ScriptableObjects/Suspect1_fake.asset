@@ -16,7 +16,8 @@ MonoBehaviour:
   - branch_name: 
     branch_id: 0
     sections:
-    - dialogue: ...
+    - dialogue: ... [PRESS GREEN FOR RELAXED QUESTION, YELLOW FOR NEUTRAL QUESTION,
+        RED FOR AGGRESSOVE QUESTION]
       responses:
       - end_on_response: 0
         turn_hostile: 0

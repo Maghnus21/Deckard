@@ -155,7 +155,11 @@ public class DialogueManager : MonoBehaviour
         else
         {
             if (talking_npc.GetComponent<AIAgent>()) dialogue_tree = talking_npc.GetComponent<AIAgent>().dialogue_tree;
-            else if (talking_npc.GetComponent<TalkableEntity>()) dialogue_tree = talking_npc.GetComponent<TalkableEntity>().phone_dialogue;
+            else if (talking_npc.GetComponent<TalkableEntity>())
+            {
+                talking_npc.GetComponent<TalkableEntity>().interacted_with = true;
+                dialogue_tree = talking_npc.GetComponent<TalkableEntity>().phone_dialogue;
+            }
         }
     }
 
