@@ -29,7 +29,7 @@ public class player_look : MonoBehaviour
         itemDistance = itemTransform.position.z - transform.position.z;   
 
         Cursor.lockState = CursorLockMode.Confined;
-        //Cursor.visible = false;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

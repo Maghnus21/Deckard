@@ -184,6 +184,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayConvo()
     {
+        Cursor.visible = true;
+
         //  displays dialogue text in textbox
         
         foreach(DialogueBranch dialogueBranch in dialogue_tree.branches)
@@ -302,6 +304,8 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
         {
+            Cursor.visible = false;
+
             print("exited conversation");
             HideDialogue();
             in_convo = false;
@@ -316,6 +320,8 @@ public class DialogueManager : MonoBehaviour
         }
         else if (dialogue_branch.sections[0].responses[response_choice].turn_hostile)
         {
+            Cursor.visible = false;
+
             talking_npc.GetComponent<AIAgent>().stateMachine.ChangeState(AIStateID.AttackPlayer);
             HideDialogue();
             in_convo = false;
@@ -425,6 +431,8 @@ public class DialogueManager : MonoBehaviour
 
         if (interrogation_dialogue_tree.branches[this.branch_choice].sections[0].responses[choice].end_on_response)
         {
+            Cursor.visible = false;
+
             print("exited conversation");
             talking_npc.GetComponent<AIAgent>().has_been_interrogated = true;
 
