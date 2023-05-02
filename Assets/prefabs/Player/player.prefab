@@ -723,7 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadout:
   - {fileID: 11400000, guid: d6dd7a5cccf02bf41925b69f61d08cc0, type: 2}
-  - {fileID: 11400000, guid: 086fc11eae693684c81e8c810d6787b9, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
