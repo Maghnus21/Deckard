@@ -49,6 +49,16 @@ public class rigidbodyMovement : MonoBehaviour
         MovePlayer();
     }
 
+    public void ExternalMovePlayer()
+    {
+        MovePlayer();
+    }
+
+    public void PlayerMovement(Vector3 button_inputs)
+    {
+        player_movement = button_inputs;
+    }
+
     private void MovePlayer()
     {
 
