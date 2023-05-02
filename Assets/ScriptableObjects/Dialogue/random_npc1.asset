@@ -15,6 +15,7 @@ MonoBehaviour:
   branches:
   - branch_name: 
     branch_id: 0
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: fuckin' chilly night, isn't it
       responses:
@@ -32,6 +33,7 @@ MonoBehaviour:
         response_dialogue: do you know anything about the scavs around here
   - branch_name: 
     branch_id: 1
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: i heard the scav boss has a key or somethin'he's been interested
         in selling. don't have a clue what its for but its for a heaftly price
@@ -44,6 +46,7 @@ MonoBehaviour:
         response_dialogue: thanks [EXIT]
   - branch_name: 
     branch_id: 2
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: fuck all honestly, but i did hear the boss wants to hand off some
         key to the highest seller
@@ -56,6 +59,7 @@ MonoBehaviour:
         response_dialogue: 'thanks '
   - branch_name: 
     branch_id: 3
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: just watch out man, id seen a few of them come out of their place
         with a fair amount of rifles
@@ -66,15 +70,3 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: thanks, but my hands aren't the cleanest [EXIT]
-  - branch_name: 
-    branch_id: 2
-    sections:
-    - dialogue: just watch out man, id seen a few of them come out of their place
-        with a fair amount of rifles
-      responses:
-      - end_on_response: 1
-        initialize_interrogation: 0
-        turn_hostile: 0
-        event_trigger: 0
-        next_branch_id: 0
-        response_dialogue: thanks, but my hands aren't the cleanest

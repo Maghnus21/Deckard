@@ -29,9 +29,9 @@ MonoBehaviour:
     branch_id: 1
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: '"One of the first geneticaly modified trees produced on the Eala.
-        A birch tree capable of producing enough oxygen to support a residential
-        zone"'
+    - dialogue: '"One of the first geneticaly modified trees produced and grown on
+        the Eala Dubh. A birch tree capable of producing enough oxygen to support
+        a residential zone indefinitely"'
       responses:
       - end_on_response: 1
         initialize_interrogation: 0
