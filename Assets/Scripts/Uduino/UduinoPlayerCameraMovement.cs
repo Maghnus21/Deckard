@@ -10,12 +10,10 @@ public class UduinoPlayerCameraMovement : MonoBehaviour
     public Camera player_camera;
     public Transform player_body;
     public Transform player_weapon;
-
     public int x_axis, y_axis;
     int base_x, base_y;
 
     float xRotation;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +30,8 @@ public class UduinoPlayerCameraMovement : MonoBehaviour
     {
         x_axis = UduinoManager.Instance.analogRead(AnalogPin.A0);
         y_axis = UduinoManager.Instance.analogRead(AnalogPin.A1);
-
         float x_dir = 0f, y_dir = 0f;
 
-        
         if (x_axis >= base_x + 5f)
             x_dir = 1f;
         else if (x_axis <= base_x - 5f)
@@ -54,10 +50,8 @@ public class UduinoPlayerCameraMovement : MonoBehaviour
 
         xRotation -= x_dir;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
         player_camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         player_body.Rotate(Vector3.up * y_dir);
-
         player_weapon.localRotation = player_camera.transform.localRotation;
     }
 }

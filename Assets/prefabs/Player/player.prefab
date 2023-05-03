@@ -534,6 +534,9 @@ MonoBehaviour:
   weapon: {fileID: 7689683645737106716}
   itemTransform: {fileID: 2326454242085260488}
   mouse_sen: 200
+  mouseX: 0
+  mouseY: 0
+  xRotation: 0
 --- !u!114 &7689683646176636073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio_man: {fileID: 0}
-  jump_clip: {fileID: 8300000, guid: 5406f612da9e5ca4186ee1031aae045c, type: 3}
+  jump_clip: {fileID: 0}
   audio_source: {fileID: 0}
   player_body: {fileID: 3573910784258634815}
   c_collider: {fileID: 2200006508574176948}
@@ -862,7 +865,7 @@ MonoBehaviour:
   player_ragdoll: {fileID: 6131678638940152372, guid: e3d50a5cc99f22d468d96fdb6cd18e8c, type: 3}
   ui_man: {fileID: 0}
   audio_man: {fileID: 0}
-  hurt: {fileID: 0}
+  hurt: {fileID: 8300000, guid: 5f69b05df3b2e1e469b494e9248ca60e, type: 3}
 --- !u!114 &2755747879086834329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +898,7 @@ MonoBehaviour:
   delay_time: 4
   throw_force: 9
   can_ads: 1
+  uduino_con_fire: 0
 --- !u!1 &8095173688241620763
 GameObject:
   m_ObjectHideFlags: 0

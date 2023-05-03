@@ -36,7 +36,8 @@ public class UduinoPlayerWeapons : MonoBehaviour
         if (UduinoManager.Instance.digitalRead(2) == 1)
             pressed_weapon_switch_button = false;
 
-        if (UduinoManager.Instance.digitalRead(5) == 1 && player_gun.player_hot_key.equipted_item != null && !player_gun.player_hot_key.equipted_item.is_melee_weapon && !player_gun.player_hot_key.equipted_item.is_throwable)
+        if (UduinoManager.Instance.digitalRead(5) == 1 && player_gun.player_hot_key.equipted_item != null && 
+            !player_gun.player_hot_key.equipted_item.is_melee_weapon && !player_gun.player_hot_key.equipted_item.is_throwable)
             player_gun.uduino_con_fire = true;
         else
             player_gun.uduino_con_fire = false;

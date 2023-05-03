@@ -28,7 +28,6 @@ public class UduinoPlayerRBMovement : MonoBehaviour
     {
         w_button = UduinoManager.Instance.digitalRead(11);
         s_button = UduinoManager.Instance.digitalRead(10);
-
         a_button = UduinoManager.Instance.digitalRead(9);
         d_button = UduinoManager.Instance.digitalRead(8);
 
@@ -40,7 +39,6 @@ public class UduinoPlayerRBMovement : MonoBehaviour
             z_dir = 0;
 
 
-
         if (d_button > 0)
             x_dir = 1;
         else if (a_button > 0)
@@ -49,13 +47,8 @@ public class UduinoPlayerRBMovement : MonoBehaviour
             x_dir = 0;
 
 
-
         rb_movement.PlayerMovement(new Vector3(x_dir * speed, 0f, z_dir * speed));
 
         rb_movement.ExternalMovePlayer();
-
-        //rb_movement.ExternalMovePlayer();
     }
-
-
 }
