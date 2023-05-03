@@ -18,7 +18,7 @@ public class player_look : MonoBehaviour
     float itemDistance = 3f;
 
     public int mouse_sen = 10;
-    float mouseX, mouseY, xRotation = 0f;
+    public float mouseX, mouseY, xRotation = 0f;
 
 
     #endregion
