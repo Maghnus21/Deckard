@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ba7fdfbba6e8740a65ffbd60ce0a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interacted_with: 0
   phone_dialogue: {fileID: 11400000, guid: b167669e1c4dd4844b4b29b7b3e13731, type: 2}
 --- !u!82 &3842415175001912805
 AudioSource:
@@ -263,10 +264,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.1
-  MaxDistance: 6
+  MinDistance: 1.94
+  MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -274,23 +275,41 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.194
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -5.1567
+      outSlope: -5.1567
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.388
+      value: 0.5
+      inSlope: -1.289175
+      outSlope: -1.289175
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.69100857
+      value: 0.18746948
+      inSlope: -0.6649071
+      outSlope: -0.6649071
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.39318705
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.19407757
+      outSlope: -0.19407757
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

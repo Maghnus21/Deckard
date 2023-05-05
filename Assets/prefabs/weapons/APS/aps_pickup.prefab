@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4213688585615978336}
   - component: {fileID: 4213688585615978339}
   - component: {fileID: 4213688585615978338}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: aps_pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4213688585615978341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6575327, y: 100.438, z: 79.85712}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -82,6 +82,7 @@ MonoBehaviour:
   button: {fileID: 0}
   audio_man: {fileID: 6778549957681757765, guid: 1bc83ee84db14834d90370c4231cc758, type: 3}
   pickup: {fileID: 8300000, guid: 00362d228a3072840b329df655cff9a3, type: 3}
+  ui_man: {fileID: 0}
 --- !u!1001 &4213688587262510804
 PrefabInstance:
   m_ObjectHideFlags: 0

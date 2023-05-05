@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7815581591246907259}
   - component: {fileID: 7815581591246907260}
   - component: {fileID: 7815581591246907258}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: medipen_pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

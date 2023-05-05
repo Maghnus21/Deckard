@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class LiftButtons : MonoBehaviour
 {
+    public AudioManager audio_man;
+    public AudioSource source;
+    public AudioClip selected;
+
     public GameObject lift;
     public Transform destination;
     public float speed = 10f;
@@ -29,6 +33,8 @@ public class LiftButtons : MonoBehaviour
 
     public void LiftMovement()
     {
+        audio_man.PlaySound(source, selected);
+
         reached_des = false;
     }
 

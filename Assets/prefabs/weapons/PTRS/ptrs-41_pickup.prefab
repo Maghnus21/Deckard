@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6149120989040355119}
   - component: {fileID: 6149120989040355107}
   - component: {fileID: 6149120989040355117}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ptrs-41_pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
