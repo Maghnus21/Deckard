@@ -29,31 +29,26 @@ public class explosiveHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health.health <= melting_health)
+        if(health.health <= melting_health && !coroutine_started)
         {
-            coroutine_started = true;
             StartCoroutine(explosion_countdown());
+            coroutine_started = true;
         }
 
 
-        if(health.health <= 0 && !created_explosion)
+        if(health.health <= 0f && !created_explosion)
         {
+            int layer_mask = LayerMask.NameToLayer("Ignore Raycast");
+            this.gameObject.layer = layer_mask;
+
             StopCoroutine(explosion_countdown());
 
-            
+            this.gameObject.SetActive(false);
+            Destroy(gameObject, 3f);
 
-            if (!created_explosion)
-            {
-                GameObject new_explosion = Instantiate(explosion, transform.position, transform.rotation);
-                new_explosion.GetComponent<explode>().Explode();
-                created_explosion = true;
-            }
-            else
-            {
-                print("Attempted instantiating additional explosive");
-            }
+            Instantiate(explosion, transform.position, transform.rotation).GetComponent<explode>().Explode();
+            created_explosion = true;
             
-            Destroy(this.gameObject);
         }
     }
 
@@ -66,8 +61,12 @@ public class explosiveHealth : MonoBehaviour
 
     IEnumerator explosion_countdown()
     {
-        yield return new WaitForSeconds(1f);
-        health.health -= .001f;
+        while (true)
+        {
+            yield return new WaitForSeconds(.5f);
+            health.health -= .3f;
+        }
+        
     }
 
     void detonate()

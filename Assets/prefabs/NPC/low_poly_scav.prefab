@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d660b41ee105280429413ab992ec3778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  health: {fileID: 7511966260631940693}
   damage_multi: 1
 --- !u!1 &1152509651017687567
 GameObject:
@@ -3510,6 +3510,7 @@ MonoBehaviour:
   enemy_los: {fileID: 0}
   aggression_level: 0
   is_aggressive: 0
+  has_been_interrogated: 0
   agents: []
 --- !u!114 &7511966260631940695
 MonoBehaviour:

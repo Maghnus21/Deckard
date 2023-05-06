@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
 {
     public NPC npc;                             //  contains data etc health
     Ragdoll ragdoll;                            //  controlls ragdoll effects for entity
+    GameObject gib_model;
+
     AIAgent agent;
     Rigidbody[] rigidbodies;
 
@@ -43,28 +45,30 @@ public class Health : MonoBehaviour
         {
             health = npc.health;
 
-            ragdoll = GetComponent<Ragdoll>();
+            if(GetComponent<Ragdoll>())
+            {
+                ragdoll = GetComponent<Ragdoll>();
 
-            CreateEntityRagdoll();
+                CreateEntityRagdoll();
+            }
+            
         }
         else
         {
             health = 10f;
         }
 
-        agent = GetComponent<AIAgent>();
+        if (npc.gib_model != null)
+            gib_model = npc.gib_model;
 
-        assignScripts();
+        if(GetComponent<AIAgent>())
+            agent = GetComponent<AIAgent>();
+
+        
     }
 
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -78,19 +82,19 @@ public class Health : MonoBehaviour
     public void ReceiveDamage(float amount, Vector3 impact_direction, Rigidbody hit_rb)
     {
         health -= amount;
-        if(health <= 0 && npc != null)
-        {
+        if(health <= 0f)
             Die(impact_direction, hit_rb);
-        }
     }
 
     public void ReceiveExplosiveDamage(float damage, Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
     {
         health -= damage;
-        if(health <= 0 && npc != null)
-        {
+
+
+        if (health <= 0f)
             ExplosiveDie(det_loc, exp_force, exp_rad, exp_up);
-        }
+            
+
     }
 
     /// <summary>
@@ -103,28 +107,34 @@ public class Health : MonoBehaviour
         if (drop_items != null && drop_items.enabled)
             drop_items.DropItemsInList();
 
-        float gib_chance_mutiplier =health/-80f;
-        float rand_num = Random.Range(0f, 100f);
+        
 
-        if(rand_num <= gib_chance_mutiplier)
+        if (npc.gib_model != null)
         {
-            
-            Instantiate(npc.gib_model, transform.position, transform.rotation);
+            float gib_chance_mutiplier = health / -80f;
+            float rand_num = Random.Range(0f, 100f);
 
-            Destroy(this.gameObject);
+            if (rand_num <= gib_chance_mutiplier)
+            {
+                Instantiate(npc.gib_model, transform.position, transform.rotation);
+
+                this.gameObject.SetActive(false);
+                Destroy(this.gameObject, 1f);
+            }
         }
-        else
+
+        if (GetComponent<AIAgent>())
         {
-            
             GetComponent<AIAgent>().impact_direction = impact_direction;
             GetComponent<AIAgent>().hit_rb = hit_rb;
             agent.stateMachine.ChangeState(AIStateID.Death);
 
             foreach (Rigidbody rb in rigidbodies)
-            {
                 rb.tag = "EntityDead";
-            }
         }
+
+        else
+            return;
     }
 
     void ExplosiveDie(Vector3 det_loc, float exp_force, float exp_rad, float exp_up)
@@ -132,36 +142,31 @@ public class Health : MonoBehaviour
         if (drop_items != null && drop_items.enabled)
             drop_items.DropItemsInList();
 
-        disableScripts();
-
-        float rand = Random.Range(0f, 100f);
-
         
-        if(rand < 50)
+
+        if (npc.gib_model != null)
         {
-            GameObject gib_body = Instantiate(npc.gib_model, transform.position, transform.rotation);
-            
-            Rigidbody[] rb = gib_body.GetComponentsInChildren<Rigidbody>();
-
-            foreach(Rigidbody rb2 in rb)
+            float rand = Random.Range(0f, 100f);
+            if (rand < 50f)
             {
-                rb2.AddExplosionForce(exp_force, det_loc, exp_rad, exp_up, ForceMode.Impulse);
+                GameObject gib_body = Instantiate(npc.gib_model, transform.position, transform.rotation);
+
+                Rigidbody[] rb = gib_body.GetComponentsInChildren<Rigidbody>();
+                foreach (Rigidbody rb2 in rb)
+                    rb2.AddExplosionForce(exp_force, det_loc, exp_rad, exp_up, ForceMode.Impulse);
+
+                Destroy(this.gameObject);
             }
-
-
-            Destroy(this.gameObject);
         }
-        else
+
+        if (GetComponent<Ragdoll>())
         {
             ragdoll.ActivateRagdoll();
             ragdoll.AddExplosiveForcePoint(det_loc, exp_force, exp_rad, exp_up, true);
 
             foreach (Rigidbody rb in rigidbodies)
-            {
                 rb.tag = "EntityDead";
-            }
 
-            
         }
     }
 
@@ -186,7 +191,7 @@ public class Health : MonoBehaviour
         }
             
     }
-
+    /*
     //  this method use is solely for turning off scripts if npc has died/entered a ragdoll state
     void disableScripts()
     {
@@ -211,4 +216,5 @@ public class Health : MonoBehaviour
             animator = GetComponent<Animator>();
         }
     }
+    */
 }

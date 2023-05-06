@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,12 +50,43 @@ public class explode : MonoBehaviour
         explosion_particles.transform.position = transform.position;
         explosion_particles.Emit(1);
 
-        checkExplosionLOS();
+        //checkExplosionLOS();
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosion_radius);     // to be kept until los fix
 
         foreach (Collider collider in colliders)
+            list.Add(collider);
+
+        list.RemoveAll(collider => !collider);
+
+        /*
+        list.ForEach(collider =>
         {
+            
+                
+        });*/
+
+        foreach (Collider collider in list)
+        {
+            if (collider.gameObject.GetComponent<EntityHitbox>() && collider.gameObject.GetComponent<EntityHitbox>().health != null && collider.gameObject.activeInHierarchy)
+            {
+                print("hit " + collider.name);
+                float entity_dis = Vector3.Distance(transform.position, collider.transform.position);
+                collider.gameObject.GetComponent<EntityHitbox>().ExplosiveHit(calculateDistanceDamage(entity_dis), transform.position, explosion_force, explosion_radius, explosion_upforce);
+            }
+                
+            else { }
+        }
+            
+
+
+
+        /*
+        foreach (Collider collider in colliders)
+        {
+            //print("HIT COLLIDER " + collider.gameObject.name);
+
+            
             //  check makes sure hit NPC doesn't instantiate multiple gib_body prefabs
             if (collider.gameObject.GetComponent<EntityHitbox>() && collider.gameObject.GetComponentInParent<Health>().health > 0f)
             {
@@ -74,7 +106,7 @@ public class explode : MonoBehaviour
             }
             else
             {
-                Rigidbody rb = collider.GetComponent<Rigidbody>();
+                Rigidbody rb = collider.gameObject.GetComponent<Rigidbody>();
 
                 if (rb != null)
                 {
@@ -82,9 +114,10 @@ public class explode : MonoBehaviour
                 }
             }
             
-            
-            
-        }       
+
+
+        }
+        */
     }
 
     void checkExplosionLOS()

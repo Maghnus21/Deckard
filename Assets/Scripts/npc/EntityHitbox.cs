@@ -17,6 +17,7 @@ public class EntityHitbox : MonoBehaviour
 
     public void ExplosiveHit(float damage, Vector3 detonation_location, float explosion_force, float explosion_radius, float explosion_upforce)
     {
+        //health.health -= damage;
         health.ReceiveExplosiveDamage(damage, detonation_location, explosion_force, explosion_radius, explosion_upforce);
     }
 }
