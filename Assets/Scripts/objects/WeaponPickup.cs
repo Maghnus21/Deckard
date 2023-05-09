@@ -46,6 +46,8 @@ public class WeaponPickup : MonoBehaviour
 
         if (other.CompareTag("NPC"))
         {
+            print("NPC PICKUP");
+            /*
             EntityHitbox hitbox = other.gameObject.GetComponent<EntityHitbox>();
             if (hitbox)
             {
@@ -58,6 +60,7 @@ public class WeaponPickup : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+            */
         }
 
     }

@@ -35,21 +35,22 @@ MonoBehaviour:
     branch_id: 1
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: i heard the scav boss has a key or somethin'he's been interested
+    - dialogue: i heard the scav boss has a key or something hes been interested
         in selling. don't have a clue what its for but its for a heaftly price
       responses:
-      - end_on_response: 1
+      - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 0
-        response_dialogue: thanks [EXIT]
+        next_branch_id: 3
+        response_dialogue: thanks
   - branch_name: 
     branch_id: 2
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: fuck all honestly, but i did hear the boss wants to hand off some
-        key to the highest seller
+    - dialogue: fuck all honestly, i know the scavs in the old brick building are
+        having a fit about the gang in the building behind me and the scav boss is
+        looking to sell some old key
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
@@ -61,12 +62,12 @@ MonoBehaviour:
     branch_id: 3
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: just watch out man, id seen a few of them come out of their place
-        with a fair amount of rifles
+    - dialogue: there was some tall borg lady who came not long ago asking about
+        the boss aswell, are you after his bounty?
       responses:
       - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 0
-        response_dialogue: thanks, but my hands aren't the cleanest [EXIT]
+        response_dialogue: yes, so i might have to quicken my pace [EXIT]
