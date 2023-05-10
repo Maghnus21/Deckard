@@ -17,7 +17,7 @@ MonoBehaviour:
     branch_id: 0
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: its an old datatab with some information about the monolith colony
+    - dialogue: its an old dataslab with some information about the monolith colony
         building on it
       responses:
       - end_on_response: 0
@@ -36,9 +36,9 @@ MonoBehaviour:
     branch_id: 1
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: '"... created by manus industries as trial runs for later craft dubbed
-        "seed ships". they simulated space-like conditions in the hopes of perfecting
-        the technology for sustained, long distance space travel"'
+    - dialogue: '"... created by manus industries as trial runs for later spacecraft
+        dubbed "seed ships". they simulated space-like conditions in the hopes of
+        perfecting the technology for sustained, long distance space travel..."'
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
@@ -56,10 +56,10 @@ MonoBehaviour:
     branch_id: 2
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: '"...these trial runs ran for over 200 years to see the effect it
-        would have on the generations of residents onboard. stories about the residents
-        say they ahieved some form of elongated lifespan or immortality, although
-        this was never confirmed as none of the residents were seen to leave"'
+    - dialogue: '"...trial runs ran for over 200 years to see the effect it would
+        have on the generations of residents onboard. stories about the residents
+        say they ahieved some form of elongated lifespan through genetic alteration,
+        although this was never confirmed and seen as just rumours"'
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
@@ -99,9 +99,10 @@ MonoBehaviour:
     branch_id: 4
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: '"...thanks to the durashell exteriour, residents inside and out
-        never met eachother, thus these technologies were never smuggled out in mass
-        numbers or consistantly"'
+    - dialogue: '"...the monolith class building is coated in a layer of durashell,
+        a new revolutionary material 50 times lighter than titanium alloys with the
+        same dimensions and 300 times more durable. the durashell combined with incredibly
+        tight restrictions on entering make it next to impossible to enter."'
       responses:
       - end_on_response: 1
         initialize_interrogation: 0

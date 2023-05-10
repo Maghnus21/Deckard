@@ -70,4 +70,4 @@ MonoBehaviour:
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 0
-        response_dialogue: yes, so i might have to quicken my pace [EXIT]
+        response_dialogue: yes. might have to quicken my pace [EXIT]
