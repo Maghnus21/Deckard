@@ -34,7 +34,7 @@ MonoBehaviour:
         panel. stupid glass won''t shatter, possibly impregnated with durashell.
         can''t find slot for the key. need to uproot glass from floor somehow'
       responses:
-      - end_on_response: 0
+      - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
