@@ -74,6 +74,12 @@ public class explode : MonoBehaviour
                 float entity_dis = Vector3.Distance(transform.position, collider.transform.position);
                 collider.gameObject.GetComponent<EntityHitbox>().ExplosiveHit(calculateDistanceDamage(entity_dis), transform.position, explosion_force, explosion_radius, explosion_upforce);
             }
+            else if(collider.gameObject.GetComponent<playerHitbox>() && collider.gameObject.GetComponent<playerHealth>().health >=0f && collider.gameObject.activeInHierarchy)
+            {
+                print("hit " + collider.name);
+                float entity_dis = Vector3.Distance(transform.position, collider.transform.position);
+                collider.gameObject.GetComponent<playerHitbox>().onRaycastHitPlayer(calculateDistanceDamage(entity_dis));
+            }
                 
             else { }
         }

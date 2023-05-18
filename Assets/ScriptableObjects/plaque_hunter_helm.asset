@@ -29,10 +29,10 @@ MonoBehaviour:
     branch_id: 0
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: '"prototype of new hunter helmet to be used by elite section k. improved
-        hud allowing for realtime iff recognition, enhanced digital zoom up to 500
-        times, live user health diagnosis  along with sidecar duping ai for improved
-        general capabilities"'
+    - dialogue: '"prototype of new hunter helmet to be used by elite gatherers of
+        section k. improved hud allowing for realtime iff recognition, enhanced digital
+        zoom up to 500 times, live user health diagnosis, liquid serial bus, along
+        with sidecar duping ai for improved predictive tool activation"'
       responses:
       - end_on_response: 1
         initialize_interrogation: 0
