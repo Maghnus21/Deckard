@@ -38,6 +38,7 @@ public class explosiveHealth : MonoBehaviour
 
         if(health.health <= 0f && !created_explosion)
         {
+
             int layer_mask = LayerMask.NameToLayer("Ignore Raycast");
             this.gameObject.layer = layer_mask;
 

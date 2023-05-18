@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 11400000, guid: 4c316f8b8d1f44c41b3a2dd4e4ba06be, type: 2}
+  drop_items: {fileID: 0}
   impact_force: 20
   health: 0
   death_force_mode: 1
@@ -160,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d660b41ee105280429413ab992ec3778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  health: {fileID: 135271864716811594}
   damage_multi: 1

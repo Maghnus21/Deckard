@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3603640574158515657}
   - component: {fileID: 3603640574158515658}
   - component: {fileID: 6645640720105563899}
+  - component: {fileID: 7309968173424667817}
+  - component: {fileID: 6308151490944971434}
   m_Layer: 2
   m_Name: box_trigger
   m_TagString: Untagged
@@ -75,3 +77,31 @@ MonoBehaviour:
   text: press "F" to pickup / interact with game objects
   display_text: 1
   ui_man: {fileID: 0}
+--- !u!114 &7309968173424667817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603640574158515659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67e18e1d4a91e54e9f5cc287405ef82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entered_trigger: 0
+  disable_upon_enter: 0
+--- !u!114 &6308151490944971434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603640574158515659}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86b4a6b8621fac4b87a897cd6983838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  clip: {fileID: 0}
