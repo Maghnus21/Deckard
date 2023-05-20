@@ -44,16 +44,16 @@ MonoBehaviour:
     sections:
     - dialogue: '"...prime the syringe by pressin the button lightly until a small
         amout of luminous green liquid exits the syringe. next, jab the pen into
-        the neck, between the ear and shoulder region, until the four barbs draw
-        blood, ensuring good connection. slowly press the button on the tip of the
-        pen to inject the solution"'
+        the neck, between ear and shoulder region, until the four barbs draw blood,
+        ensuring good connection. slowly press the button on the tip of the pen to
+        inject the solution"'
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 4
-        response_dialogue: '[EXIT]'
+        response_dialogue: '[CONTINUE]'
   - branch_name: 
     branch_id: 4
     droppable_item: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
     sections:
     - dialogue: '"...medipens are among humanities greatest inventions, created with
         the sole idea of fast, reliable and easy-to-use method of healing solution
-        for front line soldiers in the anglo-eurasian war. medipens are syringes
+        for front line soldiers in the 7th anglo-eurasian war. medipens are syringes
         containing a concoction of micromachines, fast cell division stimulant chemicals
         and painkillers"'
       responses:
