@@ -11,15 +11,19 @@ public class DoorStop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = GetComponent<Health>();
+        //health = GetComponent<Health>();
         if (door_logic != null)
             door_logic.is_locked = true;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(health.health <=0f)
-            door_logic.is_locked=false;
+        if(health.health <=0f || health == null)
+        {
+            door_logic.is_locked = false;
+            this.enabled = false;
+        }
+            
     }
 }

@@ -141,10 +141,14 @@ public class doorLogic : MonoBehaviour
             if (IsRotatingDoor)
             {
                 AnimationCoroutine = StartCoroutine(DoRotationClose());
+                door_audio.clip = open_close_sound;
+                door_audio.Play();
             }
             else
             {
                 AnimationCoroutine = StartCoroutine(DoSlidingClose());
+                door_audio.clip = open_close_sound;
+                door_audio.Play();
             }
         }
     }
