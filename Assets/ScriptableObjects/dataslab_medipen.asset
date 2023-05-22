@@ -74,10 +74,10 @@ MonoBehaviour:
     droppable_item: {fileID: 0}
     sections:
     - dialogue: '"...medipens are among humanities greatest inventions, created with
-        the sole idea of fast, reliable and easy-to-use method of healing solution
-        for front line soldiers in the 7th anglo-eurasian war. medipens are syringes
-        containing a concoction of micromachines, fast cell division stimulant chemicals
-        and painkillers"'
+        the sole purpose of fast, reliable and easy-to-use application of a healing
+        solution to be used by front line soldiers in the nuclear snow war. medipens
+        are syringes containing a concoction of micromachines, fast cell division
+        stimulant chemicals and painkillers"'
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
     branch_id: 5
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: '"...no"'
+    - dialogue: '"no"'
       responses:
       - end_on_response: 0
         initialize_interrogation: 0
