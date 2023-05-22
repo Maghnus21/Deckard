@@ -62,12 +62,13 @@ MonoBehaviour:
     branch_id: 3
     droppable_item: {fileID: 0}
     sections:
-    - dialogue: there was some tall borg lady with a strange accent who came not
-        long ago asking about the boss aswell, are you after his bounty?
+    - dialogue: there was some tall borg lady with a strange accent like norweigen
+        or something who came not long ago, asking about the boss aswell. are you
+        after his bounty?
       responses:
       - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 0
-        response_dialogue: yes, have to quicken my pace then [EXIT]
+        response_dialogue: yes, but i won't be sharing the bounty with evaliina [EXIT]

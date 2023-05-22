@@ -47,6 +47,12 @@ public class doorLogic : MonoBehaviour
 
     private Coroutine AnimationCoroutine;
 
+    private void Start()
+    {
+        
+    }
+
+
     private void Awake()
     {
         StartRotation = transform.rotation.eulerAngles;
