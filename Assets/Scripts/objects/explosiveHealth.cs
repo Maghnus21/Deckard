@@ -6,6 +6,8 @@ public class explosiveHealth : MonoBehaviour
 {
     Health health;
     public GameObject explosion;
+    public ParticleSystem fire;
+
     float melting_health;
 
     public bool created_explosion;
@@ -62,6 +64,8 @@ public class explosiveHealth : MonoBehaviour
 
     IEnumerator explosion_countdown()
     {
+        fire.enableEmission = true;
+
         while (true)
         {
             yield return new WaitForSeconds(.5f);
