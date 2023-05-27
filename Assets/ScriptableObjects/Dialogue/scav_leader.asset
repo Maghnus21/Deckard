@@ -26,18 +26,21 @@ MonoBehaviour:
         next_branch_id: 1
         response_dialogue: i need to get into the colony building next door, any
           idea how i can get in
+        post_convo_dialogue_tree: {fileID: 0}
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 1
         response_dialogue: i'm interested in buying that key off you
+        post_convo_dialogue_tree: {fileID: 0}
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 3
         response_dialogue: fine
+        post_convo_dialogue_tree: {fileID: 0}
   - branch_name: 
     branch_id: 1
     droppable_item: {fileID: 0}
@@ -51,18 +54,21 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 2
         response_dialogue: steep enough, anything i can do to take it off your hands
+        post_convo_dialogue_tree: {fileID: 0}
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 4
         response_dialogue: fine, ill take it
+        post_convo_dialogue_tree: {fileID: 0}
       - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: you know what, nevermind [EXIT]
+        post_convo_dialogue_tree: {fileID: 0}
   - branch_name: 
     branch_id: 2
     droppable_item: {fileID: 0}
@@ -78,6 +84,7 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: fine, i'll be back in a little while [EXIT]
+        post_convo_dialogue_tree: {fileID: 0}
   - branch_name: 
     branch_id: 3
     droppable_item: {fileID: 0}
@@ -90,12 +97,14 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: i'd say ill chance my luck
+        post_convo_dialogue_tree: {fileID: 0}
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 1
         response_dialogue: just a heads up, im just here for the key
+        post_convo_dialogue_tree: {fileID: 0}
   - branch_name: 
     branch_id: 4
     droppable_item: {fileID: 11400000, guid: 6209f5e042579b14abf87d08d4abb5ee, type: 2}
@@ -108,3 +117,4 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: thanks [EXIT]
+        post_convo_dialogue_tree: {fileID: 11400000, guid: 6744f3d89d76a6d48a175d35ff44359d, type: 2}

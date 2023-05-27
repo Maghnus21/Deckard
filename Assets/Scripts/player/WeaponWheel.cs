@@ -8,11 +8,17 @@ public class WeaponWheel : MonoBehaviour
     public Canvas weapon_wheel;
     public WeaponWheelButton[] weapon_wheel_buttons;
 
+    public PlayerGun player_gun;
+
+    public bool pressed_tab = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        weapon_wheel.enabled = false;        
+        weapon_wheel.enabled = false;
+        
+        player_gun = GetComponent<PlayerGun>();
     }
 
     // Update is called once per frame
@@ -20,22 +26,28 @@ public class WeaponWheel : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Tab))
         {
+            pressed_tab = true;
+            Cursor.visible = true;
+
             weapon_wheel.enabled = true;
+            player_gun.enabled = false;
 
             if (Input.GetMouseButton(1))
-            {
                 gameObject.GetComponentInChildren<player_look>().enabled = true;
-            }
             else
-            {
                 gameObject.GetComponentInChildren<player_look>().enabled = false;
-
-            }
         }
         else
         {
             weapon_wheel.enabled = false;
             gameObject.GetComponentInChildren<player_look>().enabled = true;
+            player_gun.enabled = true;
+
+            if(pressed_tab)
+            {
+                Cursor.visible = false;
+                pressed_tab = false;
+            }
         }
     }
 

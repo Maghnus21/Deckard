@@ -269,9 +269,7 @@ public class DialogueManager : MonoBehaviour
         button.GetComponentInChildren<TextMeshProUGUI>().text = dialogue_branch.sections[0].responses[response_choice].response_dialogue;
 
         if (!button.GetComponent<DialogueBranchButton>())
-        {
             return;
-        }
         else
         {
             button.GetComponent<DialogueBranchButton>().choice = response_choice;
@@ -304,12 +302,16 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogue_branch.sections[0].responses[response_choice].end_on_response)
         {
+            if (talking_npc.GetComponent<AIAgent>() != null)
+                print("fucking kill me");
+
             Cursor.visible = false;
 
             print("exited conversation");
             HideDialogue();
             in_convo = false;
-        } else if (dialogue_branch.sections[0].responses[response_choice].initialize_interrogation)
+        } 
+        else if (dialogue_branch.sections[0].responses[response_choice].initialize_interrogation)
         {
             print("begun interrogation");
             //HideDialogue();
@@ -329,13 +331,12 @@ public class DialogueManager : MonoBehaviour
         
         else
         {
-            
-
             this.branch_choice = branch_choice;
             DisplayConvo();
             print("continued conversation");
         }
     }
+
 
 
     //  Interrogation functions

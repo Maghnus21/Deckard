@@ -25,3 +25,4 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: thanks [EXIT]
+        post_convo_dialogue_tree: {fileID: 11400000, guid: 6744f3d89d76a6d48a175d35ff44359d, type: 2}

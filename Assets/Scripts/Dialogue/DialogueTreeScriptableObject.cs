@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Dialogue Tree", menuName = "Dialogue Tree")]
 public class DialogueTreeScriptableObject : ScriptableObject
 {
+
+
     public DialogueBranch[] branches;
 
     
@@ -43,4 +45,6 @@ public class DialogueResponse
     
     [TextArea]
     public string response_dialogue;
+
+    public DialogueTreeScriptableObject post_convo_dialogue_tree;
 }
