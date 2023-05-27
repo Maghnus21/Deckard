@@ -202,6 +202,11 @@ public class PlayerInventory : MonoBehaviour
         print("Unequiped weapon");
     }
 
+    public void HolsterWeapon()
+    {
+        UnequipWeapon();
+    }
+
     public void AddItemToInv(Item item)
     {
         print("Added " + item.name + " to player inventory");

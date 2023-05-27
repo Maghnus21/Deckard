@@ -104,6 +104,8 @@ public class DialogueManager : MonoBehaviour
     {
         in_convo = !in_convo;
 
+        player.GetComponent<PlayerInventory>().HolsterWeapon();
+
         ParseDialogueInfo();
         ParseinterrogationDialogueInfo();
 

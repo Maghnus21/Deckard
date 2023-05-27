@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 12MM_BUCKSHOT
   m_EditorClassIdentifier: 
   bullet_damage: 22
-  bullet_velocity: 100
+  bullet_velocity: 175
   bullet_drop: 1
   bullet_shape: {fileID: 0}
