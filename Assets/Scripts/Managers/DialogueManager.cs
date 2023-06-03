@@ -442,7 +442,12 @@ public class DialogueManager : MonoBehaviour
 
             if (talking_npc.GetComponent<AIAgent>().aggression_level >= interrogation_dialogue_tree.reveal_human_type_level && talking_npc.GetComponent<AIAgent>().aggression_level < interrogation_dialogue_tree.turn_hostile_level)
                 //  display text on screen to say suspect is human
-                if (interrogation_dialogue_tree.is_real_human) ui_man.DisplayPickupItemText("suspect_type: [HUMAN]");
+                if (interrogation_dialogue_tree.is_real_human)
+                {
+                    ui_man.DisplayPickupItemText("suspect_type: [HUMAN]");
+                    if (interrogation_dialogue_tree.post_interrogation_dialogue != null)
+                        talking_npc.GetComponent<AIAgent>().dialogue_tree = interrogation_dialogue_tree.post_interrogation_dialogue;
+                }
                 // display text on screen saying suspect is fake, 
                 else
                 {

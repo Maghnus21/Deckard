@@ -15,6 +15,7 @@ MonoBehaviour:
   branches:
   - branch_name: 
     branch_id: 0
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: boss asked me to help fix some of the building's roof so i'm taking
         a break. apparently he likes this shithole
@@ -26,27 +27,31 @@ MonoBehaviour:
         next_branch_id: 1
         response_dialogue: it's a remenent of a long gone past and there's a charm
           in that
+        post_convo_dialogue_tree: {fileID: 0}
       - end_on_response: 0
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
-        next_branch_id: 0
+        next_branch_id: 2
         response_dialogue: its a miracle this thing is still up, seems like a waste
           to fight a hopeless battle
+        post_convo_dialogue_tree: {fileID: 0}
   - branch_name: 
     branch_id: 1
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: the boss and yourself might not be too different
       responses:
-      - end_on_response: 0
+      - end_on_response: 1
         initialize_interrogation: 0
         turn_hostile: 0
         event_trigger: 0
         next_branch_id: 0
-        response_dialogue: its a miracle this thing is still up, seems like a waste
-          to fight a hopeless battle
+        response_dialogue: '[EXIT]'
+        post_convo_dialogue_tree: {fileID: 0}
   - branch_name: 
     branch_id: 2
+    droppable_item: {fileID: 0}
     sections:
     - dialogue: i've been trying to tell him that but he just tells me to fix it
         more, the asshole
@@ -57,3 +62,4 @@ MonoBehaviour:
         event_trigger: 0
         next_branch_id: 0
         response_dialogue: might not be the case for long [EXIT]
+        post_convo_dialogue_tree: {fileID: 0}
